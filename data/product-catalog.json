@@ -1,0 +1,384 @@
+{
+  "categories": [
+    {
+      "id": "micro",
+      "name": "微型拖链系列",
+      "description": "内高 5 / 6 / 7 / 10 / 15mm，适用于小型设备与紧凑型自动化线缆保护。",
+      "imageSrc": "/images/products/categories/micro.webp",
+      "imageAlt": "威仕龙微型拖链系列产品图，纯白底电缆拖链 CNWSL",
+      "intro": "微型拖链按内高分为 5、6、7、10、15mm 规格，体积小、重量轻，适合狭小安装空间。常用于小型 CNC、机械手、检测设备与电子装配线。",
+      "applications": [
+        "小型 CNC",
+        "机械手",
+        "检测设备",
+        "电子装配"
+      ],
+      "series": [
+        {
+          "id": "5",
+          "name": "5系列",
+          "code": "H5",
+          "specCount": 2
+        },
+        {
+          "id": "6",
+          "name": "6系列",
+          "code": "H6",
+          "specCount": 1
+        },
+        {
+          "id": "7",
+          "name": "7系列",
+          "code": "H7",
+          "specCount": 2
+        },
+        {
+          "id": "10",
+          "name": "10系列",
+          "code": "H10",
+          "specCount": 17
+        },
+        {
+          "id": "15",
+          "name": "15系列",
+          "code": "H15",
+          "specCount": 29
+        }
+      ]
+    },
+    {
+      "id": "medium",
+      "name": "中型拖链系列",
+      "description": "内高大于 15mm、小于 45mm，按内高分为 18 / 20 / 25 / 30 系列。",
+      "imageSrc": "/images/products/categories/medium.webp",
+      "imageAlt": "威仕龙中型拖链系列产品图，纯白底电缆拖链 CNWSL",
+      "intro": "中型拖链覆盖内高大于 15mm、小于 45mm 的主力规格，兼顾填充空间与运行平稳性。适用于 CNC 加工中心、注塑机、激光设备等常规工业场景，可保护多束动力线与信号线同槽敷设。",
+      "applications": [
+        "CNC 加工中心",
+        "注塑机",
+        "激光设备",
+        "自动化产线"
+      ],
+      "series": [
+        {
+          "id": "18",
+          "name": "18系列",
+          "code": "H18",
+          "specCount": 18
+        },
+        {
+          "id": "20",
+          "name": "20系列",
+          "code": "H20",
+          "specCount": 11
+        },
+        {
+          "id": "25",
+          "name": "25系列",
+          "code": "H25",
+          "specCount": 36
+        },
+        {
+          "id": "30",
+          "name": "30系列",
+          "code": "H30",
+          "specCount": 48
+        }
+      ]
+    },
+    {
+      "id": "heavy",
+      "name": "承重拖链系列",
+      "description": "内高 45mm 及以上，按内高分为 45 / 65 / 80 等承重系列。",
+      "imageSrc": "/images/products/categories/heavy.webp",
+      "imageAlt": "威仕龙承重拖链系列产品图，纯白底电缆拖链 CNWSL",
+      "intro": "承重拖链面向内高 45mm 及以上的重载工况，侧板与铰链结构加强，适合龙门加工中心、大型注塑机与长行程设备。可容纳更多线缆与气管，并支持更长架空距离。",
+      "applications": [
+        "龙门加工中心",
+        "大型注塑机",
+        "重载产线",
+        "长行程设备"
+      ],
+      "series": [
+        {
+          "id": "45",
+          "name": "45系列",
+          "code": "H45",
+          "specCount": 29
+        },
+        {
+          "id": "65",
+          "name": "65系列",
+          "code": "H65",
+          "specCount": 21
+        },
+        {
+          "id": "80",
+          "name": "80系列",
+          "code": "H80",
+          "specCount": 1
+        }
+      ]
+    },
+    {
+      "id": "silent",
+      "name": "静音拖链系列",
+      "description": "低噪音静音拖链，覆盖内高 18–45mm，适合洁净车间与高速往复工况。",
+      "imageSrc": "/images/products/categories/silent.webp",
+      "imageAlt": "威仕龙静音拖链系列产品图，纯白底电缆拖链 CNWSL",
+      "intro": "静音拖链系列采用低摩擦铰链与优化链节结构，有效降低高速往复运动中的噪音与振动，延长线缆使用寿命。适用于对噪音敏感的洁净车间、实验室及精密加工设备。",
+      "applications": [
+        "洁净车间",
+        "精密加工",
+        "医疗自动化",
+        "电子装配线"
+      ],
+      "series": [
+        {
+          "id": "18j",
+          "name": "静音18系列",
+          "code": "H18",
+          "specCount": 6
+        },
+        {
+          "id": "25j",
+          "name": "静音25系列",
+          "code": "H25",
+          "specCount": 30
+        },
+        {
+          "id": "30j",
+          "name": "静音30系列",
+          "code": "H30",
+          "specCount": 16
+        },
+        {
+          "id": "35j",
+          "name": "静音35系列",
+          "code": "H35",
+          "specCount": 20
+        },
+        {
+          "id": "40j",
+          "name": "静音40系列",
+          "code": "H40",
+          "specCount": 6
+        },
+        {
+          "id": "45j",
+          "name": "静音45系列",
+          "code": "H45",
+          "specCount": 6
+        }
+      ]
+    },
+    {
+      "id": "portable",
+      "name": "便携式拖链系列",
+      "description": "轻量化快装结构，便于携带、安装与维护，适用于移动设备与临时布线。",
+      "imageSrc": "/images/products/categories/portable.webp",
+      "imageAlt": "威仕龙便携式拖链系列产品图，纯白底电缆拖链 CNWSL",
+      "intro": "便携式拖链采用轻量化链节与快装开合结构，拆装方便、便于携带，适合机械手、移动工位、3D 打印设备及展会临时布线。在频繁更换工位或需要快速维护的场景中，可缩短安装时间并保护线缆气管。",
+      "applications": [
+        "机械手",
+        "移动工位",
+        "3D 打印设备",
+        "展会设备"
+      ],
+      "series": [
+        {
+          "id": "portable-std",
+          "name": "便携式系列",
+          "code": "便携式",
+          "specCount": 0
+        }
+      ]
+    },
+    {
+      "id": "cleanroom",
+      "name": "无尘拖链系列",
+      "description": "WWC 无尘拖链，低发尘低噪音，适用于半导体、液晶面板与医药洁净室。",
+      "imageSrc": "/images/products/categories/cleanroom.webp",
+      "imageAlt": "威仕龙无尘拖链系列产品图，纯白底洁净室电缆拖链 CNWSL",
+      "intro": "无尘拖链 WWC 系列专为半导体、液晶面板、医药洁净室等对环境洁净度要求极高的场景设计，低发尘、低噪音，满足 Class 100 及以上洁净等级要求。",
+      "applications": [
+        "半导体设备",
+        "液晶面板",
+        "医药洁净室",
+        "精密光学"
+      ],
+      "series": [
+        {
+          "id": "wwc15",
+          "name": "WWC15",
+          "code": "H15",
+          "specCount": 1
+        },
+        {
+          "id": "wwc18",
+          "name": "WWC18",
+          "code": "H18",
+          "specCount": 1
+        },
+        {
+          "id": "wwc22",
+          "name": "WWC22",
+          "code": "H22",
+          "specCount": 1
+        },
+        {
+          "id": "wwc28",
+          "name": "WWC28",
+          "code": "H28",
+          "specCount": 1
+        },
+        {
+          "id": "wwc35",
+          "name": "WWC35",
+          "code": "H35",
+          "specCount": 1
+        }
+      ]
+    }
+  ],
+  "seriesDetails": {
+    "wwc15": {
+      "intro": "WWC15为威仕龙无尘拖链，内高 15mm，内宽 25–25mm，覆盖 WWC15。可选弯曲半径 R40 / R50 / R60 / R70。",
+      "material": "TPU",
+      "openType": "无尘",
+      "tempRange": "-20℃ ~ 120℃"
+    },
+    "wwc18": {
+      "intro": "WWC18为威仕龙无尘拖链，内高 18mm，内宽 32–32mm，覆盖 WWC18。可选弯曲半径 R40 / R50 / R60 / R70。",
+      "material": "TPU",
+      "openType": "无尘",
+      "tempRange": "-20℃ ~ 120℃"
+    },
+    "wwc22": {
+      "intro": "WWC22为威仕龙无尘拖链，内高 22mm，内宽 40–40mm，覆盖 WWC22。可选弯曲半径 R40 / R50 / R60 / R70。",
+      "material": "TPU",
+      "openType": "无尘",
+      "tempRange": "-20℃ ~ 120℃"
+    },
+    "wwc28": {
+      "intro": "WWC28为威仕龙无尘拖链，内高 28mm，内宽 65–65mm，覆盖 WWC28。可选弯曲半径 R40 / R60 / R70 / R90。",
+      "material": "TPU",
+      "openType": "无尘",
+      "tempRange": "-20℃ ~ 120℃"
+    },
+    "wwc35": {
+      "intro": "WWC35为威仕龙无尘拖链，内高 35mm，内宽 65–65mm，覆盖 WWC35。可选弯曲半径 R60 / R70 / R90。",
+      "material": "TPU",
+      "openType": "无尘",
+      "tempRange": "-20℃ ~ 120℃"
+    },
+    "65": {
+      "intro": "65系列为威仕龙桥式拖链，内高 65mm，内宽 50–300mm，覆盖 WSL35、WSL36。可选弯曲半径 R125 / R150 / R175 / R200 / R250。",
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "桥式",
+      "tempRange": "-20℃ ~ 120℃"
+    },
+    "80": {
+      "intro": "80系列为威仕龙桥式拖链，内高 80mm，内宽 100–100mm，覆盖 WSL37。可选弯曲半径 R150 / R200 / R250 / R300。",
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "桥式",
+      "tempRange": "-20℃ ~ 120℃"
+    },
+    "18": {
+      "intro": "18系列为威仕龙桥式拖链，内高 18mm，内宽 18–50mm，覆盖 WSL11、WSL11X、WSL12、WSL13、WSL13N、WSL14、WSL14F。可选弯曲半径 R28 / R38 / R48 / R55 / R60 / R75 / R100。",
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "桥式",
+      "tempRange": "-20℃ ~ 120℃"
+    },
+    "20": {
+      "intro": "20系列为威仕龙桥式拖链，内高 20mm，内宽 25–103mm，覆盖 WSL16。可选弯曲半径 R55 / R75 / R100 / R125。",
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "桥式",
+      "tempRange": "-20℃ ~ 120℃"
+    },
+    "25": {
+      "intro": "25系列为威仕龙桥式拖链，内高 25mm，内宽 25–103mm，覆盖 WSL17、WSL17N、WSL17W、WSL18、WSL19。可选弯曲半径 R40 / R48 / R55 / R75 / R100 / R125 / R150 / R175 / R200 / R250。",
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "桥式",
+      "tempRange": "-20℃ ~ 120℃"
+    },
+    "30": {
+      "intro": "30系列为威仕龙桥式拖链，内高 30mm，内宽 25–103mm，覆盖 WSL21、WSL21H、WSL21N、WSL21W、WSL22、WSL22H。可选弯曲半径 R55 / R75 / R100 / R125 / R150。",
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "桥式",
+      "tempRange": "-20℃ ~ 120℃"
+    },
+    "45": {
+      "intro": "45系列为威仕龙桥式拖链，内高 45mm，内宽 50–300mm，覆盖 WSL27、WSL28、WSL30。可选弯曲半径 R75 / R100 / R125 / R150 / R175 / R200 / R250 / R300。",
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "桥式",
+      "tempRange": "-20℃ ~ 120℃"
+    },
+    "5": {
+      "intro": "5系列为威仕龙桥式拖链，内高 5mm，内宽 5–7mm，覆盖 WSL01。可选弯曲半径 R10 / R15。",
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "桥式",
+      "tempRange": "-20℃ ~ 120℃"
+    },
+    "6": {
+      "intro": "6系列为威仕龙桥式拖链，内高 6mm，内宽 10–10mm，覆盖 WSL01X。可选弯曲半径 R18。",
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "桥式",
+      "tempRange": "-20℃ ~ 120℃"
+    },
+    "7": {
+      "intro": "7系列为威仕龙桥式拖链，内高 7mm，内宽 7–10mm，覆盖 WSL02。可选弯曲半径 R15。",
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "桥式",
+      "tempRange": "-20℃ ~ 120℃"
+    },
+    "10": {
+      "intro": "10系列为威仕龙桥式拖链，内高 10mm，内宽 6–40mm，覆盖 WSL03、WSL03B、WSL03F、WSL04、WSL05、WSL06、WSL06F。可选弯曲半径 R18 / R28 / R38。",
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "桥式",
+      "tempRange": "-20℃ ~ 120℃"
+    },
+    "15": {
+      "intro": "15系列为威仕龙桥式拖链，内高 15mm，内宽 15–50mm，覆盖 WSL07、WSL07B、WSL07BX、WSL07N、WSL08A、WSL08C、WSL09、WSL10、WSL10F。可选弯曲半径 R28 / R38 / R48。",
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "桥式",
+      "tempRange": "-20℃ ~ 120℃"
+    },
+    "18j": {
+      "intro": "静音18系列为威仕龙静音拖链，内高 18mm，内宽 25–50mm，覆盖 WSL01J。可选弯曲半径 R28 / R38 / R48 / R55。",
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "静音",
+      "tempRange": "-20℃ ~ 120℃"
+    },
+    "25j": {
+      "intro": "静音25系列为威仕龙静音拖链，内高 25mm，内宽 25–110mm，覆盖 WSL02J、WSL02JL、WSL03J。可选弯曲半径 R55 / R75 / R100 / R125。",
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "静音",
+      "tempRange": "-20℃ ~ 120℃"
+    },
+    "30j": {
+      "intro": "静音30系列为威仕龙静音拖链，内高 30mm，内宽 25–110mm，覆盖 WSL04J、WSL05J。可选弯曲半径 R55 / R75 / R100 / R125。",
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "静音",
+      "tempRange": "-20℃ ~ 120℃"
+    },
+    "35j": {
+      "intro": "静音35系列为威仕龙静音拖链，内高 35mm，内宽 25–125mm，覆盖 WSL06J、WSL06J2、WSL07J。可选弯曲半径 R75 / R100 / R125 / R150。",
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "静音",
+      "tempRange": "-20℃ ~ 120℃"
+    },
+    "40j": {
+      "intro": "静音40系列为威仕龙静音拖链，内高 40mm，内宽 50–125mm，覆盖 WSL08J、WSL09J。可选弯曲半径 R75 / R100 / R150。",
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "静音",
+      "tempRange": "-20℃ ~ 120℃"
+    },
+    "45j": {
+      "intro": "静音45系列为威仕龙静音拖链，内高 45mm，内宽 50–125mm，覆盖 WSL10J、WSL11J。可选弯曲半径 R75 / R100 / R125 / R150 / R200。",
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "静音",
+      "tempRange": "-20℃ ~ 120℃"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+# CNWSL industrial redirects (Netlify / static hosts)
+# Source of truth also in next.config.mjs (Next.js 301)
+
+# Flatten legacy 4-segment model URLs → /products/model/:spec
+/products/:category/:series/:spec  /products/model/:spec  301
+/en/products/:category/:series/:spec  /en/products/model/:spec  301
+/vi/products/:category/:series/:spec  /vi/products/model/:spec  301
+/es/products/:category/:series/:spec  /es/products/model/:spec  301
+/it/products/:category/:series/:spec  /it/products/model/:spec  301
+/ru/products/:category/:series/:spec  /ru/products/model/:spec  301
+
+# Legacy item pages → catalog
+/products/item/*  /products  301
+/en/products/item/*  /en/products  301
+/vi/products/item/*  /vi/products  301
+/es/products/item/*  /es/products  301
+/it/products/item/*  /it/products  301
+/ru/products/item/*  /ru/products  301

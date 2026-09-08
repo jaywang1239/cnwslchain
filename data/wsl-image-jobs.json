@@ -1,0 +1,806 @@
+[
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\10系列\\WSL03\\10A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl03\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\10系列\\WSL03\\10B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl03\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\10系列\\WSL03\\10C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl03\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\10系列\\WSL03B\\10A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl03b\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\10系列\\WSL03B\\10B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl03b\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\10系列\\WSL03B\\10C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl03b\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\10系列\\WSL03F\\10A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl03f\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\10系列\\WSL03F\\10B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl03f\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\10系列\\WSL03F\\10C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl03f\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\10系列\\WSL04\\10A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl04\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\10系列\\WSL04\\10B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl04\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\10系列\\WSL04\\10C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl04\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\10系列\\WSL05\\10A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl05\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\10系列\\WSL05\\10B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl05\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\10系列\\WSL05\\10C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl05\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\10系列\\WSL06\\10A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl06\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\10系列\\WSL06\\10B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl06\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\10系列\\WSL06\\10C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl06\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\10系列\\WSL06F\\10A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl06f\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\10系列\\WSL06F\\10B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl06f\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\10系列\\WSL06F\\10C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl06f\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\15系列\\WSL07\\15A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl07\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\15系列\\WSL07\\15B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl07\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\15系列\\WSL07\\15C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl07\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\15系列\\WSL07B\\15A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl07b\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\15系列\\WSL07B\\15B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl07b\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\15系列\\WSL07B\\15C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl07b\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\15系列\\WSL07BX\\15A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl07bx\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\15系列\\WSL07BX\\15B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl07bx\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\15系列\\WSL07BX\\15C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl07bx\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\15系列\\WSL07N\\15A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl07n\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\15系列\\WSL07N\\15B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl07n\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\15系列\\WSL07N\\15C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl07n\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\15系列\\WSL08A\\15A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl08a\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\15系列\\WSL08A\\15B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl08a\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\15系列\\WSL08A\\15C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl08a\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\15系列\\WSL08C\\15A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl08c\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\15系列\\WSL08C\\15B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl08c\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\15系列\\WSL08C\\15C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl08c\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\15系列\\WSL09\\15A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl09\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\15系列\\WSL09\\15B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl09\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\15系列\\WSL09\\15C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl09\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\15系列\\WSL10\\15A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl10\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\15系列\\WSL10\\15B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl10\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\15系列\\WSL10\\15C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl10\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\15系列\\WSL10F\\15A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl10f\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\15系列\\WSL10F\\15B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl10f\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\15系列\\WSL10F\\15C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl10f\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-25系列\\WSL02J\\25A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl02j\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-25系列\\WSL02J\\25B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl02j\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-25系列\\WSL02J\\25C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl02j\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\18系列\\WSL11\\18A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl11\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\18系列\\WSL11\\18B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl11\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\18系列\\WSL11\\18C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl11\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\18系列\\WSL11X\\18A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl11x\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\18系列\\WSL11X\\18B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl11x\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\18系列\\WSL11X\\18C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl11x\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\18系列\\WSL12\\18A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl12\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\18系列\\WSL12\\18B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl12\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\18系列\\WSL12\\18C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl12\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\18系列\\WSL13\\18A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl13\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\18系列\\WSL13\\18B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl13\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\18系列\\WSL13\\18C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl13\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\18系列\\WSL13N\\18A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl13n\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\18系列\\WSL13N\\18B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl13n\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\18系列\\WSL13N\\18C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl13n\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\18系列\\WSL14\\18A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl14\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\18系列\\WSL14\\18B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl14\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\18系列\\WSL14\\18C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl14\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\18系列\\WSL14F\\18A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl14f\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\18系列\\WSL14F\\18B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl14f\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\18系列\\WSL14F\\18C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl14f\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\25系列\\WSL17\\25A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl17\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\25系列\\WSL17\\25B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl17\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\25系列\\WSL17\\25C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl17\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\25系列\\WSL17N\\25A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl17n\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\25系列\\WSL17N\\25B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl17n\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\25系列\\WSL17N\\25C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl17n\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\25系列\\WSL17W\\25A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl17w\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\25系列\\WSL17W\\25B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl17w\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\25系列\\WSL17W\\25C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl17w\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\25系列\\WSL18\\25A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl18\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\25系列\\WSL18\\25B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl18\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\25系列\\WSL18\\25C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl18\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\25系列\\WSL19\\25A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl19\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\25系列\\WSL19\\25B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl19\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\25系列\\WSL19\\25C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl19\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\25系列\\WSL19-D\\25A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl19-d\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\25系列\\WSL19-D\\25B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl19-d\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\25系列\\WSL19-D\\25C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl19-d\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\30系列\\WSL21N\\30A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl21n\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\30系列\\WSL21N\\30B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl21n\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\30系列\\WSL21N\\30C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl21n\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\30系列\\WSL21W\\30A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl21w\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\30系列\\WSL21W\\30B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl21w\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\30系列\\WSL21W\\30C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl21w\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\30系列\\WSL21\\30A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl21\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\30系列\\WSL21\\30B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl21\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\30系列\\WSL21\\30C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl21\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\30系列\\WSL21H\\30A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl21h\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\30系列\\WSL21H\\30B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl21h\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\30系列\\WSL21H\\30C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl21h\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\30系列\\WSL22\\30A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl22\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\30系列\\WSL22\\30B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl22\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\30系列\\WSL22\\30C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl22\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\无尘拖链\\WWC15\\15A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wwc15\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\无尘拖链\\WWC15\\15B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wwc15\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\无尘拖链\\WWC15\\15C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wwc15\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\无尘拖链\\WWC15\\15D.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wwc15\\d.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\无尘拖链\\WWC15\\15E.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wwc15\\e.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\无尘拖链\\WWC15\\15F.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wwc15\\f.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\无尘拖链\\WWC18\\18A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wwc18\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\无尘拖链\\WWC18\\18B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wwc18\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\无尘拖链\\WWC18\\18C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wwc18\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\无尘拖链\\WWC18\\18D.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wwc18\\d.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\无尘拖链\\WWC18\\18E.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wwc18\\e.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\无尘拖链\\WWC18\\18F.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wwc18\\f.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\无尘拖链\\WWC22\\22A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wwc22\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\无尘拖链\\WWC22\\22B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wwc22\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\无尘拖链\\WWC22\\22C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wwc22\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\无尘拖链\\WWC22\\22D.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wwc22\\d.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\无尘拖链\\WWC22\\22E.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wwc22\\e.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\无尘拖链\\WWC22\\22F.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wwc22\\f.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\30系列\\WSL22H\\30A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl22h\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\30系列\\WSL22H\\30B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl22h\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\30系列\\WSL22H\\30C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl22h\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-18系列\\WSL01J\\18A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl01j\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-18系列\\WSL01J\\18B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl01j\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-18系列\\WSL01J\\18C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl01j\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-25L系列\\WSL02JL\\25A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl02jl\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-25L系列\\WSL02JL\\25B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl02jl\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-25L系列\\WSL02JL\\25C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl02jl\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-25系列\\WSL03J\\25A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl03j\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-25系列\\WSL03J\\25B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl03j\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-25系列\\WSL03J\\25C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl03j\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-30系列\\WSL04J\\30A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl04j\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-30系列\\WSL04J\\30B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl04j\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-30系列\\WSL04J\\30C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl04j\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-30系列\\WSL05J\\30A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl05j\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-30系列\\WSL05J\\30B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl05j\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-30系列\\WSL05J\\30C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl05j\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-35系列\\WSL06J\\35A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl06j\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-35系列\\WSL06J\\35B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl06j\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-35系列\\WSL06J\\35C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl06j\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-35系列\\WSL07J\\35A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl07j\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-35系列\\WSL07J\\35B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl07j\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-35系列\\WSL07J\\35C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl07j\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-40系列\\WSL08J\\40A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl08j\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-40系列\\WSL08J\\40B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl08j\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-40系列\\WSL08J\\40C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl08j\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-40系列\\WSL09J\\40A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl09j\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-40系列\\WSL09J\\40B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl09j\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-40系列\\WSL09J\\40C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl09j\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-45系列\\WSL10J\\45A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl10j\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-45系列\\WSL10J\\45B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl10j\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-45系列\\WSL10J\\45C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl10j\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-45系列\\WSL11J\\45A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl11j\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-45系列\\WSL11J\\45B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl11j\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\静音款-45系列\\WSL11J\\45C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl11j\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\45系列\\WSL27\\45A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl27\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\45系列\\WSL27\\45B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl27\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\45系列\\WSL27\\45C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl27\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\45系列\\WSL28\\45A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl28\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\45系列\\WSL28\\45B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl28\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\45系列\\WSL28\\45C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl28\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\45系列\\WSL30\\45A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl30\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\45系列\\WSL30\\45B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl30\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\45系列\\WSL30\\45C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl30\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\5系列\\WSL01\\5A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl01\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\5系列\\WSL01\\5B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl01\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\5系列\\WSL01\\5C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl01\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\65系列\\WSL35\\65A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl35\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\65系列\\WSL35\\65B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl35\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\65系列\\WSL35\\65C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl35\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\65系列\\WSL36\\65A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl36\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\65系列\\WSL36\\65B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl36\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\65系列\\WSL36\\65C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl36\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\6系列\\WSL01X\\6A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl01x\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\6系列\\WSL01X\\6B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl01x\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\6系列\\WSL01X\\6C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl01x\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\7系列\\WSL02\\7A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl02\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\7系列\\WSL02\\7B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl02\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\7系列\\WSL02\\7C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl02\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\80系列\\WSL37\\80A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl37\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\80系列\\WSL37\\80B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl37\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\80系列\\WSL37\\80C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl37\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\20系列\\WSL16\\20A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl16\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\20系列\\WSL16\\20B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl16\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\20系列\\WSL16\\20C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wsl16\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\无尘拖链\\WWC28\\28A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wwc28\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\无尘拖链\\WWC28\\28B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wwc28\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\无尘拖链\\WWC28\\28C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wwc28\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\无尘拖链\\WWC28\\28D.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wwc28\\d.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\无尘拖链\\WWC28\\28E.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wwc28\\e.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\无尘拖链\\WWC28\\28F.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wwc28\\f.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\无尘拖链\\WWC35\\35A.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wwc35\\a.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\无尘拖链\\WWC35\\35B.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wwc35\\b.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\无尘拖链\\WWC35\\35C.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wwc35\\c.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\无尘拖链\\WWC35\\35D.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wwc35\\d.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\无尘拖链\\WWC35\\35E.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wwc35\\e.webp"
+  },
+  {
+    "src": "C:\\Users\\Administrator\\Desktop\\产品图\\无尘拖链\\WWC35\\35F.png",
+    "dest": "c:\\Users\\Administrator\\Desktop\\cnwslchain-website\\public\\images\\products\\series\\wwc35\\f.webp"
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "inputDir": "C:\\Users\\Administrator\\Desktop\\wsl型号",
+  "outputDir": "C:\\Users\\Administrator\\Desktop\\wsl型号-已更新",
+  "pageIndex": 0,
+  "company": {
+    "name": "温州市威仕龙塑胶有限公司",
+    "address": "浙江省温州市乐清市天成街道宁康东路2891号",
+    "phone": "18112888059",
+    "fax": "0086-0577-62328106",
+    "email": "info@cnwslchain.com",
+    "website": "www.cnwslchain.com"
+  },
+  "overlays": [
+    {
+      "label": "公司名",
+      "rect": [80, 52, 320, 72],
+      "field": "name",
+      "fontSize": 10
+    },
+    {
+      "label": "地址",
+      "rect": [80, 74, 420, 92],
+      "field": "address",
+      "fontSize": 9
+    },
+    {
+      "label": "电话传真",
+      "rect": [80, 94, 420, 112],
+      "field": "phoneFax",
+      "fontSize": 9
+    },
+    {
+      "label": "邮箱网站",
+      "rect": [80, 114, 420, 132],
+      "field": "emailWeb",
+      "fontSize": 9
+    }
+  ]
+}

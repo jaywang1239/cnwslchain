@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <rect width="800" height="600" fill="#F4F7FA"/>
+  <rect x="100" y="180" width="600" height="240" rx="12" fill="#FFFFFF" stroke="#0A2B4E" stroke-width="4"/>
+  <rect x="130" y="210" width="540" height="50" rx="4" fill="#0A2B4E" opacity="0.15"/>
+  <rect x="130" y="280" width="540" height="50" rx="4" fill="#00A3E0" opacity="0.25"/>
+  <rect x="130" y="350" width="540" height="50" rx="4" fill="#0A2B4E" opacity="0.15"/>
+  <line x1="130" y1="260" x2="670" y2="260" stroke="#0A2B4E" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="400" y="540" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" fill="#0A2B4E">侧视结构 · 全封闭盖板</text>
+  <text x="400" y="570" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#64748B">PA6+GF30 增强尼龙</text>
+</svg>

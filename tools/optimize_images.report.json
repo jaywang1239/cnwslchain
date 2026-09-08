@@ -1,0 +1,20 @@
+{
+  "converted": [
+    {
+      "src": "public/images/brand/favicon-cnwsl.png",
+      "webp": "public/images/brand/favicon-cnwsl.webp"
+    },
+    {
+      "src": "public/images/home/wechat-qr.jpg",
+      "webp": "public/images/home/wechat-qr.webp"
+    }
+  ],
+  "skipped": [
+    {
+      "src": "public/images/home/wechat-miniprogram.jpg",
+      "reason": "webp already exists",
+      "webp": "public/images/home/wechat-miniprogram.webp"
+    }
+  ],
+  "failed": []
+}

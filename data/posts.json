@@ -1,0 +1,62 @@
+[
+  {
+    "id": "post-001",
+    "title": "欧标防尘拖链选型指南：如何匹配内宽与弯曲半径",
+    "slug": "cable-carrier-selection-guide",
+    "excerpt": "从设备行程、线缆填充率到弯曲半径，系统梳理防尘拖链选型中的关键参数，帮助工程师快速完成国产化替代评估。",
+    "content": "在工业自动化与数控设备改造中，拖链选型直接影响线缆寿命与设备稳定性。\n\n首先需要确认内宽与填充率：线缆总截面一般不超过拖链内腔截面的 60%，并为高速运动预留余量。其次，弯曲半径应不小于线缆制造商推荐最小值，欧标防尘拖链通常提供多种 R 值规格。\n\n针对 CNC、注塑机等高粉尘场景，建议优先选择全封闭盖板结构，并评估销轴材质与耐磨侧板。完成选型后，可通过台架寿命测试验证不低于 1500 万次循环的可靠性。\n\n本文为占位内容，后续将补充更详细的选型对照表与案例数据。",
+    "featuredImage": "/images/blog/selection-guide.webp",
+    "category": "技术选型",
+    "publishedAt": "2026-03-01T08:00:00.000Z",
+    "isPublished": true,
+    "author": "CNWSL 技术团队"
+  },
+  {
+    "id": "post-002",
+    "title": "TPU 材质拖链在高温与油污环境下的表现",
+    "slug": "tpu-cable-carrier-performance",
+    "excerpt": "对比尼龙与 TPU 在耐磨、耐油、抗 UV 方面的差异，说明柔性拖链在复杂工况中的适用边界。",
+    "content": "TPU（热塑性聚氨酯）兼具弹性与耐磨性，适合频繁往复、低温启动或存在油雾的环境。\n\n与传统尼龙 PA66 相比，TPU 拖链在抗撕裂、抗臭氧方面更有优势，但需根据负载选择壁厚与连接结构。现场验证表明，在注塑机周边及户外自动化线中，合理选型的 TPU 系列可显著降低线缆护套磨损。\n\n部署时应注意：避免过度扭转、保证支撑滚轮间距合理，并按维护手册定期检查铰链与盖板。\n\n本文为占位内容，后续将补充实验曲线与材料参数表。",
+    "featuredImage": "/images/blog/tpu-performance.webp",
+    "category": "材料技术",
+    "publishedAt": "2026-04-15T09:30:00.000Z",
+    "isPublished": true,
+    "author": "CNWSL 材料工程师"
+  },
+  {
+    "id": "post-003",
+    "title": "36 个月质保背后的寿命测试方法解析",
+    "slug": "lifespan-testing-and-warranty",
+    "excerpt": "介绍拖链台架测试、加速老化与现场对标流程，解释为何能够提供长达 36 个月的产品质保。",
+    "content": "质保承诺必须以可复现的测试数据为基础。我们的寿命验证包括：标准往复台架测试、粉尘/冷却液加速老化，以及客户产线的对标抽样。\n\n台架测试记录循环次数、侧向力与噪音变化；当达到设计寿命阈值时，再评估铰链间隙与盖板变形。结合 70+ 台注塑机现场反馈，形成闭环改进。\n\n因此，面向欧标国产化替代场景，我们能够在合同中明确 36 个月质保条款，并提供安装与维护建议以降低早期失效风险。\n\n本文为占位内容，后续将公开部分测试摘要。",
+    "featuredImage": "",
+    "category": "品质验证",
+    "publishedAt": "2026-05-20T10:00:00.000Z",
+    "isPublished": true,
+    "author": "CNWSL 品质中心"
+  },
+  {
+    "id": "post-004",
+    "title": "【草稿】定制拖链从勘测到量产的交付流程",
+    "slug": "custom-cable-carrier-delivery-process",
+    "excerpt": "梳理非标拖链项目的现场勘测、3D 建模、打样与量产节点，适合销售与项目经理内部参考。",
+    "content": "定制项目通常分为：需求确认 → 现场勘测 → 方案与 3D 建模 → 打样测试 → 小批试制 → 量产交付。\n\n关键是早期明确行程、速度、加速度、环境介质与安装空间。依托 3000+ 套模具资源，可缩短非标周期；但草稿状态下本文仅作内部占位，不对外发布。\n\n开发环境可预览本篇，生产环境因 isPublished=false 将被过滤。",
+    "featuredImage": "/images/blog/custom-process.webp",
+    "category": "定制服务",
+    "publishedAt": "2026-06-01T08:00:00.000Z",
+    "isPublished": false,
+    "author": "CNWSL 项目部"
+  },
+  {
+    "id": "post-005",
+    "title": "【定时发布】2026 秋季展会预告与新品亮点",
+    "slug": "autumn-expo-preview-2026",
+    "excerpt": "预告即将亮相的防尘拖链新品与展会日程，文章将在设定发布时间后自动对外可见。",
+    "content": "本篇用于验证定时发布逻辑：isPublished 为 true，但 publishedAt 设在未来时间。\n\n生产构建时，只有当当前时间达到或超过 publishedAt，本篇文章才会出现在博客列表与详情页。配合 GitHub Actions 每小时触发一次构建与 Vercel 部署，即可实现近似定时上线。\n\n本地 npm run dev 不受此限制，可直接预览全文。展会具体展位与产品清单后续替换为正式文案。",
+    "featuredImage": "/images/blog/expo-preview.webp",
+    "category": "新闻展会",
+    "publishedAt": "2027-09-01T00:00:00.000Z",
+    "isPublished": true,
+    "author": "CNWSL 市场部"
+  }
+]

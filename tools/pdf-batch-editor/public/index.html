@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>威仕龙 PDF 批量修改</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: "Microsoft YaHei", sans-serif; margin: 0; background: #f4f7fa; color: #1a2b3c; }
+    header { background: #0a2b4e; color: #fff; padding: 16px 24px; }
+    main { display: grid; grid-template-columns: 380px 1fr; gap: 16px; padding: 16px; max-width: 1400px; margin: 0 auto; }
+    .panel { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 16px; }
+    h2 { margin: 0 0 12px; font-size: 16px; color: #0a2b4e; }
+    label { display: block; font-size: 12px; color: #64748b; margin-top: 10px; }
+    input, textarea { width: 100%; padding: 8px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; }
+    button { margin-top: 12px; padding: 10px 14px; border: 0; border-radius: 6px; cursor: pointer; font-weight: 600; }
+    .primary { background: #0a2b4e; color: #fff; }
+    .secondary { background: #e2e8f0; color: #0a2b4e; margin-left: 8px; }
+    .overlay-block { border: 1px dashed #cbd5e1; border-radius: 8px; padding: 10px; margin-top: 10px; }
+    .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+    #viewer { width: 100%; min-height: 720px; border: 1px solid #e2e8f0; border-radius: 8px; overflow: auto; background: #fff; position: relative; }
+    #pdfCanvas { display: block; margin: 0 auto; cursor: crosshair; }
+    #log { font-size: 12px; white-space: pre-wrap; color: #334155; margin-top: 10px; max-height: 180px; overflow: auto; }
+    .hint { font-size: 12px; color: #64748b; line-height: 1.6; }
+    .badge { display: inline-block; background: #00a3e0; color: #fff; font-size: 12px; padding: 2px 8px; border-radius: 999px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 style="margin:0;font-size:20px;">威仕龙 PDF 批量修改工具</h1>
+    <p style="margin:6px 0 0;opacity:.85;font-size:13px;">图片型 PDF · 白底遮盖 + 写入新公司信息 · 桌面 wsl型号 5374 份</p>
+  </header>
+
+  <main>
+    <div class="panel">
+      <h2>1. 文件夹 <span class="badge" id="pdfCount">0</span></h2>
+      <label>输入文件夹</label>
+      <input id="inputDir" />
+      <label>输出文件夹</label>
+      <input id="outputDir" />
+
+      <h2 style="margin-top:18px;">2. 新公司信息</h2>
+      <label>公司全称</label>
+      <input id="companyName" />
+      <label>地址</label>
+      <input id="address" />
+      <label>电话</label>
+      <input id="phone" />
+      <label>传真</label>
+      <input id="fax" />
+      <label>邮箱</label>
+      <input id="email" />
+      <label>网站</label>
+      <input id="website" />
+
+      <h2 style="margin-top:18px;">3. 遮盖区域</h2>
+      <p class="hint">在右侧 PDF 上<strong>拖拽框选</strong>区域，或手动改坐标。坐标原点在左上角。</p>
+      <div id="overlayList"></div>
+
+      <button class="primary" id="saveBtn">保存配置</button>
+      <button class="secondary" id="previewBtn">生成 1 份预览</button>
+      <button class="primary" id="batchBtn">批量处理</button>
+      <label>试跑份数（留空=全部）</label>
+      <input id="limit" placeholder="例如 3" />
+
+      <div id="log"></div>
+    </div>
+
+    <div class="panel">
+      <h2>4. 样本 PDF 预览（点击拖拽框选区域）</h2>
+      <p class="hint" id="sampleName"></p>
+      <div id="viewer">
+        <canvas id="pdfCanvas"></canvas>
+      </div>
+      <p class="hint" style="margin-top:10px;">
+        预览 PDF：<a id="previewLink" href="/api/preview-file" target="_blank">打开最新预览</a>
+      </p>
+    </div>
+  </main>
+
+  <script type="module">
+    import * as pdfjsLib from "https://cdn.jsdelivr.net/npm/pdfjs-dist@4.6.82/build/pdf.mjs";
+    pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdn.jsdelivr.net/npm/pdfjs-dist@4.6.82/build/pdf.worker.mjs";
+
+    let config = null;
+    let samplePath = null;
+    let pageHeight = 0;
+    let scale = 1.5;
+    let activeOverlayIndex = 0;
+    let dragStart = null;
+
+    const log = (msg) => {
+      document.getElementById("log").textContent = msg;
+    };
+
+    async function loadConfig() {
+      const res = await fetch("/api/config");
+      config = await res.json();
+      document.getElementById("inputDir").value = config.inputDir;
+      document.getElementById("outputDir").value = config.outputDir;
+      document.getElementById("companyName").value = config.company.name;
+      document.getElementById("address").value = config.company.address;
+      document.getElementById("phone").value = config.company.phone;
+      document.getElementById("fax").value = config.company.fax;
+      document.getElementById("email").value = config.company.email;
+      document.getElementById("website").value = config.company.website;
+      renderOverlayInputs();
+      await loadStats();
+    }
+
+    function readConfigFromForm() {
+      config.inputDir = document.getElementById("inputDir").value;
+      config.outputDir = document.getElementById("outputDir").value;
+      config.company = {
+        name: document.getElementById("companyName").value,
+        address: document.getElementById("address").value,
+        phone: document.getElementById("phone").value,
+        fax: document.getElementById("fax").value,
+        email: document.getElementById("email").value,
+        website: document.getElementById("website").value,
+      };
+      config.overlays = config.overlays.map((block, index) => ({
+        ...block,
+        rect: [
+          Number(document.getElementById(`x0-${index}`).value),
+          Number(document.getElementById(`y0-${index}`).value),
+          Number(document.getElementById(`x1-${index}`).value),
+          Number(document.getElementById(`y1-${index}`).value),
+        ],
+        fontSize: Number(document.getElementById(`fs-${index}`).value),
+      }));
+      return config;
+    }
+
+    function renderOverlayInputs() {
+      const root = document.getElementById("overlayList");
+      root.innerHTML = config.overlays.map((block, index) => `
+        <div class="overlay-block">
+          <strong>${block.label}</strong>
+          <button class="secondary" style="margin:0 0 0 8px;padding:4px 8px;" onclick="window.setActiveOverlay(${index})">框选此区域</button>
+          <div class="grid4">
+            <div><label>x0</label><input id="x0-${index}" value="${block.rect[0]}" /></div>
+            <div><label>y0</label><input id="y0-${index}" value="${block.rect[1]}" /></div>
+            <div><label>x1</label><input id="x1-${index}" value="${block.rect[2]}" /></div>
+            <div><label>y1</label><input id="y1-${index}" value="${block.rect[3]}" /></div>
+          </div>
+          <label>字号</label>
+          <input id="fs-${index}" value="${block.fontSize || 9}" />
+        </div>
+      `).join("");
+    }
+
+    window.setActiveOverlay = (index) => {
+      activeOverlayIndex = index;
+      log(`当前框选区域：${config.overlays[index].label}`);
+    };
+
+    async function loadStats() {
+      const res = await fetch("/api/stats");
+      const data = await res.json();
+      document.getElementById("pdfCount").textContent = data.count;
+      samplePath = data.sample;
+      document.getElementById("sampleName").textContent = samplePath ? `样本：${samplePath}` : "未找到 PDF";
+      if (samplePath) await renderPdf(samplePath);
+    }
+
+    async function renderPdf(filePath) {
+      const url = `/api/pdf?path=${encodeURIComponent(filePath)}`;
+      const pdf = await pdfjsLib.getDocument(url).promise;
+      const page = await pdf.getPage((config.pageIndex || 0) + 1);
+      const viewport = page.getViewport({ scale });
+      pageHeight = viewport.height / scale;
+      const canvas = document.getElementById("pdfCanvas");
+      const ctx = canvas.getContext("2d");
+      canvas.width = viewport.width;
+      canvas.height = viewport.height;
+      await page.render({ canvasContext: ctx, viewport }).promise;
+      drawOverlayRects(ctx);
+    }
+
+    function drawOverlayRects(ctx) {
+      readConfigFromForm();
+      config.overlays.forEach((block, index) => {
+        const [x0, y0, x1, y1] = block.rect;
+        ctx.strokeStyle = index === activeOverlayIndex ? "#00a3e0" : "#f59e0b";
+        ctx.lineWidth = 2;
+        ctx.strokeRect(x0 * scale, y0 * scale, (x1 - x0) * scale, (y1 - y0) * scale);
+      });
+    }
+
+    const canvas = document.getElementById("pdfCanvas");
+    canvas.addEventListener("mousedown", (e) => {
+      const rect = canvas.getBoundingClientRect();
+      dragStart = {
+        x: (e.clientX - rect.left) / scale,
+        y: (e.clientY - rect.top) / scale,
+      };
+    });
+    canvas.addEventListener("mouseup", async (e) => {
+      if (!dragStart) return;
+      const rect = canvas.getBoundingClientRect();
+      const x1 = (e.clientX - rect.left) / scale;
+      const y1 = (e.clientY - rect.top) / scale;
+      const x0 = Math.min(dragStart.x, x1);
+      const y0 = Math.min(dragStart.y, y1);
+      const x2 = Math.max(dragStart.x, x1);
+      const y2 = Math.max(dragStart.y, y1);
+      config.overlays[activeOverlayIndex].rect = [
+        Math.round(x0), Math.round(y0), Math.round(x2), Math.round(y2),
+      ];
+      dragStart = null;
+      renderOverlayInputs();
+      if (samplePath) await renderPdf(samplePath);
+    });
+
+    document.getElementById("saveBtn").addEventListener("click", async () => {
+      const body = readConfigFromForm();
+      await fetch("/api/config", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+      log("配置已保存");
+    });
+
+    document.getElementById("previewBtn").addEventListener("click", async () => {
+      const body = readConfigFromForm();
+      log("正在生成预览...");
+      const res = await fetch("/api/preview", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ config: body, samplePath }),
+      });
+      const data = await res.json();
+      if (data.error) log("预览失败：" + data.error);
+      else log("预览已生成，请点击右侧链接打开查看");
+    });
+
+    document.getElementById("batchBtn").addEventListener("click", async () => {
+      const body = readConfigFromForm();
+      const limitRaw = document.getElementById("limit").value.trim();
+      const limit = limitRaw ? Number(limitRaw) : null;
+      log("批量处理开始，请稍候...");
+      const res = await fetch("/api/batch", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ config: body, limit }),
+      });
+      const data = await res.json();
+      if (data.error) {
+        log("失败：" + data.error);
+        return;
+      }
+      log(`完成：成功 ${data.success}，失败 ${data.failed}\n输出：${body.outputDir}`);
+      if (data.errors?.length) log("\n错误样例：\n" + data.errors.slice(0, 5).join("\n"));
+    });
+
+    loadConfig();
+  </script>
+</body>
+</html>

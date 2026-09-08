@@ -1,0 +1,70 @@
+[
+  {
+    "id": "chain-catalog-pdf",
+    "section": "wsl-chain",
+    "title": "威仕龙拖链产品目录",
+    "titleEn": "CNWSL Cable Carrier Catalog",
+    "titles": {
+      "en": "CNWSL Cable Carrier Catalog",
+      "vi": "Danh mục xích dẫn cáp CNWSL",
+      "es": "Catálogo de portacables CNWSL",
+      "it": "Catalogo catene portacavi CNWSL",
+      "ru": "Каталог кабельных цепей CNWSL"
+    },
+    "description": "标准拖链全系列选型资料，涵盖微型、中型、承重、静音等型号。",
+    "descriptionEn": "Full-range selection guide covering micro, medium, heavy-duty and silent carriers.",
+    "descriptions": {
+      "en": "Full-range selection guide covering micro, medium, heavy-duty and silent carriers.",
+      "vi": "Tài liệu chọn mẫu toàn dải xích tiêu chuẩn, gồm dòng nhỏ, trung, chịu tải và êm.",
+      "es": "Guía de selección completa: portacables micro, medianos, de carga y silenciosos.",
+      "it": "Guida di selezione completa: catene micro, medie, portanti e silenziose.",
+      "ru": "Полное руководство по выбору: микро, средние, усиленные и бесшумные цепи."
+    },
+    "format": "PDF",
+    "fileUrl": "/datasheets/cnwsl-chain-catalog.pdf",
+    "fileSize": "—",
+    "imageSrc": "/images/downloads/chain-catalog.webp",
+    "imageAlt": "威仕龙拖链产品目录封面",
+    "imageAlts": {
+      "en": "CNWSL cable carrier catalog cover",
+      "vi": "Bìa danh mục xích dẫn cáp CNWSL",
+      "es": "Portada del catálogo de portacables CNWSL",
+      "it": "Copertina del catalogo catene portacavi CNWSL",
+      "ru": "Обложка каталога кабельных цепей CNWSL"
+    }
+  },
+  {
+    "id": "cleanroom-catalog-pdf",
+    "section": "cleanroom",
+    "title": "威仕龙无尘拖链目录",
+    "titleEn": "CNWSL Cleanroom Carrier Catalog",
+    "titles": {
+      "en": "CNWSL Cleanroom Carrier Catalog",
+      "vi": "Danh mục xích phòng sạch CNWSL",
+      "es": "Catálogo de portacables de sala limpia CNWSL",
+      "it": "Catalogo catene cleanroom CNWSL",
+      "ru": "Каталог кабельных цепей для чистых помещений CNWSL"
+    },
+    "description": "无尘拖链 WWC 系列选型资料，适用于半导体、液晶面板等洁净室环境。",
+    "descriptionEn": "WWC cleanroom carrier selection guide for semiconductor and LCD environments.",
+    "descriptions": {
+      "en": "WWC cleanroom carrier selection guide for semiconductor and LCD environments.",
+      "vi": "Tài liệu chọn mẫu xích phòng sạch WWC cho môi trường bán dẫn và LCD.",
+      "es": "Guía de selección WWC para salas limpias de semiconductores y LCD.",
+      "it": "Guida di selezione WWC per cleanroom di semiconduttori e LCD.",
+      "ru": "Руководство по выбору серии WWC для полупроводников и LCD."
+    },
+    "format": "PDF",
+    "fileUrl": "/datasheets/cnwsl-cleanroom-catalog.pdf",
+    "fileSize": "—",
+    "imageSrc": "/images/downloads/cleanroom-catalog.webp",
+    "imageAlt": "威仕龙无尘拖链目录封面",
+    "imageAlts": {
+      "en": "CNWSL cleanroom carrier catalog cover",
+      "vi": "Bìa danh mục xích phòng sạch CNWSL",
+      "es": "Portada del catálogo de portacables de sala limpia CNWSL",
+      "it": "Copertina del catalogo catene cleanroom CNWSL",
+      "ru": "Обложка каталога цепей для чистых помещений CNWSL"
+    }
+  }
+]
