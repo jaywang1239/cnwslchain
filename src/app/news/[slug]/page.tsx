@@ -93,6 +93,19 @@ export default function NewsDetailPage({ params }: NewsDetailPageProps) {
     headline: item.title,
     description: seoDescription(item.content),
     image: [absoluteUrl(item.image)],
+    ...(raw.video
+      ? {
+          video: {
+            "@type": "VideoObject",
+            name: item.title,
+            description: seoDescription(item.content),
+            thumbnailUrl: absoluteUrl(item.image),
+            contentUrl: absoluteUrl(raw.video),
+            uploadDate: item.date,
+            encodingFormat: "video/mp4",
+          },
+        }
+      : {}),
     datePublished: item.date,
     dateModified: item.date,
     author: {
@@ -167,16 +180,32 @@ export default function NewsDetailPage({ params }: NewsDetailPageProps) {
           </h1>
         </header>
 
-        <div className="relative mt-8 aspect-[16/10] overflow-hidden rounded-xl border border-gray-200 bg-white">
-          <Image
-            src={item.image}
-            alt={item.title}
-            fill
-            sizes="768px"
-            className="object-cover"
-            priority
-          />
-        </div>
+        {raw.video ? (
+          <div className="relative mt-8 overflow-hidden rounded-xl border border-gray-200 bg-black">
+            <video
+              className="aspect-video w-full"
+              controls
+              playsInline
+              preload="metadata"
+              poster={item.image}
+              title={item.title}
+            >
+              <source src={raw.video} type="video/mp4" />
+            </video>
+            <p className="sr-only">{messages.news.videoLabel}</p>
+          </div>
+        ) : (
+          <div className="relative mt-8 aspect-[16/10] overflow-hidden rounded-xl border border-gray-200 bg-white">
+            <Image
+              src={item.image}
+              alt={item.title}
+              fill
+              sizes="768px"
+              className="object-cover"
+              priority
+            />
+          </div>
+        )}
 
         <div className="mt-10 space-y-5 rounded-xl border border-gray-200 bg-white p-6 sm:p-8">
           {paragraphs.map((paragraph, index) => (

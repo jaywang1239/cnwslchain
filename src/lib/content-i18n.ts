@@ -255,6 +255,38 @@ const postsBySlug: Record<string, Record<ContentLocale, LocalizedPostFields>> = 
 };
 
 const newsBySlug: Record<string, Record<ContentLocale, LocalizedNewsFields>> = {
+  "iicie-2026-shenzhen-booth-16d87": {
+    en: {
+      title: "IICIE 2026 Shenzhen: visit CNWSL at booth 16D87",
+      content:
+        "Zhejiang Weishilong Plastic Co., Ltd. (CNWSL) is exhibiting at IICIE 2026 — the International Integrated Circuit Innovation Expo (Shenzhen semiconductor show) at Shenzhen World Exhibition & Convention Center (Bao’an). The show runs 9–11 September 2026; our booth is 16D87.\n\nOn site we are presenting cleanroom cable carriers, standard carriers and cooling pipes, with selection support for semiconductor equipment, cleanroom and automation customers. New and existing partners are welcome.\n\nWatch the booth video for the stand layout and product display.",
+      type: "Exhibitions",
+    },
+    vi: {
+      title: "IICIE 2026 Thâm Quyến: mời đến gian hàng CNWSL 16D87",
+      content:
+        "Zhejiang Weishilong Plastic Co., Ltd. (CNWSL) đang tham gia IICIE 2026 — Triển lãm Đổi mới Mạch tích hợp Quốc tế (triển lãm bán dẫn Thâm Quyến) tại Trung tâm Hội chợ & Triển lãm Thế giới Thâm Quyến (Bảo An). Thời gian 9–11/9/2026; gian hàng 16D87.\n\nTại chỗ trưng bày xích phòng sạch, xích tiêu chuẩn và ống làm mát, tư vấn chọn mẫu cho thiết bị bán dẫn, phòng sạch và tự động hóa. Hoan nghênh khách hàng cũ và mới.\n\nXem video gian hàng để nắm bố trí stand và sản phẩm.",
+      type: "Triển lãm",
+    },
+    es: {
+      title: "IICIE 2026 Shenzhen: visítenos en el stand 16D87",
+      content:
+        "Zhejiang Weishilong Plastic Co., Ltd. (CNWSL) participa en IICIE 2026, la International Integrated Circuit Innovation Expo (feria de semiconductores de Shenzhen), en Shenzhen World Exhibition & Convention Center (Bao’an). Fechas: 9–11 de septiembre de 2026; stand 16D87.\n\nEn el stand presentamos portacables de sala limpia, portacables estándar y tubos de refrigeración, con asesoría de selección para equipos de semiconductores, salas limpias y automatización. Clientes nuevos y habituales son bienvenidos.\n\nVea el vídeo del stand para la disposición y los productos.",
+      type: "Ferias",
+    },
+    it: {
+      title: "IICIE 2026 Shenzhen: visitate CNWSL allo stand 16D87",
+      content:
+        "Zhejiang Weishilong Plastic Co., Ltd. (CNWSL) è presente a IICIE 2026 — International Integrated Circuit Innovation Expo (fiera dei semiconduttori di Shenzhen) presso lo Shenzhen World Exhibition & Convention Center (Bao’an). Date: 9–11 settembre 2026; stand 16D87.\n\nIn fiera mostriamo catene cleanroom, catene standard e tubi di raffreddamento, con supporto alla selezione per attrezzature semiconduttori, cleanroom e automazione. Clienti nuovi e storici sono i benvenuti.\n\nGuardate il video dello stand per layout e prodotti.",
+      type: "Fiere",
+    },
+    ru: {
+      title: "IICIE 2026 Шэньчжэнь: ждем вас на стенде CNWSL 16D87",
+      content:
+        "Zhejiang Weishilong Plastic Co., Ltd. (CNWSL) участвует в IICIE 2026 — International Integrated Circuit Innovation Expo (шаньчжэньская выставка полупроводников) в Shenzhen World Exhibition & Convention Center (Баоань). Даты: 9–11 сентября 2026 года; стенд 16D87.\n\nНа стенде представлены cleanroom-кабельные цепи, стандартные цепи и трубы охлаждения, консультации по подбору для полупроводникового оборудования, чистых помещений и автоматизации. Приглашаем новых и постоянных клиентов.\n\nСмотрите видео стенда — планировка и экспозиция продукции.",
+      type: "Выставки",
+    },
+  },
   "eu-standard-compatibility-certified": {
     en: {
       title: "Raw materials aligned with IATF 16949 / ISO 9001 for traceable quality",

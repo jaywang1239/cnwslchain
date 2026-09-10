@@ -69,6 +69,21 @@ export default function NewsPage() {
                       sizes="240px"
                       className="object-cover"
                     />
+                    {item.video ? (
+                      <span className="absolute inset-0 flex items-center justify-center bg-black/25">
+                        <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white/95 text-brand-primary shadow-md">
+                          <svg
+                            className="ml-0.5 h-6 w-6"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            aria-hidden="true"
+                          >
+                            <path d="M8 5.75v12.5L19 12 8 5.75Z" />
+                          </svg>
+                        </span>
+                        <span className="sr-only">{copy.videoLabel}</span>
+                      </span>
+                    ) : null}
                   </div>
 
                   <div className="flex flex-col p-6">

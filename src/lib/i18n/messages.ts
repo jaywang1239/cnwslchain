@@ -225,6 +225,7 @@ export type AppMessages = {
     companyNews: string;
     expo: string;
     notFound: string;
+    videoLabel: string;
   };
   categories: Record<
     "micro" | "medium" | "heavy" | "silent" | "portable" | "cleanroom",
@@ -591,6 +592,7 @@ const zh: AppMessages = {
     companyNews: "公司新闻",
     expo: "展会活动",
     notFound: "资讯未找到 | 威仕龙 CNWSL",
+    videoLabel: "展位视频",
   },
   categories: {
     micro: {
@@ -1016,6 +1018,7 @@ const en: AppMessages = {
     companyNews: "Company news",
     expo: "Exhibitions",
     notFound: "News not found | CNWSL",
+    videoLabel: "Booth video",
   },
   categories: {
     micro: {
@@ -1447,6 +1450,7 @@ const vi: AppMessages = {
     companyNews: "Tin công ty",
     expo: "Triển lãm",
     notFound: "Không tìm thấy tin | CNWSL",
+    videoLabel: "Video gian hàng",
   },
   categories: {
     micro: {
@@ -1884,6 +1888,7 @@ const es: AppMessages = {
     companyNews: "Noticias de la empresa",
     expo: "Ferias",
     notFound: "Noticia no encontrada | CNWSL",
+    videoLabel: "Vídeo del stand",
   },
   categories: {
     micro: {
@@ -2341,6 +2346,7 @@ const it: AppMessages = {
     companyNews: "Notizie aziendali",
     expo: "Fiere",
     notFound: "Notizia non trovata | CNWSL",
+    videoLabel: "Video dello stand",
   },
   categories: {
     micro: {
@@ -2791,6 +2797,7 @@ const ru: AppMessages = {
     companyNews: "Новости компании",
     expo: "Выставки",
     notFound: "Новость не найдена | CNWSL",
+    videoLabel: "Видео стенда",
   },
   categories: {
     micro: {

@@ -11,6 +11,8 @@ export interface NewsItem {
   slug: string;
   content: string;
   image: string;
+  /** Optional booth / event video (H.264 MP4). */
+  video?: string;
   date: string;
   type: NewsType;
 }
