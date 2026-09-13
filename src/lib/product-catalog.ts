@@ -315,7 +315,7 @@ export function getDefaultSpecSummary(
     case "vi":
       return `${spec.code} thuộc dòng ${categoryName} ${seriesName} của CNWSL, chiều cao trong ${spec.innerHeight} mm, chiều rộng trong ${spec.innerWidth} mm, vật liệu ${material}, bán kính uốn ${radii}.`;
     case "es":
-      return `${spec.code} es un portacables CNWSL de ${categoryName} ${seriesName}, con altura interior ${spec.innerHeight} mm, ancho interior ${spec.innerWidth} mm, material ${material} y radios de curvado ${radii}.`;
+      return `${spec.code} es un portacables CNWSL de ${categoryName} ${seriesName}, con altura interior ${spec.innerHeight} mm, ancho interior ${spec.innerWidth} mm, material ${material} y radios de curvatura ${radii}.`;
     case "it":
       return `${spec.code} è una catena portacavi CNWSL della serie ${categoryName} ${seriesName}, con altezza interna ${spec.innerHeight} mm, larghezza interna ${spec.innerWidth} mm, materiale ${material} e raggi di curvatura ${radii}.`;
     case "ru":
@@ -355,7 +355,7 @@ export function getDefaultSpecFeatures(
       return [
         `Diseño ${openType} para protección de cables industriales`,
         `Altura interior ${spec.innerHeight} mm / ancho interior ${spec.innerWidth} mm`,
-        `Radios de curvado ${radii}`,
+        `Radios de curvatura ${radii}`,
         `Material ${material}`,
         `Conector compatible ${spec.connector}`,
       ];

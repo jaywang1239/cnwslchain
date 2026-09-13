@@ -16,7 +16,7 @@ const followLabels = {
   en: "Follow us",
   vi: "Theo dõi chúng tôi",
   es: "Síganos",
-  it: "Seguici",
+  it: "Seguiteci",
   ru: "Подписывайтесь",
 } as const;
 

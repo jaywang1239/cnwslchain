@@ -37,11 +37,11 @@ const postsBySlug: Record<string, Record<ContentLocale, LocalizedPostFields>> = 
       author: "Đội kỹ thuật CNWSL",
     },
     es: {
-      title: "Guía de selección de portacables antipolvo de estándar europeo: ancho interior y radio de curvado",
+      title: "Guía de selección de portacables antipolvo de estándar europeo: ancho interior y radio de curvatura",
       excerpt:
-        "Desde el recorrido y el factor de llenado hasta el radio de curvado: una lista práctica para evaluar alternativas de localización.",
+        "Desde el recorrido y el factor de llenado hasta el radio de curvatura: una lista práctica para evaluar alternativas de localización.",
       content:
-        "En automatización industrial y modernización de CNC, la selección del portacables influye directamente en la vida útil del cable y la estabilidad de la máquina.\n\nPrimero confirme el ancho interior y el factor de llenado: la sección total de cables no debería superar habitualmente el 60% de la cavidad, dejando margen para movimiento a alta velocidad. A continuación, elija un radio de curvado no inferior al mínimo recomendado por el fabricante del cable; los portacables antipolvo de estándar europeo suelen ofrecer varios valores R.\n\nEn entornos con polvo (CNC, inyección), priorice tapas totalmente cerradas y revise materiales de pasadores y laterales resistentes al desgaste. Tras la selección, ensayos de vida en banco pueden validar fiabilidad bajo al menos 15 millones de ciclos.\n\nEste artículo es provisional; se añadirán tablas de selección y datos de casos.",
+        "En automatización industrial y modernización de CNC, la selección del portacables influye directamente en la vida útil del cable y la estabilidad de la máquina.\n\nPrimero confirme el ancho interior y el factor de llenado: la sección total de cables no debería superar habitualmente el 60% de la cavidad, dejando margen para movimiento a alta velocidad. A continuación, elija un radio de curvatura no inferior al mínimo recomendado por el fabricante del cable; los portacables antipolvo de estándar europeo suelen ofrecer varios valores R.\n\nEn entornos con polvo (CNC, inyección), priorice tapas totalmente cerradas y revise materiales de pasadores y laterales resistentes al desgaste. Tras la selección, ensayos de vida en banco pueden validar fiabilidad bajo al menos 15 millones de ciclos.\n\nEste artículo es provisional; se añadirán tablas de selección y datos de casos.",
       category: "Selección técnica",
       author: "Ingeniería CNWSL",
     },
@@ -55,7 +55,7 @@ const postsBySlug: Record<string, Record<ContentLocale, LocalizedPostFields>> = 
       author: "Engineering CNWSL",
     },
     ru: {
-      title: "Подбор пылезащитных кабель-каналов европейского стандарта: внутренняя ширина и радиус изгиба",
+      title: "Подбор пылезащитных кабельных цепей европейского стандарта: внутренняя ширина и радиус изгиба",
       excerpt:
         "От длины хода и коэффициента заполнения до радиуса изгиба — практический чек-лист для инженеров при оценке локализационных альтернатив.",
       content:
@@ -259,31 +259,31 @@ const newsBySlug: Record<string, Record<ContentLocale, LocalizedNewsFields>> = {
     en: {
       title: "IICIE 2026 Shenzhen: visit CNWSL at booth 16D87",
       content:
-        "Zhejiang Weishilong Plastic Co., Ltd. (CNWSL) is exhibiting at IICIE 2026 — the International Integrated Circuit Innovation Expo (Shenzhen semiconductor show) at Shenzhen World Exhibition & Convention Center (Bao’an). The show runs 9–11 September 2026; our booth is 16D87.\n\nOn site we are presenting cleanroom cable carriers, standard carriers and cooling pipes, with selection support for semiconductor equipment, cleanroom and automation customers. New and existing partners are welcome.\n\nWatch the booth video for the stand layout and product display.",
+        "Zhejiang CNWSL Cable Drag Chain Co., Ltd. is exhibiting at IICIE 2026 — the International Integrated Circuit Innovation Expo (Shenzhen semiconductor show) at Shenzhen World Exhibition & Convention Center (Bao’an). The show runs 9–11 September 2026; our booth is 16D87.\n\nOn site we are presenting cleanroom cable carriers, standard carriers and cooling pipes, with selection support for semiconductor equipment, cleanroom and automation customers. New and existing partners are welcome.\n\nWatch the booth video for the stand layout and product display.",
       type: "Exhibitions",
     },
     vi: {
       title: "IICIE 2026 Thâm Quyến: mời đến gian hàng CNWSL 16D87",
       content:
-        "Zhejiang Weishilong Plastic Co., Ltd. (CNWSL) đang tham gia IICIE 2026 — Triển lãm Đổi mới Mạch tích hợp Quốc tế (triển lãm bán dẫn Thâm Quyến) tại Trung tâm Hội chợ & Triển lãm Thế giới Thâm Quyến (Bảo An). Thời gian 9–11/9/2026; gian hàng 16D87.\n\nTại chỗ trưng bày xích phòng sạch, xích tiêu chuẩn và ống làm mát, tư vấn chọn mẫu cho thiết bị bán dẫn, phòng sạch và tự động hóa. Hoan nghênh khách hàng cũ và mới.\n\nXem video gian hàng để nắm bố trí stand và sản phẩm.",
+        "Zhejiang CNWSL Cable Drag Chain Co., Ltd. đang tham gia IICIE 2026 — Triển lãm Đổi mới Mạch tích hợp Quốc tế (triển lãm bán dẫn Thâm Quyến) tại Trung tâm Hội chợ & Triển lãm Thế giới Thâm Quyến (Bảo An). Thời gian 9–11/9/2026; gian hàng 16D87.\n\nTại chỗ trưng bày xích phòng sạch, xích tiêu chuẩn và ống làm mát, tư vấn chọn mẫu cho thiết bị bán dẫn, phòng sạch và tự động hóa. Hoan nghênh khách hàng cũ và mới.\n\nXem video gian hàng để nắm bố trí gian và sản phẩm.",
       type: "Triển lãm",
     },
     es: {
       title: "IICIE 2026 Shenzhen: visítenos en el stand 16D87",
       content:
-        "Zhejiang Weishilong Plastic Co., Ltd. (CNWSL) participa en IICIE 2026, la International Integrated Circuit Innovation Expo (feria de semiconductores de Shenzhen), en Shenzhen World Exhibition & Convention Center (Bao’an). Fechas: 9–11 de septiembre de 2026; stand 16D87.\n\nEn el stand presentamos portacables de sala limpia, portacables estándar y tubos de refrigeración, con asesoría de selección para equipos de semiconductores, salas limpias y automatización. Clientes nuevos y habituales son bienvenidos.\n\nVea el vídeo del stand para la disposición y los productos.",
+        "Zhejiang CNWSL Cable Drag Chain Co., Ltd. participa en IICIE 2026, la International Integrated Circuit Innovation Expo (feria de semiconductores de Shenzhen), en Shenzhen World Exhibition & Convention Center (Bao’an). Fechas: 9–11 de septiembre de 2026; stand 16D87.\n\nEn el stand presentamos portacables de sala limpia, portacables estándar y tubos de refrigeración, con asesoría de selección para equipos de semiconductores, salas limpias y automatización. Clientes nuevos y habituales son bienvenidos.\n\nVea el vídeo del stand para la disposición y los productos.",
       type: "Ferias",
     },
     it: {
       title: "IICIE 2026 Shenzhen: visitate CNWSL allo stand 16D87",
       content:
-        "Zhejiang Weishilong Plastic Co., Ltd. (CNWSL) è presente a IICIE 2026 — International Integrated Circuit Innovation Expo (fiera dei semiconduttori di Shenzhen) presso lo Shenzhen World Exhibition & Convention Center (Bao’an). Date: 9–11 settembre 2026; stand 16D87.\n\nIn fiera mostriamo catene cleanroom, catene standard e tubi di raffreddamento, con supporto alla selezione per attrezzature semiconduttori, cleanroom e automazione. Clienti nuovi e storici sono i benvenuti.\n\nGuardate il video dello stand per layout e prodotti.",
+        "Zhejiang CNWSL Cable Drag Chain Co., Ltd. è presente a IICIE 2026 — International Integrated Circuit Innovation Expo (fiera dei semiconduttori di Shenzhen) presso lo Shenzhen World Exhibition & Convention Center (Bao’an). Date: 9–11 settembre 2026; stand 16D87.\n\nIn fiera mostriamo catene cleanroom, catene standard e tubi di raffreddamento, con supporto alla selezione per attrezzature semiconduttori, cleanroom e automazione. Clienti nuovi e storici sono i benvenuti.\n\nGuardate il video dello stand per layout e prodotti.",
       type: "Fiere",
     },
     ru: {
       title: "IICIE 2026 Шэньчжэнь: ждем вас на стенде CNWSL 16D87",
       content:
-        "Zhejiang Weishilong Plastic Co., Ltd. (CNWSL) участвует в IICIE 2026 — International Integrated Circuit Innovation Expo (шаньчжэньская выставка полупроводников) в Shenzhen World Exhibition & Convention Center (Баоань). Даты: 9–11 сентября 2026 года; стенд 16D87.\n\nНа стенде представлены cleanroom-кабельные цепи, стандартные цепи и трубы охлаждения, консультации по подбору для полупроводникового оборудования, чистых помещений и автоматизации. Приглашаем новых и постоянных клиентов.\n\nСмотрите видео стенда — планировка и экспозиция продукции.",
+        "Zhejiang CNWSL Cable Drag Chain Co., Ltd. участвует в IICIE 2026 — International Integrated Circuit Innovation Expo (шаньчжэньская выставка полупроводников) в Shenzhen World Exhibition & Convention Center (Баоань). Даты: 9–11 сентября 2026 года; стенд 16D87.\n\nНа стенде представлены кабельные цепи для чистых помещений, стандартные цепи и трубы охлаждения, консультации по подбору для полупроводникового оборудования, чистых помещений и автоматизации. Приглашаем новых и постоянных клиентов.\n\nСмотрите видео стенда — планировка и экспозиция продукции.",
       type: "Выставки",
     },
   },
@@ -335,7 +335,7 @@ const newsBySlug: Record<string, Record<ContentLocale, LocalizedNewsFields>> = {
     es: {
       title: "CNWSL en la feria industrial: portacables micro, reforzados y tubos de refrigeración",
       content:
-        "CNWSL participó en una feria industrial con portacables micro, ligeros, reforzados y tubos de refrigeración, con muestras y asesoría de selección en el stand.\n\nEl stand cubrió varias alturas interiores. Los ingenieros pueden orientar sobre recorrido, radio de curvado y factor de llenado. OEMs, integradores y distribuidores son bienvenidos.\n\nEscanee el QR del stand o descargue catálogos en el sitio web.",
+        "CNWSL participó en una feria industrial con portacables micro, ligeros, reforzados y tubos de refrigeración, con muestras y asesoría de selección en el stand.\n\nEl stand cubrió varias alturas interiores. Los ingenieros pueden orientar sobre recorrido, radio de curvatura y factor de llenado. OEMs, integradores y distribuidores son bienvenidos.\n\nEscanee el QR del stand o descargue catálogos en el sitio web.",
       type: "Ferias",
     },
     it: {
@@ -399,13 +399,13 @@ const newsBySlug: Record<string, Record<ContentLocale, LocalizedNewsFields>> = {
     es: {
       title: "En la feria: portacables de carga y muestras multi-medida abiertas a prueba",
       content:
-        "Durante la feria, CNWSL expuso portacables de carga y muestras de varias medidas, con demos de radio de curvado, apertura y conectores para comparación in situ.\n\nEl equipo técnico habló de polvo, reciprocación a alta velocidad y localización, recogiendo parámetros de máquina para asesoría posterior.\n\nPublicaremos un resumen de preguntas frecuentes en el blog técnico.",
+        "Durante la feria, CNWSL expuso portacables de carga y muestras de varias medidas, con demos de radio de curvatura, apertura y conectores para comparación in situ.\n\nEl equipo técnico habló de polvo, reciprocación a alta velocidad y localización, recogiendo parámetros de máquina para asesoría posterior.\n\nPublicaremos un resumen de preguntas frecuentes en el blog técnico.",
       type: "Ferias",
     },
     it: {
-      title: "In fiera: catene heavy-duty e campioni multi-misura aperti al confronto",
+      title: "In fiera: catene per carichi pesanti e campioni multi-misura aperti al confronto",
       content:
-        "Durante la fiera, CNWSL ha esposto catene heavy-duty e campioni multi-misura con demo di raggio di curvatura, apertura e terminali per un confronto diretto.\n\nIl team tecnico ha discusso di polvere, moto alternato ad alta velocità e localizzazione, raccogliendo parametri macchina per consigli post-evento.\n\nPubblicheremo un riepilogo FAQ sul blog tecnico.",
+        "Durante la fiera, CNWSL ha esposto catene per carichi pesanti e campioni multi-misura con demo di raggio di curvatura, apertura e terminali per un confronto diretto.\n\nIl team tecnico ha discusso di polvere, moto alternato ad alta velocità e localizzazione, raccogliendo parametri macchina per consigli post-evento.\n\nPubblicheremo un riepilogo FAQ sul blog tecnico.",
       type: "Fiere",
     },
     ru: {
@@ -525,15 +525,15 @@ const newsBySlug: Record<string, Record<ContentLocale, LocalizedNewsFields>> = {
       type: "Triển lãm",
     },
     es: {
-      title: "Detalle de productos en el stand: demos de curvado multi-serie y tubos de refrigeración",
+      title: "Detalle de productos en el stand: demos de curvatura multi-serie y tubos de refrigeración",
       content:
-        "El stand centró muestras de portacables negros multi-serie, con demos de radio de curvado y tubos de refrigeración que muestran cobertura de micro a heavy-duty.\n\nLos visitantes pueden probar apertura, pasadores y tapas, y hablar de localización con ingenieros según el régimen de la máquina.\n\nCatálogos y planos están en el centro de descargas.",
+        "El stand centró muestras de portacables negros multi-serie, con demos de radio de curvatura y tubos de refrigeración que muestran cobertura de micro a gran carga.\n\nLos visitantes pueden probar apertura, pasadores y tapas, y hablar de localización con ingenieros según el régimen de la máquina.\n\nCatálogos y planos están en el centro de descargas.",
       type: "Ferias",
     },
     it: {
       title: "Dettaglio prodotti in stand: demo di curvatura multi-serie e tubi di raffreddamento",
       content:
-        "Lo stand ha messo al centro campioni di catene nere multi-serie, con demo di raggio di curvatura e tubi di raffreddamento che mostrano la copertura da micro a heavy-duty.\n\nI visitatori possono provare apertura, perni e coperchi e discutere percorsi di localizzazione con gli ingegneri in base al regime macchina.\n\nCataloghi e disegni sono nel centro download.",
+        "Lo stand ha messo al centro campioni di catene nere multi-serie, con demo di raggio di curvatura e tubi di raffreddamento che mostrano la copertura da micro a carichi pesanti.\n\nI visitatori possono provare apertura, perni e coperchi e discutere percorsi di localizzazione con gli ingegneri in base al regime macchina.\n\nCataloghi e disegni sono nel centro download.",
       type: "Fiere",
     },
     ru: {

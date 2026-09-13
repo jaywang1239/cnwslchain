@@ -692,7 +692,7 @@ const en: AppMessages = {
     metaDescription:
       "CNWSL manufactures plastic cable carriers, cleanroom carriers and cooling tubes. Factory in Yueqing, with Shenzhen and Changzhou offices.",
     ogImageAlt: "CNWSL cleanroom cable carrier in reciprocating motion",
-    heroTitle: "European-standard Cable Carrier Leader",
+    heroTitle: "European-standard dust-proof cable carriers — localization leader",
     heroSubtitle: "≥15M cycle life tested · 36-month warranty",
     heroCta: "View products",
     trust: [
@@ -866,7 +866,7 @@ const en: AppMessages = {
       "Rooted in Yueqing’s mold industry, we develop core molds in-house, hold 10+ national patents and stock more than 3,000 molds. Production runs on 70+ Haitian injection presses with automatic assembly lines—supporting non-standard sizes, anti-static/flame-retardant materials and color options, with most standard and custom orders shipping in 1–3 days. Certified to IATF 16949:2016 and ISO 9001:2015, products are tested via SGS and meet RoHS and related requirements, serving customers such as Magna, Inalfa, GAC, Zeekr and AVIC Precision Machinery.",
     ],
     factoryPhotoAlt:
-      "CNWSL Zhejiang factory exterior in Yueqing with CNWSL and Weishilong Cable Drag Chain facade signage",
+      "CNWSL Zhejiang factory exterior in Yueqing with CNWSL Cable Drag Chain facade signage",
     milestonesTitle: "Milestones",
     milestones: [
       {
@@ -1074,7 +1074,7 @@ const vi: AppMessages = {
   brandFull: "CNWSL",
   legalName: "Zhejiang CNWSL Cable Drag Chain Co., Ltd.",
   description:
-    "CNWSL sản xuất xích dẫn cáp nhựa, xích phòng sạch và ống làm mát. Nhà máy tại Yueqing (Chiết Giang), có văn phòng Thâm Quyến và Thường Châu.",
+    "CNWSL sản xuất xích dẫn cáp nhựa, xích phòng sạch và ống làm mát. Nhà máy tại Nhạc Thanh (Chiết Giang), có văn phòng Thâm Quyến và Thường Châu.",
   nav: {
     products: "Sản phẩm",
     solutions: "Giải pháp",
@@ -1104,7 +1104,7 @@ const vi: AppMessages = {
     factory: "Nhà máy",
     shenzhen: "Văn phòng Thâm Quyến",
     changzhou: "Văn phòng Thường Châu",
-    miniprogram: "Mini program chọn mẫu",
+    miniprogram: "Mini chương trình WeChat chọn mẫu",
     scan: "Quét mã WeChat để vào",
     copyright: "Bản quyền thuộc về",
   },
@@ -1119,17 +1119,17 @@ const vi: AppMessages = {
   homePage: {
     metaTitle: "CNWSL | Zhejiang CNWSL Cable Drag Chain Co., Ltd.",
     metaDescription:
-      "CNWSL sản xuất xích dẫn cáp nhựa, xích phòng sạch và ống làm mát. Nhà máy tại Yueqing, có văn phòng Thâm Quyến và Thường Châu.",
+      "CNWSL sản xuất xích dẫn cáp nhựa, xích phòng sạch và ống làm mát. Nhà máy tại Nhạc Thanh (Chiết Giang), có văn phòng Thâm Quyến và Thường Châu.",
     ogImageAlt: "Xích dẫn cáp phòng sạch CNWSL chuyển động qua lại",
-    heroTitle: "Nhà lãnh đạo xích dẫn cáp tiêu chuẩn châu Âu",
+    heroTitle: "Xích dẫn cáp chống bụi chuẩn châu Âu · Đơn vị dẫn đầu thay thế nội địa",
     heroSubtitle: "Tuổi thọ thử nghiệm ≥15 triệu chu kỳ · Bảo hành 36 tháng",
     heroCta: "Xem sản phẩm",
     trust: [
       { value: "15M+", label: "chu kỳ tuổi thọ" },
       { value: "36", label: "tháng bảo hành" },
-      { value: "1", label: "MOQ tối thiểu" },
+      { value: "1", label: "đơn hàng tối thiểu" },
       { value: "3D", label: "mô hình CAD" },
-      { value: "Chuyên", label: "thiết kế giải pháp" },
+      { value: "Kỹ thuật", label: "thiết kế phương án" },
       { value: "Miễn phí", label: "thử mẫu" },
     ],
     productsTitle: "Dòng sản phẩm cốt lõi",
@@ -1146,10 +1146,10 @@ const vi: AppMessages = {
   products: {
     metaTitle: "Trung tâm xích dẫn cáp nhựa | CNWSL",
     metaDescription:
-      "Xích dẫn cáp nhựa CNWSL gồm dòng micro, trung, chịu tải, silent, di động và phòng sạch; chọn theo chiều cao trong 5–80 mm cho CNC, ép phun, bán dẫn và tự động hóa.",
+      "Xích dẫn cáp nhựa CNWSL gồm dòng cỡ nhỏ, cỡ trung, chịu tải, chạy êm, di động và phòng sạch; chọn theo chiều cao trong 5–80 mm cho CNC, ép phun, bán dẫn và tự động hóa.",
     title: "Trung tâm xích dẫn cáp nhựa",
     subtitle:
-      "Xích CNWSL được phân theo chiều cao trong và điều kiện làm việc: micro, trung, chịu tải, silent, di động và phòng sạch. Chọn nhóm, rồi mở dòng theo chiều cao để xem thông số, bán kính uốn và bản vẽ.",
+      "Xích CNWSL được phân theo chiều cao trong và điều kiện làm việc: cỡ nhỏ, cỡ trung, chịu tải, chạy êm, di động và phòng sạch. Chọn nhóm, rồi mở dòng theo chiều cao để xem thông số, bán kính uốn và bản vẽ.",
     viewCategory: "Vào dòng sản phẩm",
     seriesIntro:
       "Chọn theo chiều cao trong × chiều rộng trong, rồi mở trang chi tiết để xem thông số, bản vẽ và gửi yêu cầu báo giá.",
@@ -1212,7 +1212,7 @@ const vi: AppMessages = {
           "Ít bụi, ít tiếng ồn—phù hợp tự động hóa phòng sạch bán dẫn và điện tử chính xác.",
         points: [
           "Kết cấu kín chống bụi, giảm rủi ro hạt xâm nhập",
-          "Bản lề silent giúp vận hành yên tĩnh trong phòng sạch",
+          "Bản lề chạy êm giúp vận hành yên tĩnh trong phòng sạch",
           "Tùy chọn bề mặt chống tĩnh điện và dễ làm sạch",
         ],
         imageAlt:
@@ -1273,7 +1273,7 @@ const vi: AppMessages = {
         id: "robotics",
         title: "Robot / Tự động hóa",
         summary:
-          "Quản lý cáp động cho robot công nghiệp, tay máy và ô tự động hóa linh hoạt.",
+          "Quản lý cáp động cho robot công nghiệp, tay máy và cell tự động hóa linh hoạt.",
         points: [
           "Kết cấu nhẹ giảm quán tính phụ",
           "Thích nghi quỹ đạo đa trục phức tạp",
@@ -1297,7 +1297,7 @@ const vi: AppMessages = {
       "Dựa trên nền công nghiệp khuôn Yueqing, chúng tôi tự phát triển khuôn lõi, sở hữu hơn 10 bằng sáng chế quốc gia và hơn 3000 bộ khuôn. Sản xuất với 70+ máy ép Haitian và dây lắp ráp tự động—hỗ trợ kích thước phi tiêu chuẩn, vật liệu chống tĩnh điện/chống cháy và tùy chọn màu, hầu hết đơn tiêu chuẩn và tùy chỉnh giao trong 1–3 ngày. Chứng nhận IATF 16949:2016 và ISO 9001:2015; sản phẩm kiểm tra qua SGS, đạt RoHS, phục vụ khách hàng như Magna, Inalfa, GAC, Zeekr và AVIC Precision Machinery.",
     ],
     factoryPhotoAlt:
-      "Ngoại thất nhà máy CNWSL tại Yueqing, Chiết Giang với biển hiệu CNWSL và Weishilong Cable Drag Chain",
+      "Ngoại thất nhà máy CNWSL tại Yueqing, Chiết Giang với biển hiệu CNWSL Cable Drag Chain",
     milestonesTitle: "Lịch sử phát triển",
     milestones: [
       {
@@ -1400,10 +1400,9 @@ const vi: AppMessages = {
       phone: "Nhập số điện thoại",
       company: "Nhập tên công ty",
       message: "Mô tả nhu cầu hoặc câu hỏi của bạn",
-      productModel: "vd: WWC18 / dòng Êm 25",
+      productModel: "vd: WWC18 / dòng chạy êm 25",
       quantity: "vd: 10 m / 50 mắt xích",
       subject: "vd: Chọn mẫu / dự án tùy chỉnh / hậu mãi",
-      // 原错误值: Mô tả nhu cầu về 「{product}」—... （CJK 书名号误用）
       inquiryMessage:
         'Mô tả nhu cầu về "{product}"—số lượng, quy cách, ứng dụng, v.v.',
     },
@@ -1454,19 +1453,19 @@ const vi: AppMessages = {
   },
   categories: {
     micro: {
-      name: "Dòng xích micro",
+      name: "Dòng xích dẫn cáp cỡ nhỏ",
       description:
-        "Chiều cao trong 5 / 6 / 7 / 10 / 15 mm cho máy nhỏ và định tuyến cáp chật hẹp.",
+        "Chiều cao trong 5 / 6 / 7 / 10 / 15 mm cho máy nhỏ và đi dây trong không gian hẹp.",
       intro:
-        "Xích micro phân theo chiều cao trong 5, 6, 7, 10 và 15 mm—nhỏ gọn, nhẹ, phù hợp không gian lắp đặt hẹp. Thường dùng cho CNC nhỏ, robot, thiết bị kiểm tra và lắp ráp điện tử.",
+        "Xích cỡ nhỏ phân theo chiều cao trong 5, 6, 7, 10 và 15 mm—gọn, nhẹ, phù hợp không gian lắp đặt hẹp. Thường dùng cho CNC nhỏ, robot, thiết bị kiểm tra và lắp ráp điện tử.",
       applications: ["CNC nhỏ", "Robot", "Thiết bị kiểm tra", "Lắp ráp điện tử"],
     },
     medium: {
-      name: "Dòng xích trung",
+      name: "Dòng xích dẫn cáp cỡ trung",
       description:
         "Chiều cao trong trên 15 mm và dưới 45 mm, gồm dòng 18 / 20 / 25 / 30.",
       intro:
-        "Xích trung phủ các kích thước công nghiệp chính từ trên 15 mm đến dưới 45 mm chiều cao trong. Phù hợp trung tâm gia công CNC, máy ép phun và thiết bị laser.",
+        "Xích cỡ trung phủ các kích thước công nghiệp chính từ trên 15 mm đến dưới 45 mm chiều cao trong. Phù hợp trung tâm gia công CNC, máy ép phun và thiết bị laser.",
       applications: ["Trung tâm gia công CNC", "Ép phun", "Thiết bị laser", "Dây chuyền tự động"],
     },
     heavy: {
@@ -1477,11 +1476,11 @@ const vi: AppMessages = {
       applications: ["Máy cổng", "Máy ép lớn", "Dây chuyền tải nặng", "Hành trình dài"],
     },
     silent: {
-      name: "Dòng xích Silent",
+      name: "Dòng xích dẫn cáp chạy êm",
       description:
-        "Xích silent ít tiếng ồn, chiều cao trong 18–45 mm cho phòng sạch và chuyển động tốc độ cao.",
+        "Xích chạy êm, ít tiếng ồn, chiều cao trong 18–45 mm cho phòng sạch và chuyển động tốc độ cao.",
       intro:
-        "Dòng Silent dùng bản lề ma sát thấp và mắt xích tối ưu để giảm ồn và rung khi chuyển động qua lại tốc độ cao.",
+        "Dòng chạy êm dùng bản lề ma sát thấp và mắt xích tối ưu để giảm ồn và rung khi chuyển động qua lại tốc độ cao.",
       applications: ["Phòng sạch", "Gia công chính xác", "Tự động hóa y tế", "Dây chuyền điện tử"],
     },
     portable: {
@@ -1529,7 +1528,7 @@ const es: AppMessages = {
   breadcrumb: "Ruta de navegación",
   footer: {
     blurb:
-      "I+D, fabricación y venta integradas—especializados en portacables de nailon reforzado a medida.",
+      "I+D, fabricación y venta integradas—especializados en portacables de nylon reforzado a medida.",
     contact: "Contacto",
     phone: "Teléfono",
     fax: "Fax",
@@ -1561,9 +1560,9 @@ const es: AppMessages = {
     trust: [
       { value: "15M+", label: "ciclos de vida" },
       { value: "36", label: "meses de garantía" },
-      { value: "1", label: "MOQ mínimo" },
+      { value: "1", label: "pedido mín." },
       { value: "3D", label: "modelos CAD" },
-      { value: "Pro", label: "diseño de soluciones" },
+      { value: "Técnico", label: "diseño de soluciones" },
       { value: "Gratis", label: "prueba de muestras" },
     ],
     productsTitle: "Series principales",
@@ -1583,7 +1582,7 @@ const es: AppMessages = {
       "Los portacables de plástico CNWSL cubren series micro, media, pesada, silenciosa, portátil y sala limpia; selección por altura interior 5–80 mm para CNC, inyección, semiconductores y automatización.",
     title: "Centro de portacables de plástico",
     subtitle:
-      "Los portacables CNWSL se agrupan por altura interior y régimen: micro, media, pesada, silenciosa, portátil y sala limpia. Elija la familia y abra la serie por altura para ver parámetros, radios de curvado y planos.",
+      "Los portacables CNWSL se agrupan por altura interior y régimen: micro, media, pesada, silenciosa, portátil y sala limpia. Elija la familia y abra la serie por altura para ver parámetros, radios de curvatura y planos.",
     viewCategory: "Entrar en la serie",
     seriesIntro:
       "Seleccione por altura interior × anchura interior y abra la ficha para parámetros, planos y solicitud de oferta.",
@@ -1592,7 +1591,7 @@ const es: AppMessages = {
     openType: "Tipo de apertura",
     innerHeight: "Altura interior (H)",
     innerWidth: "Anchura interior (B)",
-    bendRadius: "Radio de curvado",
+    bendRadius: "Radio de curvatura",
     downloadPdf: "Descargar catálogo (PDF)",
     inquire: "Solicitar oferta",
     related: "Otros tamaños de la serie",
@@ -1609,7 +1608,7 @@ const es: AppMessages = {
     paramsTitle: "Parámetros",
     connector: "Conector",
     downloadDrawing: "Descargar plano (PDF)",
-    bendRadiiTitle: "Radios de curvado disponibles",
+    bendRadiiTitle: "Radios de curvatura disponibles",
     bendRadiiHint:
       "El mismo tamaño puede pedirse con distintos radios R. Longitud y recorrido se personalizan según el ciclo de trabajo.",
     codeExample: "Ejemplo de código",
@@ -1620,7 +1619,7 @@ const es: AppMessages = {
     imagePending: "Imágenes del producto próximamente",
     inquiryTitle: "Solicitud de oferta",
     inquiryHint:
-      "Indíquenos el tipo de máquina, el recorrido y el radio de curvado; responderemos con precios con prontitud.",
+      "Indíquenos el tipo de máquina, el recorrido y el radio de curvatura; responderemos con precios con prontitud.",
     codePrefix: "Código",
     specsCount: "{count} especificaciones publicadas →",
     notFound: "Especificación no encontrada | CNWSL",
@@ -1732,7 +1731,7 @@ const es: AppMessages = {
       "Con la base industrial de moldes de Yueqing, desarrollamos los moldes clave internamente, contamos con más de 10 patentes nacionales y más de 3000 moldes. La producción opera con más de 70 inyectoras Haitian y líneas de montaje automático—tamaños no estándar, materiales antiestáticos/ignífugos y color, con la mayoría de pedidos estándar y a medida enviados en 1–3 días. Certificados IATF 16949:2016 e ISO 9001:2015; productos ensayados por SGS y conformes a RoHS, al servicio de clientes como Magna, Inalfa, GAC, Zeekr y AVIC Precision Machinery.",
     ],
     factoryPhotoAlt:
-      "Exterior de la fábrica CNWSL en Yueqing, Zhejiang, con rótulo CNWSL y Weishilong Cable Drag Chain",
+      "Exterior de la fábrica CNWSL en Yueqing, Zhejiang, con rótulo CNWSL Cable Drag Chain",
     milestonesTitle: "Hitos",
     milestones: [
       {
@@ -1983,7 +1982,7 @@ const it: AppMessages = {
   learnMore: "Scopri di più",
   viewSeries: "Vedi serie",
   viewSpecs: "Vedi specifiche →",
-  contactCta: "Contattaci →",
+  contactCta: "Contattateci →",
   breadcrumb: "Percorso di navigazione",
   footer: {
     blurb:
@@ -2019,9 +2018,9 @@ const it: AppMessages = {
     trust: [
       { value: "15M+", label: "cicli di vita" },
       { value: "36", label: "mesi di garanzia" },
-      { value: "1", label: "MOQ minimo" },
+      { value: "1", label: "q.tà min." },
       { value: "3D", label: "modelli CAD" },
-      { value: "Pro", label: "progettazione soluzioni" },
+      { value: "Tecnico", label: "progettazione soluzioni" },
       { value: "Gratis", label: "test su campioni" },
     ],
     productsTitle: "Serie di prodotto principali",
@@ -2038,10 +2037,10 @@ const it: AppMessages = {
   products: {
     metaTitle: "Centro prodotti catene portacavi in plastica | CNWSL",
     metaDescription:
-      "Le catene portacavi CNWSL coprono serie micro, medie, heavy-duty, silenziose, portatili e cleanroom; selezione per altezza interna 5–80 mm per CNC, stampaggio, semiconduttori e automazione.",
+      "Le catene portacavi CNWSL coprono serie micro, medie, per carichi pesanti, silenziose, portatili e cleanroom; selezione per altezza interna 5–80 mm per CNC, stampaggio, semiconduttori e automazione.",
     title: "Centro prodotti catene portacavi in plastica",
     subtitle:
-      "Le catene CNWSL sono raggruppate per altezza interna e regime: micro, medie, heavy-duty, silenziose, portatili e cleanroom. Scegliete la famiglia, poi aprite la serie per altezza per parametri, raggi di curvatura e disegni.",
+      "Le catene CNWSL sono raggruppate per altezza interna e regime: micro, medie, per carichi pesanti, silenziose, portatili e cleanroom. Scegliete la famiglia, poi aprite la serie per altezza per parametri, raggi di curvatura e disegni.",
     viewCategory: "Entra nella serie",
     seriesIntro:
       "Selezionate per altezza interna × larghezza interna, poi aprite la scheda per parametri, disegni e richiesta di offerta.",
@@ -2129,7 +2128,7 @@ const it: AppMessages = {
         summary:
           "Stabilità in saldatura, verniciatura e montaggio finale con alti ritmi produttivi.",
         points: [
-          "Serie heavy-duty e standard per carichi diversi",
+          "Serie per carichi pesanti e standard per carichi diversi",
           "Apertura rapida che abbrevia cambi linea e interventi",
           "Selezione in loco e supporto alla localizzazione delle forniture",
         ],
@@ -2186,11 +2185,11 @@ const it: AppMessages = {
       "Catene portacavi in plastica di precisione e particolari stampati—qualità europea per la sostituzione localizzata.",
     introTitle: "Profilo aziendale",
     introBody: [
-      "CNWSL (Zhejiang CNWSL Cable Drag Chain Co., Ltd., già Wenzhou CNWSL Cable Drag Chain Co., Ltd.) è stata fondata nel 2010 e si concentra su sistemi di catene portacavi in plastica di precisione e particolari stampati a iniezione di fascia alta. Integriamo progettazione stampi, modifica dei materiali, stampaggio di precisione e smart manufacturing. Lo stabilimento è al n. 2891 Ningkang East Road, Tiancheng, Yueqing, Wenzhou, Zhejiang, con uffici a Shenzhen e Changzhou. La gamma comprende catene per macchine utensili, catene cleanroom e tubi di raffreddamento; i test di vita partono da non meno di 15 milioni di cicli.",
+      "CNWSL (Zhejiang CNWSL Cable Drag Chain Co., Ltd., già Wenzhou CNWSL Cable Drag Chain Co., Ltd.) è stata fondata nel 2010 e si concentra su sistemi di catene portacavi in plastica di precisione e particolari stampati a iniezione di fascia alta. Integriamo progettazione stampi, modifica dei materiali, stampaggio di precisione e produzione intelligente. Lo stabilimento è al n. 2891 Ningkang East Road, Tiancheng, Yueqing, Wenzhou, Zhejiang, con uffici a Shenzhen e Changzhou. La gamma comprende catene per macchine utensili, catene cleanroom e tubi di raffreddamento; i test di vita partono da non meno di 15 milioni di cicli.",
       "Radicati nell'industria degli stampi di Yueqing, sviluppiamo internamente gli stampi core, deteniamo oltre 10 brevetti nazionali e più di 3000 stampi. La produzione opera con oltre 70 presse Haitian e linee di assemblaggio automatico—misure non standard, materiali antistatici/flame-retardant e colori, con la maggior parte degli ordini standard e custom spediti in 1–3 giorni. Certificati IATF 16949:2016 e ISO 9001:2015; prodotti testati da SGS e conformi RoHS, al servizio di clienti come Magna, Inalfa, GAC, Zeekr e AVIC Precision Machinery.",
     ],
     factoryPhotoAlt:
-      "Esterno dello stabilimento CNWSL a Yueqing, Zhejiang, con insegna CNWSL e Weishilong Cable Drag Chain",
+      "Esterno dello stabilimento CNWSL a Yueqing, Zhejiang, con insegna CNWSL Cable Drag Chain",
     milestonesTitle: "Tappe",
     milestones: [
       {
@@ -2371,10 +2370,10 @@ const it: AppMessages = {
       ],
     },
     heavy: {
-      name: "Catene portacavi heavy-duty",
+      name: "Catene portacavi per carichi pesanti",
       description: "Altezze interne da 45 mm in su, nelle serie 45 / 65 / 80.",
       intro:
-        "Le catene heavy-duty partono da 45 mm di altezza interna, con fianchi e cerniere rinforzati per portali, grandi presse e attrezzature a lunga corsa.",
+        "Le catene per carichi pesanti partono da 45 mm di altezza interna, con fianchi e cerniere rinforzati per portali, grandi presse e attrezzature a lunga corsa.",
       applications: [
         "Centri di lavoro a portale",
         "Grandi presse",
@@ -2431,7 +2430,7 @@ const ru: AppMessages = {
     about: "О компании",
     downloads: "Загрузки",
     blog: "Блог",
-    news: "Новости",
+    news: "Новости и выставки",
     contact: "Контакты",
     openMenu: "Открыть меню",
     closeMenu: "Закрыть меню",
@@ -2479,12 +2478,12 @@ const ru: AppMessages = {
       { value: "36", label: "месяцев гарантии" },
       { value: "1", label: "MOQ" },
       { value: "3D", label: "CAD-модели" },
-      { value: "Pro", label: "поддержка проектирования" },
-      { value: "Free", label: "испытание образцов" },
+      { value: "Проект", label: "проектирование" },
+      { value: "Бесплатно", label: "испытание образцов" },
     ],
     productsTitle: "Основные серии продукции",
-    productsSubtitle: "Кабельные цепи для CNC, литья, чистых помещений и линий автоматизации.",
-    materialsTitle: "Высокопроизводительные материалы для кабельных цепей",
+    productsSubtitle: "Кабельные цепи для станков с ЧПУ, литья, чистых помещений и линий автоматизации.",
+    materialsTitle: "Высокоэффективные материалы для кабельных цепей",
     materialsBody:
       "Материалы CNWSL разработаны специально для кабельных цепей и проверены в эксплуатации. Мы постоянно совершенствуем эту линейку — включая PA 321X11 NAT, PA6+GF30 и TPU — под разные режимы нагрузки. Стандартные кабельные цепи CNWSL изготавливаются из PA 321X11 NAT: высокая прочность на растяжение, низкое трение и баланс жёсткости и ударной вязкости в широком диапазоне температур. Цепи для чистых помещений — из TPU с низким износом и низкой эмиссией частиц. Мы расширяем портфель материалов и можем рекомендовать альтернативы для особых применений — свяжитесь с нами для обсуждения.",
     materialsCta: "Узнать о материалах кабельных цепей",
@@ -2495,7 +2494,7 @@ const ru: AppMessages = {
   products: {
     metaTitle: "Пластиковые кабельные цепи | CNWSL",
     metaDescription:
-      "Пластиковые кабельные цепи CNWSL: микро, средние, усиленные, бесшумные, портативные и для чистых помещений — подбор по внутренней высоте 5–80 мм для CNC, литья, полупроводников и автоматизации.",
+      "Пластиковые кабельные цепи CNWSL: микро, средние, усиленные, бесшумные, портативные и для чистых помещений — подбор по внутренней высоте 5–80 мм для станков с ЧПУ, литья, полупроводников и автоматизации.",
     title: "Пластиковые кабельные цепи",
     subtitle:
       "Кабельные цепи CNWSL сгруппированы по внутренней высоте и назначению: микро, средние, усиленные, бесшумные, портативные и для чистых помещений. Выберите семейство, затем откройте серию по высоте — параметры, радиусы изгиба и чертежи.",
@@ -2514,7 +2513,7 @@ const ru: AppMessages = {
     backToCategory: "К списку серий",
     features: "Особенности",
     applications: "Применения",
-    faq: "FAQ",
+    faq: "Частые вопросы",
     seriesHeading: "Серия",
     tempRange: "Рабочая температура",
     specCode: "Код модели",
@@ -2641,11 +2640,11 @@ const ru: AppMessages = {
       "Прецизионные пластиковые кабельные цепи и литьё — качество европейского стандарта для локальной замены.",
     introTitle: "Профиль компании",
     introBody: [
-      "CNWSL (Zhejiang CNWSL Cable Drag Chain Co., Ltd., ранее Wenzhou CNWSL Cable Drag Chain Co., Ltd.) основана в 2010 году и специализируется на прецизионных системах пластиковых кабельных цепей и высококлассных литьевых деталях. Мы объединяем проектирование пресс-форм, модификацию материалов, прецизионное литьё и интеллектуальное производство. Завод — по адресу No. 2891 Ningkang East Road, Tiancheng Subdistrict, Yueqing, Wenzhou, Zhejiang; офисы — в Шэньчжэне и Чанчжоу. Ассортимент включает цепи для станков, чистые (cleanroom) цепи и пластиковые охлаждающие трубки; ресурсные испытания — не менее 15 млн циклов.",
+      "CNWSL (Zhejiang CNWSL Cable Drag Chain Co., Ltd., ранее Wenzhou CNWSL Cable Drag Chain Co., Ltd.) основана в 2010 году и специализируется на прецизионных системах пластиковых кабельных цепей и высококлассных литьевых деталях. Мы объединяем проектирование пресс-форм, модификацию материалов, прецизионное литьё и интеллектуальное производство. Завод — по адресу No. 2891 Ningkang East Road, Tiancheng Subdistrict, Yueqing, Wenzhou, Zhejiang; офисы — в Шэньчжэне и Чанчжоу. Ассортимент включает цепи для станков, цепи для чистых помещений и пластиковые охлаждающие трубки; ресурсные испытания — не менее 15 млн циклов.",
       "Опираясь на пресс-форменную промышленность Юэцина, мы самостоятельно разрабатываем ключевые пресс-формы, имеем более 10 национальных патентов и свыше 3000 пресс-форм. Производство — на 70+ термопластавтоматах Haitian с автоматическими сборочными линиями: нестандартные размеры, антистатические/огнестойкие материалы и цвет; большинство стандартных и заказных партий отгружается за 1–3 дня. Сертификаты IATF 16949:2016 и ISO 9001:2015; продукция проходит испытания SGS и соответствует RoHS. Среди клиентов — Magna, Inalfa, GAC, Zeekr и AVIC Precision Machinery.",
     ],
     factoryPhotoAlt:
-      "Внешний вид завода CNWSL в Юэцине с вывесками CNWSL и Weishilong Cable Drag Chain",
+      "Внешний вид завода CNWSL в Юэцине с вывеской CNWSL Cable Drag Chain",
     milestonesTitle: "Вехи",
     milestones: [
       {
@@ -2806,14 +2805,14 @@ const ru: AppMessages = {
         "Внутренние высоты 5 / 6 / 7 / 10 / 15 мм для компактных машин и тесной прокладки кабелей.",
       intro:
         "Микро кабельные цепи сгруппированы по внутренней высоте 5, 6, 7, 10 и 15 мм. Компактны и легки, подходят для малых станков с ЧПУ, роботов, контрольного оборудования и сборки электроники.",
-      applications: ["Малые CNC", "Роботы", "Контрольное оборудование", "Сборка электроники"],
+      applications: ["Малые станки с ЧПУ", "Роботы", "Контрольное оборудование", "Сборка электроники"],
     },
     medium: {
       name: "Средние кабельные цепи",
       description: "Внутренние высоты свыше 15 мм и ниже 45 мм, серии 18 / 20 / 25 / 30.",
       intro:
         "Средние кабельные цепи покрывают основные промышленные размеры при внутренней высоте от свыше 15 мм до ниже 45 мм. Подходят для обрабатывающих центров с ЧПУ, термопластавтоматов и лазерного оборудования.",
-      applications: ["Обрабатывающие центры CNC", "Литьё под давлением", "Лазерное оборудование", "Линии автоматизации"],
+      applications: ["Обрабатывающие центры с ЧПУ", "Литьё под давлением", "Лазерное оборудование", "Линии автоматизации"],
     },
     heavy: {
       name: "Усиленные кабельные цепи",
@@ -2825,7 +2824,7 @@ const ru: AppMessages = {
     silent: {
       name: "Бесшумные кабельные цепи",
       description:
-        "Низкошумные бесшумные кабельные цепи с внутренней высотой 18–45 мм для чистых помещений и высокоскоростного хода.",
+        "Низкошумные кабельные цепи с внутренней высотой 18–45 мм для чистых помещений и высокоскоростного хода.",
       intro:
         "Бесшумные кабельные цепи используют шарниры с низким трением и оптимизированные звенья для снижения шума и вибрации при высокоскоростном возвратно-поступательном движении.",
       applications: ["Чистые помещения", "Прецизионная обработка", "Медицинская автоматизация", "Электронные линии"],
@@ -2840,7 +2839,7 @@ const ru: AppMessages = {
     cleanroom: {
       name: "Кабельные цепи для чистых помещений",
       description:
-        "Кабельные цепи WWC для чистых помещений с низкой пылевыделяемостью и низким шумом для полупроводниковых и медицинских помещений.",
+        "Кабельные цепи WWC для чистых помещений с низким пылевыделением и низким шумом для полупроводниковых и медицинских помещений.",
       intro:
         "Кабельные цепи WWC для чистых помещений рассчитаны на полупроводниковые, LCD и фармацевтические чистые помещения: низкая эмиссия частиц и низкий шум для Class 100 и выше.",
       applications: ["Полупроводниковое оборудование", "LCD-панели", "Фармацевтические чистые помещения", "Прецизионная оптика"],
