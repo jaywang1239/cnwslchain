@@ -29,7 +29,8 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#FF6600",
+  // Rebrand 2026-09-24: brand blue (was #FF6600 orange)
+  themeColor: "#0060AE",
 };
 
 export function generateMetadata(): Metadata {
@@ -46,6 +47,14 @@ export function generateMetadata(): Metadata {
       template: "%s",
     },
     description: home.metaDescription,
+    // Rebrand 2026-09-24: social share image uses the company logo
+    openGraph: {
+      images: ["/images/brand/logo.webp"],
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: ["/images/brand/logo.webp"],
+    },
     robots: {
       index: true,
       follow: true,
