@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og";
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 
-/** Apple touch icon: blue CNWSL on white. */
+/** Apple touch icon: CNWSL on white in brand blue. */
 export default function AppleIcon() {
   return new ImageResponse(
     (
@@ -15,7 +15,7 @@ export default function AppleIcon() {
           alignItems: "center",
           justifyContent: "center",
           background: "#ffffff",
-          color: "#FF6600",
+          color: "#0060AE",
           fontSize: 42,
           fontWeight: 700,
           letterSpacing: "-0.03em",
