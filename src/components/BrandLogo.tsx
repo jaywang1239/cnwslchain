@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { getMessages, localizeHref, type Locale } from "@/lib/i18n";
 
 export default function BrandLogo({
@@ -14,12 +15,17 @@ export default function BrandLogo({
   return (
     <Link
       href={home}
-      className="inline-flex shrink-0 items-center justify-center rounded-md bg-brand-secondary px-3.5 py-2 transition-colors hover:bg-brand-accent sm:px-4 sm:py-2.5"
+      className="inline-flex shrink-0 items-center rounded-md bg-white px-2 py-1.5 transition-opacity hover:opacity-90"
       aria-label={brand.brandFull}
     >
-      <span className="text-base font-bold tracking-wide text-white sm:text-lg">
-        CNWSL
-      </span>
+      <Image
+        src="/images/brand/logo.webp"
+        alt={brand.brandFull}
+        width={128}
+        height={48}
+        className="h-7 w-auto sm:h-8"
+        priority
+      />
     </Link>
   );
 }
