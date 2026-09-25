@@ -24,11 +24,14 @@ const config: Config = {
           900: "#171717",
           950: "#0A0A0A",
         },
+        // Rebrand 2026-09-24: orange → #0060AE blue; ink/primary → slate gray
+        // that coordinates with the blue. Accent is a lighter blue used for
+        // hover/active states.
         brand: {
-          primary: "#1A1A1A",
-          secondary: "#FF6600",
-          accent: "#FF8533",
-          ink: "#111111",
+          primary: "#1E293B", // slate-800 (was #1A1A1A near-black)
+          secondary: "#0060AE", // brand blue (was #FF6600 orange)
+          accent: "#2E7BC4", // lighter blue for hover (was #FF8533 orange)
+          ink: "#0F172A", // slate-900 (was #111111)
         },
       },
       fontFamily: {
