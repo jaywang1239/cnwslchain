@@ -101,11 +101,11 @@ export function localeFromAcceptLanguage(header: string | null): Locale {
 
 /**
  * Default site language for first visit:
- * 1) cookie (user switched language deliberately)
- * 2) geo: China (CN/TW/HK/MO) → zh; any other country → en
- * 3) no geo: Accept-Language zh* → zh, else → en
+ * 1) cookie (user switched language deliberately) — 保留
+ * 2) 中文兜底（2026-09-24 王杰拍板）：未显式选择语言时一律返回 zh，
+ *    关掉原「海外 IP 自动跳英文」地理重定向；英文仅经 /en 路径与语言切换器触达。
  *
- * vi/es/it/ru remain available via URL + language switcher, not geo default.
+ * vi/es/it/ru 仍经 URL + 语言切换器可用，不作为首访默认。
  */
 export function detectPreferredLocale(request: {
   cookies: { get: (name: string) => { value: string } | undefined };
@@ -114,12 +114,9 @@ export function detectPreferredLocale(request: {
   const cookie = request.cookies.get(LOCALE_COOKIE)?.value;
   if (isLocale(cookie)) return cookie;
 
-  const country = getCountryFromHeaders(request.headers);
-  if (country) {
-    return CHINESE_MARKET_COUNTRIES.has(country) ? "zh" : "en";
-  }
-
-  return localeFromAcceptLanguage(request.headers.get("accept-language"));
+  // 中文兜底：不再依据 geo / Accept-Language 做 en 回退
+  void request;
+  return "zh";
 }
 
 export function localeFromPathname(pathname: string): Locale {
