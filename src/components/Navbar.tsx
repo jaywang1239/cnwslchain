@@ -57,8 +57,9 @@ export default function Navbar() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/95 backdrop-blur-md">
-      <div className="h-0.5 bg-brand-secondary" />
+    // Rebrand 2026-09-26: brand-blue navbar, blue dominant; links/buttons invert to white on hover
+    <header className="sticky top-0 z-50 border-b border-white/15 bg-brand-secondary/95 backdrop-blur-md">
+      <div className="h-0.5 bg-white/30" />
       <nav className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-3 px-4 sm:h-16 sm:px-6 lg:px-8">
         <BrandLogo locale={locale} tone="onLight" />
 
@@ -67,7 +68,7 @@ export default function Navbar() {
             <li key={item.href}>
               <Link
                 href={item.href}
-                className="rounded-md px-2 py-2 text-sm font-medium text-brand-primary/80 transition-colors hover:text-brand-secondary xl:px-3 xl:text-base"
+                className="rounded-md px-2 py-2 text-sm font-medium text-white/90 transition-colors hover:bg-white hover:text-brand-secondary xl:px-3 xl:text-base"
               >
                 {item.label}
               </Link>
@@ -79,7 +80,7 @@ export default function Navbar() {
           <LanguageSwitcher />
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-md text-brand-primary lg:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-md text-white transition-colors hover:bg-white hover:text-brand-secondary lg:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             onClick={() => setOpen((value) => !value)}
@@ -103,14 +104,14 @@ export default function Navbar() {
       <div
         id="mobile-nav"
         hidden={!open}
-        className={`border-t border-gray-200 bg-white lg:hidden ${open ? "block" : "hidden"}`}
+        className={`border-t border-white/20 bg-white lg:hidden ${open ? "block" : "hidden"}`}
       >
         <ul className="mx-auto flex max-w-7xl flex-col px-4 py-3 sm:px-6">
           {navItems.map((item) => (
             <li key={item.href}>
               <Link
                 href={item.href}
-                className="block rounded-md px-3 py-3 text-base font-medium text-brand-primary/90 transition-colors hover:bg-gray-50 hover:text-brand-secondary"
+                className="block rounded-md px-3 py-3 text-base font-medium text-brand-primary/90 transition-colors hover:bg-brand-secondary hover:text-white"
               >
                 {item.label}
               </Link>
@@ -119,7 +120,7 @@ export default function Navbar() {
           <li>
             <Link
               href={localizeHref("/contact", locale)}
-              className="mt-1 block rounded-md bg-brand-secondary px-3 py-3 text-center text-base font-semibold text-white transition-colors hover:bg-brand-accent"
+              className="mt-1 block rounded-md bg-brand-secondary px-3 py-3 text-center text-base font-semibold text-white transition-colors hover:bg-white hover:text-brand-secondary"
             >
               {copy.nav.contact}
             </Link>
