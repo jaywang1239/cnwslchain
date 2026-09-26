@@ -51,7 +51,7 @@ export default function LanguageSwitcher() {
     <div ref={rootRef} className="relative">
       <button
         type="button"
-        className="inline-flex items-center gap-1 rounded-md border border-gray-300 px-2.5 py-1 text-xs font-semibold tracking-wide text-brand-primary transition-colors hover:border-brand-secondary hover:text-brand-secondary"
+        className="inline-flex items-center gap-1 rounded-md border border-white/60 px-2.5 py-1 text-xs font-semibold tracking-wide text-white transition-colors hover:bg-white hover:text-brand-secondary"
         aria-expanded={open}
         aria-haspopup="listbox"
         aria-label={label}
@@ -94,3 +94,4 @@ export default function LanguageSwitcher() {
     </div>
   );
 }
+
