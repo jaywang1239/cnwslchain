@@ -34,6 +34,9 @@ export type AppMessages = {
     factory: string;
     shenzhen: string;
     changzhou: string;
+    overseas: string;
+    overseasContact: string;
+    website: string;
     miniprogram: string;
     scan: string;
     copyright: string;
@@ -269,9 +272,12 @@ const zh: AppMessages = {
     fax: "传真",
     email: "邮箱",
     address: "地址：",
-    factory: "工厂地址",
-    shenzhen: "深圳办事处",
-    changzhou: "常州办事处",
+    factory: "威仕龙乐清",
+    shenzhen: "威仕龙深圳",
+    changzhou: "威仕龙常州",
+    overseas: "威仕龙海外",
+    overseasContact: "王经理",
+    website: "网址",
     miniprogram: "选型小程序",
     scan: "微信扫码进入",
     copyright: "版权所有",
@@ -672,9 +678,12 @@ const en: AppMessages = {
     fax: "Fax",
     email: "Email",
     address: "Address:",
-    factory: "Factory",
+    factory: "Yueqing factory",
     shenzhen: "Shenzhen office",
     changzhou: "Changzhou office",
+    overseas: "Overseas",
+    overseasContact: "Mr. Wang",
+    website: "Website",
     miniprogram: "Selection mini program",
     scan: "Scan in WeChat",
     copyright: "All rights reserved",
@@ -1101,9 +1110,12 @@ const vi: AppMessages = {
     fax: "Fax",
     email: "Email",
     address: "Địa chỉ:",
-    factory: "Nhà máy",
+    factory: "Nhà máy Nhạc Thanh",
     shenzhen: "Văn phòng Thâm Quyến",
     changzhou: "Văn phòng Thường Châu",
+    overseas: "Hải ngoại",
+    overseasContact: "Ông Vương",
+    website: "Website",
     miniprogram: "Mini chương trình WeChat chọn mẫu",
     scan: "Quét mã WeChat để vào",
     copyright: "Bản quyền thuộc về",
@@ -1534,9 +1546,12 @@ const es: AppMessages = {
     fax: "Fax",
     email: "Correo",
     address: "Dirección:",
-    factory: "Fábrica",
+    factory: "Fábrica de Yueqing",
     shenzhen: "Oficina de Shenzhen",
     changzhou: "Oficina de Changzhou",
+    overseas: "Exterior",
+    overseasContact: "Sr. Wang",
+    website: "Sitio web",
     miniprogram: "Mini programa de selección",
     scan: "Escanee en WeChat",
     copyright: "Todos los derechos reservados",
@@ -1992,9 +2007,12 @@ const it: AppMessages = {
     fax: "Fax",
     email: "Email",
     address: "Indirizzo:",
-    factory: "Stabilimento",
+    factory: "Stabilimento di Yueqing",
     shenzhen: "Ufficio di Shenzhen",
     changzhou: "Ufficio di Changzhou",
+    overseas: "Estero",
+    overseasContact: "Sig. Wang",
+    website: "Sito web",
     miniprogram: "Mini programma di selezione",
     scan: "Scansiona con WeChat",
     copyright: "Tutti i diritti riservati",
@@ -2450,9 +2468,12 @@ const ru: AppMessages = {
     fax: "Факс",
     email: "Email",
     address: "Адрес:",
-    factory: "Завод",
+    factory: "Завод в Юэцине",
     shenzhen: "Офис в Шэньчжэне",
     changzhou: "Офис в Чанчжоу",
+    overseas: "Зарубежный отдел",
+    overseasContact: "г-н Ван",
+    website: "Сайт",
     miniprogram: "Мини-программа подбора",
     scan: "Сканируйте в WeChat",
     copyright: "Все права защищены",
@@ -2881,3 +2902,4 @@ export function localizeSeriesName(name: string, locale: Locale): string {
     .replace(/\s+/g, " ")
     .trim();
 }
+
