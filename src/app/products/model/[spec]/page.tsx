@@ -64,7 +64,7 @@ export function generateMetadata({ params }: SpecPageProps): Metadata {
   const title =
     locale === "zh"
       ? (spec.seoTitle ??
-        `${spec.code} ${openType}拖链 | ${seriesName} | 威仕龙 CNWSL`)
+        `${spec.code} ${openType}拖链 内高${spec.innerHeight}mm_内宽${spec.innerWidth}mm | ${seriesName}厂家-威仕龙CNWSL`)
       : `${category.name} ${spec.code} | ${seriesName} | CNWSL`;
 
   const descriptionByLocale = {
@@ -85,9 +85,36 @@ export function generateMetadata({ params }: SpecPageProps): Metadata {
     spec.code,
   );
 
+  // 中文站补 keywords：产品详情页是长尾流量主力，覆盖型号 + 规格 + 场景词。
+  // 注意：seriesName 形如「WWC15 无尘拖链」本身已含「拖链」，material 形如「尼龙」，
+  // 直接拼会产出「拖链拖链」「尼龙拖链,尼龙拖链」这类重复词，故做去重清洗。
+  // 其他语种不填（国内 SEO 只针对中文）。
+  const keywords =
+    locale === "zh"
+      ? Array.from(
+          new Set(
+            [
+              spec.code,
+              `${spec.code} 拖链`,
+              seriesName,
+              `${openType}拖链`,
+              `内高${spec.innerHeight}mm`,
+              `内宽${spec.innerWidth}mm`,
+              `${material}拖链`,
+              "尼龙拖链",
+              "塑料拖链",
+              "拖链厂家",
+            ]
+              .map((k) => k.trim())
+              .filter(Boolean),
+          ),
+        )
+      : undefined;
+
   return {
     title,
     description,
+    ...(keywords ? { keywords } : {}),
     alternates: {
       canonical: absoluteUrl(pagePath),
       languages: localeAlternates(getSpecPath(spec.id)).languages,
