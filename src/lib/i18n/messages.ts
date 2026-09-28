@@ -117,6 +117,7 @@ export type AppMessages = {
   };
   solutions: {
     title: string;
+    keywords?: string;
     description: string;
     seo: string;
     cta: string;
@@ -130,6 +131,7 @@ export type AppMessages = {
   };
   about: {
     metaTitle: string;
+    keywords?: string;
     metaDescription: string;
     title: string;
     subtitle: string;
@@ -145,6 +147,7 @@ export type AppMessages = {
   };
   contact: {
     metaTitle: string;
+    keywords?: string;
     metaDescription: string;
     title: string;
     subtitle: string;
@@ -192,6 +195,7 @@ export type AppMessages = {
   };
   downloads: {
     metaTitle: string;
+    keywords?: string;
     metaDescription: string;
     title: string;
     subtitle: string;
@@ -201,6 +205,7 @@ export type AppMessages = {
   };
   blog: {
     metaTitle: string;
+    keywords?: string;
     metaDescription: string;
     title: string;
     subtitle: string;
@@ -221,6 +226,7 @@ export type AppMessages = {
   };
   news: {
     metaTitle: string;
+    keywords?: string;
     metaDescription: string;
     title: string;
     subtitle: string;
@@ -371,10 +377,12 @@ const zh: AppMessages = {
     downloadWord: "下载 Word 样册 (.docx)",
   },
   solutions: {
-    title: "解决方案",
+    title: "拖链行业解决方案_洁净室/新能源/汽车产线线缆保护-威仕龙CNWSL",
     description:
       "覆盖半导体洁净室、新能源锂电池与光伏、汽车制造、数控机床、激光切割及机器人自动化等行业场景，提供可落地的拖链选型与定制方案。",
     seo: "CNWSL 拖链解决方案覆盖洁净室、新能源产线、汽车制造、机床、激光设备与机器人自动化，提供欧标防尘拖链与定制化线缆保护方案。",
+    keywords:
+      "拖链解决方案,洁净室拖链,新能源拖链,汽车产线拖链,机床拖链,机器人拖链,防尘拖链",
     cta: "咨询该场景方案 →",
     items: [
       {
@@ -446,7 +454,9 @@ const zh: AppMessages = {
     ],
   },
   about: {
-    metaTitle: "关于我们 | 威仕龙 CNWSL",
+    metaTitle: "拖链厂家威仕龙_浙江乐清尼龙拖链工厂_70台注塑机-威仕龙CNWSL",
+    keywords:
+      "拖链厂家,尼龙拖链工厂,塑料拖链生产厂家,浙江乐清拖链,IATF16949拖链,注塑加工,拖链模具",
     metaDescription:
       "浙江威仕龙塑胶有限公司成立于2010年，专注精密塑料拖链与注塑零部件。70+台海天注塑机、3000+套模具，通过IATF 16949与ISO 9001，工厂位于浙江乐清。",
     title: "关于我们",
@@ -515,7 +525,9 @@ const zh: AppMessages = {
     ],
   },
   contact: {
-    metaTitle: "联系我们 | 威仕龙 CNWSL",
+    metaTitle: "拖链厂家联系方式_尼龙拖链选型报价_乐清工厂直供-威仕龙CNWSL",
+    keywords:
+      "拖链厂家联系方式,拖链报价,拖链选型咨询,尼龙拖链价格,塑料拖链定制,乐清拖链厂家",
     metaDescription:
       "联系浙江威仕龙塑胶有限公司，获取拖链选型、样册下载与定制方案。",
     title: "联系我们",
@@ -563,7 +575,9 @@ const zh: AppMessages = {
     },
   },
   downloads: {
-    metaTitle: "下载中心 | 威仕龙 CNWSL",
+    metaTitle: "拖链选型手册下载_尼龙拖链规格表/3D图纸免费获取-威仕龙CNWSL",
+    keywords:
+      "拖链选型手册,拖链规格表下载,尼龙拖链图纸,塑料拖链目录,拖链3D模型,拖链技术资料",
     metaDescription: "下载威仕龙拖链产品目录与无尘拖链目录。",
     title: "下载中心",
     subtitle: "威仕龙拖链产品目录与无尘拖链目录",
@@ -572,7 +586,9 @@ const zh: AppMessages = {
     cleanroomSection: "无尘拖链目录",
   },
   blog: {
-    metaTitle: "技术博客 | 威仕龙 CNWSL",
+    metaTitle: "拖链技术博客_尼龙拖链选型/安装/寿命测试知识-威仕龙CNWSL",
+    keywords:
+      "拖链选型知识,尼龙拖链安装,拖链寿命测试,拖链维护,坦克链技术,线缆保护方案",
     metaDescription:
       "阅读欧标防尘拖链选型指南、TPU 材料技术与寿命测试等技术文章，获取工业线缆保护实践经验。",
     title: "技术博客",
@@ -593,7 +609,9 @@ const zh: AppMessages = {
     notFound: "文章未找到 | 威仕龙 CNWSL",
   },
   news: {
-    metaTitle: "新闻展会 | 威仕龙 CNWSL",
+    metaTitle: "拖链厂家新闻_威仕龙展会动态与新品发布-威仕龙CNWSL",
+    keywords:
+      "威仕龙新闻,拖链展会,尼龙拖链新品,CNWSL动态,工业展会,拖链行业资讯",
     metaDescription:
       "查看威仕龙最新公司新闻与展会活动，了解产能升级、认证进展与行业展会动态。",
     title: "新闻展会",
