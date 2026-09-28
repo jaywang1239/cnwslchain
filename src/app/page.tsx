@@ -66,6 +66,9 @@ export function generateMetadata(): Metadata {
   return {
     title: copy.metaTitle,
     description: copy.metaDescription,
+    ...(copy.keywords
+      ? { keywords: copy.keywords.split(",").map((k) => k.trim()).filter(Boolean) }
+      : {}),
     alternates: {
       canonical: absoluteUrl(path),
       languages: localeAlternates("/").languages,
@@ -313,3 +316,4 @@ export default function Home() {
     </>
   );
 }
+
