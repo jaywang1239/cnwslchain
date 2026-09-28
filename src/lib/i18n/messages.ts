@@ -651,7 +651,7 @@ const en: AppMessages = {
   brandFull: "CNWSL",
   legalName: "Zhejiang CNWSL Cable Drag Chain Co., Ltd.",
   description:
-    "CNWSL develops precision plastic cable carriers and injection-molded parts—70+ Haitian presses, 3,000+ molds, IATF 16949 and ISO 9001. Factory in Yueqing with Shenzhen and Changzhou offices.",
+    "CNWSL is a cost-effective Igus alternative, developing precision plastic cable carriers and injection-molded parts—70+ Haitian presses, 3,000+ molds, IATF 16949 and ISO 9001. Factory in Yueqing with Shenzhen and Changzhou offices.",
   nav: {
     products: "Products",
     solutions: "Solutions",
@@ -699,7 +699,7 @@ const en: AppMessages = {
   homePage: {
     metaTitle: "CNWSL | Zhejiang CNWSL Cable Drag Chain Co., Ltd.",
     metaDescription:
-      "CNWSL manufactures plastic cable carriers, cleanroom carriers and cooling tubes. Factory in Yueqing, with Shenzhen and Changzhou offices.",
+      "CNWSL is a cost-effective Igus alternative, manufacturing plastic cable carriers, cleanroom carriers and cooling tubes. Factory in Yueqing, with Shenzhen and Changzhou offices.",
     ogImageAlt: "CNWSL cleanroom cable carrier in reciprocating motion",
     heroTitle: "European-standard dust-proof cable carriers — localization leader",
     heroSubtitle: "≥15M cycle life tested · 36-month warranty",
@@ -865,7 +865,7 @@ const en: AppMessages = {
   about: {
     metaTitle: "About Us | CNWSL",
     metaDescription:
-      "Founded in 2010, CNWSL develops precision plastic cable carriers and injection-molded parts. 70+ Haitian presses, 3,000+ molds, IATF 16949 and ISO 9001. Factory in Yueqing, Zhejiang.",
+      "Founded in 2010, CNWSL is a cost-effective Igus alternative, developing precision plastic cable carriers and injection-molded parts. 70+ Haitian presses, 3,000+ molds, IATF 16949 and ISO 9001. Factory in Yueqing, Zhejiang.",
     title: "About Us",
     subtitle:
       "Precision plastic cable carriers and molded parts—European-standard quality for localized replacement.",
