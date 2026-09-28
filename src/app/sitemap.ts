@@ -72,6 +72,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/blog",
     "/news",
     "/contact",
+    "/guides/selection",
   ];
 
   const staticRoutes: MetadataRoute.Sitemap = staticPaths.flatMap((path) =>
@@ -137,3 +138,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [...staticRoutes, ...productRoutes, ...blogRoutes, ...newsRoutes];
 }
+
