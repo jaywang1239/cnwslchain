@@ -18,6 +18,9 @@ export function generateMetadata(): Metadata {
   return {
     title: copy.metaTitle,
     description,
+    ...(copy.keywords
+      ? { keywords: copy.keywords.split(",").map((k) => k.trim()).filter(Boolean) }
+      : {}),
     alternates: {
       canonical: absoluteUrl(path),
       languages: localeAlternates("/news").languages,
