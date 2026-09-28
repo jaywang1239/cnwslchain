@@ -49,6 +49,7 @@ export type AppMessages = {
   };
   homePage: {
     metaTitle: string;
+    keywords?: string;
     metaDescription: string;
     ogImageAlt: string;
     heroTitle: string;
@@ -65,6 +66,7 @@ export type AppMessages = {
   };
   products: {
     metaTitle: string;
+    keywords?: string;
     metaDescription: string;
     title: string;
     subtitle: string;
@@ -288,11 +290,13 @@ const zh: AppMessages = {
     changzhou: "江苏省常州市天宁区听松大厦306",
   },
   homePage: {
-    metaTitle: "威仕龙 CNWSL | 浙江威仕龙塑胶有限公司",
+    metaTitle: "塑料拖链厂家_尼龙拖链/坦克链定制_替代Igus-威仕龙CNWSL",
+    keywords:
+      "塑料拖链,尼龙拖链,坦克链,拖链厂家,无尘拖链,自动化设备拖链,替代Igus,拖链定制",
     metaDescription:
       "浙江威仕龙塑胶有限公司是高性价比替代Igus的拖链品牌，专业生产自动化设备拖链、坦克链、无尘拖链与塑料冷却管。IATF 16949 认证工厂位于浙江乐清，并设威仕龙深圳、威仕龙常州销售办事处。",
     ogImageAlt: "威仕龙无尘拖链往复运行演示",
-    heroTitle: "欧标防尘拖链 · 国产化替代领导者",
+    heroTitle: "塑料拖链厂家 · 国产化替代Igus",
     heroSubtitle: "≥1500万次寿命测试 · 36个月质保",
     heroCta: "查看产品",
     trust: [
@@ -313,7 +317,9 @@ const zh: AppMessages = {
     partnersSubtitle: "服务 3C、汽车、机床与自动化一线品牌，以稳定交付赢得长期合作",
   },
   products: {
-    metaTitle: "塑料拖链产品中心 | 威仕龙 CNWSL",
+    metaTitle: "塑料拖链型号大全_微型/静音/无尘拖链厂家-威仕龙CNWSL",
+    keywords:
+      "塑料拖链型号,微型拖链,静音拖链,无尘拖链,桥式拖链,全封闭拖链,拖链规格表",
     metaDescription:
       "威仕龙塑料拖链覆盖微型、中型、承重、静音、便携式及无尘系列，按内高 5–80mm 选型，适用于 CNC、注塑机、半导体与自动化设备。",
     title: "塑料拖链产品中心",
