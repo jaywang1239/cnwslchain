@@ -87,6 +87,11 @@ export default function DownloadsPage() {
                     <span className="rounded bg-brand-primary/10 px-2 py-0.5 text-xs font-medium text-brand-primary">
                       {item.format}
                     </span>
+                    {item.fileSize && item.fileSize !== "—" && (
+                      <span className="rounded bg-gray-100 px-2 py-0.5 text-xs font-medium text-foreground/60">
+                        {item.fileSize}
+                      </span>
+                    )}
                   </div>
                   <p className="mt-3 flex-1 text-sm leading-relaxed text-foreground/70">
                     {description}
