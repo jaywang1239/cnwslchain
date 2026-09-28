@@ -31,6 +31,15 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // —— 域名归一化：裸域名 → www（301）——
+      // 避免 cnwslchain.com 与 www.cnwslchain.com 被搜索引擎视为两个站点、分散权重。
+      // canonical / sitemap / 外链统一使用 www 版本。
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "cnwslchain.com" }],
+        destination: "https://www.cnwslchain.com/:path*",
+        permanent: true,
+      },
       // Old 4-segment model URLs → flat 3-segment URLs (301 permanent)
       {
         source: "/products/:category/:series/:spec",
