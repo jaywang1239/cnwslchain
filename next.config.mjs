@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Hostinger 共享主机不支持稳定的 /_next/image 优化（部分图返回 200 但空响应导致裂图），
+  // 改走原始 /images/* 文件，已验证全部 200 可加载。
+  images: {
+    unoptimized: true,
+  },
   async headers() {
     return [
       {
