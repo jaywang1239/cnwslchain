@@ -39,10 +39,16 @@ export function generateMetadata({ params }: CategoryPageProps): Metadata {
   }
 
   const category = localizeCategory(raw, locale);
+  // 分类页文案来自 messages.categories，其中的 metaTitle/keywords 仅中文填写。
+  const categoryCopy = messages.categories[raw.id as keyof typeof messages.categories];
   const title =
     locale === "zh"
-      ? `${category.name} | 威仕龙塑料拖链`
+      ? (categoryCopy?.metaTitle ?? `${category.name} | 威仕龙塑料拖链`)
       : `${category.name} | CNWSL`;
+  const keywords =
+    locale === "zh" && categoryCopy?.keywords
+      ? categoryCopy.keywords.split(",").map((k) => k.trim()).filter(Boolean)
+      : undefined;
   const description = category.intro;
   const imageAlt = category.imageAlt ?? category.name;
   const path = localizeHref(`/products/${params.category}`, locale);
@@ -50,6 +56,7 @@ export function generateMetadata({ params }: CategoryPageProps): Metadata {
   return {
     title,
     description,
+    ...(keywords ? { keywords } : {}),
     alternates: {
       canonical: absoluteUrl(path),
       languages: localeAlternates(`/products/${params.category}`).languages,
