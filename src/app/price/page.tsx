@@ -150,6 +150,17 @@ export function generateMetadata(): Metadata {
   };
 }
 
+/** FAQ 结构化数据在模块级构建，避免在 RSC 组件体内序列化对象。 */
+const FAQ_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+
 export default function PricePage() {
   const locale = getRequestLocale();
   const copy = getMessages(locale);
@@ -159,16 +170,6 @@ export default function PricePage() {
     { name: "拖链价格", path },
   ]);
 
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((item) => ({
-      "@type": "Question",
-      name: item.q,
-      acceptedAnswer: { "@type": "Answer", text: item.a },
-    })),
-  };
-
   return (
     <div className="bg-white">
       <script
@@ -177,7 +178,7 @@ export default function PricePage() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD) }}
       />
 
       <section className="page-hero px-4 py-14 sm:px-6 lg:px-8">
@@ -205,7 +206,7 @@ export default function PricePage() {
             一、分系列参考价格区间
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-foreground/70">
-            先说清楚：下表是<strong className="font-semibold text-foreground">参考区间，不是报价</strong>。
+            先说清楚：下表是「参考区间」，不是报价。
             拖链按节计价，同样内高不同内宽价格能差一倍以上，所以任何精确到元的「一口价」都不靠谱。
             具体价格按型号和数量核算。
           </p>
