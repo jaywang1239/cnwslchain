@@ -75,6 +75,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/guides/selection",
   ];
 
+  /** 国内 SEO：新增中文长尾落地页（价格 / 应用案例 / 地域工厂），仅中文版本。 */
+  const zhOnlyPaths = ["/price", "/cases", "/factory"];
+
   const staticRoutes: MetadataRoute.Sitemap = staticPaths.flatMap((path) =>
     locales.map((locale) =>
       entry(base, path, locale, {
@@ -92,6 +95,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
               : 0.7,
       }),
     ),
+  );
+
+  const zhLandingRoutes: MetadataRoute.Sitemap = zhOnlyPaths.map((path) =>
+    entry(base, path, defaultLocale, {
+      changeFrequency: "weekly",
+      priority: 0.85,
+    }),
   );
 
   const withLocales = (
@@ -136,6 +146,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return withLocales(`/news/${slug}`, 0.6, lastModified);
   });
 
-  return [...staticRoutes, ...productRoutes, ...blogRoutes, ...newsRoutes];
+  return [
+    ...staticRoutes,
+    ...zhLandingRoutes,
+    ...productRoutes,
+    ...blogRoutes,
+    ...newsRoutes,
+  ];
 }
 
