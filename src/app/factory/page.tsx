@@ -193,8 +193,8 @@ export default function FactoryPage() {
           </h2>
           <div className="mt-4 space-y-4 text-sm leading-relaxed text-foreground/75">
             <p>
-              深圳和常州设的是<strong className="font-semibold text-foreground">销售办事处</strong>，
-              职能是客户对接、技术支持和订单跟进。两地都不承担生产，这一点不想含糊。
+              深圳和常州设的是「销售办事处」，职能是客户对接、技术支持和订单跟进。
+              两地都不承担生产，这一点不想含糊。
               如果你在意的是「供应商离我近不近」，正确的判断标准是看仓库和发货地，不是看办事处在哪。
             </p>
             <div className="grid gap-3 sm:grid-cols-2">
