@@ -324,7 +324,7 @@ export default function CasesPage() {
 
               <div className="mt-5 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3">
                 <p className="text-sm leading-relaxed text-amber-900">
-                  <strong className="font-semibold">复盘：</strong>
+                  <span className="font-semibold">复盘：</span>
                   {c.pitfall}
                 </p>
               </div>
