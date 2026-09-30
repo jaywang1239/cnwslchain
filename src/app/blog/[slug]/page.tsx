@@ -10,6 +10,7 @@ import {
   isDevEnvironment,
 } from "@/lib/posts";
 import { localizePostContent } from "@/lib/content-i18n";
+import { BlogBody } from "@/lib/blog-markdown";
 import { localizeHref, localeHtmlLang } from "@/lib/i18n";
 import { getMessages } from "@/lib/i18n/messages";
 import { getRequestLocale } from "@/lib/request-locale";
@@ -82,10 +83,6 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
   }
 
   const post = localizePostContent(raw, locale);
-  const paragraphs = post.content
-    .split(/\n\n+/)
-    .map((block) => block.trim())
-    .filter(Boolean);
 
   const isScheduled =
     post.isPublished && new Date(post.publishedAt).getTime() > Date.now();
@@ -200,15 +197,8 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
           <p className="mt-4 text-lg text-foreground/70">{post.excerpt}</p>
         </header>
 
-        <div className="mt-10 space-y-5 rounded-xl border border-gray-200 bg-white p-6 sm:p-8">
-          {paragraphs.map((paragraph, index) => (
-            <p
-              key={index}
-              className="text-base leading-relaxed text-foreground/80"
-            >
-              {paragraph}
-            </p>
-          ))}
+        <div className="mt-10 rounded-xl border border-gray-200 bg-white p-6 sm:p-8">
+          <BlogBody content={post.content} />
         </div>
 
         <div className="mt-10">
