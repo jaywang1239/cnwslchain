@@ -1,0 +1,29 @@
+{
+  "pushed": {
+    "https://www.cnwslchain.com/": "2026-09-30",
+    "https://www.cnwslchain.com/cases": "2026-09-30",
+    "https://www.cnwslchain.com/factory": "2026-09-30",
+    "https://www.cnwslchain.com/guides/selection": "2026-09-30",
+    "https://www.cnwslchain.com/price": "2026-09-30",
+    "https://www.cnwslchain.com/products": "2026-09-30",
+    "https://www.cnwslchain.com/products/cleanroom": "2026-09-30",
+    "https://www.cnwslchain.com/products/heavy": "2026-09-30",
+    "https://www.cnwslchain.com/products/micro": "2026-09-30",
+    "https://www.cnwslchain.com/products/silent": "2026-09-30"
+  },
+  "runs": [
+    {
+      "note": "首次批量推送（含探测1条）",
+      "pushed": 9,
+      "remain": 0,
+      "ts": "2026-09-30T10:15:00"
+    },
+    {
+      "note": "no success",
+      "pushed": 0,
+      "remain": null,
+      "ts": "2026-09-30T10:52:39"
+    }
+  ],
+  "version": 1
+}
