@@ -44,3 +44,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# ops: 本地凭据与浏览器会话（本仓库为 public，绝不入库）
+ops/**/baidu_token.txt
+ops/**/ghtok.txt
+ops/**/sshpw.txt
+ops/**/chrome-*/
+ops/**/chrome-profile*/
