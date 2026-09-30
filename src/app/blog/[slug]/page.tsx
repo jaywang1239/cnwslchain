@@ -50,6 +50,10 @@ export function generateMetadata({ params }: BlogPostPageProps): Metadata {
     ? {
         url: absoluteUrl(post.featuredImage),
         alt: post.title,
+        // 博客封面统一输出 1600x1000（16:10，与页面 aspect-[16/10] 容器一致）。
+        // buildPageSocialMeta 默认声明 1200x630，与实际文件不符会让社交卡片裁切异常。
+        width: 1600,
+        height: 1000,
       }
     : undefined;
 
