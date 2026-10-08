@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import HeroVideo from "@/components/HeroVideo";
-import { localizeCategories } from "@/lib/product-catalog";
+import { categoryImageSrcSet, localizeCategories } from "@/lib/product-catalog";
 import { buildHeroVideoJsonLd } from "@/lib/product-seo";
 import { localizeHref, localeOg } from "@/lib/i18n";
 import { getMessages } from "@/lib/i18n/messages";
@@ -204,12 +204,17 @@ export default function Home() {
               >
                 <div className="relative aspect-[16/10] bg-white">
                   {product.imageSrc ? (
-                    <Image
+                    /* eslint-disable-next-line @next/next/no-img-element --
+                       分类图手工 srcSet：next/image 在 images.unoptimized 下不发 srcset，
+                       卡片仅 280–320px 宽却要下载 1600px 原图。 */
+                    <img
                       src={product.imageSrc}
-                      alt={product.imageAlt ?? `${product.name}`}
-                      fill
+                      srcSet={categoryImageSrcSet(product.imageSrc)}
                       sizes="320px"
-                      className="object-contain"
+                      alt={product.imageAlt ?? `${product.name}`}
+                      loading="lazy"
+                      decoding="async"
+                      className="absolute inset-0 h-full w-full object-contain"
                     />
                   ) : (
                     <div className="flex h-full w-full items-center justify-center text-foreground/35">

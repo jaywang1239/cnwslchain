@@ -36,6 +36,28 @@ export const CATEGORY_IMAGE = {
   height: 1000,
 } as const;
 
+/** 分类图响应式档位（脚本生成的额外文件，与原图同目录） */
+export const CATEGORY_IMAGE_VARIANTS = [640, 960] as const;
+
+/**
+ * 分类图的响应式 srcSet（2026-10-08 新增）。
+ *
+ * 背景：分类图原图 1600x1000，而实际使用场景都很小——
+ * 首页跑马灯卡显示宽 280–320px、产品列表卡约 426px（2× 屏也只需 560–852px），
+ * 原图冗余 4–6 倍。站点用 `next/image` 且 `images.unoptimized: true`，
+ * 该模式下 next/image 不生成 srcset，浏览器只能整张下载原图。
+ *
+ * 这里手工构造 srcSet，配合各处的 sizes 让浏览器按 视口×DPR 自取最接近的档位；
+ * 分类页 100vw 大图仍会取回 1600 原图，社交分享卡（og:image）也继续用原图。
+ */
+export function categoryImageSrcSet(imageSrc: string): string {
+  const match = /^(.*)\.webp$/.exec(imageSrc);
+  if (!match) return imageSrc;
+  const base = match[1];
+  const widths = CATEGORY_IMAGE_VARIANTS.map((w) => `${base}-${w}.webp ${w}w`);
+  return [...widths, `${imageSrc} ${CATEGORY_IMAGE.width}w`].join(", ");
+}
+
 export interface SeriesDetail {
   intro: string;
   material: string;

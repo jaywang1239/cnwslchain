@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import ProductBreadcrumb from "@/components/ProductBreadcrumb";
 import {
   CATEGORY_IMAGE,
   buildProductBreadcrumbs,
+  categoryImageSrcSet,
   localizeCategories,
 } from "@/lib/product-catalog";
 import {
@@ -123,12 +123,16 @@ export default function ProductsPage() {
                     className="relative block aspect-[16/10] bg-white"
                   >
                     {category.imageSrc ? (
-                      <Image
+                      /* eslint-disable-next-line @next/next/no-img-element --
+                         分类图手工 srcSet（见 product-catalog.categoryImageSrcSet）。 */
+                      <img
                         src={category.imageSrc}
-                        alt={category.imageAlt ?? category.name}
-                        fill
+                        srcSet={categoryImageSrcSet(category.imageSrc)}
                         sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                        className="object-contain"
+                        alt={category.imageAlt ?? category.name}
+                        loading="lazy"
+                        decoding="async"
+                        className="absolute inset-0 h-full w-full object-contain"
                       />
                     ) : (
                       <span className="flex h-full items-center justify-center text-sm text-foreground/35">

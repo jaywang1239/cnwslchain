@@ -1,7 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "standalone",
+  experimental: { cpus: 2 },
+  // 2026-10-08 新增：不再在响应头暴露 X-Powered-By: Next.js。
+  // 纯属指纹收敛——告诉扫描器"这是 Next.js 站"对我们没有任何好处。
+  poweredByHeader: false,
   // Hostinger 共享主机不支持稳定的 /_next/image 优化（部分图返回 200 但空响应导致裂图），
   // 改走原始 /images/* 文件，已验证全部 200 可加载。
+  // 副作用：next/image 不再生成 srcset，故分类图改用手工 srcSet（见 product-catalog.ts）。
   images: {
     unoptimized: true,
   },

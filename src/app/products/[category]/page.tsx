@@ -6,6 +6,7 @@ import ProductBreadcrumb from "@/components/ProductBreadcrumb";
 import {
   CATEGORY_IMAGE,
   buildProductBreadcrumbs,
+  categoryImageSrcSet,
   getAllCategoryParams,
   getCategoryById,
   getSeriesImageSrc,
@@ -147,13 +148,16 @@ export default function CategoryPage({ params }: CategoryPageProps) {
           <div className="mx-auto max-w-7xl">
             {category.imageSrc && (
               <div className="relative mb-10 aspect-[16/10] overflow-hidden rounded-xl border border-gray-200 bg-white">
-                <Image
+                {/* eslint-disable-next-line @next/next/no-img-element --
+                    分类图手工 srcSet：100vw 大图会取回 1600 原图，小屏则取 640/960 档。 */}
+                <img
                   src={category.imageSrc}
-                  alt={category.imageAlt ?? category.name}
-                  fill
+                  srcSet={categoryImageSrcSet(category.imageSrc)}
                   sizes="100vw"
-                  className="object-contain"
-                  priority
+                  alt={category.imageAlt ?? category.name}
+                  loading="eager"
+                  decoding="async"
+                  className="absolute inset-0 h-full w-full object-contain"
                 />
               </div>
             )}
