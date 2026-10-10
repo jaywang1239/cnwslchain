@@ -69,78 +69,76 @@ export default function BlogPage({ searchParams }: BlogPageProps) {
         {localizedPosts.length === 0 ? (
           <p className="mt-16 text-center text-foreground/60">{copy.empty}</p>
         ) : (
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 space-y-6">
             {localizedPosts.map((post) => (
               <article
                 key={post.id}
-                className="group flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md"
+                className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md"
               >
-                {hasFeaturedImage(post) ? (
-                  <Link
-                    href={localizeHref(`/blog/${post.slug}`, locale)}
-                    className="relative block aspect-[16/10] bg-gray-100"
-                  >
-                    <Image
-                      src={post.featuredImage}
-                      alt={post.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover"
-                    />
-                  </Link>
-                ) : null}
-
-                <div className="flex flex-1 flex-col p-6">
-                  <div className="flex items-center gap-2 text-xs text-foreground/50">
-                    <time dateTime={post.publishedAt}>
-                      {formatPublishedAt(post.publishedAt, locale)}
-                    </time>
-                    <span aria-hidden="true">·</span>
-                    <span>{post.author}</span>
-                    {!post.isPublished && (
-                      <span className="rounded bg-brand-accent/15 px-1.5 py-0.5 text-brand-accent">
-                        {copy.draft}
-                      </span>
-                    )}
-                    {post.isPublished &&
-                      new Date(post.publishedAt).getTime() > Date.now() && (
-                        <span className="rounded bg-brand-secondary/15 px-1.5 py-0.5 text-brand-secondary">
-                          {copy.scheduled}
-                        </span>
-                      )}
+                <Link
+                  href={localizeHref(`/blog/${post.slug}`, locale)}
+                  className="grid gap-0 sm:grid-cols-[240px_1fr]"
+                >
+                  <div className="relative min-h-[160px] bg-gray-100 sm:min-h-full">
+                    {hasFeaturedImage(post) ? (
+                      <Image
+                        src={post.featuredImage}
+                        alt={post.title}
+                        fill
+                        sizes="240px"
+                        className="object-cover"
+                      />
+                    ) : null}
                   </div>
 
-                  <h2 className="mt-3 text-xl font-semibold text-brand-primary group-hover:text-brand-secondary">
-                    <Link href={localizeHref(`/blog/${post.slug}`, locale)}>
+                  <div className="flex flex-col p-6">
+                    <div className="flex flex-wrap items-center gap-3 text-sm">
+                      <span className="rounded-full bg-brand-secondary/10 px-3 py-1 text-xs font-medium text-brand-secondary">
+                        {post.author}
+                      </span>
+                      <time dateTime={post.publishedAt} className="text-foreground/50">
+                        {formatPublishedAt(post.publishedAt, locale)}
+                      </time>
+                      {!post.isPublished && (
+                        <span className="rounded-full bg-brand-accent/15 px-3 py-1 text-xs font-medium text-brand-accent">
+                          {copy.draft}
+                        </span>
+                      )}
+                      {post.isPublished &&
+                        new Date(post.publishedAt).getTime() > Date.now() && (
+                          <span className="rounded-full bg-brand-secondary/15 px-3 py-1 text-xs font-medium text-brand-secondary">
+                            {copy.scheduled}
+                          </span>
+                        )}
+                    </div>
+
+                    <h2 className="mt-3 text-xl font-semibold text-brand-primary transition-colors hover:text-brand-secondary">
                       {post.title}
-                    </Link>
-                  </h2>
+                    </h2>
 
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-foreground/70">
-                    {post.excerpt}
-                  </p>
+                    <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-foreground/70">
+                      {post.excerpt}
+                    </p>
 
-                  <Link
-                    href={localizeHref(`/blog/${post.slug}`, locale)}
-                    className="mt-6 inline-flex items-center text-sm font-medium text-brand-secondary transition-colors hover:text-brand-primary"
-                  >
-                    {copy.readMore}
-                    <svg
-                      className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={2}
-                      stroke="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                      />
-                    </svg>
-                  </Link>
-                </div>
+                    <span className="mt-4 inline-flex items-center text-sm font-medium text-brand-secondary">
+                      {copy.readMore}
+                      <svg
+                        className="ml-1 h-4 w-4"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={2}
+                        stroke="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </Link>
               </article>
             ))}
           </div>

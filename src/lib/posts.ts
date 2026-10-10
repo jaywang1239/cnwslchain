@@ -20,7 +20,7 @@ export function hasFeaturedImage(post: Pick<Post, "featuredImage">): boolean {
   return Boolean(post.featuredImage?.trim());
 }
 
-export const POSTS_PER_PAGE = 3;
+export const POSTS_PER_PAGE = 12;
 
 const posts = postsData as Post[];
 
