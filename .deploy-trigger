@@ -1,1 +1,2 @@
-deploy 2026-10-10T07:05:11Z
+deploy trigger: site-wide search (full-site text + numeric) + ru factory address fix
+files: src/app/search/page.tsx, src/lib/search-index.ts, src/lib/i18n/search-messages.ts, src/components/Navbar.tsx, src/lib/content-i18n.ts

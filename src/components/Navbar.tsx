@@ -11,11 +11,14 @@ import {
   localizeHref,
 } from "@/lib/i18n/config";
 import { getMessages } from "@/lib/i18n/messages";
+import { getSearchMessages } from "@/lib/i18n/search-messages";
 
 export default function Navbar() {
   const pathname = usePathname() || "/";
   const locale = localeFromPathname(pathname);
   const copy = getMessages(locale);
+  const searchCopy = getSearchMessages(locale);
+  const searchHref = localizeHref("/search", locale);
   const [open, setOpen] = useState(false);
 
   const navItems = [
@@ -77,6 +80,27 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-2">
+          <Link
+            href={searchHref}
+            aria-label={searchCopy.navAria}
+            title={searchCopy.nav}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-md text-white transition-colors hover:bg-white hover:text-brand-secondary"
+          >
+            <svg
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.8}
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="m21 21-4.35-4.35M17 10.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0Z"
+              />
+            </svg>
+          </Link>
           <LanguageSwitcher />
           <button
             type="button"
@@ -117,6 +141,28 @@ export default function Navbar() {
               </Link>
             </li>
           ))}
+          <li>
+            <Link
+              href={searchHref}
+              className="flex items-center gap-2 rounded-md px-3 py-3 text-base font-medium text-brand-primary/90 transition-colors hover:bg-brand-secondary hover:text-white"
+            >
+              <svg
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.8}
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="m21 21-4.35-4.35M17 10.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0Z"
+                />
+              </svg>
+              {searchCopy.nav}
+            </Link>
+          </li>
           <li>
             <Link
               href={localizeHref("/contact", locale)}
