@@ -1,6 +1,1 @@
-deploy trigger: premium/tech visual pass (T1)
-- hero: code-drawn dark tech backdrop, replaces 720x1280 portrait photo+video
-- font: add Noto Sans SC + full CJK stack
-- tokens: elevation scale (card/raised/float/glow) + hairline border color
-- navbar: near-black translucent glass + hairline + desktop CTA + active underline
-files: src/app/page.tsx, src/components/Navbar.tsx, src/components/LanguageSwitcher.tsx, src/app/layout.tsx, src/app/globals.css, tailwind.config.ts
+deploy 2026-10-14T01:15:00Z blog:cable-carrier-selection-8-steps
