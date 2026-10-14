@@ -54,6 +54,7 @@ const partners = [
   { name: "广汽", en: "GAC", logo: "/images/home/partners/gac.webp" },
   { name: "中航精机", en: "AVIC", logo: "/images/home/partners/avic-jingji.webp" },
   { name: "美的", en: "Midea", logo: "/images/home/partners/midea.webp" },
+  { name: "大族激光", en: "Han's Laser", logo: "/images/home/partners/hans-laser.webp" },
 ] as const;
 
 export function generateMetadata(): Metadata {
@@ -286,11 +287,12 @@ export default function Home() {
             </p>
           </div>
           <ul className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3" aria-labelledby="partners-heading">
-            {partners.map((partner) => {
+            {partners.map((partner, index) => {
               const displayName = locale === "zh" ? partner.name : partner.en;
+              const centerLast = index === partners.length - 1 && partners.length % 3 === 1;
 
               return (
-              <li key={partner.name}>
+              <li key={partner.name} className={centerLast ? "sm:col-start-2" : undefined}>
                 <figure className="flex h-full flex-col overflow-hidden rounded-xl border border-line bg-white shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-float">
                   <div className="relative aspect-[16/7] bg-white">
                     <Image
