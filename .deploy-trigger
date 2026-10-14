@@ -1,3 +1,1 @@
-hero carousel crossfade fix — 2026-10-14 16:30 GMT+8
-duration-[900ms] -> duration-700  (first attempt silently not persisted)
-intervalMs = 4000 already live (verified in page chunk: 4e3 present, 65e3 absent)
+hero mobile fit 2026-10-14T08:36:32Z
