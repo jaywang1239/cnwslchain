@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { localizeHref } from "@/lib/i18n";
 import { getMessages } from "@/lib/i18n/messages";
-import { getRequestLocale } from "@/lib/request-locale";
+import { requireZhLocale } from "@/lib/zh-only";
 import {
   buildPageSocialMeta,
   buildSimpleBreadcrumbJsonLd,
   seoDescription,
   seoTitle,
 } from "@/lib/seo";
-import { absoluteUrl, localeAlternates } from "@/lib/site";
+import { absoluteUrl } from "@/lib/site";
 
 const TITLE = "拖链应用案例_数控机床/注塑机/机器人拖链选型方案";
 const DESCRIPTION =
@@ -212,7 +212,7 @@ const lessons = [
 ];
 
 export function generateMetadata(): Metadata {
-  const locale = getRequestLocale();
+  const locale = requireZhLocale();
   const path = localizeHref("/cases", locale);
   const title = seoTitle(TITLE);
   const description = seoDescription(DESCRIPTION);
@@ -223,14 +223,13 @@ export function generateMetadata(): Metadata {
     keywords: KEYWORDS,
     alternates: {
       canonical: absoluteUrl(path),
-      languages: localeAlternates("/cases").languages,
     },
     ...buildPageSocialMeta({ title, description, path, locale }),
   };
 }
 
 export default function CasesPage() {
-  const locale = getRequestLocale();
+  const locale = requireZhLocale();
   const copy = getMessages(locale);
   const path = localizeHref("/cases", locale);
   const breadcrumb = buildSimpleBreadcrumbJsonLd([

@@ -72,11 +72,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/blog",
     "/news",
     "/contact",
-    "/guides/selection",
   ];
 
-  /** 国内 SEO：新增中文长尾落地页（价格 / 应用案例 / 地域工厂），仅中文版本。 */
-  const zhOnlyPaths = ["/price", "/cases", "/factory"];
+  /**
+   * 国内 SEO 长尾落地页：价格 / 应用案例 / 地域工厂 / 选型指南。
+   * 仅提供中文版本——这些页面在非中文语种下由各页面内的 requireZhLocale() 直接 404
+   * （见 src/lib/zh-only.ts），因此这里不生成多语种条目。
+   */
+  const zhOnlyPaths = ["/price", "/cases", "/factory", "/guides/selection"];
 
   const staticRoutes: MetadataRoute.Sitemap = staticPaths.flatMap((path) =>
     locales.map((locale) =>

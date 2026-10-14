@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { localizeHref } from "@/lib/i18n";
 import { getMessages } from "@/lib/i18n/messages";
-import { getRequestLocale } from "@/lib/request-locale";
+import { requireZhLocale } from "@/lib/zh-only";
 import {
   buildPageSocialMeta,
   buildSimpleBreadcrumbJsonLd,
   seoDescription,
   seoTitle,
 } from "@/lib/seo";
-import { absoluteUrl, localeAlternates } from "@/lib/site";
+import { absoluteUrl } from "@/lib/site";
 import { siteConfig } from "@/lib/site";
 
 const TITLE = "乐清拖链厂家_浙江尼龙拖链工厂直供_就近发货";
@@ -71,7 +71,7 @@ const regions: {
 ];
 
 export function generateMetadata(): Metadata {
-  const locale = getRequestLocale();
+  const locale = requireZhLocale();
   const path = localizeHref("/factory", locale);
   const title = seoTitle(TITLE);
   const description = seoDescription(DESCRIPTION);
@@ -82,14 +82,13 @@ export function generateMetadata(): Metadata {
     keywords: KEYWORDS,
     alternates: {
       canonical: absoluteUrl(path),
-      languages: localeAlternates("/factory").languages,
     },
     ...buildPageSocialMeta({ title, description, path, locale }),
   };
 }
 
 export default function FactoryPage() {
-  const locale = getRequestLocale();
+  const locale = requireZhLocale();
   const copy = getMessages(locale);
   const path = localizeHref("/factory", locale);
   const breadcrumb = buildSimpleBreadcrumbJsonLd([

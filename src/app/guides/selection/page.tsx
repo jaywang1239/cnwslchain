@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { localizeHref } from "@/lib/i18n";
 import { getMessages } from "@/lib/i18n/messages";
-import { getRequestLocale } from "@/lib/request-locale";
+import { requireZhLocale } from "@/lib/zh-only";
 import {
   buildPageSocialMeta,
   buildSimpleBreadcrumbJsonLd,
   seoDescription,
   seoTitle,
 } from "@/lib/seo";
-import { absoluteUrl, localeAlternates } from "@/lib/site";
+import { absoluteUrl } from "@/lib/site";
 
 const TITLE = "拖链怎么选型_内高内宽/弯曲半径/填充率计算全指南";
 const DESCRIPTION =
@@ -104,7 +104,7 @@ const params = [
 ];
 
 export function generateMetadata(): Metadata {
-  const locale = getRequestLocale();
+  const locale = requireZhLocale();
   const path = localizeHref("/guides/selection", locale);
   const title = seoTitle(TITLE);
   const description = seoDescription(DESCRIPTION);
@@ -115,14 +115,13 @@ export function generateMetadata(): Metadata {
     keywords: KEYWORDS,
     alternates: {
       canonical: absoluteUrl(path),
-      languages: localeAlternates("/guides/selection").languages,
     },
     ...buildPageSocialMeta({ title, description, path, locale }),
   };
 }
 
 export default function SelectionGuidePage() {
-  const locale = getRequestLocale();
+  const locale = requireZhLocale();
   const copy = getMessages(locale);
   const path = localizeHref("/guides/selection", locale);
   const breadcrumb = buildSimpleBreadcrumbJsonLd([

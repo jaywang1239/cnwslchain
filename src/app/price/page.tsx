@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { localizeHref } from "@/lib/i18n";
 import { getMessages } from "@/lib/i18n/messages";
-import { getRequestLocale } from "@/lib/request-locale";
+import { requireZhLocale } from "@/lib/zh-only";
 import {
   buildPageSocialMeta,
   buildSimpleBreadcrumbJsonLd,
   seoDescription,
   seoTitle,
 } from "@/lib/seo";
-import { absoluteUrl, localeAlternates } from "@/lib/site";
+import { absoluteUrl } from "@/lib/site";
 
 const TITLE = "拖链价格_塑料拖链多少钱一米_厂家报价与计价方式";
 const DESCRIPTION =
@@ -133,7 +133,7 @@ const faqs = [
 ];
 
 export function generateMetadata(): Metadata {
-  const locale = getRequestLocale();
+  const locale = requireZhLocale();
   const path = localizeHref("/price", locale);
   const title = seoTitle(TITLE);
   const description = seoDescription(DESCRIPTION);
@@ -144,7 +144,6 @@ export function generateMetadata(): Metadata {
     keywords: KEYWORDS,
     alternates: {
       canonical: absoluteUrl(path),
-      languages: localeAlternates("/price").languages,
     },
     ...buildPageSocialMeta({ title, description, path, locale }),
   };
@@ -162,7 +161,7 @@ const FAQ_JSON_LD = {
 };
 
 export default function PricePage() {
-  const locale = getRequestLocale();
+  const locale = requireZhLocale();
   const copy = getMessages(locale);
   const path = localizeHref("/price", locale);
   const breadcrumb = buildSimpleBreadcrumbJsonLd([
