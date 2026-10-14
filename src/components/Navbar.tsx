@@ -19,6 +19,7 @@ export default function Navbar() {
   const copy = getMessages(locale);
   const searchCopy = getSearchMessages(locale);
   const searchHref = localizeHref("/search", locale);
+  const contactHref = localizeHref("/contact", locale);
   const [open, setOpen] = useState(false);
 
   const navItems = [
@@ -60,31 +61,52 @@ export default function Navbar() {
   }, [open]);
 
   return (
-    // Rebrand 2026-09-26: brand-blue navbar, blue dominant; links/buttons invert to white on hover
-    <header className="sticky top-0 z-50 border-b border-white/15 bg-brand-secondary/95 backdrop-blur-md">
-      <div className="h-0.5 bg-white/30" />
+    // Redesign 2026-10-14: was a fully saturated #0060AE bar with hover-invert
+    // links (read as a 2015 template). Now near-black translucent glass with a
+    // hairline and a blue accent rule, so the colour budget goes to content/CTA.
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-[color:var(--nav-bg)] backdrop-blur-xl">
+      <div className="hairline-x h-px" />
       <nav className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-3 px-4 sm:h-16 sm:px-6 lg:px-8">
         <BrandLogo locale={locale} tone="onLight" />
 
-        <ul className="hidden items-center gap-1 lg:flex lg:gap-5">
-          {navItems.map((item) => (
-            <li key={item.href}>
-              <Link
-                href={item.href}
-                className="rounded-md px-2 py-2 text-sm font-medium text-white/90 transition-colors hover:bg-white hover:text-brand-secondary xl:px-3 xl:text-base"
-              >
-                {item.label}
-              </Link>
-            </li>
-          ))}
+        <ul className="hidden items-center gap-1 lg:flex lg:gap-4">
+          {navItems.map((item) => {
+            const active =
+              pathname === item.href ||
+              (item.href !== "/" && pathname.startsWith(`${item.href}/`));
+            return (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className={`relative inline-flex px-2 py-2 text-sm font-medium transition-colors xl:px-3 xl:text-base ${
+                    active ? "text-white" : "text-white/70 hover:text-white"
+                  }`}
+                >
+                  {item.label}
+                  <span
+                    aria-hidden="true"
+                    className={`pointer-events-none absolute inset-x-2 bottom-0 h-px rounded-full bg-brand-accent transition-opacity ${
+                      active ? "opacity-100" : "opacity-0"
+                    }`}
+                  />
+                </Link>
+              </li>
+            );
+          })}
         </ul>
 
         <div className="flex items-center gap-2">
           <Link
+            href={contactHref}
+            className="hidden rounded-lg bg-brand-secondary px-4 py-2 text-sm font-semibold text-white shadow-[0_8px_22px_-10px_rgba(0,96,174,1)] transition-colors hover:bg-brand-accent lg:inline-flex"
+          >
+            {copy.nav.contact}
+          </Link>
+          <Link
             href={searchHref}
             aria-label={searchCopy.navAria}
             title={searchCopy.nav}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-md text-white transition-colors hover:bg-white hover:text-brand-secondary"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-white/75 transition-colors hover:bg-white/10 hover:text-white"
           >
             <svg
               className="h-5 w-5"
@@ -104,7 +126,7 @@ export default function Navbar() {
           <LanguageSwitcher />
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-md text-white transition-colors hover:bg-white hover:text-brand-secondary lg:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-white/75 transition-colors hover:bg-white/10 hover:text-white lg:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             onClick={() => setOpen((value) => !value)}
@@ -128,7 +150,7 @@ export default function Navbar() {
       <div
         id="mobile-nav"
         hidden={!open}
-        className={`border-t border-white/20 bg-white lg:hidden ${open ? "block" : "hidden"}`}
+        className={`border-t border-white/10 bg-white lg:hidden ${open ? "block" : "hidden"}`}
       >
         <ul className="mx-auto flex max-w-7xl flex-col px-4 py-3 sm:px-6">
           {navItems.map((item) => (
@@ -165,8 +187,8 @@ export default function Navbar() {
           </li>
           <li>
             <Link
-              href={localizeHref("/contact", locale)}
-              className="mt-1 block rounded-md bg-brand-secondary px-3 py-3 text-center text-base font-semibold text-white transition-colors hover:bg-white hover:text-brand-secondary"
+              href={contactHref}
+              className="mt-1 block rounded-md bg-brand-secondary px-3 py-3 text-center text-base font-semibold text-white transition-colors hover:bg-brand-accent"
             >
               {copy.nav.contact}
             </Link>

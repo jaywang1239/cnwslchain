@@ -1,17 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import HeroVideo from "@/components/HeroVideo";
 import { categoryImageSrcSet, localizeCategories } from "@/lib/product-catalog";
-import { buildHeroVideoJsonLd } from "@/lib/product-seo";
 import { localizeHref, localeOg } from "@/lib/i18n";
 import { getMessages } from "@/lib/i18n/messages";
 import { getRequestLocale } from "@/lib/request-locale";
 import { absoluteUrl, localeAlternates } from "@/lib/site";
 
-const heroPoster = "/images/home/hero-banner.webp";
 const heroOg = "/images/home/hero-og.webp";
-const heroVideo = "/videos/cnwsl-cleanroom-cable-chain.mp4";
 
 const trustIcons = [
   (
@@ -88,14 +84,6 @@ export function generateMetadata(): Metadata {
           alt: copy.ogImageAlt,
         },
       ],
-      videos: [
-        {
-          url: absoluteUrl(heroVideo),
-          width: 720,
-          height: 1280,
-          type: "video/mp4",
-        },
-      ],
     },
     twitter: {
       card: "summary_large_image",
@@ -119,30 +107,28 @@ export default function Home() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(buildHeroVideoJsonLd(locale)),
-        }}
-      />
-      <section className="relative min-h-[360px] overflow-hidden sm:min-h-[520px] lg:min-h-[640px]">
-        <Image
-          src={heroPoster}
-          alt={copy.ogImageAlt}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
+      <section className="tech-hero relative isolate overflow-hidden">
+        <div aria-hidden="true" className="tech-grid absolute inset-0" />
+        <div
+          aria-hidden="true"
+          className="tech-glow animate-tech-drift absolute -left-[10%] -top-40 h-[520px] w-[520px]"
         />
-        <HeroVideo src={heroVideo} poster={heroPoster} />
-        <div className="relative mx-auto flex min-h-[360px] max-w-7xl flex-col justify-end px-4 py-12 sm:min-h-[520px] sm:justify-center sm:px-6 sm:py-20 lg:min-h-[640px] lg:px-8">
-          <h1 className="max-w-3xl text-2xl font-bold leading-snug tracking-tight text-white [text-shadow:0_2px_16px_rgba(0,0,0,0.55)] [word-break:keep-all] sm:text-5xl lg:text-6xl">
+        <div
+          aria-hidden="true"
+          className="tech-glow absolute -bottom-[35%] -right-[8%] h-[460px] w-[460px]"
+        />
+        <div className="relative mx-auto flex min-h-[380px] max-w-7xl flex-col justify-center px-4 py-16 sm:min-h-[520px] sm:px-6 sm:py-24 lg:min-h-[600px] lg:px-8">
+          <p className="eyebrow animate-fade-up text-brand-accent">
+            <span aria-hidden="true" className="h-px w-6 bg-brand-accent" />
+            {messages.brandFull}
+          </p>
+          <h1 className="animate-fade-up mt-5 max-w-3xl text-3xl font-bold leading-[1.15] tracking-tight text-white [word-break:keep-all] sm:text-5xl lg:text-6xl">
             {copy.heroTitle.includes("·") ? (
               <>
                 <span className="inline-block">
                   {copy.heroTitle.split("·")[0].trim()}
                 </span>
-                <span className="mx-1.5 sm:mx-2" aria-hidden="true">
+                <span className="mx-1.5 text-brand-accent sm:mx-2" aria-hidden="true">
                   ·
                 </span>
                 <span className="inline-block">
@@ -153,19 +139,30 @@ export default function Home() {
               copy.heroTitle
             )}
           </h1>
-          <p className="mt-4 max-w-xl text-base text-white [text-shadow:0_2px_12px_rgba(0,0,0,0.5)] sm:mt-6 sm:text-xl">
+          <p className="animate-fade-up mt-5 max-w-xl text-base leading-relaxed text-white/70 sm:mt-6 sm:text-lg">
             {copy.heroSubtitle}
           </p>
-          <Link
-            href={localizeHref("/products", locale)}
-            className="mt-6 inline-flex w-fit rounded-md bg-brand-secondary px-6 py-3 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-brand-accent sm:mt-10 sm:px-8 sm:py-3.5 sm:text-base"
-          >
-            {copy.heroCta}
-          </Link>
+          <div className="animate-fade-up mt-8 flex flex-wrap items-center gap-3 sm:mt-10">
+            <Link
+              href={localizeHref("/products", locale)}
+              className="inline-flex items-center gap-2 rounded-lg bg-brand-secondary px-6 py-3 text-sm font-semibold text-white shadow-glow transition-colors hover:bg-brand-accent sm:px-8 sm:py-3.5 sm:text-base"
+            >
+              {copy.heroCta}
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+              </svg>
+            </Link>
+            <Link
+              href={localizeHref("/contact", locale)}
+              className="inline-flex items-center rounded-lg border border-white/20 px-5 py-3 text-sm font-semibold text-white/85 transition-colors hover:border-white/40 hover:bg-white/5 hover:text-white sm:px-6 sm:py-3.5 sm:text-base"
+            >
+              {messages.nav.contact}
+            </Link>
+          </div>
         </div>
       </section>
 
-      <section className="border-b border-gray-100 bg-white px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+      <section className="border-b border-line bg-white px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 sm:grid-cols-3 sm:gap-8 lg:grid-cols-6">
           {trustStats.map((stat) => (
             <div key={stat.label} className="flex flex-col items-center text-center">
@@ -200,7 +197,7 @@ export default function Home() {
             {marqueeItems.map((product, index) => (
               <article
                 key={`${product.id}-${index}`}
-                className="w-[280px] shrink-0 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm sm:w-[320px]"
+                className="w-[280px] shrink-0 overflow-hidden rounded-xl border border-line bg-white shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-float sm:w-[320px]"
               >
                 <div className="relative aspect-[16/10] bg-white">
                   {product.imageSrc ? (
@@ -296,7 +293,7 @@ export default function Home() {
 
               return (
               <li key={partner.name}>
-                <figure className="flex h-full flex-col overflow-hidden rounded-xl border border-gray-200 bg-white">
+                <figure className="flex h-full flex-col overflow-hidden rounded-xl border border-line bg-white shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-float">
                   <div className="relative aspect-[16/7] bg-white">
                     <Image
                       src={partner.logo}
@@ -306,7 +303,7 @@ export default function Home() {
                       className="object-contain p-5"
                     />
                   </div>
-                  <figcaption className="border-t border-gray-100 px-4 py-3 text-center">
+                  <figcaption className="border-t border-line px-4 py-3 text-center">
                     <p className="text-sm font-semibold text-brand-primary">
                       {displayName}
                     </p>

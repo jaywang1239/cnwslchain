@@ -13,6 +13,9 @@
   --brand-secondary: #0060ae;
   --brand-accent: #2e7bc4;
   --brand-ink: #0f172a;
+  /* Dark chrome 2026-10-14: near-black translucent navbar + hairline. */
+  --nav-bg: rgba(9, 15, 26, 0.78);
+  --nav-border: rgba(255, 255, 255, 0.10);
 }
 
 html {
@@ -37,6 +40,68 @@ body {
       linear-gradient(180deg, rgba(0, 96, 174, 0.16) 0%, transparent 42%),
       linear-gradient(158deg, #334155 0%, #1e293b 52%, #0f172a 100%);
   }
+
+  /* ── Code-drawn hero backdrop (2026-10-14) ────────────────────────────
+     Replaces the old 720x1280 portrait phone photo/video that was being
+     object-cover'd into a wide hero. No image asset, no load cost, scales
+     to any viewport. */
+  .tech-hero {
+    background-color: #070d16;
+    background-image: radial-gradient(
+      120% 120% at 15% 0%,
+      #123a63 0%,
+      #0b1a2e 45%,
+      #070d16 100%
+    );
+  }
+
+  /* Perspective grid, faded out with a radial mask so it reads as depth
+     rather than wallpaper. */
+  .tech-grid {
+    background-image: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.10) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.10) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(
+      110% 85% at 50% 0%,
+      #000 32%,
+      transparent 100%
+    );
+    mask-image: radial-gradient(110% 85% at 50% 0%, #000 32%, transparent 100%);
+  }
+
+  /* Soft blue light pools behind the headline. */
+  .tech-glow {
+    background: radial-gradient(
+      closest-side,
+      rgba(46, 123, 196, 0.34),
+      transparent 72%
+    );
+  }
+
+  /* 1px blue accent hairline (top of navbar / section dividers). */
+  .hairline-x {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(46, 123, 196, 0.65),
+      transparent
+    );
+  }
+
+  /* Small label above a heading (kicker / eyebrow). */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
 }
 
 @layer utilities {
@@ -46,5 +111,13 @@ body {
 
   .pause-on-hover:hover {
     animation-play-state: paused;
+  }
+}
+
+/* Respect reduced-motion: kill the drifting glow and marquee-freeze. */
+@media (prefers-reduced-motion: reduce) {
+  .animate-tech-drift,
+  .animate-fade-up {
+    animation: none !important;
   }
 }

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Noto_Sans_SC } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import OverseasContactRail from "@/components/OverseasContactRail";
@@ -16,6 +16,19 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
+});
+
+/**
+ * CJK face, self-hosted by next/font (no runtime dependency on Google Fonts,
+ * which is unreachable from mainland China). `preload: false` because the CJK
+ * family is split into many unicode-range subset files — preloading them all
+ * would hurt LCP. Inter is listed first in the Tailwind stack so Latin keeps
+ * Inter and Chinese falls through to this.
+ */
+const notoSansSC = Noto_Sans_SC({
+  variable: "--font-noto-sc",
+  display: "swap",
+  preload: false,
 });
 
 /**
@@ -80,7 +93,7 @@ export default function RootLayout({
 
   return (
     <html lang={localeHtmlLang[locale]}>
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${notoSansSC.variable} font-sans antialiased`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }}
