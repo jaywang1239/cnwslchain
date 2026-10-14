@@ -48,13 +48,11 @@ const partners = [
   { name: "拓竹", en: "Bambu Lab", logo: "/images/home/partners/bambu-lab.webp" },
   { name: "华为", en: "HUAWEI", logo: "/images/home/partners/huawei.webp" },
   { name: "航嘉麦格纳", en: "HAPM MAGNA", logo: "/images/home/partners/hapm-magna.webp" },
-  { name: "传祺", en: "TRUMPCHI", logo: "/images/home/partners/trumpchi.webp" },
   { name: "富士康", en: "FOXCONN", logo: "/images/home/partners/foxconn.webp" },
   { name: "创世纪", en: "Create Century", logo: "/images/home/partners/genesis.webp" },
   { name: "广汽", en: "GAC", logo: "/images/home/partners/gac.webp" },
   { name: "中航精机", en: "AVIC", logo: "/images/home/partners/avic-jingji.webp" },
   { name: "美的", en: "Midea", logo: "/images/home/partners/midea.webp" },
-  { name: "大族激光", en: "Han's Laser", logo: "/images/home/partners/hans-laser.webp" },
 ] as const;
 
 export function generateMetadata(): Metadata {
