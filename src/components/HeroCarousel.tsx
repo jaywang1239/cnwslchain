@@ -33,6 +33,8 @@ type HeroCarouselProps = {
  * - 图片为主体，文案只做左下角叠加，图上不再放任何标题式文字块外的装饰。
  * - 图片一律 `object-cover object-top`——banner 素材的关键信息在画面上半部
  *   （AGV 那页的标题就在顶部），居中裁会把它切掉。
+ * - 节奏（2026-10-14 v2）：自动间隔 4s、淡入淡出 700ms——原 6.5s/900ms 偏慢，
+ *   图片为主体时切换应该更利落；间隔仍留足扫读一行标题的时间。
  * - 尊重系统「减少动态效果」：命中 prefers-reduced-motion 时**不自动播放**，
  *   淡入淡出也一并关掉，只保留手动切换。
  * - 悬停 / 获得焦点时暂停；左右方向键可切换（需先聚焦本区域）。
@@ -42,7 +44,7 @@ export default function HeroCarousel({
   label,
   prevLabel,
   nextLabel,
-  intervalMs = 6500,
+  intervalMs = 4000,
   children,
 }: HeroCarouselProps) {
   const [active, setActive] = useState(0);
