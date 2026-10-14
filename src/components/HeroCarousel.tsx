@@ -100,7 +100,7 @@ export default function HeroCarousel({
         <div
           key={slide.src}
           aria-hidden={index !== active}
-          className={`absolute inset-0 transition-opacity duration-[900ms] ease-out motion-reduce:transition-none ${
+          className={`absolute inset-0 transition-opacity duration-700 ease-out motion-reduce:transition-none ${
             index === active ? "opacity-100" : "opacity-0"
           }`}
         >
