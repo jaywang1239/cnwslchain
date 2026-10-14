@@ -533,7 +533,7 @@ const zh: AppMessages = {
     keywords:
       "拖链厂家联系方式,拖链报价,拖链选型咨询,尼龙拖链价格,塑料拖链定制,乐清拖链厂家",
     metaDescription:
-      "联系浙江威仕龙塑胶有限公司，获取拖链选型、样册下载与定制方案。",
+      "联系浙江威仕龙塑胶有限公司：乐清工厂直供，提供尼龙拖链选型支持、样册索取、非标定制与批量报价。留下线缆规格与行程，工程师 1 个工作日内回复。",
     title: "联系我们",
     subtitle: "留下需求，我们的工程师将尽快与您对接",
     formTitle: "在线留言",
@@ -582,7 +582,7 @@ const zh: AppMessages = {
     metaTitle: "拖链选型手册下载_尼龙拖链规格表/3D图纸免费获取-威仕龙CNWSL",
     keywords:
       "拖链选型手册,拖链规格表下载,尼龙拖链图纸,塑料拖链目录,拖链3D模型,拖链技术资料",
-    metaDescription: "下载威仕龙拖链产品目录与无尘拖链目录。",
+    metaDescription: "下载威仕龙拖链产品目录、无尘拖链目录与型号规格表：内高内宽尺寸、弯曲半径、材质与安装说明一应俱全，选型或询价需要的资料这里都能拿到。",
     title: "下载中心",
     subtitle: "威仕龙拖链产品目录与无尘拖链目录",
     download: "下载目录",
@@ -594,7 +594,7 @@ const zh: AppMessages = {
     keywords:
       "拖链选型知识,尼龙拖链安装,拖链寿命测试,拖链维护,坦克链技术,线缆保护方案",
     metaDescription:
-      "阅读欧标防尘拖链选型指南、TPU 材料技术与寿命测试等技术文章，获取工业线缆保护实践经验。",
+      "威仕龙拖链技术博客：尼龙拖链选型方法、安装与布线要点、弯曲半径与填充率计算、TPU 材料对比、寿命测试与常见故障排查，都是工厂一线总结的实用经验。",
     title: "技术博客",
     subtitle: "分享拖链选型、材料技术与行业实践",
     empty: "暂无文章，请稍后再来。",
@@ -617,7 +617,7 @@ const zh: AppMessages = {
     keywords:
       "威仕龙新闻,拖链展会,尼龙拖链新品,CNWSL动态,工业展会,拖链行业资讯",
     metaDescription:
-      "查看威仕龙最新公司新闻与展会活动，了解产能升级、认证进展与行业展会动态。",
+      "威仕龙公司新闻与展会动态：新品发布、注塑产能扩充、IATF 16949 等认证进展，以及国内外工业展会的参展信息与现场实况。",
     title: "新闻展会",
     subtitle: "公司动态与展会活动，按发布时间统一展示",
     empty: "暂无新闻，请稍后再来。",
@@ -1039,7 +1039,7 @@ const en: AppMessages = {
   },
   downloads: {
     metaTitle: "Downloads | CNWSL",
-    metaDescription: "Download CNWSL cable carrier and cleanroom catalogs.",
+    metaDescription: "Download CNWSL cable carrier catalogs and cleanroom datasheets in PDF — inner heights, bend radii, materials and installation notes for selection or quotation.",
     title: "Downloads",
     subtitle: "CNWSL cable carrier catalog and cleanroom catalog",
     download: "Download catalog",
@@ -1070,7 +1070,7 @@ const en: AppMessages = {
   news: {
     metaTitle: "News & Exhibitions | CNWSL",
     metaDescription:
-      "CNWSL company news, capacity updates and exhibition highlights.",
+      "CNWSL company news: new products, injection capacity expansion, certification progress and exhibition reports from trade shows in China and overseas.",
     title: "News & Exhibitions",
     subtitle: "Company updates and exhibition activity, listed by date",
     empty: "No news yet. Please check back later.",
@@ -1473,7 +1473,7 @@ const vi: AppMessages = {
   },
   downloads: {
     metaTitle: "Tải xuống | CNWSL",
-    metaDescription: "Tải catalogue xích dẫn cáp và xích phòng sạch CNWSL.",
+    metaDescription: "Tải catalogue xích dẫn cáp và tài liệu phòng sạch CNWSL (PDF): kích thước trong lòng, bán kính uốn, vật liệu — đủ để chọn mã hoặc yêu cầu báo giá.",
     title: "Tải xuống",
     subtitle: "Catalogue xích dẫn cáp và catalogue xích phòng sạch CNWSL",
     download: "Tải catalogue",
@@ -1504,7 +1504,7 @@ const vi: AppMessages = {
   news: {
     metaTitle: "Tin tức & triển lãm | CNWSL",
     metaDescription:
-      "Tin công ty CNWSL, cập nhật năng lực và điểm nhấn triển lãm.",
+      "Tin công ty CNWSL: sản phẩm mới, mở rộng năng lực sản xuất, tiến độ chứng nhận IATF 16949 và điểm nhấn các hội chợ công nghiệp trong và ngoài nước.",
     title: "Tin tức & triển lãm",
     subtitle: "Động thái công ty và hoạt động triển lãm, sắp xếp theo ngày",
     empty: "Chưa có tin. Vui lòng quay lại sau.",
@@ -1914,7 +1914,7 @@ const es: AppMessages = {
   },
   downloads: {
     metaTitle: "Descargas | CNWSL",
-    metaDescription: "Descargue catálogos de portacables y de sala limpia CNWSL.",
+    metaDescription: "Descargue catálogos de portacables CNWSL y fichas de la serie cleanroom en PDF: alturas interiores, radios de curvatura y materiales para su selección.",
     title: "Descargas",
     subtitle: "Catálogo de portacables y catálogo de sala limpia CNWSL",
     download: "Descargar catálogo",
@@ -2375,7 +2375,7 @@ const it: AppMessages = {
   },
   downloads: {
     metaTitle: "Download | CNWSL",
-    metaDescription: "Scaricate i cataloghi catene portacavi e cleanroom CNWSL.",
+    metaDescription: "Scaricate i cataloghi catene portacavi CNWSL e le schede cleanroom in PDF: altezze interne, raggi di curvatura e materiali per la selezione.",
     title: "Download",
     subtitle: "Catalogo catene portacavi e catalogo cleanroom CNWSL",
     download: "Scarica catalogo",
@@ -2860,7 +2860,7 @@ const ru: AppMessages = {
   news: {
     metaTitle: "Новости и выставки | CNWSL",
     metaDescription:
-      "Новости компании CNWSL, обновления мощностей и обзоры выставок.",
+      "Новости компании CNWSL: новые продукты, расширение мощностей литья, ход сертификации IATF 16949 и репортажи с промышленных выставок в Китае и за рубежом.",
     title: "Новости и выставки",
     subtitle: "Обновления компании и выставочная активность по дате",
     empty: "Новостей пока нет. Загляните позже.",
