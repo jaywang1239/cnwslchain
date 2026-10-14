@@ -1,1 +1,3 @@
-deploy 2026-10-14T01:15:00Z blog:cable-carrier-selection-8-steps
+hero carousel deploy trigger 2026-10-14T15:55+08:00
+3 slides: banner-01-cable-carrier-digital / banner-02-agv-amr / banner-03-smart-manufacturing
+new: src/components/HeroCarousel.tsx, src/lib/i18n/hero-messages.ts

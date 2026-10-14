@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import HeroCarousel from "@/components/HeroCarousel";
 import { categoryImageSrcSet, localizeCategories } from "@/lib/product-catalog";
 import { localizeHref, localeOg } from "@/lib/i18n";
+import { getHeroMessages } from "@/lib/i18n/hero-messages";
 import { getMessages } from "@/lib/i18n/messages";
 import { getRequestLocale } from "@/lib/request-locale";
 import { absoluteUrl, localeAlternates } from "@/lib/site";
@@ -98,6 +100,12 @@ export default function Home() {
   const locale = getRequestLocale();
   const messages = getMessages(locale);
   const copy = messages.homePage;
+  const heroCopy = getHeroMessages(locale);
+  const heroSlides = [
+    { src: "/images/home/banner-01-cable-carrier-digital.webp", alt: heroCopy.alts[0] },
+    { src: "/images/home/banner-02-agv-amr.webp", alt: heroCopy.alts[1] },
+    { src: "/images/home/banner-03-smart-manufacturing.webp", alt: heroCopy.alts[2] },
+  ];
   const productSeries = localizeCategories(locale);
   const marqueeItems = [...productSeries, ...productSeries];
   const trustStats = copy.trust.map((stat, index) => ({
@@ -107,60 +115,50 @@ export default function Home() {
 
   return (
     <>
-      <section className="tech-hero relative isolate overflow-hidden">
-        <div aria-hidden="true" className="tech-grid absolute inset-0" />
-        <div
-          aria-hidden="true"
-          className="tech-glow animate-tech-drift absolute -left-[10%] -top-40 h-[520px] w-[520px]"
-        />
-        <div
-          aria-hidden="true"
-          className="tech-glow absolute -bottom-[35%] -right-[8%] h-[460px] w-[460px]"
-        />
-        <div className="relative mx-auto flex min-h-[380px] max-w-7xl flex-col justify-center px-4 py-16 sm:min-h-[520px] sm:px-6 sm:py-24 lg:min-h-[600px] lg:px-8">
-          <p className="eyebrow animate-fade-up text-brand-accent">
-            <span aria-hidden="true" className="h-px w-6 bg-brand-accent" />
-            {messages.brandFull}
-          </p>
-          <h1 className="animate-fade-up mt-5 max-w-3xl text-3xl font-bold leading-[1.15] tracking-tight text-white [word-break:keep-all] sm:text-5xl lg:text-6xl">
-            {copy.heroTitle.includes("·") ? (
-              <>
-                <span className="inline-block">
-                  {copy.heroTitle.split("·")[0].trim()}
-                </span>
-                <span className="mx-1.5 text-brand-accent sm:mx-2" aria-hidden="true">
-                  ·
-                </span>
-                <span className="inline-block">
-                  {copy.heroTitle.split("·").slice(1).join("·").trim()}
-                </span>
-              </>
-            ) : (
-              copy.heroTitle
-            )}
-          </h1>
-          <p className="animate-fade-up mt-5 max-w-xl text-base leading-relaxed text-white/70 sm:mt-6 sm:text-lg">
-            {copy.heroSubtitle}
-          </p>
-          <div className="animate-fade-up mt-8 flex flex-wrap items-center gap-3 sm:mt-10">
-            <Link
-              href={localizeHref("/products", locale)}
-              className="inline-flex items-center gap-2 rounded-lg bg-brand-secondary px-6 py-3 text-sm font-semibold text-white shadow-glow transition-colors hover:bg-brand-accent sm:px-8 sm:py-3.5 sm:text-base"
-            >
-              {copy.heroCta}
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-              </svg>
-            </Link>
-            <Link
-              href={localizeHref("/contact", locale)}
-              className="inline-flex items-center rounded-lg border border-white/20 px-5 py-3 text-sm font-semibold text-white/85 transition-colors hover:border-white/40 hover:bg-white/5 hover:text-white sm:px-6 sm:py-3.5 sm:text-base"
-            >
-              {messages.nav.contact}
-            </Link>
-          </div>
+      <HeroCarousel
+        slides={heroSlides}
+        label={heroCopy.label}
+        prevLabel={heroCopy.prev}
+        nextLabel={heroCopy.next}
+      >
+        <h1 className="animate-fade-up max-w-3xl text-3xl font-bold leading-[1.12] tracking-tight text-white [word-break:keep-all] sm:text-5xl lg:text-6xl">
+          {copy.heroTitle.includes("·") ? (
+            <>
+              <span className="inline-block">
+                {copy.heroTitle.split("·")[0].trim()}
+              </span>
+              <span className="mx-1.5 text-brand-accent sm:mx-2" aria-hidden="true">
+                ·
+              </span>
+              <span className="inline-block">
+                {copy.heroTitle.split("·").slice(1).join("·").trim()}
+              </span>
+            </>
+          ) : (
+            copy.heroTitle
+          )}
+        </h1>
+        <p className="animate-fade-up mt-5 max-w-xl text-sm leading-relaxed text-white/75 sm:mt-6 sm:text-base lg:text-lg">
+          {copy.heroSubtitle}
+        </p>
+        <div className="animate-fade-up mt-8 flex flex-wrap items-center gap-3">
+          <Link
+            href={localizeHref("/products", locale)}
+            className="inline-flex items-center gap-2 rounded-lg bg-brand-secondary px-6 py-3 text-sm font-semibold text-white shadow-glow transition-colors hover:bg-brand-accent sm:px-8 sm:py-3.5 sm:text-base"
+          >
+            {copy.heroCta}
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+          </Link>
+          <Link
+            href={localizeHref("/contact", locale)}
+            className="inline-flex items-center rounded-lg border border-white/25 bg-white/5 px-5 py-3 text-sm font-semibold text-white/90 backdrop-blur transition-colors hover:border-white/45 hover:bg-white/10 hover:text-white sm:px-6 sm:py-3.5 sm:text-base"
+          >
+            {messages.nav.contact}
+          </Link>
         </div>
-      </section>
+      </HeroCarousel>
 
       <section className="border-b border-line bg-white px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 sm:grid-cols-3 sm:gap-8 lg:grid-cols-6">
