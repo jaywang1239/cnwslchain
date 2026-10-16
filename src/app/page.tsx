@@ -284,24 +284,24 @@ export default function Home() {
               {copy.partnersSubtitle}
             </p>
           </div>
-          <ul className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3" aria-labelledby="partners-heading">
-            {partners.map((partner, index) => {
+          {/* 8 家合作伙伴：桌面 4 列 × 2 行，手机 2 列 × 4 行。卡片本身为「上 logo / 下名字」两行结构。 */}
+          <ul className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4" aria-labelledby="partners-heading">
+            {partners.map((partner) => {
               const displayName = locale === "zh" ? partner.name : partner.en;
-              const centerLast = index === partners.length - 1 && partners.length % 3 === 1;
 
               return (
-              <li key={partner.name} className={centerLast ? "sm:col-start-2" : undefined}>
+              <li key={partner.name}>
                 <figure className="flex h-full flex-col overflow-hidden rounded-xl border border-line bg-white shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-float">
                   <div className="relative aspect-[16/7] bg-white">
                     <Image
                       src={partner.logo}
                       alt={displayName}
                       fill
-                      sizes="(max-width: 640px) 50vw, 33vw"
+                      sizes="(max-width: 640px) 50vw, 25vw"
                       className="object-contain p-5"
                     />
                   </div>
-                  <figcaption className="border-t border-line px-4 py-3 text-center">
+                  <figcaption className="border-t border-line px-3 py-3 text-center">
                     <p className="text-sm font-semibold text-brand-primary">
                       {displayName}
                     </p>

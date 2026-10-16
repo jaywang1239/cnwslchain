@@ -282,9 +282,10 @@ export function buildSearchIndex(locale: Locale): SearchEntry[] {
     });
   }
 
-  // 仅中文页面的路径（见 src/lib/zh-only.ts）：非中文语种不收录，
-  // 否则搜索结果会被 localizeHref 拼成 /en/cases 这类已 404 的地址。
-  const zhOnlyPageHrefs = new Set([
+  // 中英双语页面的路径（见 src/lib/zh-only.ts）：只有 zh / en 收录，
+  // 越南文 / 西文 / 意文 / 俄文不收录 —— 否则搜索结果会被 localizeHref
+  // 拼成 /vi/cases 这类已 404 的地址。
+  const zhEnPageHrefs = new Set([
     "/cases",
     "/factory",
     "/price",
@@ -307,7 +308,7 @@ export function buildSearchIndex(locale: Locale): SearchEntry[] {
     { href: "/contact", label: m.nav.contact, description: m.contact.subtitle },
   ];
   for (const page of pages) {
-    if (locale !== "zh" && zhOnlyPageHrefs.has(page.href)) continue;
+    if (locale !== "zh" && locale !== "en" && zhEnPageHrefs.has(page.href)) continue;
     entries.push({
       id: `page:${page.href}`,
       group: "pages",

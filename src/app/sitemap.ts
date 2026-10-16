@@ -36,6 +36,18 @@ function languageAlternates(
   };
 }
 
+/** 中英双语页的 hreflang：只声明 zh-CN + en + x-default。 */
+function languageAlternatesZhEn(
+  base: string,
+  path: string,
+): Record<string, string> {
+  return {
+    "zh-CN": localizedUrl(base, path, "zh"),
+    en: localizedUrl(base, path, "en"),
+    "x-default": localizedUrl(base, path, defaultLocale),
+  };
+}
+
 function entry(
   base: string,
   path: string,
@@ -53,6 +65,28 @@ function entry(
     priority: options.priority,
     alternates: {
       languages: languageAlternates(base, path),
+    },
+  };
+}
+
+/** 中英双语页的 sitemap 条目（hreflang 只含 zh-CN + en + x-default）。 */
+function entryZhEn(
+  base: string,
+  path: string,
+  locale: Locale,
+  options: {
+    changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
+    priority: number;
+    lastModified?: Date;
+  },
+): MetadataRoute.Sitemap[number] {
+  return {
+    url: localizedUrl(base, path, locale),
+    lastModified: options.lastModified ?? SITE_BUILT_AT,
+    changeFrequency: options.changeFrequency,
+    priority: options.priority,
+    alternates: {
+      languages: languageAlternatesZhEn(base, path),
     },
   };
 }
@@ -76,10 +110,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   /**
    * 国内 SEO 长尾落地页：价格 / 应用案例 / 地域工厂 / 选型指南。
-   * 仅提供中文版本——这些页面在非中文语种下由各页面内的 requireZhLocale() 直接 404
-   * （见 src/lib/zh-only.ts），因此这里不生成多语种条目。
+   * 2026-10-16 起提供**中文 + 英文**两个版本（vi/es/it/ru 由页面内的
+   * requireZhEnLocale() 直接 404，见 src/lib/zh-only.ts），
+   * 因此这里只生成 zh 与 en 条目，hreflang 也只声明这两个语种。
    */
-  const zhOnlyPaths = ["/price", "/cases", "/factory", "/guides/selection"];
+  const zhEnPaths = ["/price", "/cases", "/factory", "/guides/selection"];
 
   const staticRoutes: MetadataRoute.Sitemap = staticPaths.flatMap((path) =>
     locales.map((locale) =>
@@ -100,11 +135,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ),
   );
 
-  const zhLandingRoutes: MetadataRoute.Sitemap = zhOnlyPaths.map((path) =>
-    entry(base, path, defaultLocale, {
-      changeFrequency: "weekly",
-      priority: 0.85,
-    }),
+  /** hreflang map 只含 zh-CN + en + x-default（中英双语页用）。 */
+  const zhEnLandingRoutes: MetadataRoute.Sitemap = zhEnPaths.flatMap((path) =>
+    (["zh", "en"] as const).map((locale) =>
+      entryZhEn(base, path, locale, {
+        changeFrequency: "weekly",
+        priority: locale === defaultLocale ? 0.85 : 0.75,
+      }),
+    ),
   );
 
   const withLocales = (
@@ -151,7 +189,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...staticRoutes,
-    ...zhLandingRoutes,
+    ...zhEnLandingRoutes,
     ...productRoutes,
     ...blogRoutes,
     ...newsRoutes,

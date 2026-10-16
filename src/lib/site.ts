@@ -67,3 +67,28 @@ export function localeAlternates(path: string) {
     },
   };
 }
+
+/**
+ * 仅供「中英双语」页面使用（`/price`、`/cases`、`/factory`、`/guides/selection`）。
+ *
+ * 这四页只提供中文与英文，其余语种由页面内的 `requireZhEnLocale()` 直接 404
+ * （见 `src/lib/zh-only.ts`）。因此 hreflang **只声明 zh-CN + en + x-default**，
+ * 不能再像 `localeAlternates()` 那样把 6 个语种全写上——否则等于对外宣告了
+ * 一堆并不存在的语言版本，正是 2026-10-14 体检查出的那类「地图与实际不符」问题。
+ */
+export function localeAlternatesZhEn(path: string) {
+  const bare = path
+    .replace(/^\/(en|vi|es|it|ru)(?=\/|$)/, "")
+    .replace(/\/$/, "") || "/";
+  const hrefFor = (locale: "zh" | "en") =>
+    locale === "zh" ? bare : bare === "/" ? `/${locale}` : `/${locale}${bare}`;
+
+  return {
+    canonical: undefined as string | undefined,
+    languages: {
+      "zh-CN": absoluteUrl(hrefFor("zh")),
+      en: absoluteUrl(hrefFor("en")),
+      "x-default": absoluteUrl(hrefFor("zh")),
+    },
+  };
+}
