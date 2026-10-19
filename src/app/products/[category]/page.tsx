@@ -44,17 +44,18 @@ export function generateMetadata({ params }: CategoryPageProps): Metadata {
   const category = localizeCategory(raw, locale);
   // 分类页文案来自 messages.categories，其中的 metaTitle/keywords 仅中文填写。
   const categoryCopy = messages.categories[raw.id as keyof typeof messages.categories];
+  // 深度内容（zh/en 专有）同时提供 metaTitle 与 metaDescription：
+  // 英文 title 原为 `${category.name} | CNWSL`（26 字符、无规格词），
+  // 现改为「系列名 + 内高档位 + 材质 + 品牌」。description 原先是 intro（约 70 字），偏短。
+  const deep = getCategoryDeepCopy(raw.id, locale);
   const title =
     locale === "zh"
       ? (categoryCopy?.metaTitle ?? `${category.name} | 威仕龙塑料拖链`)
-      : `${category.name} | CNWSL`;
+      : (deep?.metaTitle ?? `${category.name} | CNWSL`);
   const keywords =
     locale === "zh" && categoryCopy?.keywords
       ? categoryCopy.keywords.split(",").map((k) => k.trim()).filter(Boolean)
       : undefined;
-  // 分类页 description 原先是 intro（约 70 字），偏短。
-  // 深度内容里带一份 120–155 字的 metaDescription，只有 zh/en 有。
-  const deep = getCategoryDeepCopy(raw.id, locale);
   const description = deep?.metaDescription ?? category.intro;
   const imageAlt = category.imageAlt ?? category.name;
   const path = localizeHref(`/products/${params.category}`, locale);

@@ -33,6 +33,12 @@ export interface DeepPoint {
 }
 
 export interface CategoryDeepCopy {
+  /**
+   * 分类页 <title>。仅英文填（中文走 messages.categories.metaTitle）。
+   * 原英文 title 是 `${category.name} | CNWSL`（26 字符、零规格词），
+   * 2026-10-19 改为「系列名 + 内高档位 + 材质/结构 + 品牌」，目标 50–60 字符。
+   */
+  metaTitle?: string;
   /** 分类页 meta description，目标 120–155 字（原 intro 仅约 70 字） */
   metaDescription: string;
   heading: string;
@@ -389,6 +395,7 @@ const ZH: Record<string, CategoryDeepCopy> = {
 
 const EN: Record<string, CategoryDeepCopy> = {
   micro: {
+    metaTitle: "Micro Cable Carriers 5-15mm | Nylon Drag Chain - CNWSL",
     metaDescription:
       "Micro cable carriers with inner heights of 5, 6, 7, 10 and 15 mm, inner widths 5-50 mm and bend radii R10-R48. Glass-fibre reinforced nylon, open bridge design, for small CNC, robot wrists, inspection stages and electronics assembly. Includes sizing limits, unsupported length and common failure modes.",
     heading: "Micro cable carriers: routing in 5-15 mm of clearance",
@@ -446,6 +453,7 @@ const EN: Record<string, CategoryDeepCopy> = {
   },
 
   medium: {
+    metaTitle: "Medium Cable Carriers 18-30mm | Nylon Drag Chain - CNWSL",
     metaDescription:
       "Medium cable carriers with inner heights of 18, 20, 25 and 30 mm, inner widths 18-103 mm and bend radii R28-R250. Glass-fibre reinforced nylon for machining centres, injection moulding machines, laser cutters and automated lines. Covers how the four heights divide the work and where the heavy series takes over.",
     heading: "Medium cable carriers: the 18-30 mm workhorse range",
@@ -503,6 +511,7 @@ const EN: Record<string, CategoryDeepCopy> = {
   },
 
   heavy: {
+    metaTitle: "Heavy Duty Cable Carriers 45-80mm | Reinforced Nylon - CNWSL",
     metaDescription:
       "Heavy-duty cable carriers with inner heights of 45, 65 and 80 mm, inner widths 50-300 mm in 12 steps and bend radii R75-R300. Reinforced side plates for gantry machining centres, large injection moulding machines and long-travel heavy equipment. Covers when heavy is mandatory and where steel takes over.",
     heading: "Heavy-duty cable carriers: 45-80 mm for load and long travel",
@@ -560,6 +569,7 @@ const EN: Record<string, CategoryDeepCopy> = {
   },
 
   silent: {
+    metaTitle: "Silent Cable Carriers 18-45mm | Low Noise Drag Chain - CNWSL",
     metaDescription:
       "Low-noise cable carriers with inner heights of 18, 25, 30, 35, 40 and 45 mm, inner widths 25-125 mm and bend radii R28-R200. Low-friction hinges and cushioned stops for high-speed reciprocation, medical automation, precision machining and equipment near operators.",
     heading: "Low-noise cable carriers: 18-45 mm for quieter reciprocation",
@@ -617,6 +627,7 @@ const EN: Record<string, CategoryDeepCopy> = {
   },
 
   portable: {
+    metaTitle: "Portable Cable Carriers | Detachable Nylon Links - CNWSL",
     metaDescription:
       "Portable cable carriers use lightweight links and quick-release openings so the assembly can be dismantled, carried and reinstalled. For robot cells, movable workstations, 3D printers and exhibition setups. Explains the four inputs needed for a quote and why there is no standard size table.",
     heading: "Portable cable carriers: routing that travels with the machine",
@@ -674,6 +685,7 @@ const EN: Record<string, CategoryDeepCopy> = {
   },
 
   cleanroom: {
+    metaTitle: "Cleanroom Cable Carriers TPU 15-35mm | Low Dust - CNWSL",
     metaDescription:
       "WWC cleanroom cable carriers in TPU, with inner heights of 15, 18, 22, 28 and 35 mm, inner widths 25-65 mm and bend radii R40-R90. Low particle emission, lubrication-free, for semiconductor, flat panel, pharmaceutical cleanrooms and precision optics.",
     heading: "WWC cleanroom carriers: controlling particle emission",
