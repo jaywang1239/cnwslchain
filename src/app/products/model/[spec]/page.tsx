@@ -61,16 +61,26 @@ export function generateMetadata({ params }: SpecPageProps): Metadata {
   const openType = localizeOpenType(spec.openType, locale);
   const material = localizeMaterial(spec.material, locale);
 
+  // 中文 title 按中国人搜索写法排：先「拖链15X25」（百度下拉里真实出现的是这种大写 X 写法），
+  // 再型号全串（有图纸的买家按型号搜），最后内高内宽 + 品类 + 品牌。
+  // 原写法 `${code} ${openType}拖链 内高..mm_内宽..mm | ${seriesName}厂家-威仕龙CNWSL`
+  // 宽度达 62，百度 PC 端约 60 就截断，品牌名与「厂家」二字落在截断区外。
+  const catShort = category.name.replace(/系列$/, "");
   const title =
     locale === "zh"
       ? (spec.seoTitle ??
-        `${spec.code} ${openType}拖链 内高${spec.innerHeight}mm_内宽${spec.innerWidth}mm | ${seriesName}厂家-威仕龙CNWSL`)
+        `拖链${spec.innerHeight}X${spec.innerWidth}_${spec.code}_内高${spec.innerHeight}内宽${spec.innerWidth}${catShort}-威仕龙`)
       : `${category.name} ${spec.code} | ${seriesName} | CNWSL`;
+
+  const bendText =
+    spec.bendRadii && spec.bendRadii.length
+      ? `弯曲半径 ${spec.bendRadii.map((r) => `R${r}`).join(" / ")}。`
+      : "";
 
   const descriptionByLocale = {
     zh:
       spec.seoDescription ??
-      `${spec.code}，内高 ${spec.innerHeight}mm / 内宽 ${spec.innerWidth}mm，${material}。`,
+      `${spec.code}，内高 ${spec.innerHeight}mm、内宽 ${spec.innerWidth}mm，${material}。${bendText}${catShort}规格参数、结构图与选型说明，可提供 3D 图纸、样品测试与非标定制。`,
     en: `${spec.code}, inner height ${spec.innerHeight} mm / inner width ${spec.innerWidth} mm, ${material}.`,
     vi: `${spec.code}, chiều cao trong ${spec.innerHeight} mm / chiều rộng trong ${spec.innerWidth} mm, ${material}.`,
     es: `${spec.code}, altura interior ${spec.innerHeight} mm / ancho interior ${spec.innerWidth} mm, ${material}.`,
