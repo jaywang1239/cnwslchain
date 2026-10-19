@@ -16,7 +16,9 @@ import {
 import {
   buildBreadcrumbJsonLd,
   buildCollectionPageJsonLd,
+  buildFaqJsonLd,
 } from "@/lib/product-seo";
+import { getCategoryDeepCopy } from "@/lib/product-deep-copy";
 import { localizeHref, localeOg } from "@/lib/i18n";
 import { getMessages } from "@/lib/i18n/messages";
 import { getRequestLocale } from "@/lib/request-locale";
@@ -50,7 +52,10 @@ export function generateMetadata({ params }: CategoryPageProps): Metadata {
     locale === "zh" && categoryCopy?.keywords
       ? categoryCopy.keywords.split(",").map((k) => k.trim()).filter(Boolean)
       : undefined;
-  const description = category.intro;
+  // 分类页 description 原先是 intro（约 70 字），偏短。
+  // 深度内容里带一份 120–155 字的 metaDescription，只有 zh/en 有。
+  const deep = getCategoryDeepCopy(raw.id, locale);
+  const description = deep?.metaDescription ?? category.intro;
   const imageAlt = category.imageAlt ?? category.name;
   const path = localizeHref(`/products/${params.category}`, locale);
 
@@ -102,6 +107,9 @@ export default function CategoryPage({ params }: CategoryPageProps) {
   const category = localizeCategory(raw, locale);
   const breadcrumbs = buildProductBreadcrumbs(category.id, undefined, undefined, locale);
   const pagePath = localizeHref(`/products/${category.id}`, locale);
+  // vi / es / it / ru 下返回 undefined，该区块整体不渲染（不留中文正文）。
+  const deep = getCategoryDeepCopy(category.id, locale);
+  const isZh = locale === "zh";
 
   return (
     <>
@@ -111,6 +119,16 @@ export default function CategoryPage({ params }: CategoryPageProps) {
           __html: JSON.stringify(buildBreadcrumbJsonLd(breadcrumbs, pagePath)),
         }}
       />
+      {deep && deep.faqs.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              buildFaqJsonLd(deep.faqs.map((f) => ({ question: f.q, answer: f.a }))),
+            ),
+          }}
+        />
+      )}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -159,6 +177,13 @@ export default function CategoryPage({ params }: CategoryPageProps) {
                   decoding="async"
                   className="absolute inset-0 h-full w-full object-contain"
                 />
+              </div>
+            )}
+            {deep && (
+              <div className="mb-10 rounded-xl border border-gray-200 bg-white p-6 sm:p-8">
+                <p className="text-base leading-relaxed text-foreground/75">
+                  {deep.lead}
+                </p>
               </div>
             )}
             <h2 className="text-lg font-semibold text-brand-primary">
@@ -216,6 +241,93 @@ export default function CategoryPage({ params }: CategoryPageProps) {
                 );
               })}
             </div>
+
+            {deep && (
+              <>
+                <div className="mt-16 border-t border-gray-200 pt-10">
+                  <h2 className="text-xl font-semibold text-brand-primary">
+                    {deep.heading}
+                  </h2>
+                  <div className="mt-6 space-y-7">
+                    {deep.sections.map((section) => (
+                      <div key={section.title}>
+                        <h3 className="text-base font-semibold text-brand-primary">
+                          {section.title}
+                        </h3>
+                        <p className="mt-2 max-w-4xl text-sm leading-relaxed text-foreground/70">
+                          {section.body}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-10">
+                  <h2 className="text-lg font-semibold text-brand-primary">
+                    {isZh ? "规格速查" : "At a glance"}
+                  </h2>
+                  <dl className="mt-4 divide-y divide-gray-100 overflow-hidden rounded-xl border border-gray-200 bg-white">
+                    {deep.keyPoints.map((point) => (
+                      <div
+                        key={point.label}
+                        className="grid grid-cols-1 gap-1 px-5 py-3 sm:grid-cols-3 sm:items-baseline"
+                      >
+                        <dt className="text-xs font-medium text-foreground/50 sm:text-sm">
+                          {point.label}
+                        </dt>
+                        <dd className="text-sm font-medium text-brand-primary sm:col-span-2">
+                          {point.value}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                  <p className="mt-3 text-xs leading-relaxed text-foreground/45">
+                    {isZh
+                      ? "以上为常规档位。具体型号的内高、内宽、弯曲半径以规格表为准，非标尺寸单独评估。"
+                      : "Standard sizes shown. Confirm inner height, width and radius against the spec table for each part number; non-standard sizes are quoted separately."}
+                  </p>
+                </div>
+
+                <div className="mt-12">
+                  <h2 className="text-lg font-semibold text-brand-primary">
+                    {isZh ? "常见问题" : "Frequently asked questions"}
+                  </h2>
+                  <dl className="mt-4 space-y-5">
+                    {deep.faqs.map((faq) => (
+                      <div
+                        key={faq.q}
+                        className="rounded-xl border border-gray-200 bg-white p-5"
+                      >
+                        <dt className="text-sm font-semibold text-brand-primary">
+                          {faq.q}
+                        </dt>
+                        <dd className="mt-2 text-sm leading-relaxed text-foreground/70">
+                          {faq.a}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+
+                <div className="mt-12 rounded-xl border border-gray-200 bg-white p-6">
+                  <h2 className="text-sm font-semibold text-brand-primary">
+                    {isZh ? "相关阅读" : "Related reading"}
+                  </h2>
+                  <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+                    {deep.related.map((item) => (
+                      <li key={item.href}>
+                        <Link
+                          href={localizeHref(item.href, locale)}
+                          className="text-sm text-brand-secondary underline-offset-4 hover:underline"
+                        >
+                          {item.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </>
+            )}
           </div>
         </section>
       </div>

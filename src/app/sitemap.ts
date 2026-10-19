@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { isZhEnOnlyPost } from "@/lib/content-i18n";
 import { getAllNews, getAllNewsSlugs } from "@/lib/news";
 import { getAllPostSlugs, getPostBySlug } from "@/lib/posts";
 import {
@@ -187,6 +188,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const lastModified = post?.publishedAt
       ? new Date(post.publishedAt)
       : SITE_BUILT_AT;
+    // 只有中英完整正文的文章：详情页在 vi/es/it/ru 下 404，
+    // 所以这里也只输出 zh + en，hreflang 不带其余语种。
+    if (isZhEnOnlyPost(slug)) {
+      return (["zh", "en"] as const).map((locale) =>
+        entryZhEn(base, `/blog/${slug}`, locale, {
+          changeFrequency: "weekly",
+          priority: locale === defaultLocale ? 0.6 : 0.5,
+          lastModified,
+        }),
+      );
+    }
     return withLocales(`/blog/${slug}`, 0.6, lastModified);
   });
 

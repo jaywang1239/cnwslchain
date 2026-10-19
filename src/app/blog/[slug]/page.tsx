@@ -9,7 +9,7 @@ import {
   hasFeaturedImage,
   isDevEnvironment,
 } from "@/lib/posts";
-import { localizePostContent } from "@/lib/content-i18n";
+import { localizePostContent, isZhEnOnlyPost } from "@/lib/content-i18n";
 import { BlogBody } from "@/lib/blog-markdown";
 import { localizeHref, localeHtmlLang } from "@/lib/i18n";
 import { getMessages } from "@/lib/i18n/messages";
@@ -20,10 +20,15 @@ import {
   seoDescription,
   seoTitle,
 } from "@/lib/seo";
-import { absoluteUrl, localeAlternates, siteConfig } from "@/lib/site";
+import { absoluteUrl, localeAlternates, localeAlternatesZhEn, siteConfig } from "@/lib/site";
 
 interface BlogPostPageProps {
   params: { slug: string };
+}
+
+/** 只有中英完整正文的文章，在 vi/es/it/ru 下不生成页面（避免英文正文配 lang=vi）。 */
+function blockedForLocale(locale: string, slug: string): boolean {
+  return isZhEnOnlyPost(slug) && locale !== "zh" && locale !== "en";
 }
 
 export function generateStaticParams() {
@@ -35,7 +40,7 @@ export function generateMetadata({ params }: BlogPostPageProps): Metadata {
   const messages = getMessages(locale);
   const raw = getPostBySlug(params.slug);
 
-  if (!raw) {
+  if (!raw || blockedForLocale(locale, params.slug)) {
     return {
       title: messages.blog.notFound,
       description: messages.blog.empty,
@@ -62,7 +67,12 @@ export function generateMetadata({ params }: BlogPostPageProps): Metadata {
     description,
     alternates: {
       canonical: absoluteUrl(path),
-      languages: localeAlternates(`/blog/${post.slug}`).languages,
+      // 只有中英正文的文章，hreflang 也只声明这两个语种，
+      // 否则会出现「声明了 /vi/... 但实际 404」的低质信号。
+      languages: (isZhEnOnlyPost(post.slug)
+        ? localeAlternatesZhEn(`/blog/${post.slug}`)
+        : localeAlternates(`/blog/${post.slug}`)
+      ).languages,
     },
     ...buildPageSocialMeta({
       title,
@@ -82,7 +92,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
   const messages = getMessages(locale);
   const raw = getPostBySlug(params.slug);
 
-  if (!raw) {
+  if (!raw || blockedForLocale(locale, params.slug)) {
     notFound();
   }
 

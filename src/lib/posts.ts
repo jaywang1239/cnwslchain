@@ -70,14 +70,21 @@ export function getAllPostSlugs(now: Date = new Date()): string[] {
 export function getPaginatedPosts(
   page: number,
   pageSize: number = POSTS_PER_PAGE,
-  now: Date = new Date()
+  now: Date = new Date(),
+  /**
+   * 需要整篇隐藏的 slug（例如只有中英正文的文章，在 vi/es/it/ru 下不出现）。
+   * 过滤在分页之前做，否则 total 与总页数会算多。
+   */
+  excludeSlugs?: ReadonlySet<string>,
 ): {
   posts: Post[];
   total: number;
   totalPages: number;
   currentPage: number;
 } {
-  const all = getAllPosts(now);
+  const all = getAllPosts(now).filter(
+    (post) => !excludeSlugs || !excludeSlugs.has(post.slug),
+  );
   const total = all.length;
   const totalPages = Math.max(1, Math.ceil(total / pageSize));
   const currentPage = Math.min(Math.max(1, page), totalPages);

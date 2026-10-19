@@ -7,7 +7,7 @@ import {
   getPaginatedPosts,
   hasFeaturedImage,
 } from "@/lib/posts";
-import { localizePostContent } from "@/lib/content-i18n";
+import { localizePostContent, getZhEnOnlyPostSlugs } from "@/lib/content-i18n";
 import { localizeHref } from "@/lib/i18n";
 import { getMessages } from "@/lib/i18n/messages";
 import { getRequestLocale } from "@/lib/request-locale";
@@ -48,9 +48,16 @@ export default function BlogPage({ searchParams }: BlogPageProps) {
   const copy = getMessages(locale).blog;
   const requestedPage = Number.parseInt(searchParams.page ?? "1", 10);
   const page = Number.isFinite(requestedPage) && requestedPage > 0 ? requestedPage : 1;
+  // 只有中英正文的文章在其余语种下不出现（详情页同规则 404）。
+  const hiddenSlugs =
+    locale === "zh" || locale === "en"
+      ? undefined
+      : new Set(getZhEnOnlyPostSlugs());
   const { posts, total, totalPages, currentPage } = getPaginatedPosts(
     page,
     POSTS_PER_PAGE,
+    new Date(),
+    hiddenSlugs,
   );
   const localizedPosts = posts.map((post) => localizePostContent(post, locale));
 
