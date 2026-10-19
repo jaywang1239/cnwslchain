@@ -155,6 +155,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ),
   );
 
+  /**
+   * 隐私政策页（2026-10-19）：同属中英双语，但性质是法律文件而非营销页，
+   * 所以 priority 压到 0.3、更新频率标 yearly —— 它需要被搜索引擎抓取
+   * （Google Ads 会检查落地页是否有可访问的隐私政策），但不参与关键词竞争。
+   */
+  const legalRoutes: MetadataRoute.Sitemap = (["zh", "en"] as const).map(
+    (locale) =>
+      entryZhEn(base, "/privacy", locale, {
+        changeFrequency: "yearly",
+        priority: 0.3,
+      }),
+  );
+
   const withLocales = (
     path: string,
     priority: number,
@@ -211,6 +224,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...staticRoutes,
     ...zhEnLandingRoutes,
+    ...legalRoutes,
     ...productRoutes,
     ...blogRoutes,
     ...newsRoutes,

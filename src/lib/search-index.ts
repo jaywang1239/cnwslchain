@@ -291,6 +291,7 @@ export function buildSearchIndex(locale: Locale): SearchEntry[] {
     "/price",
     "/guides/selection",
     "/official",
+    "/privacy",
   ]);
 
   // ── 7. 固定页面 ──
@@ -304,6 +305,7 @@ export function buildSearchIndex(locale: Locale): SearchEntry[] {
     { href: "/downloads", label: m.nav.downloads, description: m.downloads.subtitle },
     { href: "/guides/selection", label: s.pageGuides, description: m.products.subtitle },
     { href: "/official", label: s.pageOfficial, description: m.brandFull },
+    { href: "/privacy", label: s.pagePrivacy, description: "" },
     { href: "/blog", label: m.nav.blog, description: m.blog.subtitle },
     { href: "/news", label: m.nav.news, description: m.news.subtitle },
     { href: "/about", label: m.nav.about, description: m.about.metaDescription },

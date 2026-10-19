@@ -46,6 +46,7 @@ export type SearchMessages = {
   pagePrice: string;
   pageGuides: string;
   pageOfficial: string;
+  pagePrivacy: string;
 };
 
 const catalog: Record<Locale, SearchMessages> = {
@@ -84,6 +85,7 @@ const catalog: Record<Locale, SearchMessages> = {
     pagePrice: "价格与报价",
     pageGuides: "选型五步法",
     pageOfficial: "官方声明",
+    pagePrivacy: "隐私政策",
   },
   en: {
     navAria: "Search the whole site",
@@ -120,6 +122,7 @@ const catalog: Record<Locale, SearchMessages> = {
     pagePrice: "Pricing & quotes",
     pageGuides: "Five-step selection",
     pageOfficial: "Official statement",
+    pagePrivacy: "Privacy policy",
   },
   vi: {
     navAria: "Tìm kiếm toàn trang",
@@ -156,6 +159,7 @@ const catalog: Record<Locale, SearchMessages> = {
     pagePrice: "Giá & báo giá",
     pageGuides: "Chọn mã 5 bước",
     pageOfficial: "Tuyên bố chính thức",
+    pagePrivacy: "Chính sách bảo mật",
   },
   es: {
     navAria: "Buscar en todo el sitio",
@@ -192,6 +196,7 @@ const catalog: Record<Locale, SearchMessages> = {
     pagePrice: "Precios y cotización",
     pageGuides: "Selección en cinco pasos",
     pageOfficial: "Declaración oficial",
+    pagePrivacy: "Política de privacidad",
   },
   it: {
     navAria: "Cerca in tutto il sito",
@@ -228,6 +233,7 @@ const catalog: Record<Locale, SearchMessages> = {
     pagePrice: "Prezzi e preventivi",
     pageGuides: "Selezione in cinque passi",
     pageOfficial: "Dichiarazione ufficiale",
+    pagePrivacy: "Informativa sulla privacy",
   },
   ru: {
     navAria: "Поиск по всему сайту",
@@ -264,6 +270,7 @@ const catalog: Record<Locale, SearchMessages> = {
     pagePrice: "Цены и расчёт",
     pageGuides: "Подбор в пять шагов",
     pageOfficial: "Официальное заявление",
+    pagePrivacy: "Политика конфиденциальности",
   },
 };
 

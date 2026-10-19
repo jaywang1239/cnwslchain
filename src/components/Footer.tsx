@@ -29,6 +29,16 @@ const officialLinkLabels = {
   en: "Official website statement",
 } as const;
 
+/**
+ * 隐私政策入口（2026-10-19 新增）。同样只在中英渲染 —— 与 /official 一套收口。
+ * 放页脚而不是主导航：Google Ads 审核会检查落地页能否找到隐私政策，
+ * 但客户浏览时不需要它占一个导航位。
+ */
+const privacyLinkLabels = {
+  zh: "隐私政策",
+  en: "Privacy policy",
+} as const;
+
 const officialNoticeLabels = {
   zh: "www.cnwslchain.com 为本公司唯一官方网站",
   en: "www.cnwslchain.com is our only official website",
@@ -143,12 +153,20 @@ export default function Footer() {
               </li>
             </ul>
             {officialLocale ? (
-              <Link
-                href={localizeHref("/official", officialLocale)}
-                className="mt-3 inline-block text-xs text-white/70 underline-offset-2 transition-colors hover:text-white hover:underline"
-              >
-                {officialLinkLabels[officialLocale]}
-              </Link>
+              <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1">
+                <Link
+                  href={localizeHref("/official", officialLocale)}
+                  className="inline-block text-xs text-white/70 underline-offset-2 transition-colors hover:text-white hover:underline"
+                >
+                  {officialLinkLabels[officialLocale]}
+                </Link>
+                <Link
+                  href={localizeHref("/privacy", officialLocale)}
+                  className="inline-block text-xs text-white/70 underline-offset-2 transition-colors hover:text-white hover:underline"
+                >
+                  {privacyLinkLabels[officialLocale]}
+                </Link>
+              </div>
             ) : null}
             <Link
               href={localizeHref("/contact", locale)}

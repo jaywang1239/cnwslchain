@@ -1,8 +1,9 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { localeFromPathname } from "@/lib/i18n/config";
+import { localeFromPathname, localizeHref } from "@/lib/i18n/config";
 import { getMessages } from "@/lib/i18n/messages";
 
 export default function ContactForm() {
@@ -175,6 +176,23 @@ export default function ContactForm() {
       >
         {submitting ? form.submitting : form.submit}
       </button>
+
+      {/* 提交即告知（2026-10-19）：/privacy 只有中英两版，所以提示也只在中英渲染，
+          避免在 vi/es/it/ru 上挂出 404 链接。 */}
+      {locale === "zh" || locale === "en" ? (
+        <p className="mt-3 text-xs leading-relaxed text-foreground/50">
+          {locale === "zh" ? "提交即表示你同意我们按" : "By submitting you agree to our "}
+          <Link
+            href={localizeHref("/privacy", locale)}
+            className="underline underline-offset-2 hover:text-brand-secondary"
+          >
+            {locale === "zh" ? "隐私政策" : "Privacy Policy"}
+          </Link>
+          {locale === "zh"
+            ? "处理本次询盘信息：仅用于回复与履约，不做群发营销，可随时要求删除。"
+            : " for handling this inquiry: reply and fulfilment only, no marketing blasts, deletable on request."}
+        </p>
+      ) : null}
     </form>
   );
 }
