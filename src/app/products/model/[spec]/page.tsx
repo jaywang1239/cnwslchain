@@ -86,6 +86,11 @@ export function generateMetadata({ params }: SpecPageProps): Metadata {
   );
 
   // 中文站补 keywords：产品详情页是长尾流量主力，覆盖型号 + 规格 + 场景词。
+  // 按中国人实际搜索写法组织（2026-10-19 百度下拉实证）：
+  //   ① 型号整串：WWC15-15-25、WWC15-15-25拖链
+  //   ② 尺寸写法：「拖链15X25」「15×25拖链」——下拉里真实出现的是「拖链15X20」这种大写 X
+  //   ③ 参数写法：「内高15拖链」比「内高15mm」更贴近口语，且带上「拖链」才成词
+  //   ④ 品类 + 厂家：尼龙拖链、塑料拖链、拖链厂家
   // 注意：seriesName 形如「WWC15 无尘拖链」本身已含「拖链」，material 形如「尼龙」，
   // 直接拼会产出「拖链拖链」「尼龙拖链,尼龙拖链」这类重复词，故做去重清洗。
   // 其他语种不填（国内 SEO 只针对中文）。
@@ -95,14 +100,17 @@ export function generateMetadata({ params }: SpecPageProps): Metadata {
           new Set(
             [
               spec.code,
-              `${spec.code} 拖链`,
-              seriesName,
+              `${spec.code}拖链`,
+              `拖链${spec.innerHeight}X${spec.innerWidth}`,
+              `${spec.innerHeight}×${spec.innerWidth}拖链`,
+              `${seriesName}型号规格`,
               `${openType}拖链`,
-              `内高${spec.innerHeight}mm`,
-              `内宽${spec.innerWidth}mm`,
+              `内高${spec.innerHeight}拖链`,
+              `内宽${spec.innerWidth}拖链`,
               `${material}拖链`,
               "尼龙拖链",
               "塑料拖链",
+              "拖链型号规格",
               "拖链厂家",
             ]
               .map((k) => k.trim())
