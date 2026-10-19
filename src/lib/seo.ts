@@ -68,11 +68,17 @@ export function buildPageSocialMeta(input: {
 
 export function buildOrganizationJsonLd(locale: Locale) {
   const copy = getMessages(locale);
+  // 2026-10-19：品牌词绑定。`alternateName` 里补上客户常用的中文/英文写法，
+  // 让「威仕龙拖链」「CNWSL 拖链」这类查询能落到本站，而不是被同名字号截走。
+  const alternativeNames = Array.from(
+    new Set([copy.brandFull, "CNWSL", siteConfig.registeredName, ...siteConfig.alternateNames]),
+  );
+
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: copy.legalName,
-    alternateName: [copy.brandFull, "CNWSL", siteConfig.registeredName],
+    alternateName: alternativeNames,
     url: siteConfig.url,
     logo: absoluteUrl("/images/brand/logo.webp"),
     email: siteConfig.email,

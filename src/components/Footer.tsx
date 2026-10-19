@@ -20,12 +20,27 @@ const followLabels = {
   ru: "Подписывайтесь",
 } as const;
 
+/**
+ * 官方声明入口。`/official` 只有中英双语（见 src/lib/zh-only.ts），
+ * 其余语种不渲染这个链接 —— 否则页脚会在 4 个语种上挂出 404 死链。
+ */
+const officialLinkLabels = {
+  zh: "唯一官方网站声明",
+  en: "Official website statement",
+} as const;
+
+const officialNoticeLabels = {
+  zh: "www.cnwslchain.com 为本公司唯一官方网站",
+  en: "www.cnwslchain.com is our only official website",
+} as const;
+
 export default function Footer() {
   const pathname = usePathname() || "/";
   const locale = localeFromPathname(pathname);
   const copy = getMessages(locale);
   const overseas = showOverseasSocial(locale);
   const sep = locale === "zh" ? "：" : ": ";
+  const officialLocale = locale === "zh" || locale === "en" ? locale : null;
 
   return (
     // Rebrand 2026-09-26: brand-blue footer, blue dominant; links/buttons invert to white on hover
@@ -127,6 +142,14 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
+            {officialLocale ? (
+              <Link
+                href={localizeHref("/official", officialLocale)}
+                className="mt-3 inline-block text-xs text-white/70 underline-offset-2 transition-colors hover:text-white hover:underline"
+              >
+                {officialLinkLabels[officialLocale]}
+              </Link>
+            ) : null}
             <Link
               href={localizeHref("/contact", locale)}
               className="mt-4 inline-block rounded-md border border-white/70 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-white hover:text-brand-secondary"
@@ -150,7 +173,12 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-white/20 py-4 text-center text-xs text-white/60">
-        © {new Date().getFullYear()} {copy.legalName} {copy.footer.copyright}
+        <p>
+          © {new Date().getFullYear()} {copy.legalName} {copy.footer.copyright}
+        </p>
+        {officialLocale ? (
+          <p className="mt-1 text-white/55">{officialNoticeLabels[officialLocale]}</p>
+        ) : null}
       </div>
     </footer>
   );

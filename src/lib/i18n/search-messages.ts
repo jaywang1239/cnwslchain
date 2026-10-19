@@ -45,6 +45,7 @@ export type SearchMessages = {
   pageFactory: string;
   pagePrice: string;
   pageGuides: string;
+  pageOfficial: string;
 };
 
 const catalog: Record<Locale, SearchMessages> = {
@@ -82,6 +83,7 @@ const catalog: Record<Locale, SearchMessages> = {
     pageFactory: "工厂实力",
     pagePrice: "价格与报价",
     pageGuides: "选型五步法",
+    pageOfficial: "官方声明",
   },
   en: {
     navAria: "Search the whole site",
@@ -117,6 +119,7 @@ const catalog: Record<Locale, SearchMessages> = {
     pageFactory: "Factory",
     pagePrice: "Pricing & quotes",
     pageGuides: "Five-step selection",
+    pageOfficial: "Official statement",
   },
   vi: {
     navAria: "Tìm kiếm toàn trang",
@@ -152,6 +155,7 @@ const catalog: Record<Locale, SearchMessages> = {
     pageFactory: "Năng lực nhà máy",
     pagePrice: "Giá & báo giá",
     pageGuides: "Chọn mã 5 bước",
+    pageOfficial: "Tuyên bố chính thức",
   },
   es: {
     navAria: "Buscar en todo el sitio",
@@ -187,6 +191,7 @@ const catalog: Record<Locale, SearchMessages> = {
     pageFactory: "Fábrica",
     pagePrice: "Precios y cotización",
     pageGuides: "Selección en cinco pasos",
+    pageOfficial: "Declaración oficial",
   },
   it: {
     navAria: "Cerca in tutto il sito",
@@ -222,6 +227,7 @@ const catalog: Record<Locale, SearchMessages> = {
     pageFactory: "Stabilimento",
     pagePrice: "Prezzi e preventivi",
     pageGuides: "Selezione in cinque passi",
+    pageOfficial: "Dichiarazione ufficiale",
   },
   ru: {
     navAria: "Поиск по всему сайту",
@@ -257,6 +263,7 @@ const catalog: Record<Locale, SearchMessages> = {
     pageFactory: "Производство",
     pagePrice: "Цены и расчёт",
     pageGuides: "Подбор в пять шагов",
+    pageOfficial: "Официальное заявление",
   },
 };
 

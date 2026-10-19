@@ -109,12 +109,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   /**
-   * 国内 SEO 长尾落地页：价格 / 应用案例 / 地域工厂 / 选型指南。
+   * 国内 SEO 长尾落地页：价格 / 应用案例 / 地域工厂 / 选型指南 / 官方声明。
    * 2026-10-16 起提供**中文 + 英文**两个版本（vi/es/it/ru 由页面内的
    * requireZhEnLocale() 直接 404，见 src/lib/zh-only.ts），
    * 因此这里只生成 zh 与 en 条目，hreflang 也只声明这两个语种。
+   *
+   * 2026-10-19 加入 /official（官方身份声明页）：品牌词「威仕龙 CNWSL 官网」
+   * 需要一个明确指向本站的落点，这是与同名字号竞争中唯一能自己掌控的一环。
    */
-  const zhEnPaths = ["/price", "/cases", "/factory", "/guides/selection"];
+  const zhEnPaths = [
+    "/price",
+    "/cases",
+    "/factory",
+    "/guides/selection",
+    "/official",
+  ];
 
   const staticRoutes: MetadataRoute.Sitemap = staticPaths.flatMap((path) =>
     locales.map((locale) =>

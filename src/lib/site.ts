@@ -10,7 +10,26 @@ export const siteConfig = {
   fax: "0086-0577-62328106",
   mobile: "13275225528",
   email: "info@cnwslchain.com",
-  website: "www.wslmj.com",
+  /**
+   * 2026-10-19：原值为 `www.wslmj.com`，该域名已无法解析（实测无 A 记录），
+   * 且站内没有任何地方渲染它 —— 属于历史遗留的死配置。留着是个雷：哪天有人
+   * 把它接到页面上，就会挂出一个打不开的「官网」，与 /official 的唯一官网声明
+   * 直接冲突。这里统一改成主域名。
+   */
+  website: "www.cnwslchain.com",
+  /**
+   * 品牌词的常见写法，供 Organization.alternateName 使用。
+   * 客户搜「威仕龙拖链」「CNWSL 拖链」时，结构化数据里带上这些写法，
+   * 有助于搜索引擎把品牌词与本站绑定。
+   */
+  alternateNames: [
+    "威仕龙拖链",
+    "威仕龙 CNWSL",
+    "CNWSL 威仕龙",
+    "CNWSL拖链",
+    "WSL cable carrier",
+    "Weishilong CNWSL",
+  ],
   qq: "1677331928",
   addresses: {
     factory: "浙江省温州市乐清市天成街道宁康东路2891号",
