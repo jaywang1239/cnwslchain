@@ -184,21 +184,21 @@ const ZH: Record<string, CategoryDeepCopy> = {
       {
         title: "长行程的两个真正限制：架空与导向",
         body:
-          "架空长度不是按内高线性外推的，它取决于链节刚度、负载分布和运行速度。超出架空能力必须加导向槽或滑行支撑，否则上段会下垂，回程时刮擦下段，噪音和磨损同时上来。行程超过 10 米还要考虑链条自重导致的回弯与热胀，安装时留出补偿。另一种选择是钢制拖链：耐高温、抗冲击、承载大，代价是自重大、噪音高、需要更实的支撑结构。塑料承重和钢制的分界通常在温度和冲击上——常规温度区间、需要低噪音的场合，塑料承重更合适。",
+          "架空长度不是按内高线性外推的，它取决于链节刚度、负载分布和运行速度。超出架空能力必须加导向槽或滑行支撑，否则上段会下垂，回程时刮擦下段，噪音和磨损同时上来。行程超过 10 米还要考虑链条自重导致的回弯与热胀，安装时留出补偿。有些工况确实该考虑钢制拖链：耐高温、抗冲击、承载大，代价是自重大、噪音高、需要更实的支撑结构。钢制不在我们的产品线里，这里只作选型参照——分界通常在温度和冲击上，常规温度区间、需要低噪音的场合，塑料承重更合适。",
       },
     ],
     keyPoints: [
       { label: "内高档位", value: "45 / 65 / 80 mm（3 档）" },
       { label: "内宽范围", value: "50–300 mm，共 12 档" },
       { label: "弯曲半径", value: "R75 起，最大 R300" },
-      { label: "结构", value: "桥式加强侧板，可选钢制拖链方案" },
-      { label: "工作温度", value: "-20℃ ~ +120℃（钢制按实际工况另核）" },
+      { label: "结构", value: "桥式加强侧板（全工程塑料方案）" },
+      { label: "工作温度", value: "-20℃ ~ +120℃" },
       { label: "对应型号", value: "WSL27 / WSL35 / WSL37 等系列" },
     ],
     faqs: [
       {
         q: "塑料承重拖链和钢制拖链怎么选？",
-        a: "看温度和冲击。常规车间温度、要求低噪音和轻量，用增强尼龙承重档；有高温辐射、飞溅熔渣或强冲击，钢制更合适。钢制自重大，对支撑结构和导向的要求也更高，不是换个材质那么简单。",
+        a: "看温度和冲击。常规车间温度、要求低噪音和轻量，用增强尼龙承重档；有高温辐射、飞溅熔渣或强冲击，钢制更合适。钢制自重大，对支撑结构和导向的要求也更高，不是换个材质那么简单。我们只做工程塑料拖链，钢制不在产品线内；工况真需要钢制，会直接说明，不拿塑料硬顶。",
       },
       {
         q: "架空多长就必须加导向槽？",
@@ -513,7 +513,7 @@ const EN: Record<string, CategoryDeepCopy> = {
   heavy: {
     metaTitle: "Heavy Duty Cable Carriers 45-80mm | Reinforced Nylon - CNWSL",
     metaDescription:
-      "Heavy-duty cable carriers with inner heights of 45, 65 and 80 mm, inner widths 50-300 mm in 12 steps and bend radii R75-R300. Reinforced side plates for gantry machining centres, large injection moulding machines and long-travel heavy equipment. Covers when heavy is mandatory and where steel takes over.",
+      "Heavy-duty cable carriers with inner heights of 45, 65 and 80 mm, inner widths 50-300 mm in 12 steps and bend radii R75-R300. Reinforced side plates for gantry machining centres, large injection moulding machines and long-travel heavy equipment. Covers when heavy is mandatory and where plastics stop.",
     heading: "Heavy-duty cable carriers: 45-80 mm for load and long travel",
     lead:
       "Above 45 mm inner height the question changes. It is no longer whether the cables fit, but whether links carrying several kilograms per metre across several metres of span will hold up. Most customers in this band have already been burned once - a worn-through side plate, or a sagging span scraping the workpiece - and one rework costs far more than the carrier.",
@@ -531,21 +531,21 @@ const EN: Record<string, CategoryDeepCopy> = {
       {
         title: "The two real limits on long travel: span and guidance",
         body:
-          "Unsupported length does not scale linearly with inner height. It depends on link stiffness, load distribution and speed. Beyond the span capability, add a guide trough or gliding support, otherwise the upper run sags, scrapes the lower run on return, and both noise and wear climb. Beyond about ten metres, allow for self-weight catenary and thermal expansion. Steel carriers are the other option: higher temperature resistance, impact tolerance and load capacity, at the cost of weight, noise and heavier support structures. The usual dividing line is temperature and impact - within normal temperature ranges and where low noise matters, plastics win.",
+          "Unsupported length does not scale linearly with inner height. It depends on link stiffness, load distribution and speed. Beyond the span capability, add a guide trough or gliding support, otherwise the upper run sags, scrapes the lower run on return, and both noise and wear climb. Beyond about ten metres, allow for self-weight catenary and thermal expansion. Steel carriers are the other option: higher temperature resistance, impact tolerance and load capacity, at the cost of weight, noise and heavier support structures. Steel is not in our range - the comparison here only sets the boundary. The usual dividing line is temperature and impact - within normal temperature ranges and where low noise matters, plastics win.",
       },
     ],
     keyPoints: [
       { label: "Inner heights", value: "45 / 65 / 80 mm (3 sizes)" },
       { label: "Inner widths", value: "50-300 mm, 12 steps" },
       { label: "Bend radii", value: "From R75 up to R300" },
-      { label: "Design", value: "Reinforced side plates; steel option available" },
-      { label: "Temperature", value: "-20°C to +120°C (steel quoted separately)" },
+      { label: "Design", value: "Reinforced side plates, all-plastic construction" },
+      { label: "Temperature", value: "-20°C to +120°C" },
       { label: "Series", value: "WSL27 / WSL35 / WSL37 families" },
     ],
     faqs: [
       {
         q: "Plastic heavy-duty or steel carrier?",
-        a: "Temperature and impact decide. Normal shop temperatures with low-noise and light weight point to reinforced nylon. Radiant heat, spatter or heavy impact point to steel. Steel is heavier and demands more from supports and guidance, so it is not a simple material swap.",
+        a: "Temperature and impact decide. Normal shop temperatures with low-noise and light weight point to reinforced nylon. Radiant heat, spatter or heavy impact point to steel. Steel is heavier and demands more from supports and guidance, so it is not a simple material swap. We build engineering-plastic carriers only; steel is not in our range, and we would rather say so than push plastic past its limit.",
       },
       {
         q: "At what span must a guide trough be added?",
