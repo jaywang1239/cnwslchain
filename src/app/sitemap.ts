@@ -92,7 +92,31 @@ function entryZhEn(
   };
 }
 
+/**
+ * 中文 URL 集合。
+ *
+ * 为什么单独抽出来（2026-10-20 百度可见性检测后加）：
+ * 全站 2174 条 URL 里外语页占 83%，而百度只需中文页。把中文页单独挂成
+ * /sitemap-zh.xml 提交给百度搜索资源平台，等于把有限的抓取配额全给到
+ * 374 条有价值的页面，不再被 1800 条外语页稀释。
+ *
+ * 中文 URL 的特征：不带 /en /vi /es /it /ru 前缀（zh 是 defaultLocale，
+ * localizedUrl 对中文不加前缀）。这里按"路径首段是否是外语前缀"判断，
+ * 不硬编码具体路由，后续加页面自动纳入。
+ */
+export function zhSitemap(): MetadataRoute.Sitemap {
+  return buildSitemap().filter((item) => {
+    const path = item.url.replace(/^https?:\/\/[^/]+/, "");
+    const first = path.split("/")[1] ?? "";
+    return !(locales as readonly string[]).includes(first) || first === defaultLocale;
+  });
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
+  return buildSitemap();
+}
+
+function buildSitemap(): MetadataRoute.Sitemap {
   const base = siteConfig.url.replace(/\/$/, "");
   const newsBySlug = Object.fromEntries(
     getAllNews().map((item) => [item.slug, item]),
