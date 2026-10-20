@@ -40,10 +40,14 @@ export function generateMetadata(): Metadata {
 }
 
 interface BlogPageProps {
-  searchParams: { page?: string };
+  /** Next.js 15 起 searchParams 为 Promise，需 await 后使用。 */
+  searchParams: Promise<{ page?: string }>;
 }
 
-export default function BlogPage({ searchParams }: BlogPageProps) {
+export default async function BlogPage({
+  searchParams: searchParamsPromise,
+}: BlogPageProps) {
+  const searchParams = await searchParamsPromise;
   const locale = getRequestLocale();
   const copy = getMessages(locale).blog;
   const requestedPage = Number.parseInt(searchParams.page ?? "1", 10);

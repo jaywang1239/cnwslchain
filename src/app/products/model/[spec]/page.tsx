@@ -33,14 +33,18 @@ import { getRequestLocale } from "@/lib/request-locale";
 import { absoluteUrl, localeAlternates } from "@/lib/site";
 
 interface SpecPageProps {
-  params: { spec: string };
+  /** Next.js 15 起动态路由参数为 Promise，需 await 后使用。 */
+  params: Promise<{ spec: string }>;
 }
 
 export function generateStaticParams() {
   return getAllModelParams();
 }
 
-export function generateMetadata({ params }: SpecPageProps): Metadata {
+export async function generateMetadata({
+  params: paramsPromise,
+}: SpecPageProps): Promise<Metadata> {
+  const params = await paramsPromise;
   const locale = getRequestLocale();
   const messages = getMessages(locale);
   const spec = getSpecByModelId(params.spec);
@@ -151,7 +155,10 @@ export function generateMetadata({ params }: SpecPageProps): Metadata {
   };
 }
 
-export default function SpecPage({ params }: SpecPageProps) {
+export default async function SpecPage({
+  params: paramsPromise,
+}: SpecPageProps) {
+  const params = await paramsPromise;
   const locale = getRequestLocale();
   const messages = getMessages(locale);
   const copy = messages.products;

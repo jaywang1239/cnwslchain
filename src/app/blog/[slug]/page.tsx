@@ -23,7 +23,8 @@ import {
 import { absoluteUrl, localeAlternates, localeAlternatesZhEn, siteConfig } from "@/lib/site";
 
 interface BlogPostPageProps {
-  params: { slug: string };
+  /** Next.js 15 起动态路由参数为 Promise，需 await 后使用。 */
+  params: Promise<{ slug: string }>;
 }
 
 /** 只有中英完整正文的文章，在 vi/es/it/ru 下不生成页面（避免英文正文配 lang=vi）。 */
@@ -35,7 +36,10 @@ export function generateStaticParams() {
   return getAllPostSlugs().map((slug) => ({ slug }));
 }
 
-export function generateMetadata({ params }: BlogPostPageProps): Metadata {
+export async function generateMetadata({
+  params: paramsPromise,
+}: BlogPostPageProps): Promise<Metadata> {
+  const params = await paramsPromise;
   const locale = getRequestLocale();
   const messages = getMessages(locale);
   const raw = getPostBySlug(params.slug);
@@ -87,7 +91,10 @@ export function generateMetadata({ params }: BlogPostPageProps): Metadata {
   };
 }
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
+export default async function BlogPostPage({
+  params: paramsPromise,
+}: BlogPostPageProps) {
+  const params = await paramsPromise;
   const locale = getRequestLocale();
   const messages = getMessages(locale);
   const raw = getPostBySlug(params.slug);

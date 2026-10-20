@@ -25,14 +25,18 @@ import { getRequestLocale } from "@/lib/request-locale";
 import { absoluteUrl, localeAlternates } from "@/lib/site";
 
 interface CategoryPageProps {
-  params: { category: string };
+  /** Next.js 15 起动态路由参数为 Promise，需 await 后使用。 */
+  params: Promise<{ category: string }>;
 }
 
 export function generateStaticParams() {
   return getAllCategoryParams();
 }
 
-export function generateMetadata({ params }: CategoryPageProps): Metadata {
+export async function generateMetadata({
+  params: paramsPromise,
+}: CategoryPageProps): Promise<Metadata> {
+  const params = await paramsPromise;
   const locale = getRequestLocale();
   const messages = getMessages(locale);
   const raw = getCategoryById(params.category);
@@ -96,7 +100,10 @@ export function generateMetadata({ params }: CategoryPageProps): Metadata {
   };
 }
 
-export default function CategoryPage({ params }: CategoryPageProps) {
+export default async function CategoryPage({
+  params: paramsPromise,
+}: CategoryPageProps) {
+  const params = await paramsPromise;
   const locale = getRequestLocale();
   const copy = getMessages(locale).products;
   const raw = getCategoryById(params.category);

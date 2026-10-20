@@ -37,11 +37,13 @@ export function generateMetadata(): Metadata {
   };
 }
 
-export default function SearchPage({
-  searchParams,
+export default async function SearchPage({
+  searchParams: searchParamsPromise,
 }: {
-  searchParams?: SearchParams;
+  /** Next.js 15 起 searchParams 为 Promise，需 await 后使用。 */
+  searchParams?: Promise<SearchParams>;
 }) {
+  const searchParams = await searchParamsPromise;
   const locale = getRequestLocale();
   const copy = getSearchMessages(locale);
   const query = readQuery(searchParams);

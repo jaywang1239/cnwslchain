@@ -20,14 +20,18 @@ import {
 import { absoluteUrl, localeAlternates, siteConfig } from "@/lib/site";
 
 interface NewsDetailPageProps {
-  params: { slug: string };
+  /** Next.js 15 起动态路由参数为 Promise，需 await 后使用。 */
+  params: Promise<{ slug: string }>;
 }
 
 export function generateStaticParams() {
   return getAllNewsSlugs().map((slug) => ({ slug }));
 }
 
-export function generateMetadata({ params }: NewsDetailPageProps): Metadata {
+export async function generateMetadata({
+  params: paramsPromise,
+}: NewsDetailPageProps): Promise<Metadata> {
+  const params = await paramsPromise;
   const locale = getRequestLocale();
   const messages = getMessages(locale);
   const raw = getNewsBySlug(params.slug);
@@ -67,7 +71,10 @@ export function generateMetadata({ params }: NewsDetailPageProps): Metadata {
   };
 }
 
-export default function NewsDetailPage({ params }: NewsDetailPageProps) {
+export default async function NewsDetailPage({
+  params: paramsPromise,
+}: NewsDetailPageProps) {
+  const params = await paramsPromise;
   const locale = getRequestLocale();
   const messages = getMessages(locale);
   const raw = getNewsBySlug(params.slug);

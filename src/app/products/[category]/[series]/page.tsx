@@ -22,14 +22,18 @@ import { buildPageSocialMeta, seoDescription, seoTitle } from "@/lib/seo";
 import { absoluteUrl, localeAlternates } from "@/lib/site";
 
 interface SeriesPageProps {
-  params: { category: string; series: string };
+  /** Next.js 15 起动态路由参数为 Promise，需 await 后使用。 */
+  params: Promise<{ category: string; series: string }>;
 }
 
 export function generateStaticParams() {
   return getAllSeriesParams();
 }
 
-export function generateMetadata({ params }: SeriesPageProps): Metadata {
+export async function generateMetadata({
+  params: paramsPromise,
+}: SeriesPageProps): Promise<Metadata> {
+  const params = await paramsPromise;
   const locale = getRequestLocale();
   const messages = getMessages(locale);
   const rawCategory = getCategoryById(params.category);
@@ -75,7 +79,10 @@ export function generateMetadata({ params }: SeriesPageProps): Metadata {
   };
 }
 
-export default function SeriesPage({ params }: SeriesPageProps) {
+export default async function SeriesPage({
+  params: paramsPromise,
+}: SeriesPageProps) {
+  const params = await paramsPromise;
   const locale = getRequestLocale();
   const messages = getMessages(locale);
   const copy = messages.products;
