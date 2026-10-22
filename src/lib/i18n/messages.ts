@@ -143,7 +143,8 @@ export type AppMessages = {
     patentsTitle: string;
     patentsBadge: string;
     certsTitle: string;
-    certifications: { name: string; description: string }[];
+    viewOriginal: string;
+    certifications: { name: string; description: string; href?: string }[];
   };
   contact: {
     metaTitle: string;
@@ -505,10 +506,24 @@ const zh: AppMessages = {
     patentsTitle: "专利荣誉",
     patentsBadge: "实用新型专利",
     certsTitle: "资质认证与检测报告",
+    viewOriginal: "查看原件",
     certifications: [
       {
         name: "IATF 16949",
         description: "汽车质量管理体系认证，覆盖注塑件与拖链生产。",
+        href: "/datasheets/iatf-16949-certificate.pdf",
+      },
+      {
+        name: "Fraunhofer IPA 洁净室证书",
+        description:
+          "德国 Fraunhofer IPA 出具：按 ISO 14644-14 评估，0.5 / 1.0 / 2.0 m/s 三档速度均判为 ISO Class 1，有效期至 2031 年 9 月。",
+        href: "/datasheets/fraunhofer-ipa-cleanroom-certificate.pdf",
+      },
+      {
+        name: "防静电无尘拖链检测报告（CTI）",
+        description:
+          "华测检测（CTI 广州）第三方报告：按 ANSI/ESD S20.20:2021 测试，体积电阻 1.19×10⁶ Ω、表面电阻 2.42×10⁶ Ω。",
+        href: "/datasheets/anti-static-cleanroom-chain-test-report.pdf",
       },
       {
         name: "SGS RoHS",
@@ -964,10 +979,24 @@ const en: AppMessages = {
     patentsTitle: "Patents & awards",
     patentsBadge: "Utility model patent",
     certsTitle: "Certifications & test reports",
+    viewOriginal: "View document",
     certifications: [
       {
         name: "IATF 16949",
         description: "Automotive quality management system covering molding and carrier production.",
+        href: "/datasheets/iatf-16949-certificate.pdf",
+      },
+      {
+        name: "Fraunhofer IPA cleanroom certificate",
+        description:
+          "Issued by Fraunhofer IPA (Germany): assessed to ISO 14644-14, rated ISO Class 1 at 0.5 / 1.0 / 2.0 m/s, valid until September 2031.",
+        href: "/datasheets/fraunhofer-ipa-cleanroom-certificate.pdf",
+      },
+      {
+        name: "Anti-static cleanroom carrier test report (CTI)",
+        description:
+          "Third-party report by CTI Guangzhou: tested to ANSI/ESD S20.20:2021, volume resistance 1.19×10⁶ Ω and surface resistance 2.42×10⁶ Ω.",
+        href: "/datasheets/anti-static-cleanroom-chain-test-report.pdf",
       },
       {
         name: "SGS RoHS",
@@ -1398,10 +1427,24 @@ const vi: AppMessages = {
     patentsTitle: "Bằng sáng chế & danh hiệu",
     patentsBadge: "Bằng sáng chế kiểu hữu ích",
     certsTitle: "Chứng nhận & báo cáo thử nghiệm",
+    viewOriginal: "Xem bản gốc",
     certifications: [
       {
         name: "IATF 16949",
         description: "Hệ thống quản lý chất lượng ô tô cho ép phun và sản xuất xích.",
+        href: "/datasheets/iatf-16949-certificate.pdf",
+      },
+      {
+        name: "Chứng nhận phòng sạch Fraunhofer IPA",
+        description:
+          "Do Fraunhofer IPA (Đức) cấp: đánh giá theo ISO 14644-14, đạt ISO Class 1 ở 0,5 / 1,0 / 2,0 m/s, hiệu lực đến tháng 9/2031.",
+        href: "/datasheets/fraunhofer-ipa-cleanroom-certificate.pdf",
+      },
+      {
+        name: "Báo cáo thử nghiệm xích phòng sạch chống tĩnh điện (CTI)",
+        description:
+          "Báo cáo bên thứ ba của CTI Quảng Châu: thử theo ANSI/ESD S20.20:2021, điện trở khối 1,19×10⁶ Ω, điện trở bề mặt 2,42×10⁶ Ω.",
+        href: "/datasheets/anti-static-cleanroom-chain-test-report.pdf",
       },
       {
         name: "SGS RoHS",
@@ -1835,11 +1878,25 @@ const es: AppMessages = {
     patentsTitle: "Patentes y reconocimientos",
     patentsBadge: "Patente de modelo de utilidad",
     certsTitle: "Certificaciones e informes de ensayo",
+    viewOriginal: "Ver original",
     certifications: [
       {
         name: "IATF 16949",
         description:
           "Sistema de gestión de calidad de automoción que cubre inyección y producción de portacables.",
+        href: "/datasheets/iatf-16949-certificate.pdf",
+      },
+      {
+        name: "Certificado cleanroom Fraunhofer IPA",
+        description:
+          "Emitido por Fraunhofer IPA (Alemania): evaluado según ISO 14644-14, clasificado ISO Class 1 a 0,5 / 1,0 / 2,0 m/s, válido hasta septiembre de 2031.",
+        href: "/datasheets/fraunhofer-ipa-cleanroom-certificate.pdf",
+      },
+      {
+        name: "Informe de ensayo de portacables cleanroom antiestático (CTI)",
+        description:
+          "Informe de terceros de CTI Cantón: ensayado según ANSI/ESD S20.20:2021, resistencia de volumen 1,19×10⁶ Ω y superficial 2,42×10⁶ Ω.",
+        href: "/datasheets/anti-static-cleanroom-chain-test-report.pdf",
       },
       {
         name: "SGS RoHS",
@@ -2296,11 +2353,25 @@ const it: AppMessages = {
     patentsTitle: "Brevetti e riconoscimenti",
     patentsBadge: "Brevetto di modello di utilità",
     certsTitle: "Certificazioni e rapporti di prova",
+    viewOriginal: "Vedi originale",
     certifications: [
       {
         name: "IATF 16949",
         description:
           "Sistema di gestione qualità automotive che copre stampaggio e produzione di catene.",
+        href: "/datasheets/iatf-16949-certificate.pdf",
+      },
+      {
+        name: "Certificato cleanroom Fraunhofer IPA",
+        description:
+          "Rilasciato da Fraunhofer IPA (Germania): valutato secondo ISO 14644-14, classificato ISO Class 1 a 0,5 / 1,0 / 2,0 m/s, valido fino a settembre 2031.",
+        href: "/datasheets/fraunhofer-ipa-cleanroom-certificate.pdf",
+      },
+      {
+        name: "Rapporto di prova catene cleanroom antistatiche (CTI)",
+        description:
+          "Rapporto di terza parte CTI Canton: testato secondo ANSI/ESD S20.20:2021, resistenza di volume 1,19×10⁶ Ω e superficiale 2,42×10⁶ Ω.",
+        href: "/datasheets/anti-static-cleanroom-chain-test-report.pdf",
       },
       {
         name: "SGS RoHS",
@@ -2754,10 +2825,24 @@ const ru: AppMessages = {
     patentsTitle: "Патенты и награды",
     patentsBadge: "Патент на полезную модель",
     certsTitle: "Сертификаты и протоколы испытаний",
+    viewOriginal: "Открыть документ",
     certifications: [
       {
         name: "IATF 16949",
         description: "Система менеджмента качества автомобильной отрасли, охватывающая литьё и производство кабельных цепей.",
+        href: "/datasheets/iatf-16949-certificate.pdf",
+      },
+      {
+        name: "Сертификат чистых помещений Fraunhofer IPA",
+        description:
+          "Выдан Fraunhofer IPA (Германия): оценка по ISO 14644-14, класс ISO Class 1 при 0,5 / 1,0 / 2,0 м/с, действует до сентября 2031 года.",
+        href: "/datasheets/fraunhofer-ipa-cleanroom-certificate.pdf",
+      },
+      {
+        name: "Протокол испытаний антистатической цепи для чистых помещений (CTI)",
+        description:
+          "Протокол третьей стороны CTI Гуанчжоу: испытания по ANSI/ESD S20.20:2021, объёмное сопротивление 1,19×10⁶ Ом, поверхностное 2,42×10⁶ Ом.",
+        href: "/datasheets/anti-static-cleanroom-chain-test-report.pdf",
       },
       {
         name: "SGS RoHS",

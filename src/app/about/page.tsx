@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import patentsData from "../../../data/patents.json";
 import { localizeHref } from "@/lib/i18n";
 import { getMessages } from "@/lib/i18n/messages";
@@ -10,6 +11,8 @@ import { absoluteUrl, localeAlternates, siteConfig } from "@/lib/site";
 
 const CERT_IMAGES = [
   "/images/certs/iatf-16949-certificate.webp",
+  "/images/certs/fraunhofer-ipa-certificate.webp",
+  "/images/certs/anti-static-test-report.webp",
   "/images/certs/sgs-rohs-report.webp",
   "/images/certs/pa-321x11-nat-datasheet.webp",
   "/images/certs/cleanroom-high-low-temp-test.webp",
@@ -213,6 +216,17 @@ export default function AboutPage() {
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-foreground/70">
                     {cert.description}
                   </p>
+                  {cert.href ? (
+                    <Link
+                      href={cert.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-brand-accent hover:underline"
+                    >
+                      {copy.viewOriginal}
+                      <span aria-hidden="true">↗</span>
+                    </Link>
+                  ) : null}
                 </div>
               </article>
             ))}
