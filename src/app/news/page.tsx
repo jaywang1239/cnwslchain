@@ -67,7 +67,7 @@ export default function NewsPage() {
                 >
                   <div className="relative min-h-[160px] bg-white sm:min-h-full">
                     <Image
-                      src={item.image}
+                      src={item.cardImage ?? item.image}
                       alt={item.title}
                       fill
                       sizes="240px"

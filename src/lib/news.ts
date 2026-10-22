@@ -11,6 +11,12 @@ export interface NewsItem {
   slug: string;
   content: string;
   image: string;
+  /**
+   * 列表卡片专用图（可选）。
+   * 竖版证书类新闻的 16:10 头图在 240px 宽的卡片里会被裁掉两侧，
+   * 这里可以单独给一张与卡片同比例（6:5）的构图，缺省回落到 image。
+   */
+  cardImage?: string;
   /** Optional booth / event video (H.264 MP4). */
   video?: string;
   date: string;
