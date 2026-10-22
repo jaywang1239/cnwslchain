@@ -106,5 +106,45 @@
       "it": "Scarica rapporto",
       "ru": "Скачать протокол"
     }
+  },
+  {
+    "id": "fraunhofer-ipa-certificate",
+    "section": "cleanroom",
+    "title": "Fraunhofer IPA 洁净室适用性证书（WWC.28.65）",
+    "titles": {
+      "en": "Fraunhofer IPA Cleanroom Suitability Certificate (WWC.28.65)",
+      "vi": "Chứng nhận phù hợp phòng sạch Fraunhofer IPA (WWC.28.65)",
+      "es": "Certificado de aptitud para sala limpia Fraunhofer IPA (WWC.28.65)",
+      "it": "Certificato di idoneità per camera bianca Fraunhofer IPA (WWC.28.65)",
+      "ru": "Сертификат пригодности для чистых помещений Fraunhofer IPA (WWC.28.65)"
+    },
+    "description": "德国 Fraunhofer IPA 出具的洁净室适用性证书：无尘拖链 WWC.28.65（白色）按 ISO 14644-14 评估，0.5 / 1.0 / 2.0 m/s 三档运行速度下判定适用洁净度等级均为 ISO Class 1。报告编号 ZH 2608-1800，有效期至 2031 年 9 月 30 日。",
+    "descriptions": {
+      "en": "Cleanroom suitability certificate issued by Fraunhofer IPA (Stuttgart): dust-free cable carrier WWC.28.65 in white assessed to ISO 14644-14, rated ISO Class 1 at 0.5, 1.0 and 2.0 m/s. Report No. ZH 2608-1800, valid until 30 September 2031.",
+      "vi": "Chứng nhận phù hợp phòng sạch do Fraunhofer IPA (Stuttgart) cấp: xích cáp không bụi WWC.28.65 màu trắng đánh giá theo ISO 14644-14, đạt ISO Class 1 ở 0,5 / 1,0 / 2,0 m/s. Số báo cáo ZH 2608-1800, hiệu lực đến 30/09/2031.",
+      "es": "Certificado de aptitud para sala limpia emitido por Fraunhofer IPA (Stuttgart): cadena portacables WWC.28.65 en blanco evaluada según ISO 14644-14, clasificada ISO Class 1 a 0,5 / 1,0 / 2,0 m/s. Informe n.º ZH 2608-1800, válido hasta el 30 de septiembre de 2031.",
+      "it": "Certificato di idoneità per camera bianca rilasciato da Fraunhofer IPA (Stoccarda): catena portacavi WWC.28.65 bianca valutata secondo ISO 14644-14, classificata ISO Class 1 a 0,5 / 1,0 / 2,0 m/s. Rapporto n. ZH 2608-1800, valido fino al 30 settembre 2031.",
+      "ru": "Сертификат пригодности для чистых помещений, выданный Fraunhofer IPA (Штутгарт): обеспыленная кабельная цепь WWC.28.65 белого цвета, оценка по ISO 14644-14, класс ISO Class 1 при 0,5 / 1,0 / 2,0 м/с. Протокол № ZH 2608-1800, действует до 30 сентября 2031 года."
+    },
+    "format": "PDF",
+    "fileUrl": "/datasheets/fraunhofer-ipa-cleanroom-certificate.pdf",
+    "fileSize": "386 KB",
+    "imageSrc": "/images/news/fraunhofer-ipa-certificate.webp",
+    "imageAlt": "Fraunhofer IPA 洁净室适用性证书首页与测试结果表",
+    "imageAlts": {
+      "en": "Fraunhofer IPA cleanroom suitability certificate cover and test result table",
+      "vi": "Trang đầu chứng nhận Fraunhofer IPA và bảng kết quả thử nghiệm",
+      "es": "Portada del certificado Fraunhofer IPA y tabla de resultados",
+      "it": "Copertina del certificato Fraunhofer IPA e tabella dei risultati",
+      "ru": "Первая страница сертификата Fraunhofer IPA и таблица результатов"
+    },
+    "cta": "下载证书",
+    "ctas": {
+      "en": "Download certificate",
+      "vi": "Tải chứng nhận",
+      "es": "Descargar certificado",
+      "it": "Scarica certificato",
+      "ru": "Скачать сертификат"
+    }
   }
 ]

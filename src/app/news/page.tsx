@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { formatNewsDate, getAllNews } from "@/lib/news";
+import { newsExcerpt } from "@/lib/news-text";
 import { localizeNewsContent } from "@/lib/content-i18n";
 import { localizeHref } from "@/lib/i18n";
 import { getMessages } from "@/lib/i18n/messages";
@@ -110,7 +111,7 @@ export default function NewsPage() {
                     </h2>
 
                     <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-foreground/70">
-                      {item.content.split(/\n\n+/)[0]}
+                      {newsExcerpt(item.content)}
                     </p>
 
                     <span className="mt-4 inline-flex items-center text-sm font-medium text-brand-secondary">

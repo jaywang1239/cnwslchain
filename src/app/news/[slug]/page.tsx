@@ -8,6 +8,7 @@ import {
   getNewsBySlug,
 } from "@/lib/news";
 import { localizeNewsContent } from "@/lib/content-i18n";
+import { newsExcerpt, parseNewsBlocks } from "@/lib/news-text";
 import { localizeHref, localeHtmlLang } from "@/lib/i18n";
 import { getMessages } from "@/lib/i18n/messages";
 import { getRequestLocale } from "@/lib/request-locale";
@@ -46,7 +47,7 @@ export async function generateMetadata({
   const item = localizeNewsContent(raw, locale);
   const path = localizeHref(`/news/${item.slug}`, locale);
   const title = seoTitle(item.title);
-  const description = seoDescription(item.content);
+  const description = seoDescription(newsExcerpt(item.content, 200));
 
   return {
     title,
@@ -84,10 +85,7 @@ export default async function NewsDetailPage({
   }
 
   const item = localizeNewsContent(raw, locale);
-  const paragraphs = item.content
-    .split(/\n\n+/)
-    .map((block) => block.trim())
-    .filter(Boolean);
+  const blocks = parseNewsBlocks(item.content);
 
   const isExpo = item.type === messages.news.expo;
   const pagePath = localizeHref(`/news/${item.slug}`, locale);
@@ -98,14 +96,14 @@ export default async function NewsDetailPage({
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     headline: item.title,
-    description: seoDescription(item.content),
+    description: seoDescription(newsExcerpt(item.content, 200)),
     image: [absoluteUrl(item.image)],
     ...(raw.video
       ? {
           video: {
             "@type": "VideoObject",
             name: item.title,
-            description: seoDescription(item.content),
+            description: seoDescription(newsExcerpt(item.content, 200)),
             thumbnailUrl: absoluteUrl(item.image),
             contentUrl: absoluteUrl(raw.video),
             uploadDate: item.date,
@@ -215,14 +213,82 @@ export default async function NewsDetailPage({
         )}
 
         <div className="mt-10 space-y-5 rounded-xl border border-gray-200 bg-white p-6 sm:p-8">
-          {paragraphs.map((paragraph, index) => (
-            <p
-              key={index}
-              className="text-base leading-relaxed text-foreground/80"
-            >
-              {paragraph}
-            </p>
-          ))}
+          {blocks.map((block, index) => {
+            switch (block.type) {
+              case "heading":
+                return block.level === 2 ? (
+                  <h2
+                    key={index}
+                    className="!mt-9 border-l-4 border-brand-secondary pl-3 text-xl font-semibold text-brand-primary first:!mt-0"
+                  >
+                    <InlineText text={block.text} />
+                  </h2>
+                ) : (
+                  <h3
+                    key={index}
+                    className="!mt-6 text-base font-semibold text-brand-primary"
+                  >
+                    <InlineText text={block.text} />
+                  </h3>
+                );
+              case "list":
+                return (
+                  <ul key={index} className="list-disc space-y-2 pl-5 marker:text-brand-secondary">
+                    {block.items.map((item, i) => (
+                      <li
+                        key={i}
+                        className="pl-1 text-base leading-relaxed text-foreground/80"
+                      >
+                        <InlineText text={item} />
+                      </li>
+                    ))}
+                  </ul>
+                );
+              case "table":
+                return (
+                  <div key={index} className="overflow-x-auto">
+                    <table className="w-full min-w-[320px] border-collapse text-sm">
+                      <thead>
+                        <tr>
+                          {block.head.map((cell, i) => (
+                            <th
+                              key={i}
+                              scope="col"
+                              className="border border-gray-200 bg-gray-50 px-3 py-2 text-left font-semibold text-brand-primary"
+                            >
+                              <InlineText text={cell} />
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {block.rows.map((row, r) => (
+                          <tr key={r}>
+                            {row.map((cell, c) => (
+                              <td
+                                key={c}
+                                className="border border-gray-200 px-3 py-2 text-foreground/80"
+                              >
+                                <InlineText text={cell} />
+                              </td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                );
+              default:
+                return (
+                  <p
+                    key={index}
+                    className="text-base leading-relaxed text-foreground/80"
+                  >
+                    <InlineText text={block.text} />
+                  </p>
+                );
+            }
+          })}
         </div>
 
         <div className="mt-10">
@@ -235,5 +301,29 @@ export default async function NewsDetailPage({
         </div>
       </div>
     </article>
+  );
+}
+
+/**
+ * 行内 **加粗** 的最小实现。
+ *
+ * 新闻正文散落在 JSON 与 content-i18n 里，为几个强调词引入完整的 markdown
+ * 渲染器不划算；这里只认 **…** 一种标记。
+ */
+function InlineText({ text }: { text: string }) {
+  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+
+  return (
+    <>
+      {parts.map((part, index) =>
+        part.startsWith("**") && part.endsWith("**") && part.length > 4 ? (
+          <strong key={index} className="font-semibold text-brand-primary">
+            {part.slice(2, -2)}
+          </strong>
+        ) : (
+          <span key={index}>{part}</span>
+        ),
+      )}
+    </>
   );
 }
