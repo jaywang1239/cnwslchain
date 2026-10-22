@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { getAllDownloads, localizeDownload } from "@/lib/downloads";
+import {
+  getAllDownloads,
+  localizeDownload,
+  localizeDownloadCta,
+} from "@/lib/downloads";
 import { localizeHref } from "@/lib/i18n";
 import { getMessages } from "@/lib/i18n/messages";
 import { getRequestLocale } from "@/lib/request-locale";
@@ -107,7 +111,7 @@ export default function DownloadsPage() {
                     className="mt-8 inline-flex w-fit items-center gap-2 rounded-md bg-brand-secondary px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-accent"
                   >
                     <DownloadIcon />
-                    {copy.download}
+                    {localizeDownloadCta(item, locale, copy.download)}
                   </a>
                 </div>
               </article>
