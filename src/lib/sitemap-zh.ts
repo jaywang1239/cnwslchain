@@ -1,5 +1,5 @@
 import { getAllNews, getAllNewsSlugs } from "@/lib/news";
-import { getAllPostSlugs, getPostBySlug } from "@/lib/posts";
+import { getAllPostSlugs, getAllPosts, getPostBySlug } from "@/lib/posts";
 import {
   getAllCategoryParams,
   getAllModelParams,
@@ -38,6 +38,22 @@ function rows(): Row[] {
     getAllNews().map((item) => [item.slug, item]),
   );
 
+  /*
+   * 列表页 lastmod 跟最新一条内容走（与 app/sitemap.ts 同口径）。
+   * 2026-10-29 修：此前只有 /news 这么做，/blog 还在吃 SITE_BUILT_AT(9-07)，
+   * 但博客 10-19 仍有新文 —— 两个 sitemap 之间、以及「日期 vs 实际内容」
+   * 都不能打架，否则搜索引擎会整体不信任 lastmod。
+   */
+  const latestNewsDate = getAllNews().reduce<Date>((acc, item) => {
+    const d = item.date ? new Date(item.date) : SITE_BUILT_AT;
+    return d.getTime() > acc.getTime() ? d : acc;
+  }, SITE_BUILT_AT);
+
+  const latestPostDate = getAllPosts().reduce<Date>((acc, post) => {
+    const d = new Date(post.publishedAt);
+    return d.getTime() > acc.getTime() ? d : acc;
+  }, SITE_BUILT_AT);
+
   const staticPaths = [
     "/",
     "/products",
@@ -63,11 +79,10 @@ function rows(): Row[] {
       path,
       lastModified:
         path === "/news"
-          ? getAllNews().reduce<Date>((acc, item) => {
-              const d = item.date ? new Date(item.date) : SITE_BUILT_AT;
-              return d.getTime() > acc.getTime() ? d : acc;
-            }, SITE_BUILT_AT)
-          : pageLastModified(path),
+          ? latestNewsDate
+          : path === "/blog"
+            ? latestPostDate
+            : pageLastModified(path),
       changeFrequency:
         path === "/" || path === "/blog" || path === "/news"
           ? "daily"

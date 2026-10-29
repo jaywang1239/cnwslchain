@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import {
   POSTS_PER_PAGE,
   formatPublishedAt,
@@ -14,10 +15,41 @@ import { getRequestLocale } from "@/lib/request-locale";
 import { buildPageSocialMeta, seoDescription } from "@/lib/seo";
 import { absoluteUrl, localeAlternates } from "@/lib/site";
 
-export function generateMetadata(): Metadata {
+interface BlogPageProps {
+  /** Next.js 15 起 searchParams 为 Promise，需 await 后使用。 */
+  searchParams: Promise<{ page?: string }>;
+}
+
+/**
+ * 解析 `?page=`：缺省返回 1；非法值（空串、非数字、<1）返回 null，
+ * 由调用方判 404。不能用 parseInt 直接吃 "2abc" 这类脏值。
+ */
+function parsePageParam(raw: string | undefined): number | null {
+  if (raw === undefined) return 1;
+  if (!/^\d+$/.test(raw)) return null;
+  const n = Number.parseInt(raw, 10);
+  return n >= 1 ? n : null;
+}
+
+export async function generateMetadata({
+  searchParams: searchParamsPromise,
+}: BlogPageProps): Promise<Metadata> {
+  const searchParams = await searchParamsPromise;
   const locale = getRequestLocale();
   const copy = getMessages(locale).blog;
-  const path = localizeHref("/blog", locale);
+  const basePath = localizeHref("/blog", locale);
+
+  /*
+   * 2026-10-29 修：此前 canonical 恒为 `/blog`，而第 2 页确实渲染的是
+   * 另外 2 篇文章 —— 等于对 Google 声明「第 2 页是第 1 页的副本」，
+   * 结果第 2 页整页不被索引，并被计入 GSC「重复网页，用户未选定规范网页」。
+   * 现在第 2 页起 canonical 自指，hreflang 同口径带 page 参数。
+   * 第 1 页仍收敛到无参数的 `/blog`，避免 `?page=1` 与 `/blog` 重复。
+   */
+  const requested = parsePageParam(searchParams.page);
+  const page = requested !== null && requested > 1 ? requested : 1;
+  const query = page > 1 ? `?page=${page}` : "";
+  const path = `${basePath}${query}`;
   const description = seoDescription(copy.metaDescription);
 
   return {
@@ -28,7 +60,14 @@ export function generateMetadata(): Metadata {
     description,
     alternates: {
       canonical: absoluteUrl(path),
-      languages: localeAlternates("/blog").languages,
+      /*
+       * 第 2 页起**不声明 hreflang**。
+       * 原因：各语种的可见文章数不同（vi/es/it/ru 会过滤掉只有中英正文的文章），
+       * 分页数并不一致 —— 实测 /vi/blog?page=2 直接 404。若照抄 7 条 hreflang，
+       * 等于对外声明了 4 个打不开的地址，比不声明更糟。
+       * 分页页 self-canonical 即可，Google 接受这种做法。
+       */
+      ...(query ? {} : { languages: localeAlternates("/blog").languages }),
     },
     ...buildPageSocialMeta({
       title: copy.metaTitle,
@@ -39,19 +78,18 @@ export function generateMetadata(): Metadata {
   };
 }
 
-interface BlogPageProps {
-  /** Next.js 15 起 searchParams 为 Promise，需 await 后使用。 */
-  searchParams: Promise<{ page?: string }>;
-}
-
 export default async function BlogPage({
   searchParams: searchParamsPromise,
 }: BlogPageProps) {
   const searchParams = await searchParamsPromise;
   const locale = getRequestLocale();
   const copy = getMessages(locale).blog;
-  const requestedPage = Number.parseInt(searchParams.page ?? "1", 10);
-  const page = Number.isFinite(requestedPage) && requestedPage > 0 ? requestedPage : 1;
+
+  // 脏参数（?page=、?page=abc、?page=0）直接 404，不给 Google 留重复入口。
+  const requested = parsePageParam(searchParams.page);
+  if (requested === null) notFound();
+  const page = requested;
+
   // 只有中英正文的文章在其余语种下不出现（详情页同规则 404）。
   const hiddenSlugs =
     locale === "zh" || locale === "en"
@@ -63,6 +101,15 @@ export default async function BlogPage({
     new Date(),
     hiddenSlugs,
   );
+
+  /*
+   * 2026-10-29 修：getPaginatedPosts 会把页码 clamp 进 [1, totalPages]，
+   * 于是 /blog?page=3、?page=99、?page=999 全都返回 200 且渲染同一页内容 ——
+   * 无限多个重复 URL，正是 GSC「重复网页，用户未选定规范网页」那 10 条。
+   * 超出总页数一律 404，只在真实页码区间内存在页面。
+   */
+  if (page > totalPages) notFound();
+
   const localizedPosts = posts.map((post) => localizePostContent(post, locale));
 
   return (

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { isZhEnOnlyPost } from "@/lib/content-i18n";
 import { getAllNews, getAllNewsSlugs } from "@/lib/news";
-import { getAllPostSlugs, getPostBySlug } from "@/lib/posts";
+import { getAllPostSlugs, getAllPosts, getPostBySlug } from "@/lib/posts";
 import {
   getAllCategoryParams,
   getAllModelParams,
@@ -117,6 +117,17 @@ function buildSitemap(): MetadataRoute.Sitemap {
     return d.getTime() > acc.getTime() ? d : acc;
   }, SITE_BUILT_AT);
 
+  /**
+   * 最新一篇已发布文章的日期，给 /blog 列表页当 lastmod。
+   * 2026-10-29 加：此前 /blog 吃 SITE_BUILT_AT(9-07)，但博客 10-19 还有新文，
+   * 列表页内容显然变了 —— lastmod 标旧会让 Google 认为整页没更新。
+   * getAllPosts() 已按 isPublished + 发布日期过滤，草稿和未来稿不会计入。
+   */
+  const latestPostDate = getAllPosts().reduce<Date>((acc, post) => {
+    const d = new Date(post.publishedAt);
+    return d.getTime() > acc.getTime() ? d : acc;
+  }, SITE_BUILT_AT);
+
   const staticPaths = [
     "/",
     "/products",
@@ -160,8 +171,13 @@ function buildSitemap(): MetadataRoute.Sitemap {
             : locale === defaultLocale
               ? 0.8
               : 0.7,
-        // /news 是列表页，日期跟着最新一篇走；其余按 PAGE_LAST_MODIFIED。
-        lastModified: path === "/news" ? latestNewsDate : pageLastModified(path),
+        // /blog、/news 是列表页，日期跟着最新一篇走；其余按 PAGE_LAST_MODIFIED。
+        lastModified:
+          path === "/news"
+            ? latestNewsDate
+            : path === "/blog"
+              ? latestPostDate
+              : pageLastModified(path),
       }),
     ),
   );
