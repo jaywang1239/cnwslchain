@@ -114,6 +114,12 @@ export type AppMessages = {
     lifespan: string;
     downloadCatalog: string;
     downloadWord: string;
+    /** Optional internal-link block to the technical cluster (English only for now). */
+    selectionGuides?: {
+      title: string;
+      intro: string;
+      items: { href: string; label: string; note: string }[];
+    };
   };
   solutions: {
     title: string;
@@ -764,11 +770,11 @@ const en: AppMessages = {
       "Room 306, Tingsong Building, Tianning District, Changzhou, Jiangsu, China",
   },
   homePage: {
-    metaTitle: "CNWSL | Zhejiang CNWSL Cable Drag Chain Co., Ltd.",
+    metaTitle: "Cable Carrier & Drag Chain Manufacturer | CNWSL",
     metaDescription:
-      "CNWSL is a cost-effective Igus alternative, manufacturing plastic cable carriers, cleanroom carriers and cooling tubes. Factory in Yueqing, with Shenzhen and Changzhou offices.",
+      "CNWSL manufactures plastic cable carriers and drag chains in 5–80 mm inner height, including cleanroom carriers tested to ISO Class 1. Factory in Yueqing, China; 15M+ cycle life and a 36-month warranty.",
     ogImageAlt: "CNWSL cleanroom cable carrier in reciprocating motion",
-    heroTitle: "European-standard dust-proof cable carriers — localization leader",
+    heroTitle: "Plastic cable carriers and drag chains for 24/7 motion",
     heroSubtitle: "≥15M cycle life tested · 36-month warranty",
     heroCta: "View products",
     trust: [
@@ -790,12 +796,12 @@ const en: AppMessages = {
       "Trusted by leading 3C, automotive, machine-tool and automation brands through reliable delivery.",
   },
   products: {
-    metaTitle: "Plastic Cable Carriers | CNWSL",
+    metaTitle: "Plastic Cable Carriers & Nylon Drag Chains | CNWSL",
     metaDescription:
-      "CNWSL plastic cable carriers cover micro, medium, heavy-duty, silent, portable and cleanroom series, selected by 5–80 mm inner height for CNC, molding, semiconductor and automation.",
+      "Plastic cable carriers (drag chains) in 5–80 mm inner height — micro, medium, heavy-duty, silent, portable and cleanroom series for CNC, molding and semiconductor equipment.",
     title: "Plastic Cable Carriers",
     subtitle:
-      "CNWSL carriers are grouped by inner height and duty: micro, medium, heavy-duty, silent, portable and cleanroom. Choose a family, then open a height series for parameters, bend radii and drawings.",
+      "CNWSL makes plastic cable carriers — the same part most buyers call a drag chain, a cable chain or an energy chain. Series are grouped by inner height and duty: micro, medium, heavy-duty, silent, portable and cleanroom. Pick a family, then open a height series for parameters, bend radii and drawings.",
     viewCategory: "Browse series",
     seriesIntro: "Select by inner height × width, then open a detail page for parameters, drawings and inquiries.",
     specsTitle: "Specification table",
@@ -842,9 +848,41 @@ const en: AppMessages = {
     lifespan: "Service life",
     downloadCatalog: "Download catalog (PDF)",
     downloadWord: "Download Word catalog (.docx)",
+    selectionGuides: {
+      title: "Before you ask for a quote",
+      intro:
+        "Five guides cover what usually decides the order: how the part is named, how inner width and bend radius are worked out, which material suits the duty, and what our cleanroom test report does and does not cover.",
+      items: [
+        {
+          href: "/blog/cable-carrier-vs-tank-chain",
+          label: "Cable carrier, drag chain, tank chain",
+          note: "What the four names actually refer to, and when a substitute is not equivalent.",
+        },
+        {
+          href: "/blog/cable-carrier-bend-radius",
+          label: "Bend radius from travel length",
+          note: "Work back from stroke and mounting height instead of copying the old chain.",
+        },
+        {
+          href: "/blog/cable-carrier-inner-width",
+          label: "Inner width from the cable list",
+          note: "Sum cable outer diameters, apply the fill ratio, then pick the width.",
+        },
+        {
+          href: "/blog/cable-carrier-material-comparison",
+          label: "PA66+GF30 vs TPU",
+          note: "Standard duty, high-speed and cleanroom each point to a different material.",
+        },
+        {
+          href: "/blog/cleanroom-cable-carrier-selection-guide",
+          label: "Cleanroom carriers and ISO Class 1",
+          note: "What the Fraunhofer IPA report covers — one model, one colour, one condition.",
+        },
+      ],
+    },
   },
   solutions: {
-    title: "Solutions",
+    title: "Cable Carrier Applications by Industry",
     description:
       "Cable carrier selection and customization for semiconductor cleanrooms, lithium-battery and PV lines, automotive plants, CNC machine tools, laser cutting equipment, and robotics automation.",
     seo: "CNWSL cable carrier (drag chain) solutions for cleanrooms, new-energy lines, automotive manufacturing, machine tools, laser equipment, and industrial robots.",
@@ -930,9 +968,9 @@ const en: AppMessages = {
     ],
   },
   about: {
-    metaTitle: "About Us | CNWSL",
+    metaTitle: "Cable Carrier Manufacturer in Yueqing, China | CNWSL",
     metaDescription:
-      "Founded in 2010, CNWSL is a cost-effective Igus alternative, developing precision plastic cable carriers and injection-molded parts. 70+ Haitian presses, 3,000+ molds, IATF 16949 and ISO 9001. Factory in Yueqing, Zhejiang.",
+      "Founded in 2010, CNWSL develops and molds precision plastic cable carriers and injection-molded parts. 70+ Haitian presses, 3,000+ molds, IATF 16949 and ISO 9001. Factory in Yueqing, Zhejiang.",
     title: "About Us",
     subtitle:
       "Precision plastic cable carriers and molded parts—European-standard quality for localized replacement.",
@@ -1067,7 +1105,7 @@ const en: AppMessages = {
     },
   },
   downloads: {
-    metaTitle: "Downloads | CNWSL",
+    metaTitle: "Cable Carrier Catalogs & CAD Downloads | CNWSL",
     metaDescription: "Download CNWSL cable carrier catalogs and cleanroom datasheets in PDF — inner heights, bend radii, materials and installation notes for selection or quotation.",
     title: "Downloads",
     subtitle: "CNWSL cable carrier catalog and cleanroom catalog",
@@ -1076,7 +1114,7 @@ const en: AppMessages = {
     cleanroomSection: "Cleanroom catalogs",
   },
   blog: {
-    metaTitle: "Technical Blog | CNWSL",
+    metaTitle: "Cable Carrier Engineering Blog | CNWSL",
     metaDescription:
       "Cable carrier selection, TPU materials and life testing notes from CNWSL.",
     title: "Technical Blog",

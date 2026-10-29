@@ -193,6 +193,37 @@ export default function ProductsPage() {
             </div>
           </div>
         </section>
+
+        {copy.selectionGuides ? (
+          <section className="border-t border-gray-200 bg-white px-4 py-12 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-7xl">
+              <h2 className="text-xl font-bold text-brand-primary">
+                {copy.selectionGuides.title}
+              </h2>
+              <p className="mt-3 max-w-3xl text-sm leading-relaxed text-foreground/65">
+                {copy.selectionGuides.intro}
+              </p>
+              <ul className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+                {copy.selectionGuides.items.map((item) => (
+                  <li
+                    key={item.href}
+                    className="rounded-xl border border-gray-200 bg-gray-50/60 p-5"
+                  >
+                    <Link
+                      href={localizeHref(item.href, locale)}
+                      className="font-semibold text-brand-primary hover:text-brand-secondary"
+                    >
+                      {item.label}
+                    </Link>
+                    <p className="mt-2 text-sm leading-relaxed text-foreground/65">
+                      {item.note}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        ) : null}
       </div>
     </>
   );
