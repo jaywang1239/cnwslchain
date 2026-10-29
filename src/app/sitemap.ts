@@ -9,10 +9,11 @@ import {
 } from "@/lib/product-catalog";
 import { locales, defaultLocale, type Locale } from "@/lib/i18n/config";
 import { siteConfig } from "@/lib/site";
+import { SITE_BUILT_AT, pageLastModified } from "@/lib/sitemap-dates";
 
-/** Stable stamp for static marketing URLs (avoid "now" on every request). */
-const SITE_BUILT_AT = new Date("2026-09-07T00:00:00.000Z");
-
+/**
+ * 静态页的日期口径统一在 lib/sitemap-dates.ts（与中文 sitemap 共用一份）。
+ */
 function localizedUrl(base: string, path: string, locale: string): string {
   const bare = path === "/" ? "" : path;
   if (locale === defaultLocale) {
@@ -110,6 +111,12 @@ function buildSitemap(): MetadataRoute.Sitemap {
     getAllNews().map((item) => [item.slug, item]),
   );
 
+  /** 最新一篇新闻的日期，给 /news 列表页当 lastmod。 */
+  const latestNewsDate = getAllNews().reduce<Date>((acc, item) => {
+    const d = item.date ? new Date(item.date) : SITE_BUILT_AT;
+    return d.getTime() > acc.getTime() ? d : acc;
+  }, SITE_BUILT_AT);
+
   const staticPaths = [
     "/",
     "/products",
@@ -153,6 +160,8 @@ function buildSitemap(): MetadataRoute.Sitemap {
             : locale === defaultLocale
               ? 0.8
               : 0.7,
+        // /news 是列表页，日期跟着最新一篇走；其余按 PAGE_LAST_MODIFIED。
+        lastModified: path === "/news" ? latestNewsDate : pageLastModified(path),
       }),
     ),
   );
@@ -163,6 +172,7 @@ function buildSitemap(): MetadataRoute.Sitemap {
       entryZhEn(base, path, locale, {
         changeFrequency: "weekly",
         priority: locale === defaultLocale ? 0.85 : 0.75,
+        lastModified: pageLastModified(path),
       }),
     ),
   );
@@ -177,6 +187,7 @@ function buildSitemap(): MetadataRoute.Sitemap {
       entryZhEn(base, "/privacy", locale, {
         changeFrequency: "yearly",
         priority: 0.3,
+        lastModified: pageLastModified("/privacy"),
       }),
   );
 

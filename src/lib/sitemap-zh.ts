@@ -6,6 +6,7 @@ import {
   getAllSeriesParams,
 } from "@/lib/product-catalog";
 import { siteConfig } from "@/lib/site";
+import { SITE_BUILT_AT, pageLastModified } from "@/lib/sitemap-dates";
 
 /**
  * 中文专用 sitemap（给百度搜索资源平台提交）。
@@ -24,8 +25,6 @@ import { siteConfig } from "@/lib/site";
  * app/sitemap.ts 一旦多出 export 成员，Next 就不再把它当 sitemap 路由处理，
  * /sitemap.xml 直接 404（2026-10-20 实测踩过）。两条 sitemap 各自独立最安全。
  */
-
-const SITE_BUILT_AT = new Date("2026-09-07T00:00:00.000Z");
 
 type Row = {
   path: string;
@@ -62,7 +61,13 @@ function rows(): Row[] {
   return [
     ...staticPaths.map((path) => ({
       path,
-      lastModified: SITE_BUILT_AT,
+      lastModified:
+        path === "/news"
+          ? getAllNews().reduce<Date>((acc, item) => {
+              const d = item.date ? new Date(item.date) : SITE_BUILT_AT;
+              return d.getTime() > acc.getTime() ? d : acc;
+            }, SITE_BUILT_AT)
+          : pageLastModified(path),
       changeFrequency:
         path === "/" || path === "/blog" || path === "/news"
           ? "daily"
@@ -71,14 +76,14 @@ function rows(): Row[] {
     })),
     ...zhEnPaths.map((path) => ({
       path,
-      lastModified: SITE_BUILT_AT,
+      lastModified: pageLastModified(path),
       changeFrequency: "weekly",
       priority: 0.85,
     })),
     // 隐私政策：需要被抓（Google Ads 检查落地页），但不参与关键词竞争
     {
       path: "/privacy",
-      lastModified: SITE_BUILT_AT,
+      lastModified: pageLastModified("/privacy"),
       changeFrequency: "yearly",
       priority: 0.3,
     },
