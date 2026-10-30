@@ -260,10 +260,34 @@ function buildSitemap(): MetadataRoute.Sitemap {
     return withLocales(`/news/${slug}`, 0.6, lastModified);
   });
 
+  /**
+   * 英文应用场景落地页（2026-10-30）：/en/solutions/<id> 共 6 条。
+   *
+   * 这些页面只做英文（文案在 lib/solution-pages.ts），中文与其他语种由
+   * requireEnOnlyLocale() 直接 notFound()。所以这里**不能带 alternates**——
+   * 一旦按 languageAlternates() 声明六语种，就等于向 Google 提交了 5 条 404。
+   * 同理，它们也不能进 /sitemap-zh（百度那份只收中文）。
+   */
+  const solutionLandingIds = [
+    "cleanroom",
+    "machine-tool",
+    "robotics",
+    "automotive",
+    "laser",
+    "new-energy",
+  ];
+  const solutionRoutes: MetadataRoute.Sitemap = solutionLandingIds.map((id) => ({
+    url: `${base}/en/solutions/${id}`,
+    lastModified: pageLastModified(`/solutions/${id}`),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
   return [
     ...staticRoutes,
     ...zhEnLandingRoutes,
     ...legalRoutes,
+    ...solutionRoutes,
     ...productRoutes,
     ...blogRoutes,
     ...newsRoutes,

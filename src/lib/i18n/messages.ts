@@ -127,6 +127,8 @@ export type AppMessages = {
     description: string;
     seo: string;
     cta: string;
+    /** 英文场景页的卡片 CTA（仅 en 定义；其他语种仍用 cta 跳 /contact）。 */
+    detailCta?: string;
     items: {
       id: "cleanroom" | "new-energy" | "automotive" | "machine-tool" | "laser" | "robotics";
       title: string;
@@ -887,6 +889,7 @@ const en: AppMessages = {
       "Cable carrier selection and customization for semiconductor cleanrooms, lithium-battery and PV lines, automotive plants, CNC machine tools, laser cutting equipment, and robotics automation.",
     seo: "CNWSL cable carrier (drag chain) solutions for cleanrooms, new-energy lines, automotive manufacturing, machine tools, laser equipment, and industrial robots.",
     cta: "Ask about this application →",
+    detailCta: "Application notes and specifications →",
     items: [
       {
         id: "cleanroom",

@@ -25,3 +25,22 @@ export function requireZhEnLocale(): Locale {
   if (!SUPPORTED.includes(locale)) notFound();
   return locale;
 }
+
+/**
+ * 仅英文页面的语言收口（2026-10-30 新增）。
+ *
+ * 适用对象：`/solutions/[id]` 六个英文应用场景落地页。它们是为北美市场
+ * 的 "cable carrier" 场景词建的，文案只有英文（写在 `lib/solution-pages.ts`）。
+ *
+ * 与 `requireZhEnLocale()` 的区别：中文也 404。因此这些页面**不能声明 hreflang**
+ * （`localeAlternates()` 会把 zh 也写进去 → 声明了一个 404 地址），
+ * 也不能进 `/sitemap-zh`。sitemap 里只登记 `/en/...` 单条、不带 alternates。
+ *
+ * 恢复方式：补齐中文（或其他语种）文案后，改回 `getRequestLocale()`，
+ * 同时把 sitemap 换成 `entry()` 并补 hreflang。
+ */
+export function requireEnOnlyLocale(): Locale {
+  const locale = getRequestLocale();
+  if (locale !== "en") notFound();
+  return locale;
+}

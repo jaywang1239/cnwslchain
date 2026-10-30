@@ -33,6 +33,13 @@ const PAGE_LAST_MODIFIED: Record<string, string> = {
   "/guides/selection": "2026-10-16",
   "/official": "2026-10-19",
   "/privacy": "2026-10-19",
+  // 2026-10-30 新建的六个英文应用场景页（仅 en，首次上线即当日日期）。
+  "/solutions/cleanroom": "2026-10-30",
+  "/solutions/machine-tool": "2026-10-30",
+  "/solutions/robotics": "2026-10-30",
+  "/solutions/automotive": "2026-10-30",
+  "/solutions/laser": "2026-10-30",
+  "/solutions/new-energy": "2026-10-30",
 };
 
 /** 取某路径的真实 lastmod；未登记的回落构建基线。 */

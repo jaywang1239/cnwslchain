@@ -63,7 +63,18 @@ export default function SolutionsPage() {
                 />
               </div>
               <div className="flex flex-1 flex-col p-5 sm:p-8">
-                <h2 className="text-2xl font-bold text-brand-primary">{solution.title}</h2>
+                <h2 className="text-2xl font-bold text-brand-primary">
+                  {locale === "en" ? (
+                    <Link
+                      href={localizeHref(`/solutions/${solution.id}`, locale)}
+                      className="hover:text-brand-secondary"
+                    >
+                      {solution.title}
+                    </Link>
+                  ) : (
+                    solution.title
+                  )}
+                </h2>
                 <p className="mt-3 text-sm leading-relaxed text-foreground/70">
                   {solution.summary}
                 </p>
@@ -78,10 +89,14 @@ export default function SolutionsPage() {
                   ))}
                 </ul>
                 <Link
-                  href={localizeHref("/contact", locale)}
+                  href={
+                    locale === "en"
+                      ? localizeHref(`/solutions/${solution.id}`, locale)
+                      : localizeHref("/contact", locale)
+                  }
                   className="mt-8 inline-flex text-sm font-medium text-brand-secondary hover:text-brand-primary"
                 >
-                  {copy.cta}
+                  {locale === "en" ? (copy.detailCta ?? copy.cta) : copy.cta}
                 </Link>
               </div>
             </article>
