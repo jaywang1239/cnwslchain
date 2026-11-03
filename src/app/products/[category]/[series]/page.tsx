@@ -14,7 +14,15 @@ import {
   localizeCategory,
 } from "@/lib/product-catalog";
 import { localizeSeriesCode, localizeSeriesDetail } from "@/lib/product-i18n";
-import { buildBreadcrumbJsonLd, buildCollectionPageJsonLd } from "@/lib/product-seo";
+import {
+  buildBreadcrumbJsonLd,
+  buildCollectionPageJsonLd,
+  buildFaqJsonLd,
+} from "@/lib/product-seo";
+import {
+  getSeriesDeepCopy,
+  getSeriesDeepKeywords,
+} from "@/lib/product-series-copy";
 import { localizeHref, localizeSeriesName } from "@/lib/i18n";
 import { getMessages } from "@/lib/i18n/messages";
 import { getRequestLocale } from "@/lib/request-locale";
@@ -47,10 +55,15 @@ export async function generateMetadata({
   const category = localizeCategory(rawCategory, locale);
   const seriesName = localizeSeriesName(series.name, locale);
   const localizedDetail = localizeSeriesDetail(detail, locale, params.series);
-  const description = seoDescription(
-    localizedDetail?.intro ??
-      `${category.name} - ${seriesName} (${localizeSeriesCode(series.code, locale)})`,
-  );
+  // 中文系列页有专门的 metaDescription（含内宽档位与半径档位），其余语种沿用模板句。
+  const deepCopy = getSeriesDeepCopy(params.series, locale);
+  const description = deepCopy
+    ? seoDescription(deepCopy.metaDescription)
+    : seoDescription(
+        localizedDetail?.intro ??
+          `${category.name} - ${seriesName} (${localizeSeriesCode(series.code, locale)})`,
+      );
+  const keywords = getSeriesDeepKeywords(params.series, locale);
   const path = localizeHref(`/products/${params.category}/${params.series}`, locale);
   const title = seoTitle(`${seriesName} | ${category.name}`);
   const imageSrc = category.imageSrc;
@@ -58,6 +71,7 @@ export async function generateMetadata({
   return {
     title,
     description,
+    ...(keywords ? { keywords } : {}),
     alternates: {
       canonical: absoluteUrl(path),
       languages: localeAlternates(`/products/${params.category}/${params.series}`).languages,
@@ -107,6 +121,8 @@ export default async function SeriesPage({
   );
   const breadcrumbs = buildProductBreadcrumbs(category.id, series.id, undefined, locale);
   const pagePath = localizeHref(`/products/${category.id}/${series.id}`, locale);
+  // 中文系列页的深度内容（仅 zh；其他语种为 undefined，渲染与之前一致）
+  const deep = getSeriesDeepCopy(params.series, locale);
   const seriesImage =
     series.id === "portable-std"
       ? "/images/products/categories/portable.webp"
@@ -120,6 +136,18 @@ export default async function SeriesPage({
           __html: JSON.stringify(buildBreadcrumbJsonLd(breadcrumbs, pagePath)),
         }}
       />
+      {deep && deep.faqs.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              buildFaqJsonLd(
+                deep.faqs.map((f) => ({ question: f.q, answer: f.a })),
+              ),
+            ),
+          }}
+        />
+      )}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -152,7 +180,9 @@ export default async function SeriesPage({
               {series.name}
             </h1>
             {detail && (
-              <p className="mt-4 max-w-3xl text-white/80">{detail.intro}</p>
+              <p className="mt-4 max-w-3xl text-white/80">
+                {deep?.lead ?? detail.intro}
+              </p>
             )}
           </div>
         </section>
@@ -259,6 +289,94 @@ export default async function SeriesPage({
                   {copy.contactSales}
                 </Link>
               </div>
+            )}
+
+            {deep && (
+              <>
+                <div className="mt-16 border-t border-gray-200 pt-10">
+                  <h2 className="text-xl font-semibold text-brand-primary">
+                    {`${series.name}选型要点`}
+                  </h2>
+                  <p className="mt-2 max-w-4xl text-sm leading-relaxed text-foreground/60">
+                    {deep.lead}
+                  </p>
+                  <div className="mt-6 space-y-7">
+                    {deep.sections.map((section) => (
+                      <div key={section.title}>
+                        <h3 className="text-base font-semibold text-brand-primary">
+                          {section.title}
+                        </h3>
+                        <p className="mt-2 max-w-4xl text-sm leading-relaxed text-foreground/70">
+                          {section.body}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-10">
+                  <h2 className="text-lg font-semibold text-brand-primary">
+                    规格速查
+                  </h2>
+                  <dl className="mt-4 divide-y divide-gray-100 overflow-hidden rounded-xl border border-gray-200 bg-white">
+                    {deep.keyPoints.map((point) => (
+                      <div
+                        key={point.label}
+                        className="grid grid-cols-1 gap-1 px-5 py-3 sm:grid-cols-3 sm:items-baseline"
+                      >
+                        <dt className="text-xs font-medium text-foreground/50 sm:text-sm">
+                          {point.label}
+                        </dt>
+                        <dd className="text-sm font-medium text-brand-primary sm:col-span-2">
+                          {point.value}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                  <p className="mt-3 text-xs leading-relaxed text-foreground/45">
+                    以上为常规档位。具体内高、内宽、弯曲半径以本页规格表为准，非标尺寸单独评估。
+                  </p>
+                </div>
+
+                <div className="mt-12">
+                  <h2 className="text-lg font-semibold text-brand-primary">
+                    常见问题
+                  </h2>
+                  <dl className="mt-4 space-y-5">
+                    {deep.faqs.map((faq) => (
+                      <div
+                        key={faq.q}
+                        className="rounded-xl border border-gray-200 bg-white p-5"
+                      >
+                        <dt className="text-sm font-semibold text-brand-primary">
+                          {faq.q}
+                        </dt>
+                        <dd className="mt-2 text-sm leading-relaxed text-foreground/70">
+                          {faq.a}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+
+                <div className="mt-12 rounded-xl border border-gray-200 bg-white p-6">
+                  <h2 className="text-sm font-semibold text-brand-primary">
+                    相关阅读
+                  </h2>
+                  <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+                    {deep.related.map((item) => (
+                      <li key={item.href}>
+                        <Link
+                          href={localizeHref(item.href, locale)}
+                          className="text-sm text-brand-secondary underline-offset-4 hover:underline"
+                        >
+                          {item.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </>
             )}
           </div>
         </section>
