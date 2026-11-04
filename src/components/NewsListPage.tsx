@@ -223,15 +223,22 @@ function NewsHub({ locale, copy }: { locale: Locale; copy: NewsCopy }) {
           locale={locale}
           copy={copy}
         />
-        <NewsSection
-          id="industry"
-          title={copy.industryNews}
-          subtitle={copy.industrySubtitle}
-          items={industry}
-          category="industry"
-          locale={locale}
-          copy={copy}
-        />
+        {/*
+          空分区整块不渲染。外语站尤其明显：转载的行业稿没有译文，
+          照常渲染会留一个「行业新闻 · 共 0 篇」的空盒子，比不显示更难看。
+          分类页 /news/industry 仍然存在（渲染空态），不影响入口与 sitemap。
+        */}
+        {industry.length > 0 ? (
+          <NewsSection
+            id="industry"
+            title={copy.industryNews}
+            subtitle={copy.industrySubtitle}
+            items={industry}
+            category="industry"
+            locale={locale}
+            copy={copy}
+          />
+        ) : null}
       </div>
     </NewsShell>
   );
