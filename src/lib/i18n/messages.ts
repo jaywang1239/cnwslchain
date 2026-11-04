@@ -257,6 +257,11 @@ export type AppMessages = {
     pageStatus: string;
     /** 列表标题下的「共 N 篇」，`{total}` 为占位符。 */
     articleCount: string;
+    /** 首页分区标题右侧的「查看全部 →」。 */
+    viewAll: string;
+    /** 转载文章的出处前缀，与 originalLink 配合成「来源：MIR… 查看原文」。 */
+    sourceLabel: string;
+    originalLink: string;
     notFound: string;
     videoLabel: string;
   };
@@ -671,6 +676,9 @@ const zh: AppMessages = {
     nextPage: "下一页",
     pageStatus: "第 {current} / {total} 页",
     articleCount: "共 {total} 篇",
+    viewAll: "查看全部",
+    sourceLabel: "来源",
+    originalLink: "查看原文",
     notFound: "资讯未找到 | 威仕龙 CNWSL",
     videoLabel: "展位视频",
   },
@@ -1183,6 +1191,9 @@ const en: AppMessages = {
     nextPage: "Next",
     pageStatus: "Page {current} of {total}",
     articleCount: "{total} articles",
+    viewAll: "View all",
+    sourceLabel: "Source",
+    originalLink: "Read the original",
     notFound: "News not found | CNWSL",
     videoLabel: "Booth video",
   },
@@ -1644,6 +1655,9 @@ const vi: AppMessages = {
     nextPage: "Tiếp",
     pageStatus: "Trang {current} / {total}",
     articleCount: "{total} bài",
+    viewAll: "Xem tất cả",
+    sourceLabel: "Nguồn",
+    originalLink: "Đọc bài gốc",
     notFound: "Không tìm thấy tin | CNWSL",
     videoLabel: "Video gian hàng",
   },
@@ -2112,6 +2126,9 @@ const es: AppMessages = {
     nextPage: "Siguiente",
     pageStatus: "Página {current} de {total}",
     articleCount: "{total} artículos",
+    viewAll: "Ver todos",
+    sourceLabel: "Fuente",
+    originalLink: "Ver original",
     notFound: "Noticia no encontrada | CNWSL",
     videoLabel: "Vídeo del stand",
   },
@@ -2600,6 +2617,9 @@ const it: AppMessages = {
     nextPage: "Successiva",
     pageStatus: "Pagina {current} di {total}",
     articleCount: "{total} articoli",
+    viewAll: "Vedi tutti",
+    sourceLabel: "Fonte",
+    originalLink: "Leggi l'originale",
     notFound: "Notizia non trovata | CNWSL",
     videoLabel: "Video dello stand",
   },
@@ -3081,6 +3101,9 @@ const ru: AppMessages = {
     nextPage: "Вперёд",
     pageStatus: "Страница {current} из {total}",
     articleCount: "Всего: {total}",
+    viewAll: "Все",
+    sourceLabel: "Источник",
+    originalLink: "Читать оригинал",
     notFound: "Новость не найдена | CNWSL",
     videoLabel: "Видео стенда",
   },

@@ -2,6 +2,7 @@ import newsData from "../../data/news.json";
 
 import type { Locale } from "@/lib/i18n/config";
 import { localeHtmlLang } from "@/lib/i18n/config";
+import { getNewsAvailableLocales } from "./content-i18n";
 import { EXTERNAL_NEWS } from "./news-external";
 
 /**
@@ -83,6 +84,17 @@ export function getAllNews(): NewsItem[] {
 }
 
 /**
+ * 某语种下真实可看的新闻。
+ *
+ * 转载的行业稿只有中文（见 content-i18n 的 getNewsAvailableLocales），
+ * 不能出现在外语站的列表里，否则列表标题会退化成 slug。
+ */
+export function getNewsForLocale(locale: Locale, category?: NewsCategory): NewsItem[] {
+  const all = getNewsByCategory(category);
+  return all.filter((item) => getNewsAvailableLocales(item.slug).includes(locale));
+}
+
+/**
  * 按分类取新闻，同样日期倒序。
  * 不传 category 即全部，供 /news 首页使用。
  */
@@ -93,6 +105,42 @@ export function getNewsByCategory(category?: NewsCategory): NewsItem[] {
 }
 
 /**
+ * 第三方转载的出处（2026-11-04 加）。
+ *
+ * 正文末尾的「来源」小节里本来就写了原文链接，但详情页的行内渲染此前只认
+ * `**加粗**`，`[标题](url)` 会被当成纯文本原样吐出来 —— 视觉上是死链，
+ * 而且转载不挂可点击原文链接本身就不合规矩。
+ *
+ * 这里从正文里抽出第一条外链，列表与详情页共用，不再往 JSON 里加一份
+ * （`build_news.py` 重跑时会整份覆盖，加字段反而会丢）。
+ */
+const SOURCE_LINK = /\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/;
+
+/** 已知来源的展示名；新站点只用域名兜底，不必改代码。 */
+const SOURCE_NAMES: Record<string, string> = {
+  "www.mirdatabank.com": "MIR DATABANK（MIR睿工业）",
+  "mirdatabank.com": "MIR DATABANK（MIR睿工业）",
+};
+
+export interface NewsSource {
+  name: string;
+  url: string;
+}
+
+export function newsSourceOf(item: { content: string }): NewsSource | null {
+  const matched = SOURCE_LINK.exec(item.content ?? "");
+  if (!matched) return null;
+  const url = matched[2];
+  let host = "";
+  try {
+    host = new URL(url).host;
+  } catch {
+    return null;
+  }
+  return { name: SOURCE_NAMES[host] ?? host, url };
+}
+
+/**
  * 分页取新闻。
  *
  * `currentPage` 会被夹进 [1, totalPages]，但**调用方仍须自行对超界页码返回 404**：
@@ -100,11 +148,12 @@ export function getNewsByCategory(category?: NewsCategory): NewsItem[] {
  * 内容重复的 URL，正是 GSC「重复网页」的来源（2026-10-29 博客侧踩过）。
  */
 export function getPaginatedNews(
+  locale: Locale,
   category?: NewsCategory,
   page = 1,
   perPage = NEWS_PER_PAGE,
 ) {
-  const items = getNewsByCategory(category);
+  const items = getNewsForLocale(locale, category);
   const total = items.length;
   const totalPages = total === 0 ? 0 : Math.ceil(total / perPage);
   const currentPage = Math.min(Math.max(1, page), Math.max(1, totalPages));

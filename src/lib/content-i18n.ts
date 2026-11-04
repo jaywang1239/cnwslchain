@@ -1087,6 +1087,24 @@ export function localizePostContent<
   return { ...post, ...translated };
 }
 
+/**
+ * 这篇新闻实际存在哪些语种（2026-11-04 加）。
+ *
+ * 背景：`news-external.json` 里的第三方转载只有中文，`newsBySlug` 里没有条目。
+ * 列表若照样输出，英文站会显示一串 slug（`q3-2026-automation-market-mir`），
+ * 点进去是 “Translation pending.” —— 对搜索引擎是典型的空内容页。
+ *
+ * 因此：没译文的文章在非中文语种**既不进列表、也不生成详情页，同时不进 sitemap**，
+ * 三处口径由本函数统一，避免各写一份判断。中文永远可用。
+ */
+export function getNewsAvailableLocales(slug: string): Locale[] {
+  const entry = newsBySlug[slug];
+  const translated = entry
+    ? (Object.keys(entry) as ContentLocale[]).filter((key) => Boolean(entry[key]))
+    : [];
+  return translated.length > 0 ? ["zh", ...translated] : ["zh"];
+}
+
 export function localizeNewsContent<
   T extends {
     slug: string;

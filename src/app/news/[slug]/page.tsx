@@ -8,8 +8,9 @@ import {
   getAllNewsSlugs,
   getNewsBySlug,
   newsCategoryOf,
+  newsSourceOf,
 } from "@/lib/news";
-import { localizeNewsContent } from "@/lib/content-i18n";
+import { getNewsAvailableLocales, localizeNewsContent } from "@/lib/content-i18n";
 import { newsExcerpt, parseNewsBlocks } from "@/lib/news-text";
 import { localizeHref, localeHtmlLang } from "@/lib/i18n";
 import { getMessages } from "@/lib/i18n/messages";
@@ -86,7 +87,17 @@ export default async function NewsDetailPage({
     notFound();
   }
 
+  /*
+   * 转载的行业稿只有中文译文（见 content-i18n 的 getNewsAvailableLocales）。
+   * 外语站此前会掉到 "Translation pending." 的空壳页，属于典型的低质页；
+   * 直接 404，与列表过滤、sitemap 口径保持一致。
+   */
+  if (!getNewsAvailableLocales(raw.slug).includes(locale)) {
+    notFound();
+  }
+
   const item = localizeNewsContent(raw, locale);
+  const source = newsSourceOf(raw);
   const blocks = parseNewsBlocks(item.content);
 
   // 分类取原始数据的标签归一化结果（localizeNewsContent 会覆盖 type，不能拿它判分类）。
@@ -197,6 +208,29 @@ export default async function NewsDetailPage({
           <h1 className="mt-4 text-3xl font-bold tracking-tight text-brand-primary sm:text-4xl">
             {item.title}
           </h1>
+
+          {source ? (
+            <p className="mt-4 text-sm text-foreground/60">
+              {messages.news.sourceLabel}：
+              <a
+                href={source.url}
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                className="font-medium text-brand-secondary underline decoration-brand-secondary/40 underline-offset-2 hover:text-brand-primary"
+              >
+                {source.name}
+              </a>
+              <span className="mx-2 text-foreground/30">·</span>
+              <a
+                href={source.url}
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                className="text-brand-secondary underline decoration-brand-secondary/40 underline-offset-2 hover:text-brand-primary"
+              >
+                {messages.news.originalLink}
+              </a>
+            </p>
+          ) : null}
         </header>
 
         {raw.video ? (
@@ -335,25 +369,57 @@ export default async function NewsDetailPage({
 }
 
 /**
- * 行内 **加粗** 的最小实现。
+ * 行内标记的最小实现：**加粗** 与 [文字](链接)。
  *
- * 新闻正文散落在 JSON 与 content-i18n 里，为几个强调词引入完整的 markdown
- * 渲染器不划算；这里只认 **…** 一种标记。
+ * 2026-11-04 加链接：转载稿正文末尾的「来源」小节写的是 `[《标题》](https://…)`，
+ * 原实现只认加粗，链接被当纯文本原样打印出来 —— 既点不动，也不符合转载
+ * 必须挂原文链接的规矩。为两个标记引入完整 markdown 渲染器不划算，
+ * 这里用一次 split 同时处理两种标记。
+ *
+ * 外链一律 `target="_blank"` + `rel="noopener noreferrer nofollow"`：
+ * nofollow 是不给转载源页传权重（我们不替第三方背书），站内链接走 <Link>。
  */
+const INLINE_TOKEN = /(\*\*[^*]+\*\*|\[[^\]]+\]\([^)\s]+\))/g;
+const INLINE_LINK = /^\[([^\]]+)\]\(([^)\s]+)\)$/;
+
 function InlineText({ text }: { text: string }) {
-  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+  const parts = text.split(INLINE_TOKEN);
 
   return (
     <>
-      {parts.map((part, index) =>
-        part.startsWith("**") && part.endsWith("**") && part.length > 4 ? (
-          <strong key={index} className="font-semibold text-brand-primary">
-            {part.slice(2, -2)}
-          </strong>
-        ) : (
-          <span key={index}>{part}</span>
-        ),
-      )}
+      {parts.map((part, index) => {
+        if (part.startsWith("**") && part.endsWith("**") && part.length > 4) {
+          return (
+            <strong key={index} className="font-semibold text-brand-primary">
+              {part.slice(2, -2)}
+            </strong>
+          );
+        }
+
+        const link = INLINE_LINK.exec(part);
+        if (link) {
+          const [, label, href] = link;
+          const className =
+            "font-medium text-brand-secondary underline decoration-brand-secondary/40 underline-offset-2 hover:text-brand-primary";
+          return /^https?:\/\//.test(href) ? (
+            <a
+              key={index}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              className={className}
+            >
+              {label}
+            </a>
+          ) : (
+            <Link key={index} href={href} className={className}>
+              {label}
+            </Link>
+          );
+        }
+
+        return <span key={index}>{part}</span>;
+      })}
     </>
   );
 }

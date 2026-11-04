@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { isZhEnOnlyPost } from "@/lib/content-i18n";
+import { getNewsAvailableLocales, isZhEnOnlyPost } from "@/lib/content-i18n";
 import { EN_LANDING_SLUGS, EN_HUB_SLUG } from "@/lib/en-landing-pages";
 import { getAllNews, getAllNewsSlugs } from "@/lib/news";
 import { getAllPostSlugs, getAllPosts, getPostBySlug } from "@/lib/posts";
@@ -261,7 +261,31 @@ function buildSitemap(): MetadataRoute.Sitemap {
   const newsRoutes: MetadataRoute.Sitemap = getAllNewsSlugs().flatMap((slug) => {
     const item = newsBySlug[slug];
     const lastModified = item?.date ? new Date(item.date) : SITE_BUILT_AT;
-    return withLocales(`/news/${slug}`, 0.6, lastModified);
+
+    /*
+     * 2026-11-04：第三方转载的行业稿只有中文译文，外语站直接 404。
+     * 所以 hreflang 不能再无脑声明六语种（否则一半指向 404），
+     * 只声明这篇文章真实存在的语种；条目本身也只出这些语种。
+     */
+    const available = getNewsAvailableLocales(slug);
+    const languages: Record<string, string> = {
+      "x-default": localizedUrl(base, `/news/${slug}`, defaultLocale),
+    };
+    for (const loc of available) {
+      languages[loc === defaultLocale ? "zh-CN" : loc] = localizedUrl(
+        base,
+        `/news/${slug}`,
+        loc,
+      );
+    }
+
+    return available.map((loc) => ({
+      url: localizedUrl(base, `/news/${slug}`, loc),
+      lastModified,
+      changeFrequency: "weekly" as const,
+      priority: loc === defaultLocale ? 0.6 : 0.5,
+      alternates: { languages },
+    }));
   });
 
   /**
