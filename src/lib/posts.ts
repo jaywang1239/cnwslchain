@@ -1,5 +1,6 @@
 import type { Locale } from "@/lib/i18n/config";
 import { localeHtmlLang } from "@/lib/i18n/config";
+import { resolveFeaturedImage } from "@/lib/blog-covers";
 import postsData from "../../data/posts.json";
 
 export interface Post {
@@ -20,9 +21,22 @@ export function hasFeaturedImage(post: Pick<Post, "featuredImage">): boolean {
   return Boolean(post.featuredImage?.trim());
 }
 
-export const POSTS_PER_PAGE = 12;
+/**
+ * 博客列表每页篇数。
+ * 2026-11-04：12 → 10（用户要求「每页显示 10 篇，多的另外起一页」）。
+ * 只改这一个常量，列表、分页器、sitemap 的分页判断全部跟着走。
+ */
+export const POSTS_PER_PAGE = 10;
 
-const posts = postsData as Post[];
+/**
+ * 主图在读取层做覆盖，不改 data/posts.json ——
+ * 本地 data/ 落后线上，整文件提交会回滚线上新增文章。
+ * 详见 src/lib/blog-covers.ts。
+ */
+const posts: Post[] = (postsData as Post[]).map((post) => ({
+  ...post,
+  featuredImage: resolveFeaturedImage(post.slug, post.featuredImage),
+}));
 
 /** Local `next dev` shows all posts; production applies timed-publish filters. */
 export function isDevEnvironment(): boolean {

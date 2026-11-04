@@ -137,7 +137,12 @@ export default async function BlogPage({
                   href={localizeHref(`/blog/${post.slug}`, locale)}
                   className="grid gap-0 sm:grid-cols-[240px_1fr]"
                 >
-                  <div className="relative min-h-[160px] bg-gray-100 sm:min-h-full">
+                  {/*
+                    移动端单列时原来固定 min-h-[160px]，500px 宽下等于 3:1，
+                    16:10 的抽象封面只露出中间一条。改成 16:9 占位，
+                    桌面端（sm 以上）仍由右侧文字撑高、cover 裁切。
+                  */}
+                  <div className="relative aspect-[16/9] bg-gray-100 sm:aspect-auto sm:min-h-full">
                     {hasFeaturedImage(post) ? (
                       <Image
                         src={post.featuredImage}
