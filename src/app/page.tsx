@@ -55,6 +55,20 @@ const partners = [
   { name: "美的", en: "Midea", logo: "/images/home/partners/midea.webp" },
 ] as const;
 
+/**
+ * 中文长尾词入口（2026-10-30）。
+ * 六个 /products 之外的独立落地页，只在中文首页出现 —— 它们由
+ * `requireZhLocale()` 收口，其他语种访问是 404，挂到外语首页会造出坏链。
+ */
+const zhLongtailLinks = [
+  { href: "/anti-static", label: "防静电拖链", note: "电阻实测 10⁶ Ω 量级" },
+  { href: "/bridge", label: "桥式拖链", note: "开放式结构怎么选" },
+  { href: "/heavy-duty", label: "重载拖链", note: "架空长度与支撑核算" },
+  { href: "/specs", label: "拖链规格", note: "内高内宽半径对照" },
+  { href: "/manufacturers", label: "拖链厂家", note: "工厂还是贸易商" },
+  { href: "/custom", label: "拖链定制", note: "非标流程与边界" },
+] as const;
+
 export function generateMetadata(): Metadata {
   const locale = getRequestLocale();
   const copy = getMessages(locale).homePage;
@@ -274,8 +288,117 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-gray-50 px-4 py-12 sm:px-6 sm:py-20 lg:px-8" aria-labelledby="partners-heading">
-        <div className="mx-auto max-w-7xl">
+      {locale === "zh" && (
+        <section className="bg-white px-4 py-12 sm:px-6 sm:py-16 lg:px-8" aria-labelledby="longtail-heading">
+          <div className="mx-auto max-w-7xl">
+            <div className="text-center">
+              <h2 id="longtail-heading" className="text-2xl font-bold text-brand-primary sm:text-3xl">
+                按问题找答案：拖链选型六个专题
+              </h2>
+              <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-foreground/70 sm:text-base">
+                规格怎么定、防静电怎么验、厂家怎么挑——这些是询价前最常卡住的地方。
+                六个专题各讲透一件事，数据全部来自 CNWSL 威仕龙的现行规格与第三方检测报告。
+              </p>
+            </div>
+            <ul className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {zhLongtailLinks.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="group flex h-full items-center justify-between gap-3 rounded-xl border border-line bg-white px-5 py-4 shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-secondary/40 hover:shadow-float"
+                  >
+                    <span>
+                      <span className="block text-base font-semibold text-brand-primary">
+                        {item.label}
+                      </span>
+                      <span className="mt-1 block text-xs text-foreground/55">{item.note}</span>
+                    </span>
+                    <svg
+                      className="h-4 w-4 shrink-0 text-brand-secondary opacity-0 transition-opacity group-hover:opacity-100"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={2}
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                    </svg>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
+      {/* 英文核心商业词落地页入口（2026-11-03）：仅 en 渲染，首页直达 5 个品类/采购意图页。 */}
+      {locale === "en" && (
+        <section className="px-4 py-12 sm:px-6 sm:py-16 lg:px-8" aria-labelledby="en-guides-heading">
+          <div className="mx-auto max-w-7xl">
+            <div className="max-w-2xl">
+              <h2 id="en-guides-heading" className="text-2xl font-bold text-brand-primary sm:text-3xl">
+                Cable carrier buying guides
+              </h2>
+              <p className="mt-4 text-foreground/70">
+                Five pages for the questions that come before a part number: what a carrier is, how
+                to size one across brands, how to tell a factory from a reseller, and what actually
+                drives the price per metre.
+              </p>
+              <Link
+                href={localizeHref("/cable-carrier-guides", locale)}
+                className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-secondary hover:text-brand-primary"
+              >
+                Start at the guides index
+                <svg
+                  className="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+              </Link>
+            </div>
+            <ul className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {[
+                { href: "/cable-carrier", label: "Cable Carrier", note: "Full range: six series, 5–80 mm inner height" },
+                { href: "/drag-chain", label: "Drag Chain", note: "Machine tools, gantries and robot axes" },
+                { href: "/energy-chain", label: "Energy Chain (E-Chain)", note: "Interchange sizing explained" },
+                { href: "/cable-carrier-manufacturer", label: "Cable Carrier Manufacturer", note: "Factory or reseller: six checks" },
+                { href: "/cable-carrier-price", label: "Cable Carrier Price", note: "What drives cost per metre" },
+              ].map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={localizeHref(item.href, locale)}
+                    className="group flex h-full items-center justify-between gap-3 rounded-xl border border-line bg-white px-5 py-4 shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-secondary/40 hover:shadow-float"
+                  >
+                    <span>
+                      <span className="block text-base font-semibold text-brand-primary">
+                        {item.label}
+                      </span>
+                      <span className="mt-1 block text-xs text-foreground/55">{item.note}</span>
+                    </span>
+                    <svg
+                      className="h-4 w-4 shrink-0 text-brand-secondary opacity-0 transition-opacity group-hover:opacity-100"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={2}
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                    </svg>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
+      <section className="bg-gray-50 px-4 py-12 sm:px-6 sm:py-20 lg:px-8" aria-labelledby="partners-heading">        <div className="mx-auto max-w-7xl">
           <div className="text-center">
             <h2 id="partners-heading" className="text-2xl font-bold text-brand-primary sm:text-4xl">
               {copy.partnersTitle}

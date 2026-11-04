@@ -1,10 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import {
   LOCALE_COOKIE,
+  defaultLocale,
   localeFromPathname,
   localeHtmlLang,
   localeLabels,
@@ -18,9 +18,20 @@ function persistLocale(locale: Locale) {
   document.cookie = `${LOCALE_COOKIE}=${locale}; Path=/; Max-Age=31536000; SameSite=Lax`;
 }
 
-export default function LanguageSwitcher() {
+/**
+ * locale 由 Navbar 透传（源头是 layout 的服务端 getRequestLocale）。
+ *
+ * 改这里的原因（2026-11-04）：
+ * 1. 不能靠 pathname 判语种 —— middleware rewrite 已剥掉 /en 前缀，
+ *    localeFromPathname 一律返回 zh，切换器会在英文页上显示「中文」；
+ * 2. 切换必须整页跳转（<a> 而非 <Link>）。App Router 的客户端导航不会
+ *    重新渲染 layout，middleware 也不会重跑，结果是 URL 变了、导航仍是旧语种。
+ */
+export default function LanguageSwitcher({ locale: localeProp }: { locale?: Locale }) {
   const pathname = usePathname() || "/";
-  const locale = localeFromPathname(pathname);
+  const pathLocale = localeFromPathname(pathname);
+  const locale =
+    pathLocale !== defaultLocale ? pathLocale : (localeProp ?? defaultLocale);
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const label = getMessages(locale).language;
@@ -71,7 +82,7 @@ export default function LanguageSwitcher() {
             const active = item === locale;
             return (
               <li key={item} role="option" aria-selected={active}>
-                <Link
+                <a
                   href={switchLocalePath(pathname, item)}
                   hrefLang={localeHtmlLang[item]}
                   className={`block px-3 py-2 text-sm transition-colors ${
@@ -85,7 +96,7 @@ export default function LanguageSwitcher() {
                   }}
                 >
                   {localeLabels[item].native}
-                </Link>
+                </a>
               </li>
             );
           })}

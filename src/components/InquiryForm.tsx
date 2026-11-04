@@ -3,16 +3,27 @@
 import { FormEvent, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { localeFromPathname, localizeHref } from "@/lib/i18n/config";
+import {
+  defaultLocale,
+  localeFromPathname,
+  localizeHref,
+  type Locale,
+} from "@/lib/i18n/config";
 import { getMessages } from "@/lib/i18n/messages";
 
 interface InquiryFormProps {
   productName: string;
+  /** 由服务端页面传入（middleware rewrite 后 pathname 已无 /en 前缀）。 */
+  locale?: Locale;
 }
 
-export default function InquiryForm({ productName }: InquiryFormProps) {
+export default function InquiryForm({ productName, locale: localeProp }: InquiryFormProps) {
   const pathname = usePathname() || "/";
-  const locale = localeFromPathname(pathname);
+  // locale 可由调用页（服务端 getRequestLocale）传入；middleware 已把 /en/...
+  // rewrite 成无前缀路径，单靠 pathname 会把外语页判成 zh（2026-11-04）。
+  const pathLocale = localeFromPathname(pathname);
+  const locale =
+    pathLocale !== defaultLocale ? pathLocale : (localeProp ?? defaultLocale);
   const form = getMessages(locale).form;
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);

@@ -40,6 +40,22 @@ const PAGE_LAST_MODIFIED: Record<string, string> = {
   "/solutions/automotive": "2026-10-30",
   "/solutions/laser": "2026-10-30",
   "/solutions/new-energy": "2026-10-30",
+
+  /* 英文核心商业词落地页（2026-11-03 新建）。 */
+  "/en/cable-carrier": "2026-11-03",
+  "/en/drag-chain": "2026-11-03",
+  "/en/energy-chain": "2026-11-03",
+  "/en/cable-carrier-manufacturer": "2026-11-03",
+  "/en/cable-carrier-price": "2026-11-03",
+  /* 英文指南总入口（2026-11-04 新建）。 */
+  "/en/cable-carrier-guides": "2026-11-04",
+  // 2026-10-30 新建的六个中文长尾词落地页（仅 zh）。
+  "/anti-static": "2026-10-30",
+  "/bridge": "2026-10-30",
+  "/heavy-duty": "2026-10-30",
+  "/specs": "2026-10-30",
+  "/manufacturers": "2026-10-30",
+  "/custom": "2026-10-30",
 };
 
 /** 取某路径的真实 lastmod；未登记的回落构建基线。 */

@@ -3,20 +3,25 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { BreadcrumbItem } from "@/lib/product-catalog";
-import { localeFromPathname } from "@/lib/i18n/config";
+import { defaultLocale, localeFromPathname, type Locale } from "@/lib/i18n/config";
 import { getMessages } from "@/lib/i18n/messages";
 
 interface ProductBreadcrumbProps {
   items: BreadcrumbItem[];
   tone?: "default" | "onInk";
+  /** 由服务端页面传入（middleware rewrite 后 pathname 已无 /en 前缀）。 */
+  locale?: Locale;
 }
 
 export default function ProductBreadcrumb({
   items,
   tone = "default",
+  locale: localeProp,
 }: ProductBreadcrumbProps) {
   const pathname = usePathname() || "/";
-  const locale = localeFromPathname(pathname);
+  const pathLocale = localeFromPathname(pathname);
+  const locale =
+    pathLocale !== defaultLocale ? pathLocale : (localeProp ?? defaultLocale);
   const ariaLabel = getMessages(locale).breadcrumb;
   const onInk = tone === "onInk";
 

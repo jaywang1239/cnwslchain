@@ -6,16 +6,31 @@ import { useEffect, useState } from "react";
 import BrandLogo from "@/components/BrandLogo";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import {
+  defaultLocale,
   localeFromPathname,
   localeHtmlLang,
   localizeHref,
+  type Locale,
 } from "@/lib/i18n/config";
 import { getMessages } from "@/lib/i18n/messages";
 import { getSearchMessages } from "@/lib/i18n/search-messages";
 
-export default function Navbar() {
+/**
+ * locale 由服务端 layout 传入（2026-11-04）。
+ *
+ * 为什么不在这里自己判：middleware 把 /en/... rewrite 成无前缀路径，
+ * 客户端 usePathname() 拿到的是 /cable-carrier 而不是 /en/cable-carrier，
+ * localeFromPathname 会一律返回 zh —— 英文页就会出现英文正文配中文导航。
+ * 服务端 getRequestLocale() 读的是 x-locale（middleware 注入），才是真值。
+ *
+ * pathname 只在「地址栏确实带非默认前缀」时才覆盖，用于客户端 <Link> 导航
+ * 到另一语种的兜底。
+ */
+export default function Navbar({ locale: localeProp }: { locale?: Locale }) {
   const pathname = usePathname() || "/";
-  const locale = localeFromPathname(pathname);
+  const pathLocale = localeFromPathname(pathname);
+  const locale =
+    pathLocale !== defaultLocale ? pathLocale : (localeProp ?? defaultLocale);
   const copy = getMessages(locale);
   const searchCopy = getSearchMessages(locale);
   const searchHref = localizeHref("/search", locale);
@@ -24,12 +39,18 @@ export default function Navbar() {
 
   const navItems = [
     { label: copy.nav.products, href: localizeHref("/products", locale) },
+    // 英文站专用入口（2026-11-04）：指向 5 个核心商业词落地页的总入口 hub。
+    // 中文站没有对应页面（/cable-carrier 等均为 requireEnOnlyLocale 收口），
+    // 所以只在 en 下插入，不能放进 messages 的公共 nav。
+    ...(locale === "en"
+      ? [{ label: "Guides", href: localizeHref("/cable-carrier-guides", locale) }]
+      : []),
     { label: copy.nav.solutions, href: localizeHref("/solutions", locale) },
     { label: copy.nav.about, href: localizeHref("/about", locale) },
     { label: copy.nav.downloads, href: localizeHref("/downloads", locale) },
     { label: copy.nav.blog, href: localizeHref("/blog", locale) },
     { label: copy.nav.news, href: localizeHref("/news", locale) },
-  ] as const;
+  ];
 
   useEffect(() => {
     setOpen(false);
@@ -123,7 +144,7 @@ export default function Navbar() {
               />
             </svg>
           </Link>
-          <LanguageSwitcher />
+          <LanguageSwitcher locale={locale} />
           <button
             type="button"
             className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-white/75 transition-colors hover:bg-white/10 hover:text-white lg:hidden"

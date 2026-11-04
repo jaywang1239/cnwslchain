@@ -307,12 +307,52 @@ export function buildSearchIndex(locale: Locale): SearchEntry[] {
     { href: "/official", label: s.pageOfficial, description: m.brandFull },
     { href: "/privacy", label: s.pagePrivacy, description: "" },
     { href: "/blog", label: m.nav.blog, description: m.blog.subtitle },
-    { href: "/news", label: m.nav.news, description: m.news.subtitle },
+    { href: "/news", label: m.news.title, description: m.news.subtitle },
+    // 新闻两分类（2026-11-04）：全语种可访问，不设 href 收口。
+    { href: "/news/company", label: m.news.companyNews, description: m.news.companySubtitle },
+    { href: "/news/industry", label: m.news.industryNews, description: m.news.industrySubtitle },
     { href: "/about", label: m.nav.about, description: m.about.metaDescription },
     { href: "/contact", label: m.nav.contact, description: m.contact.subtitle },
+    // 纯中文长尾落地页（2026-10-30）：requireZhLocale() 收口，非中文不收录。
+    { href: "/anti-static", label: "防静电拖链", description: "静电耗散实测、ANSI/ESD S20.20 报告与接地边界" },
+    { href: "/bridge", label: "桥式拖链", description: "开放式结构、横杆形式与何时必须换封闭式" },
+    { href: "/heavy-duty", label: "重载拖链", description: "承重、架空长度与支撑方式怎么核" },
+    { href: "/specs", label: "拖链规格", description: "全系内高内宽弯曲半径对照与型号命名规则" },
+    { href: "/manufacturers", label: "拖链厂家", description: "源头工厂、验厂要点与报价陷阱" },
+    { href: "/custom", label: "拖链定制", description: "非标改动可行性、流程与边界" },
+    // 纯英文核心商业词落地页（2026-11-03）：requireEnOnlyLocale() 收口，非 en 不收录。
+    { href: "/cable-carrier-guides", label: "Cable Carrier Guides", description: "Start where you are: sizing, cross-brand swap, supplier checks, pricing" },
+    { href: "/cable-carrier", label: "Cable Carrier", description: "Full range index: six series, 5–80 mm inner height" },
+    { href: "/drag-chain", label: "Drag Chain", description: "Plastic drag chains for machine tools, gantries and robots" },
+    { href: "/energy-chain", label: "Energy Chain (E-Chain)", description: "What an e-chain is, and how interchange sizing works" },
+    { href: "/cable-carrier-manufacturer", label: "Cable Carrier Manufacturer", description: "Factory or reseller: six questions that separate them" },
+    { href: "/cable-carrier-price", label: "Cable Carrier Price", description: "The five variables that move cable carrier cost per metre" },
   ];
+
+  /** 仅中文可访问的页面：非 zh 语种不进搜索索引（否则会拼出 404 地址）。 */
+  const zhOnlyPageHrefs = new Set([
+    "/anti-static",
+    "/bridge",
+    "/heavy-duty",
+    "/specs",
+    "/manufacturers",
+    "/custom",
+  ]);
+
+  /** 仅英文可访问的页面：非 en 语种不进搜索索引（同上，避免拼出 404 地址）。 */
+  const enOnlyPageHrefs = new Set([
+    "/cable-carrier-guides",
+    "/cable-carrier",
+    "/drag-chain",
+    "/energy-chain",
+    "/cable-carrier-manufacturer",
+    "/cable-carrier-price",
+  ]);
+
   for (const page of pages) {
     if (locale !== "zh" && locale !== "en" && zhEnPageHrefs.has(page.href)) continue;
+    if (locale !== "zh" && zhOnlyPageHrefs.has(page.href)) continue;
+    if (locale !== "en" && enOnlyPageHrefs.has(page.href)) continue;
     entries.push({
       id: `page:${page.href}`,
       group: "pages",

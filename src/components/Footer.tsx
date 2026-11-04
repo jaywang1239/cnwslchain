@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import BrandLogo from "@/components/BrandLogo";
 import SocialLinks from "@/components/SocialLinks";
-import { localeFromPathname, localizeHref } from "@/lib/i18n/config";
+import { localeFromPathname, localizeHref, defaultLocale, type Locale } from "@/lib/i18n/config";
 import { getMessages } from "@/lib/i18n/messages";
 import { getQrCodeAlt } from "@/lib/product-i18n";
 import { showOverseasSocial } from "@/lib/social";
@@ -44,9 +44,16 @@ const officialNoticeLabels = {
   en: "www.cnwslchain.com is our only official website",
 } as const;
 
-export default function Footer() {
+/**
+ * locale 由 layout 服务端传入（2026-11-04）。
+ * 原因同 Navbar：middleware 已把 /en/... rewrite 成无前缀路径，
+ * 客户端 pathname 判不出语种，页脚会在英文站渲染成一整片中文。
+ */
+export default function Footer({ locale: localeProp }: { locale?: Locale }) {
   const pathname = usePathname() || "/";
-  const locale = localeFromPathname(pathname);
+  const pathLocale = localeFromPathname(pathname);
+  const locale =
+    pathLocale !== defaultLocale ? pathLocale : (localeProp ?? defaultLocale);
   const copy = getMessages(locale);
   const overseas = showOverseasSocial(locale);
   const sep = locale === "zh" ? "：" : ": ";

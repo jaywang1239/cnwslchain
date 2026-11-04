@@ -90,7 +90,7 @@ export default function ContactPage() {
             <h2 className="text-2xl font-bold text-brand-primary">{copy.formTitle}</h2>
             <p className="mt-2 text-sm text-foreground/70">{copy.formHint}</p>
             <div className="mt-6">
-              <ContactForm />
+              <ContactForm locale={locale} />
             </div>
           </div>
 

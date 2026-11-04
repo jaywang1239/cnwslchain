@@ -103,6 +103,57 @@ export default function SolutionsPage() {
           ))}
         </div>
       </section>
+
+      {/* 英文核心商业词落地页入口（2026-11-03）：仅 en 渲染，指向 requireEnOnlyLocale() 收口的 5 个页面。 */}
+      {locale === "en" && (
+        <section className="border-t border-gray-200 px-4 py-16 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl">
+            <h2 className="text-2xl font-bold text-brand-primary">
+              Choosing a cable carrier? Start with the basics
+            </h2>
+            <p className="mt-3 max-w-3xl text-sm leading-relaxed text-foreground/70">
+              These pages answer the questions buyers ask before a model number exists: what a
+              carrier actually is, how sizing works across brands, what separates a factory from a
+              reseller, and which cost drivers are worth arguing about.
+            </p>
+            <Link
+              href={localizeHref("/cable-carrier-guides", locale)}
+              className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-secondary hover:text-brand-primary"
+            >
+              Open the guides index
+              <svg
+                className="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+              </svg>
+            </Link>
+            <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {[
+                { href: "/cable-carrier", label: "Cable Carrier", note: "Full range: six series, 5–80 mm inner height" },
+                { href: "/drag-chain", label: "Drag Chain", note: "Machine tools, gantries and robot axes" },
+                { href: "/energy-chain", label: "Energy Chain (E-Chain)", note: "Interchange sizing explained" },
+                { href: "/cable-carrier-manufacturer", label: "Cable Carrier Manufacturer", note: "Factory or reseller: six checks" },
+                { href: "/cable-carrier-price", label: "Cable Carrier Price", note: "What drives cost per metre" },
+              ].map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={localizeHref(item.href, locale)}
+                    className="flex h-full flex-col rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition hover:border-brand-secondary"
+                  >
+                    <span className="text-base font-semibold text-brand-primary">{item.label}</span>
+                    <span className="mt-2 text-sm text-foreground/70">{item.note}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { isZhEnOnlyPost } from "@/lib/content-i18n";
+import { EN_LANDING_SLUGS, EN_HUB_SLUG } from "@/lib/en-landing-pages";
 import { getAllNews, getAllNewsSlugs } from "@/lib/news";
 import { getAllPostSlugs, getAllPosts, getPostBySlug } from "@/lib/posts";
 import {
@@ -136,6 +137,9 @@ function buildSitemap(): MetadataRoute.Sitemap {
     "/about",
     "/blog",
     "/news",
+    /* 2026-11-04 新闻拆「行业新闻 / 企业新闻」两分类，各自是稳定可索引的列表页。 */
+    "/news/company",
+    "/news/industry",
     "/contact",
   ];
 
@@ -160,7 +164,7 @@ function buildSitemap(): MetadataRoute.Sitemap {
     locales.map((locale) =>
       entry(base, path, locale, {
         changeFrequency:
-          path === "/blog" || path === "/news" || path === "/"
+          path.startsWith("/news") || path === "/blog" || path === "/"
             ? "daily"
             : "weekly",
         priority:
@@ -171,9 +175,9 @@ function buildSitemap(): MetadataRoute.Sitemap {
             : locale === defaultLocale
               ? 0.8
               : 0.7,
-        // /blog、/news 是列表页，日期跟着最新一篇走；其余按 PAGE_LAST_MODIFIED。
+        // /news 及其分类页、/blog 是列表页，日期跟着最新一篇走；其余按 PAGE_LAST_MODIFIED。
         lastModified:
-          path === "/news"
+          path.startsWith("/news")
             ? latestNewsDate
             : path === "/blog"
               ? latestPostDate
@@ -283,11 +287,40 @@ function buildSitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  /**
+   * 英文核心商业词落地页（2026-11-03 新增）。
+   * 与 solutionRoutes 同理：只有 en 版本，因此只登单条、不带 alternates，
+   * 不声明 hreflang —— 其余语种由 requireEnOnlyLocale() 判 404。
+   * priority 给 0.9：这几页承接的是 cable carrier / drag chain / e-chain
+   * 这类品类主词，是英文侧最重要的入口。
+   */
+  const enLandingRoutes: MetadataRoute.Sitemap = EN_LANDING_SLUGS.map((slug) => ({
+    url: `${base}/en/${slug}`,
+    lastModified: pageLastModified(`/en/${slug}`),
+    changeFrequency: "monthly",
+    priority: 0.9,
+  }));
+
+  /**
+   * 英文指南总入口（2026-11-04）。hub 的 priority 比 spoke 高一档：
+   * 它是 5 个页面的唯一汇聚点，权重应当从这里往下分。
+   */
+  const enHubRoutes: MetadataRoute.Sitemap = [
+    {
+      url: `${base}/en/${EN_HUB_SLUG}`,
+      lastModified: pageLastModified(`/en/${EN_HUB_SLUG}`),
+      changeFrequency: "monthly",
+      priority: 0.95,
+    },
+  ];
+
   return [
     ...staticRoutes,
     ...zhEnLandingRoutes,
     ...legalRoutes,
     ...solutionRoutes,
+    ...enHubRoutes,
+    ...enLandingRoutes,
     ...productRoutes,
     ...blogRoutes,
     ...newsRoutes,

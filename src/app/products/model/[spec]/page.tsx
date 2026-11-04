@@ -232,7 +232,7 @@ export default async function SpecPage({
       <article className="bg-gray-50">
         <section className="border-b border-gray-200 bg-white px-4 py-8 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
-            <ProductBreadcrumb items={breadcrumbs} />
+            <ProductBreadcrumb items={breadcrumbs} locale={locale} />
             <p className="text-sm font-medium text-brand-secondary">
               {category.name} · {series.name}
             </p>
@@ -249,7 +249,7 @@ export default async function SpecPage({
           <div className="mx-auto max-w-7xl">
             <div className="grid gap-10 lg:grid-cols-2 lg:gap-12">
               {galleryImages.length > 0 ? (
-                <ProductGallery images={galleryImages} productName={spec.code} />
+                <ProductGallery images={galleryImages} productName={spec.code} locale={locale} />
               ) : (
                 <div className="flex aspect-[4/3] items-center justify-center rounded-xl border border-gray-200 bg-white">
                   <p className="text-sm text-foreground/40">{copy.imagePending}</p>
@@ -481,7 +481,7 @@ export default async function SpecPage({
             </h2>
             <p className="mt-2 text-sm text-foreground/70">{copy.inquiryHint}</p>
             <div className="mt-6">
-              <InquiryForm productName={spec.code} />
+              <InquiryForm productName={spec.code} locale={locale} />
             </div>
           </div>
         </section>

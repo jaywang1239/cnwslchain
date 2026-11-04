@@ -101,7 +101,7 @@ export default function ProductsPage() {
       <div className="bg-gray-50">
         <section className="page-hero px-4 py-14 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
-            <ProductBreadcrumb items={breadcrumbs} tone="onInk" />
+            <ProductBreadcrumb items={breadcrumbs} tone="onInk" locale={locale} />
             <h1 className="text-3xl font-bold text-white sm:text-4xl">
               {copy.title}
             </h1>

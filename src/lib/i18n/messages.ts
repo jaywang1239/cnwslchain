@@ -242,8 +242,21 @@ export type AppMessages = {
     empty: string;
     readMore: string;
     back: string;
+    /** 分类名（同时用作列表徽标与分类页标题）。 */
     companyNews: string;
-    expo: string;
+    industryNews: string;
+    /** 分类页副标题，也当该页 meta description 用。 */
+    companySubtitle: string;
+    industrySubtitle: string;
+    /** 分类切换 tab 里的「全部」。 */
+    tabAll: string;
+    /** 分页控件文案，`{current}` `{total}` 为占位符。 */
+    paginationLabel: string;
+    prevPage: string;
+    nextPage: string;
+    pageStatus: string;
+    /** 列表标题下的「共 N 篇」，`{total}` 为占位符。 */
+    articleCount: string;
     notFound: string;
     videoLabel: string;
   };
@@ -274,7 +287,7 @@ const zh: AppMessages = {
     about: "关于我们",
     downloads: "下载中心",
     blog: "技术博客",
-    news: "新闻展会",
+    news: "新闻中心",
     contact: "联系我们",
     openMenu: "打开菜单",
     closeMenu: "关闭菜单",
@@ -636,18 +649,28 @@ const zh: AppMessages = {
     notFound: "文章未找到 | 威仕龙 CNWSL",
   },
   news: {
-    metaTitle: "拖链厂家新闻_威仕龙展会动态与新品发布",
+    metaTitle: "拖链行业新闻_威仕龙企业新闻与企业动态",
     keywords:
-      "威仕龙新闻,拖链厂家新闻,拖链展会,尼龙拖链新品,CNWSL动态,拖链行业资讯",
+      "威仕龙新闻,拖链行业新闻,拖链厂家新闻,尼龙拖链新品,CNWSL动态,拖链标准",
     metaDescription:
-      "威仕龙公司新闻与展会动态：新品发布、注塑产能扩充、IATF 16949 等认证进展，以及国内外工业展会的参展信息与现场实况。",
-    title: "新闻展会",
-    subtitle: "公司动态与展会活动，按发布时间统一展示",
+      "威仕龙新闻中心：行业新闻写拖链标准、材料与验收要求的变化；企业新闻写新品发布、注塑产能扩充、IATF 16949 等认证进展与展会实况。",
+    title: "新闻中心",
+    subtitle: "行业新闻与企业新闻，按发布时间倒序，最新的在最上面",
     empty: "暂无新闻，请稍后再来。",
     readMore: "查看详情",
     back: "← 返回新闻列表",
-    companyNews: "公司新闻",
-    expo: "展会活动",
+    companyNews: "企业新闻",
+    industryNews: "行业新闻",
+    companySubtitle:
+      "新品、产能、认证与交付的进展，以及我们参加的展会。按发布时间倒序。",
+    industrySubtitle:
+      "拖链和线缆防护这一行正在发生的变化：标准怎么改、材料怎么换、客户的验收要求怎么收紧。写我们实际看到的。",
+    tabAll: "全部",
+    paginationLabel: "新闻分页",
+    prevPage: "上一页",
+    nextPage: "下一页",
+    pageStatus: "第 {current} / {total} 页",
+    articleCount: "共 {total} 篇",
     notFound: "资讯未找到 | 威仕龙 CNWSL",
     videoLabel: "展位视频",
   },
@@ -692,9 +715,9 @@ const zh: AppMessages = {
         "静音拖链（低噪音拖链）采用低摩擦铰链与优化链节结构，有效降低高速往复运动中的噪音与振动，延长线缆使用寿命。想了解它和普通拖链差在哪，可对照本页的参数与结构说明。",
       applications: ["洁净车间", "精密加工", "医疗自动化", "电子装配线"],
       metaTitle:
-        "静音拖链_高速低噪音拖链18-45mm_厂家直供-威仕龙",
+        "静音拖链_低噪音高速拖链18-45mm_CNWSL威仕龙厂家",
       keywords:
-        "静音拖链,静音拖链和普通拖链的区别,低噪音拖链,静音坦克链,高速拖链,折弯半径怎么测量,医疗自动化拖链,精密加工拖链,静音拖链厂家",
+        "静音拖链,静音拖链和普通拖链的区别,低噪音拖链,静音坦克链,高速拖链,静音拖链厂家,静音拖链规格,CNWSL静音拖链,威仕龙静音拖链,静音拖链价格,折弯半径怎么测量,医疗自动化拖链,精密加工拖链",
     },
     portable: {
       name: "便携式拖链系列",
@@ -714,9 +737,9 @@ const zh: AppMessages = {
         "无尘拖链 WWC 系列专为半导体、液晶面板、医药洁净室等对环境洁净度要求极高的场景设计，低发尘、低噪音（也常被叫作洁净室拖链、低发尘拖链），满足 Class 100 及以上洁净等级要求。",
       applications: ["半导体设备", "液晶面板", "医药洁净室", "精密光学"],
       metaTitle:
-        "无尘拖链厂家_半导体/洁净室低发尘拖链_现货-威仕龙",
+        "无尘拖链_防静电/洁净室低发尘拖链_CNWSL威仕龙",
       keywords:
-        "无尘拖链,无尘拖链厂家,无尘拖链安装教程,防静电拖链,洁净室拖链,半导体拖链,低发尘拖链,液晶面板拖链,WWC无尘拖链,医药洁净室拖链",
+        "无尘拖链,无尘拖链厂家,无尘拖链安装教程,防静电拖链,抗静电拖链,防静电无尘拖链,洁净室拖链,半导体拖链,低发尘拖链,液晶面板拖链,WWC无尘拖链,医药洁净室拖链,CNWSL无尘拖链",
     },
   },
 };
@@ -1138,16 +1161,28 @@ const en: AppMessages = {
     notFound: "Article not found | CNWSL",
   },
   news: {
-    metaTitle: "News & Exhibitions | CNWSL",
+    metaTitle: "Cable Carrier Industry News and Company News | CNWSL",
+    keywords:
+      "cable carrier news,drag chain industry news,CNWSL company news,cable protection standards",
     metaDescription:
-      "CNWSL company news: new products, injection capacity expansion, certification progress and exhibition reports from trade shows in China and overseas.",
-    title: "News & Exhibitions",
-    subtitle: "Company updates and exhibition activity, listed by date",
+      "CNWSL news: industry notes on cable carrier standards, materials and acceptance criteria, plus company news on new products, capacity, certification and exhibitions.",
+    title: "News",
+    subtitle: "Industry and company news, newest first",
     empty: "No news yet. Please check back later.",
     readMore: "Read more",
     back: "← Back to news",
     companyNews: "Company news",
-    expo: "Exhibitions",
+    industryNews: "Industry news",
+    companySubtitle:
+      "New products, capacity, certification and delivery, plus the exhibitions we attend. Newest first.",
+    industrySubtitle:
+      "What is changing in cable carriers and cable protection: standards, materials, and the acceptance criteria customers keep tightening. Written from what we actually see.",
+    tabAll: "All",
+    paginationLabel: "News pagination",
+    prevPage: "Previous",
+    nextPage: "Next",
+    pageStatus: "Page {current} of {total}",
+    articleCount: "{total} articles",
     notFound: "News not found | CNWSL",
     videoLabel: "Booth video",
   },
@@ -1212,7 +1247,7 @@ const vi: AppMessages = {
     about: "Về chúng tôi",
     downloads: "Tải xuống",
     blog: "Blog kỹ thuật",
-    news: "Tin tức & triển lãm",
+    news: "Tin tức",
     contact: "Liên hệ",
     openMenu: "Mở menu",
     closeMenu: "Đóng menu",
@@ -1251,7 +1286,8 @@ const vi: AppMessages = {
       "Phòng 306, Tòa Tingsong, quận Thiên Ninh, Thường Châu, Giang Tô, Trung Quốc",
   },
   homePage: {
-    metaTitle: "CNWSL | Zhejiang CNWSL Cable Drag Chain Co., Ltd.",
+    metaTitle:
+      "Xích dẫn cáp nhựa 5–80mm, xích phòng sạch Class 1 | CNWSL",
     metaDescription:
       "CNWSL sản xuất xích dẫn cáp nhựa, xích phòng sạch và ống làm mát. Nhà máy tại Nhạc Thanh (Chiết Giang), có văn phòng Thâm Quyến và Thường Châu.",
     ogImageAlt: "Xích dẫn cáp phòng sạch CNWSL chuyển động qua lại",
@@ -1586,16 +1622,28 @@ const vi: AppMessages = {
     notFound: "Không tìm thấy bài viết | CNWSL",
   },
   news: {
-    metaTitle: "Tin tức & triển lãm | CNWSL",
+    metaTitle: "Tin ngành và tin doanh nghiệp về xích dẫn cáp | CNWSL",
+    keywords:
+      "tin xích dẫn cáp,tin ngành xích dẫn cáp,CNWSL,xích cáp nhựa",
     metaDescription:
-      "Tin công ty CNWSL: sản phẩm mới, mở rộng năng lực sản xuất, tiến độ chứng nhận IATF 16949 và điểm nhấn các hội chợ công nghiệp trong và ngoài nước.",
-    title: "Tin tức & triển lãm",
-    subtitle: "Động thái công ty và hoạt động triển lãm, sắp xếp theo ngày",
+      "Trung tâm tin CNWSL: tin ngành về tiêu chuẩn, vật liệu và yêu cầu nghiệm thu xích dẫn cáp; tin doanh nghiệp về sản phẩm mới, năng lực sản xuất, chứng nhận và triển lãm.",
+    title: "Tin tức",
+    subtitle: "Tin ngành và tin doanh nghiệp, mới nhất xếp trước",
     empty: "Chưa có tin. Vui lòng quay lại sau.",
     readMore: "Xem chi tiết",
     back: "← Quay lại danh sách tin",
-    companyNews: "Tin công ty",
-    expo: "Triển lãm",
+    companyNews: "Tin doanh nghiệp",
+    industryNews: "Tin ngành",
+    companySubtitle:
+      "Sản phẩm mới, năng lực sản xuất, chứng nhận và giao hàng, cùng các triển lãm chúng tôi tham gia. Mới nhất xếp trước.",
+    industrySubtitle:
+      "Những gì đang thay đổi trong ngành xích dẫn cáp và bảo vệ cáp: tiêu chuẩn, vật liệu và yêu cầu nghiệm thu ngày càng chặt của khách hàng. Viết từ thực tế chúng tôi thấy.",
+    tabAll: "Tất cả",
+    paginationLabel: "Phân trang tin",
+    prevPage: "Trước",
+    nextPage: "Tiếp",
+    pageStatus: "Trang {current} / {total}",
+    articleCount: "{total} bài",
     notFound: "Không tìm thấy tin | CNWSL",
     videoLabel: "Video gian hàng",
   },
@@ -1662,7 +1710,7 @@ const es: AppMessages = {
     about: "Nosotros",
     downloads: "Descargas",
     blog: "Blog técnico",
-    news: "Noticias y ferias",
+    news: "Noticias",
     contact: "Contacto",
     openMenu: "Abrir menú",
     closeMenu: "Cerrar menú",
@@ -1701,7 +1749,8 @@ const es: AppMessages = {
       "Oficina 306, edificio Tingsong, distrito Tianning, Changzhou, Jiangsu, China",
   },
   homePage: {
-    metaTitle: "CNWSL | Zhejiang CNWSL Cable Drag Chain Co., Ltd.",
+    metaTitle:
+      "Portacables de plástico 5–80mm y sala limpia Class 1 | CNWSL",
     metaDescription:
       "CNWSL fabrica portacables de plástico, portacables para sala limpia y tubos de refrigeración. Fábrica en Yueqing, con oficinas en Shenzhen y Changzhou.",
     ogImageAlt: "Portacables de sala limpia CNWSL en movimiento alternativo",
@@ -2041,16 +2090,28 @@ const es: AppMessages = {
     notFound: "Artículo no encontrado | CNWSL",
   },
   news: {
-    metaTitle: "Noticias y ferias | CNWSL",
+    metaTitle: "Noticias del sector y de la empresa | CNWSL",
+    keywords:
+      "noticias portacables,noticias del sector,CNWSL,cadenas portacables",
     metaDescription:
-      "Noticias de empresa CNWSL, actualizaciones de capacidad y destacados de ferias.",
-    title: "Noticias y ferias",
-    subtitle: "Novedades de la empresa y actividad ferial, ordenadas por fecha",
+      "Centro de noticias de CNWSL: noticias del sector sobre normas, materiales y criterios de aceptación de portacables, y noticias corporativas sobre productos, capacidad, certificaciones y ferias.",
+    title: "Noticias",
+    subtitle: "Noticias del sector y de la empresa, lo más reciente primero",
     empty: "Aún no hay noticias. Vuelva más tarde.",
     readMore: "Ver detalle",
     back: "← Volver a noticias",
-    companyNews: "Noticias de la empresa",
-    expo: "Ferias",
+    companyNews: "Noticias corporativas",
+    industryNews: "Noticias del sector",
+    companySubtitle:
+      "Productos nuevos, capacidad, certificaciones y entregas, además de las ferias en las que participamos. Lo más reciente primero.",
+    industrySubtitle:
+      "Lo que está cambiando en portacables y protección de cables: normas, materiales y criterios de aceptación cada vez más estrictos. Escrito desde lo que vemos en planta.",
+    tabAll: "Todas",
+    paginationLabel: "Paginación de noticias",
+    prevPage: "Anterior",
+    nextPage: "Siguiente",
+    pageStatus: "Página {current} de {total}",
+    articleCount: "{total} artículos",
     notFound: "Noticia no encontrada | CNWSL",
     videoLabel: "Vídeo del stand",
   },
@@ -2137,7 +2198,7 @@ const it: AppMessages = {
     about: "Chi siamo",
     downloads: "Download",
     blog: "Blog tecnico",
-    news: "Notizie e fiere",
+    news: "Notizie",
     contact: "Contatti",
     openMenu: "Apri menu",
     closeMenu: "Chiudi menu",
@@ -2176,7 +2237,8 @@ const it: AppMessages = {
       "Ufficio 306, edificio Tingsong, distretto Tianning, Changzhou, Jiangsu, Cina",
   },
   homePage: {
-    metaTitle: "CNWSL | Zhejiang CNWSL Cable Drag Chain Co., Ltd.",
+    metaTitle:
+      "Catene portacavi in plastica 5–80mm e cleanroom Class 1 | CNWSL",
     metaDescription:
       "CNWSL produce catene portacavi in plastica, catene per cleanroom e tubi di raffreddamento. Stabilimento a Yueqing, con uffici a Shenzhen e Changzhou.",
     ogImageAlt: "Catena portacavi cleanroom CNWSL in movimento alternato",
@@ -2516,16 +2578,28 @@ const it: AppMessages = {
     notFound: "Articolo non trovato | CNWSL",
   },
   news: {
-    metaTitle: "Notizie e fiere | CNWSL",
+    metaTitle: "Notizie di settore e aziendali | CNWSL",
+    keywords:
+      "notizie catene portacavi,notizie di settore,CNWSL,catene portacavi",
     metaDescription:
-      "Notizie aziendali CNWSL, aggiornamenti di capacità e highlight fieristici.",
-    title: "Notizie e fiere",
-    subtitle: "Aggiornamenti aziendali e attività fieristiche, in ordine di data",
+      "Centro notizie CNWSL: notizie di settore su norme, materiali e criteri di collaudo delle catene portacavi, e notizie aziendali su prodotti, capacità, certificazioni e fiere.",
+    title: "Notizie",
+    subtitle: "Notizie di settore e aziendali, prima le più recenti",
     empty: "Nessuna notizia al momento. Tornate più tardi.",
     readMore: "Vedi dettaglio",
     back: "← Torna alle notizie",
     companyNews: "Notizie aziendali",
-    expo: "Fiere",
+    industryNews: "Notizie di settore",
+    companySubtitle:
+      "Nuovi prodotti, capacità produttiva, certificazioni e consegne, oltre alle fiere a cui partecipiamo. Prima le più recenti.",
+    industrySubtitle:
+      "Cosa sta cambiando nelle catene portacavi e nella protezione dei cavi: norme, materiali e criteri di collaudo sempre più severi. Scritto da ciò che vediamo in reparto.",
+    tabAll: "Tutte",
+    paginationLabel: "Paginazione notizie",
+    prevPage: "Precedente",
+    nextPage: "Successiva",
+    pageStatus: "Pagina {current} di {total}",
+    articleCount: "{total} articoli",
     notFound: "Notizia non trovata | CNWSL",
     videoLabel: "Video dello stand",
   },
@@ -2612,7 +2686,7 @@ const ru: AppMessages = {
     about: "О компании",
     downloads: "Загрузки",
     blog: "Блог",
-    news: "Новости и выставки",
+    news: "Новости",
     contact: "Контакты",
     openMenu: "Открыть меню",
     closeMenu: "Закрыть меню",
@@ -2651,7 +2725,8 @@ const ru: AppMessages = {
       "Офис 306, здание Тинсун, район Тяньнин, Чанчжоу, Цзянсу, Китай",
   },
   homePage: {
-    metaTitle: "CNWSL | Zhejiang CNWSL Cable Drag Chain Co., Ltd.",
+    metaTitle:
+      "Пластиковые кабельные цепи 5–80 мм, чистые помещения Class 1 | CNWSL",
     metaDescription:
       "CNWSL производит пластиковые кабельные цепи, кабельные цепи для чистых помещений и охлаждающие трубки. Завод в Юэцине, офисы в Шэньчжэне и Чанчжоу.",
     ogImageAlt: "Кабельная цепь CNWSL для чистых помещений в возвратно-поступательном движении",
@@ -2984,16 +3059,28 @@ const ru: AppMessages = {
     notFound: "Статья не найдена | CNWSL",
   },
   news: {
-    metaTitle: "Новости и выставки | CNWSL",
+    metaTitle: "Отраслевые и корпоративные новости | CNWSL",
+    keywords:
+      "новости кабельных цепей,отраслевые новости,CNWSL,пластиковые кабельные цепи",
     metaDescription:
-      "Новости компании CNWSL: новые продукты, расширение мощностей литья, ход сертификации IATF 16949 и репортажи с промышленных выставок в Китае и за рубежом.",
-    title: "Новости и выставки",
-    subtitle: "Обновления компании и выставочная активность по дате",
+      "Новостной раздел CNWSL: отраслевые материалы о стандартах, материалах и требованиях приёмки кабельных цепей, а также корпоративные новости о продукции, мощностях, сертификации и выставках.",
+    title: "Новости",
+    subtitle: "Отраслевые и корпоративные новости, сначала свежие",
     empty: "Новостей пока нет. Загляните позже.",
     readMore: "Читать далее",
     back: "← Назад к новостям",
     companyNews: "Новости компании",
-    expo: "Выставки",
+    industryNews: "Отраслевые новости",
+    companySubtitle:
+      "Новые продукты, мощности, сертификация и поставки, а также выставки, в которых мы участвуем. Сначала свежие.",
+    industrySubtitle:
+      "Что меняется в кабельных цепях и защите кабеля: стандарты, материалы и ужесточающиеся требования приёмки. Написано по тому, что видим на производстве.",
+    tabAll: "Все",
+    paginationLabel: "Страницы новостей",
+    prevPage: "Назад",
+    nextPage: "Вперёд",
+    pageStatus: "Страница {current} из {total}",
+    articleCount: "Всего: {total}",
     notFound: "Новость не найдена | CNWSL",
     videoLabel: "Видео стенда",
   },

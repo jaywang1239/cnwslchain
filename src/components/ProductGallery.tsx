@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { localeFromPathname } from "@/lib/i18n/config";
+import { defaultLocale, localeFromPathname, type Locale } from "@/lib/i18n/config";
 import { getGalleryAriaLabel } from "@/lib/product-i18n";
 
 export interface ProductImage {
@@ -14,14 +14,19 @@ export interface ProductImage {
 interface ProductGalleryProps {
   images: ProductImage[];
   productName: string;
+  /** 由服务端页面传入（middleware rewrite 后 pathname 已无 /en 前缀）。 */
+  locale?: Locale;
 }
 
 export default function ProductGallery({
   images,
   productName,
+  locale: localeProp,
 }: ProductGalleryProps) {
   const pathname = usePathname() || "/";
-  const locale = localeFromPathname(pathname);
+  const pathLocale = localeFromPathname(pathname);
+  const locale =
+    pathLocale !== defaultLocale ? pathLocale : (localeProp ?? defaultLocale);
   const [activeIndex, setActiveIndex] = useState(0);
   const activeImage = images[activeIndex] ?? images[0];
 

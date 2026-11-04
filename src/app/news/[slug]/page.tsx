@@ -3,9 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
+  NEWS_CATEGORY_PATH,
   formatNewsDate,
   getAllNewsSlugs,
   getNewsBySlug,
+  newsCategoryOf,
 } from "@/lib/news";
 import { localizeNewsContent } from "@/lib/content-i18n";
 import { newsExcerpt, parseNewsBlocks } from "@/lib/news-text";
@@ -87,7 +89,13 @@ export default async function NewsDetailPage({
   const item = localizeNewsContent(raw, locale);
   const blocks = parseNewsBlocks(item.content);
 
-  const isExpo = item.type === messages.news.expo;
+  // 分类取原始数据的标签归一化结果（localizeNewsContent 会覆盖 type，不能拿它判分类）。
+  const category = newsCategoryOf(raw);
+  const isIndustry = category === "industry";
+  const categoryLabel = isIndustry
+    ? messages.news.industryNews
+    : messages.news.companyNews;
+  const categoryPath = localizeHref(NEWS_CATEGORY_PATH[category], locale);
   const pagePath = localizeHref(`/news/${item.slug}`, locale);
   const homePath = localizeHref("/", locale);
   const newsPath = localizeHref("/news", locale);
@@ -130,13 +138,14 @@ export default async function NewsDetailPage({
       "@type": "WebPage",
       "@id": absoluteUrl(pagePath),
     },
-    articleSection: item.type,
+    articleSection: categoryLabel,
     inLanguage: localeHtmlLang[locale],
   };
 
   const breadcrumbLd = buildSimpleBreadcrumbJsonLd([
     { name: messages.home, path: homePath },
     { name: messages.news.title, path: newsPath },
+    { name: categoryLabel, path: categoryPath },
     { name: item.title, path: pagePath },
   ]);
 
@@ -161,20 +170,25 @@ export default async function NewsDetailPage({
             {messages.news.title}
           </Link>
           <span className="mx-2">/</span>
+          <Link href={categoryPath} className="hover:text-brand-secondary">
+            {categoryLabel}
+          </Link>
+          <span className="mx-2">/</span>
           <span className="text-brand-primary">{item.title}</span>
         </nav>
 
         <header>
           <div className="flex flex-wrap items-center gap-3 text-sm">
-            <span
+            <Link
+              href={categoryPath}
               className={
-                isExpo
-                  ? "rounded-full bg-brand-accent/15 px-3 py-1 text-xs font-medium text-brand-accent"
-                  : "rounded-full bg-brand-secondary/10 px-3 py-1 text-xs font-medium text-brand-secondary"
+                isIndustry
+                  ? "rounded-full bg-brand-accent/15 px-3 py-1 text-xs font-medium text-brand-accent transition-colors hover:bg-brand-accent/25"
+                  : "rounded-full bg-brand-secondary/10 px-3 py-1 text-xs font-medium text-brand-secondary transition-colors hover:bg-brand-secondary/20"
               }
             >
-              {item.type}
-            </span>
+              {categoryLabel}
+            </Link>
             <time dateTime={item.date} className="text-foreground/50">
               {formatNewsDate(item.date, locale)}
             </time>

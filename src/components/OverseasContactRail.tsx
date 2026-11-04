@@ -3,7 +3,12 @@
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { localeFromPathname, localizeHref } from "@/lib/i18n/config";
+import {
+  defaultLocale,
+  localeFromPathname,
+  localizeHref,
+  type Locale,
+} from "@/lib/i18n/config";
 import { showOverseasSocial, socialIcons } from "@/lib/social";
 import { siteConfig } from "@/lib/site";
 
@@ -55,9 +60,13 @@ const labels = {
   },
 } as const;
 
-export default function OverseasContactRail() {
+export default function OverseasContactRail({ locale: localeProp }: { locale?: Locale }) {
   const pathname = usePathname() || "/";
-  const locale = localeFromPathname(pathname);
+  // locale 可由调用页（服务端 getRequestLocale）传入；middleware 已把 /en/...
+  // rewrite 成无前缀路径，单靠 pathname 会把外语页判成 zh（2026-11-04）。
+  const pathLocale = localeFromPathname(pathname);
+  const locale =
+    pathLocale !== defaultLocale ? pathLocale : (localeProp ?? defaultLocale);
   const [wechatOpen, setWechatOpen] = useState(false);
 
   useEffect(() => {
