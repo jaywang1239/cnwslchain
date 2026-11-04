@@ -292,6 +292,22 @@ export default async function NewsDetailPage({
                     </table>
                   </div>
                 );
+              case "image":
+                return (
+                  <figure key={index} className="!mt-8">
+                    <Image
+                      src={block.src}
+                      alt={block.alt}
+                      width={block.width}
+                      height={block.height}
+                      sizes="(max-width: 768px) 100vw, 768px"
+                      className="mx-auto block h-auto max-w-full rounded-lg border border-gray-200 bg-white"
+                    />
+                    <figcaption className="mt-2 text-center text-xs leading-relaxed text-foreground/50">
+                      {block.alt}
+                    </figcaption>
+                  </figure>
+                );
               default:
                 return (
                   <p

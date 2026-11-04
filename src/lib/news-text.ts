@@ -20,7 +20,11 @@ export type NewsBlock =
   | { type: "heading"; level: 2 | 3; text: string }
   | { type: "list"; items: string[] }
   | { type: "table"; head: string[]; rows: string[][] }
+  | { type: "image"; src: string; alt: string; width: number; height: number }
   | { type: "paragraph"; text: string };
+
+/** 正文插图：![图注](/images/xxx.webp|896x916) */
+const IMAGE_LINE = /^!\[([^\]]*)\]\(([^)|]+?)(?:\|(\d+)x(\d+))?\)$/;
 
 /** Markdown 表格的分隔行：| --- | :---: | */
 const TABLE_SEPARATOR = /^\|?[\s:|-]+\|?$/;
@@ -90,6 +94,8 @@ function blockText(block: NewsBlock): string {
       return block.items.join(" ");
     case "table":
       return [block.head.join(" "), ...block.rows.map((row) => row.join(" "))].join(" ");
+    case "image":
+      return "";
     default:
       return block.text;
   }
