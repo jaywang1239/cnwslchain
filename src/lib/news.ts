@@ -2,6 +2,7 @@ import newsData from "../../data/news.json";
 
 import type { Locale } from "@/lib/i18n/config";
 import { localeHtmlLang } from "@/lib/i18n/config";
+import { EXTERNAL_NEWS } from "./news-external";
 
 /**
  * 新闻分类（2026-11-04 重构）。
@@ -61,7 +62,16 @@ export interface NewsItem {
   type: string;
 }
 
-const newsItems = newsData as NewsItem[];
+/**
+ * 站内自有文章（data/news.json）+ 第三方转载（news-external.json）。
+ *
+ * 两份数据分开存：`data/` 是线上镜像，提交代码时绝不带它；
+ * 转载内容跟着 `src/` 一起走，新增/下架都只改代码，不碰数据镜像。
+ */
+const newsItems: NewsItem[] = [
+  ...(newsData as NewsItem[]),
+  ...EXTERNAL_NEWS,
+];
 
 function sortByDateDesc(a: NewsItem, b: NewsItem): number {
   return new Date(b.date).getTime() - new Date(a.date).getTime();
