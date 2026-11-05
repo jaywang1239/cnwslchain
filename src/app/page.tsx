@@ -65,7 +65,7 @@ const zhLongtailLinks = [
   { href: "/blog/cleanroom-cable-carrier-selection-guide", label: "无尘拖链", note: "洁净室发尘量与 WWC 选型顺序" },
   { href: "/blog/antistatic-esd-cable-carrier", label: "防静电拖链", note: "表面电阻实测 10⁶ Ω 量级" },
   { href: "/blog/cable-carrier-selection-8-steps", label: "桥式拖链", note: "从工况到型号的 8 步选型" },
-  { href: "/blog/cable-carrier-length-calculation", label: "重载拖链", note: "架空长度与安装余量核算" },
+  { href: "/blog/cable-carrier-selection-guide", label: "拖链选型", note: "内宽与弯曲半径怎么匹配" },
   { href: "/blog/cable-carrier-inner-width", label: "拖链规格", note: "内宽填充率 60% 规则" },
   { href: "/blog/custom-cable-carrier-delivery-process", label: "拖链定制", note: "非标流程与边界" },
 ] as const;
@@ -297,7 +297,7 @@ export default function Home() {
                 按问题找答案：拖链选型六个专题
               </h2>
               <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-foreground/70 sm:text-base">
-                规格怎么定、防静电怎么验、洁净室怎么选、长度怎么算——这些是询价前最常卡住的地方。
+                规格怎么定、防静电怎么验、洁净室怎么选、非标怎么定制——这些是询价前最常卡住的地方。
                 六个专题各讲透一件事，数据全部来自 CNWSL 威仕龙的现行规格与第三方检测报告。
               </p>
             </div>
