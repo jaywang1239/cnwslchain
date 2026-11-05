@@ -556,8 +556,10 @@ const zh: AppMessages = {
         description: "无尘拖链通过 SGS 有害物质检测，结论符合。",
       },
       {
-        name: "PA 321X11 NAT 物性表",
-        description: "拖链材料物性参数，便于选型与来料对照。",
+        name: "普立隆 PA6 增强阻燃材料性能报告",
+        description:
+          "原材料供应商宁波普立隆出具：PA6 增强阻燃（牌号 FB1106-2BK）的含水率、密度、拉伸与弯曲强度、灰份及 UL 94 V-0 阻燃等级等实测数据。",
+        href: "/datasheets/pulilong-pa6-fr-material-report.pdf",
       },
       {
         name: "无尘拖链高低温测试",
@@ -1075,8 +1077,10 @@ const en: AppMessages = {
         description: "Cleanroom carriers passed SGS hazardous-substance testing with compliant results.",
       },
       {
-        name: "PA 321X11 NAT datasheet",
-        description: "Material property data for selection and incoming inspection.",
+        name: "Pulilong PA6 FR material report",
+        description:
+          "Issued by raw-material supplier Ningbo Pulilong: measured data for flame-retardant reinforced PA6 grade FB1106-2BK, incl. water absorption, density, tensile and flexural strength, ash content and UL 94 V-0.",
+        href: "/datasheets/pulilong-pa6-fr-material-report.pdf",
       },
       {
         name: "Cleanroom high/low temperature test",
@@ -1539,8 +1543,10 @@ const vi: AppMessages = {
         description: "Xích phòng sạch đạt kiểm nghiệm chất độc hại SGS với kết luận đạt.",
       },
       {
-        name: "Bảng tính chất PA 321X11 NAT",
-        description: "Thông số vật liệu phục vụ chọn mẫu và đối chiếu hàng đến.",
+        name: "Báo cáo tính năng vật liệu PA6 chống cháy (Pulilong)",
+        description:
+          "Do nhà cung cấp nguyên liệu Ningbo Pulilong cấp: số liệu thực đo cho mác PA6 gia cố chống cháy FB1106-2BK gồm độ hút ẩm, khối lượng riêng, độ bền kéo và uốn, hàm lượng tro và cấp chống cháy UL 94 V-0.",
+        href: "/datasheets/pulilong-pa6-fr-material-report.pdf",
       },
       {
         name: "Thử nghiệm nhiệt độ cao/thấp xích phòng sạch",
@@ -2008,8 +2014,10 @@ const es: AppMessages = {
           "Portacables de sala limpia con ensayo SGS de sustancias peligrosas: resultado conforme.",
       },
       {
-        name: "Ficha PA 321X11 NAT",
-        description: "Propiedades del material para selección e inspección de entrada.",
+        name: "Informe de propiedades PA6 ignífugo (Pulilong)",
+        description:
+          "Emitido por el proveedor de materia prima Ningbo Pulilong: datos medidos del grado PA6 reforzado ignífugo FB1106-2BK: absorción de agua, densidad, resistencia a tracción y flexión, contenido de cenizas y clase UL 94 V-0.",
+        href: "/datasheets/pulilong-pa6-fr-material-report.pdf",
       },
       {
         name: "Ensayo térmico alto/bajo (sala limpia)",
@@ -2499,8 +2507,10 @@ const it: AppMessages = {
           "Catene cleanroom con prova SGS sulle sostanze pericolose: esito conforme.",
       },
       {
-        name: "Scheda PA 321X11 NAT",
-        description: "Proprietà del materiale per selezione e controllo in ingresso.",
+        name: "Report proprietà materiale PA6 FR (Pulilong)",
+        description:
+          "Rilasciato dal fornitore di materia prima Ningbo Pulilong: dati misurati per il grado PA6 rinforzato ignifugo FB1106-2BK: assorbimento d'acqua, densità, resistenza a trazione e flessione, contenuto di ceneri e classe UL 94 V-0.",
+        href: "/datasheets/pulilong-pa6-fr-material-report.pdf",
       },
       {
         name: "Prova termica alto/basso (cleanroom)",
@@ -2985,8 +2995,10 @@ const ru: AppMessages = {
         description: "Кабельные цепи для чистых помещений прошли испытания SGS на опасные вещества с соответствующими результатами.",
       },
       {
-        name: "PA 321X11 NAT datasheet",
-        description: "Данные о свойствах материала для подбора и входного контроля.",
+        name: "Отчёт о свойствах материала PA6 (Pulilong)",
+        description:
+          "Выдан поставщиком сырья Ningbo Pulilong: измеренные показатели огнестойкого армированного PA6 марки FB1106-2BK — влагопоглощение, плотность, прочность на растяжение и изгиб, зольность и класс горючести UL 94 V-0.",
+        href: "/datasheets/pulilong-pa6-fr-material-report.pdf",
       },
       {
         name: "Испытание чистых помещений на высокие/низкие температуры",

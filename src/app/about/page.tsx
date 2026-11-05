@@ -14,7 +14,7 @@ const CERT_IMAGES = [
   "/images/certs/fraunhofer-ipa-certificate.webp",
   "/images/certs/anti-static-test-report.webp",
   "/images/certs/sgs-rohs-report.webp",
-  "/images/certs/pa-321x11-nat-datasheet.webp",
+  "/images/certs/pulilong-pa6-material-report.webp",
   "/images/certs/cleanroom-high-low-temp-test.webp",
   "/images/certs/cleanroom-fatigue-test.webp",
 ] as const;
