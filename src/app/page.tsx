@@ -58,10 +58,11 @@ const partners = [
 /**
  * 中文专题入口（2026-10-30 建，2026-11-04 改为直连技术博客）。
  * 原六个长尾落地页只存在于本地源码、线上从未上线（访问一律 404），
- * 现保留五个专题，各自指向站内已发布的技术博客文章。
+ * 现为六个专题（含无尘拖链），各自指向站内已发布的技术博客文章。
  * 仅中文首页渲染，避免外语首页出现中文文章链接。
  */
 const zhLongtailLinks = [
+  { href: "/blog/cleanroom-cable-carrier-selection-guide", label: "无尘拖链", note: "洁净室发尘量与 WWC 选型顺序" },
   { href: "/blog/antistatic-esd-cable-carrier", label: "防静电拖链", note: "表面电阻实测 10⁶ Ω 量级" },
   { href: "/blog/cable-carrier-selection-8-steps", label: "桥式拖链", note: "从工况到型号的 8 步选型" },
   { href: "/blog/cable-carrier-length-calculation", label: "重载拖链", note: "架空长度与安装余量核算" },
@@ -293,11 +294,11 @@ export default function Home() {
           <div className="mx-auto max-w-7xl">
             <div className="text-center">
               <h2 id="longtail-heading" className="text-2xl font-bold text-brand-primary sm:text-3xl">
-                按问题找答案：拖链选型五个专题
+                按问题找答案：拖链选型六个专题
               </h2>
               <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-foreground/70 sm:text-base">
-                规格怎么定、防静电怎么验、长度怎么算——这些是询价前最常卡住的地方。
-                五个专题各讲透一件事，数据全部来自 CNWSL 威仕龙的现行规格与第三方检测报告。
+                规格怎么定、防静电怎么验、洁净室怎么选、长度怎么算——这些是询价前最常卡住的地方。
+                六个专题各讲透一件事，数据全部来自 CNWSL 威仕龙的现行规格与第三方检测报告。
               </p>
             </div>
             <ul className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
