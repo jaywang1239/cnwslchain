@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import {
   useCallback,
   useEffect,
@@ -8,6 +7,7 @@ import {
   type KeyboardEvent,
   type ReactNode,
 } from "react";
+import { heroImageBlur, heroImageSrcSet } from "@/lib/hero-image";
 
 export type HeroSlide = {
   src: string;
@@ -31,15 +31,24 @@ type HeroCarouselProps = {
  *
  * 设计约束（2026-10-14）：
  * - 图片为主体，文案只做叠加，图上不再放任何装饰。
- * - 🔴 素材是 1920×820（2.34:1）的超宽横图。手机上满屏 `object-cover` 会左右各裁掉约 30%
+ * - 🔴 素材是超宽横图。手机上满屏 `object-cover` 会左右各裁掉约 30%
  *   （390px 视口下只露出中间约 40% 宽）：图2 右上的中文标题、图3 两侧的机器人都会被切掉，
  *   现场反馈为「手机上图没显示完全」。因此 **移动端改为整图完整可见**——
- *   图片区按 16:9 占位，主图 `object-contain` 装下整张横图，底下垫一层同图模糊铺底填掉窄边，
+ *   图片区按 16:9 占位，主图 `object-contain` 装下整张横图，底下垫一层模糊铺底填掉窄边，
  *   文案随图片排在**下方**；`sm+` 仍为满屏铺满 + `object-top`（banner 关键信息在上半部）。
  * - 节奏（2026-10-14 v2）：自动间隔 4s、淡入淡出 700ms。
  * - 尊重系统「减少动态效果」：命中 prefers-reduced-motion 时**不自动播放**，
  *   淡入淡出也一并关掉，只保留手动切换。
  * - 悬停 / 获得焦点时暂停；左右方向键可切换（需先聚焦本区域）。
+ *
+ * 首屏流量（2026-11-05 重写，改前实测首屏 774 KB / 图片占 74%）：
+ * - 🔴 旧实现的两个漏：① 三张 slide 都渲染 `next/image`，视口内 lazy 不生效，三张全下（282 KB）；
+ *   ② 移动端模糊铺底直接 `backgroundImage: url(<原图>)`，CSS background 不受 lazy 管辖，
+ *   等于又把三张原图强制拉了一遍。
+ * - 现在：① 只挂载 active（+1 预取）那张，其余等真正切到才发请求；
+ *   ② 铺底改用 48w 的 `<name>-blur.webp`（约 372 B）；③ 手工 srcSet，手机取 640 档。
+ * - 首图仍 `fetchPriority="high"` + `loading="eager"`，并且 page.tsx 会给它发 preload，
+ *   保证 LCP 不被其余资源挤后。
  */
 export default function HeroCarousel({
   slides,
@@ -51,16 +60,44 @@ export default function HeroCarousel({
 }: HeroCarouselProps) {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
+  /**
+   * 已挂载（= 已允许发起图片请求）的下标集合。首屏只有第 0 张。
+   * SSR 阶段固定为 {0}，保证服务端与客户端首帧一致，不会触发 hydration 不匹配。
+   */
+  const [mounted, setMounted] = useState<ReadonlySet<number>>(
+    () => new Set([0]),
+  );
 
   const count = slides.length;
+
+  const ensureMounted = useCallback((index: number) => {
+    setMounted((prev) =>
+      prev.has(index) ? prev : new Set(prev).add(index),
+    );
+  }, []);
 
   const go = useCallback(
     (next: number) => {
       if (count < 2) return;
-      setActive(((next % count) + count) % count);
+      const target = ((next % count) + count) % count;
+      ensureMounted(target);
+      setActive(target);
     },
-    [count],
+    [count, ensureMounted],
   );
+
+  // 任何方式切到某张（自动 / 箭头 / 圆点 / 键盘）都保证它已挂载
+  useEffect(() => {
+    ensureMounted(active);
+  }, [active, ensureMounted]);
+
+  // 静置 1.5s 后预取下一张：不跟 LCP 抢带宽，又避免切换那一下空窗
+  useEffect(() => {
+    if (count < 2) return;
+    const next = (active + 1) % count;
+    const id = window.setTimeout(() => ensureMounted(next), 1500);
+    return () => window.clearTimeout(id);
+  }, [active, count, ensureMounted]);
 
   useEffect(() => {
     if (paused || count < 2) return;
@@ -109,21 +146,30 @@ export default function HeroCarousel({
               index === active ? "opacity-100" : "opacity-0"
             }`}
           >
-            {/* 同图模糊铺底，只在移动端：填掉 contain 留出的窄边，避免两侧死黑条 */}
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 scale-110 bg-cover bg-center blur-2xl sm:hidden"
-              style={{ backgroundImage: `url(${slide.src})` }}
-            />
-            {/* 主图：移动端完整显示整张横图；桌面端满屏铺满并顶部对齐 */}
-            <Image
-              src={slide.src}
-              alt={slide.alt}
-              fill
-              priority={index === 0}
-              sizes="100vw"
-              className="object-contain sm:object-cover sm:object-top"
-            />
+            {/* 同图小尺寸模糊铺底，只在移动端 + 只给当前张：填掉 contain 留出的窄边，
+                避免两侧死黑条。用 48w 的 -blur.webp（≈372 B），不再用原图。 */}
+            {index === active ? (
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 scale-110 bg-cover bg-center blur-2xl sm:hidden"
+                style={{ backgroundImage: `url(${heroImageBlur(slide.src)})` }}
+              />
+            ) : null}
+            {/* 主图：移动端完整显示整张横图；桌面端满屏铺满并顶部对齐。
+                未挂载的 slide 不渲染 img —— 这是首屏省下 ~184 KB 的关键。 */}
+            {mounted.has(index) ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={slide.src}
+                srcSet={heroImageSrcSet(slide.src)}
+                sizes="100vw"
+                alt={slide.alt}
+                fetchPriority={index === 0 ? "high" : "low"}
+                loading={index === 0 ? "eager" : "lazy"}
+                decoding="async"
+                className="absolute inset-0 h-full w-full object-contain sm:object-cover sm:object-top"
+              />
+            ) : null}
           </div>
         ))}
 

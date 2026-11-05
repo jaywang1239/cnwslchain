@@ -6,6 +6,7 @@ import { categoryImageSrcSet, localizeCategories } from "@/lib/product-catalog";
 import { localizeHref, localeOg } from "@/lib/i18n";
 import { getHeroMessages } from "@/lib/i18n/hero-messages";
 import { getMessages } from "@/lib/i18n/messages";
+import { heroImageSrcSet } from "@/lib/hero-image";
 import { getRequestLocale } from "@/lib/request-locale";
 import { absoluteUrl, localeAlternates } from "@/lib/site";
 
@@ -129,6 +130,19 @@ export default function Home() {
 
   return (
     <>
+      {/* 首屏 LCP 图预加载。next.config 里 images.unoptimized=true，next/image 在该模式下
+          不生成 <link rel=preload>，所以必须手工补这条，否则浏览器要等 HTML 解析到 <img>
+          才开始下 banner（实测 TTFB 0.54s，等于白等一整个 RTT）。
+          🔴 必须同时给 imageSrcSet / imageSizes —— 只给 href 会让手机也预取 1280 档（98 KB），
+          而 <img> 自己挑了 640 档（47 KB），等于多下一倍。 */}
+      <link
+        rel="preload"
+        as="image"
+        href={heroSlides[0].src}
+        imageSrcSet={heroImageSrcSet(heroSlides[0].src)}
+        imageSizes="100vw"
+        fetchPriority="high"
+      />
       <HeroCarousel
         slides={heroSlides}
         label={heroCopy.label}
