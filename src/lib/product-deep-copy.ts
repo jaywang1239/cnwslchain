@@ -223,10 +223,10 @@ const ZH: Record<string, CategoryDeepCopy> = {
 
   silent: {
     metaDescription:
-      "静音拖链内高 18/25/30/35/40/45mm、内宽 25–125mm、弯曲半径 R28–R200，低摩擦铰链与缓冲限位。含静音与普通拖链的区别、型号规格对照、降噪落点与折弯半径测量方法。",
+      "CNWSL 威仕龙静音拖链内高 18/25/30/35/40/45mm、内宽 25–125mm 共 19 档、弯曲半径 R28–R200，84 条规格；低摩擦铰链 + 缓冲限位，型号带 J 标识。含 19 个内宽档怎么收敛、与常规同内高互换的尺寸差、速度包络与降噪实测口径。",
     heading: "静音拖链：内高 18–45mm 的低噪音往复方案",
     lead:
-      "静音这一档不是「加了消音棉」，而是改了链节的撞击方式和限位结构。它能压噪音，但压不到零——主轴、导轨、伺服还在响。所以选之前先做一件事：测清楚噪音到底是拖链发出来的，还是整机发出来的。搞错了对象，换了静音链也没用。",
+      "静音这一档不是「加了消音棉」，而是改了链节的撞击方式和限位结构——CNWSL 威仕龙的静音系列（型号带 J 标识）靠加大撞击面与加缓冲限位块来削峰。它能压噪音，但压不到零：主轴、导轨、伺服还在响。所以选之前先做一件事——测清楚噪音到底是拖链发出来的，还是整机发出来的。搞错了对象，换了静音链也没用。",
     sections: [
       {
         title: "静音拖链和同内高普通拖链差在哪",
@@ -239,6 +239,21 @@ const ZH: Record<string, CategoryDeepCopy> = {
           "三类场景收益明显：一是设备靠近操作工，比如医疗设备、实验室仪器、精密装配线；二是高速往复，速度上去以后撞击频率变高，噪音问题会被放大；三是洁净或安静环境，噪音本身就是验收指标。反例也有——装在机床外罩里的拖链，噪音被罩住，花这个溢价意义不大。另外要清楚，静音不等于高速专用，它是「降低撞击能量」，速度超限照样出问题。",
       },
       {
+        title: "19 个内宽档怎么收敛：先算填充率，再挑一档",
+        body:
+          "静音系列内宽从 25 到 125mm 铺了 19 档，看着像选择题，其实收敛路径只有一条：先按线束总截面算填充率，再挑最近的一档。取法是——所有线缆（含气管、液压管）截面积之和 ÷（内高 × 内宽）≤ 60%，超过就往上加一档内宽。注意线缆截面积按外径算圆面积，不是按导体截面算：一根外径 7mm 的电缆圆面积约 38mm²，而它标称的导体截面可能只有 1.5mm²，两者差二十多倍，用导体面积去算会把内宽配小一整档。",
+      },
+      {
+        title: "和同内高常规档互换，差在哪几个尺寸",
+        body:
+          "尺寸逻辑是一一对应的：18J 对 18、25J 对 25、30J 对 30、35J 对 35、40J 对 40、45J 对 45，内高内宽通用，所以「换静音版要不要改机架」这个问题，答案是——多数情况不用改，但要核三个数：链体外廓高度（加了缓冲限位会略高）、弯曲半径可选档（静音档与常规档不完全一致，例如 18J 只有 R28/38/48/55）、端接头安装孔位（通常对应，但仍要以图纸为准）。真正会卡住的不是内高内宽，是外廓高度与弯折段占用的空间——弯折段整体高度约等于 2R 加链体厚度，R 取大一档，安装空间就要跟着让出来。",
+      },
+      {
+        title: "速度包络：静音不等于高速专用",
+        body:
+          "这一点必须说清，因为最常被误解。静音结构降低的是「链节回位撞击的能量」，不是提高速度上限。速度能不能上，取决于行程、加速度、线束重量和填充率四者组合：同样速度下，行程越长、加速度越大，链节与线缆的疲劳越快。高速工况的做法是把填充率压到 50% 以下、弯曲半径取大一档、并核加速度包络，而不是「换静音链就能跑更快」。反过来，如果客户是为了跑高速才想买静音链，正确的问法是先给速度曲线与行程，我们先判断结构能不能承受。",
+      },
+      {
         title: "降噪不能只靠换链",
         body:
           "把填充率从 60% 压到 50%，链节内的撞击声会明显下降，这是成本很低的一个动作。弯曲半径往上取一档，链节回位角度变小，冲击也跟着小。固定端的位置和浮动端的支撑方式影响很大，装偏了静音链也白搭。还有线缆本身——硬质线在槽里弹跳也是声源，换成柔性拖链电缆往往比换链更立竿见影。噪音验收建议先对齐测法：测距、背景噪音、工况点都写清楚，否则双方各测一个数，谈不拢。",
@@ -247,10 +262,11 @@ const ZH: Record<string, CategoryDeepCopy> = {
     keyPoints: [
       { label: "内高档位", value: "18 / 25 / 30 / 35 / 40 / 45 mm（6 档）" },
       { label: "内宽范围", value: "25–125 mm，共 19 档" },
-      { label: "弯曲半径", value: "R28 起，最大 R200" },
+      { label: "弯曲半径", value: "R28 起，最大 R200（按内高分档，如 18J 为 R28/38/48/55）" },
       { label: "结构", value: "低摩擦铰链 + 缓冲限位（型号带 J 标识）" },
+      { label: "规格数量", value: "84 条规格，13 个型号编码（WSL01J–WSL11J）" },
       { label: "工作温度", value: "-20℃ ~ +120℃" },
-      { label: "对应型号", value: "WSL01J / WSL02J / WSL04J / WSL06J / WSL08J / WSL10J 等" },
+      { label: "对应型号", value: "WSL01J / WSL02J / WSL03J / WSL04J / WSL05J / WSL06J / WSL06J2 / WSL07J / WSL08J / WSL09J / WSL10J / WSL11J" },
     ],
     faqs: [
       {
@@ -263,7 +279,15 @@ const ZH: Record<string, CategoryDeepCopy> = {
       },
       {
         q: "静音拖链和普通拖链能互换安装吗？",
-        a: "同内高同内宽的规格，安装孔位通常可以对应，但链节高度和外廓可能有细微差别，替换前要核对安装尺寸。整机设计阶段就用静音版的，后续维护更省事。",
+        a: "同内高同内宽的规格，安装孔位通常可以对应，但静音版因为加了缓冲限位，链体外廓高度和弯折段占用空间会有差别，替换前必须核这三个数：外廓高度、可选弯曲半径档、端接头孔位。整机设计阶段就用静音版的，后续维护更省事。",
+      },
+      {
+        q: "静音拖链内宽有 19 个档，我怎么知道该选哪个？",
+        a: "不要按线束宽度去量，要按填充率算：所有线缆（含气管）截面积之和 ÷（内高 × 内宽）≤ 60%，超过就加一档内宽。线缆截面积按外径算圆面积，别用导体截面——两者能差二十多倍，用错会把内宽配小一整档。拿不准就把线束清单发给我们，直接给你型号。",
+      },
+      {
+        q: "静音拖链是 CNWSL 自己生产的吗？",
+        a: "是。CNWSL 威仕龙的静音系列由浙江乐清的生产基地自制，PA66+30% 玻纤增强尼龙注塑成型，共 84 条标准规格、13 个型号编码。质量体系为 IATF 16949（证书号 T183571）。需要核对工艺或验厂可以约乐清现场。",
       },
       {
         q: "有没有更宽的静音规格？",
@@ -280,10 +304,10 @@ const ZH: Record<string, CategoryDeepCopy> = {
 
   portable: {
     metaDescription:
-      "便携式拖链采用轻量化链节与快装开合结构，拆装方便、可整套携带。含适用场景、型号与规格确认方式、选型需提供的四项信息，适合机械手、移动工位与 3D 打印设备临时布线。",
+      "便携式拖链采用轻量化链节与快装开合结构，拆装方便、可整套携带。WSLE06 / WSLE08 为方便型（横杆可打开，分外侧与内侧两种打开方向），WSLE2.06 / WSLE2.08 为一体式微型，内高 10mm 与 15mm 两档已投产，画册其余型号持续开模中。含适用场景、规格确认方式与选型需提供的四项信息。",
     heading: "便携式拖链：可拆可带的临时布线方案",
     lead:
-      "便携式不是「小一号的拖链」，它解决的是另一类问题：设备要经常搬、工位要经常换、线束要能整套提走。这一档没有标准规格表，因为每个客户的「便携」定义不一样——有人要能单手拆，有人要能塞进航空箱，有人要的是整套线束一起走。",
+      "便携式不是「小一号的拖链」，它解决的是另一类问题：设备要经常搬、工位要经常换、线束要能整套提走。常规档位已经成形——内高 10mm 与 15mm 两档，方便型（WSLE06 / WSLE08，横杆可打开，分外侧与内侧两种打开方向）和一体式微型（WSLE2.06 / WSLE2.08，横杆不可打开）。超出画册的内宽、特殊卡扣与整套线束预装仍在开模或定制，按线束清单单独核。",
     sections: [
       {
         title: "什么场景适合便携式",
@@ -291,9 +315,9 @@ const ZH: Record<string, CategoryDeepCopy> = {
           "常见四类：展会与演示设备，一天拆装好几次；移动工位与协作机器人工作站，产线要随订单调整；桌面级 3D 打印与小型自动化设备；临时产线改造，不想为一条拖链动土建。共同点是「拆装频次高」和「不需要长期固定」。如果设备装上就不动，用常规桥式拖链更划算——便携结构的成本主要在快装件上。",
       },
       {
-        title: "为什么它没有标准规格表",
+        title: "哪些是标准件，哪些还要开模",
         body:
-          "常规拖链的核心参数是内高、内宽、弯曲半径，便携式的核心是接口：快装卡扣的形式、端接头怎么固定、收纳时怎么收。长度和内宽按实际线束定，常按整套（含两端接头）交付，而不是按米卖。所以做法也不同——先给线束清单和拆装频次，再定结构，最后才是报价。拿常规型号表来对便携式，基本对不上。",
+          "常规拖链的核心参数是内高、内宽、弯曲半径；便携式先定结构，再定尺寸。内高 10mm 与 15mm 两档已投产：方便型 WSLE06 内宽 10–20mm、WSLE08 内宽 16–50mm（WSLZ 是同一系列的内开版本，Bi、Ba、半径完全对应）；一体式微型 WSLE2.06 内宽 10–64mm、WSLE2.08 内宽 10–50mm。这些型号按内宽加弯曲半径就能直接下单，规格表见各系列页。超出范围的内宽、特殊卡扣和整套线束预装仍属定制，必须先给线束清单再报价。",
       },
       {
         title: "选型时要提供的四样信息",
@@ -303,11 +327,11 @@ const ZH: Record<string, CategoryDeepCopy> = {
     ],
     keyPoints: [
       { label: "结构", value: "轻量化链节 + 快装开合结构" },
-      { label: "交付形式", value: "按整套定制（含端接头），不按米卖" },
+      { label: "交付形式", value: "标准型号按支计价；整套线束预装按方案定制" },
       { label: "适配设备", value: "机械手、移动工位、3D 打印、展会设备" },
       { label: "常规材质", value: "玻纤增强尼龙" },
       { label: "起订方式", value: "按方案核，非标件通常需先打样" },
-      { label: "注意", value: "无标准规格表，需按线束清单定方案" },
+      { label: "常规型号", value: "WSLE06 / WSLE08 / WSLE2.06 / WSLE2.08 已投产" },
     ],
     faqs: [
       {
@@ -337,7 +361,7 @@ const ZH: Record<string, CategoryDeepCopy> = {
 
   cleanroom: {
     metaDescription:
-      "无尘拖链 WWC 系列，TPU 材质，内高 15/18/22/28/35mm、内宽 25–65mm、弯曲半径 R40–R90，低发尘免润滑。含型号规格对照、洁净等级口径、穿线与安装要点，用于半导体、面板与医药洁净室。",
+      "CNWSL 威仕龙无尘拖链 WWC 系列，TPU 材质，内高 15/18/22/28/35mm、内宽 25–65mm、半径 R40–R90，低发尘免润滑。防静电按 ANSI/ESD S20.20 实测体积电阻 1.19×10⁶Ω、表面电阻 2.42×10⁶Ω（CTI 报告 A2260607033101E），洁净适用性有 Fraunhofer IPA ISO Class 1 报告。",
     heading: "无尘拖链 WWC 系列：洁净室里的发尘控制",
     lead:
       "无尘拖链和普通尼龙拖链不是「加个盖子」的差别。洁净室里它同时干两件事：带着线缆走，以及不往环境里放颗粒。绝大多数选型失误，都出在只看了第一件——链条能走，但发尘超标，整条线验收过不了。",
@@ -353,6 +377,16 @@ const ZH: Record<string, CategoryDeepCopy> = {
           "洁净室分级用 ISO 14644-1，按单位体积空气中的粒子浓度划 ISO Class 1 到 9；旧的美标 FED-STD-209E 用 Class 1 到 100000，ISO Class 5 大致对应旧的 Class 100。选型阶段就要把等级、发尘限值、寿命要求写成可测条款，而不是装完再验。具体能到哪一级，要以对应批次的检测报告为准——不同批次、不同工况的数据会有差异，任何口头承诺都不如一份报告。",
       },
       {
+        title: "防静电：电阻实测数据和它的边界",
+        body:
+          "洁净室里常说的「防静电拖链」，落到可验证的层面只有一件事——电阻。CNWSL 威仕龙把 WWC 无尘拖链本体样板送华测检测认证（广州）有限公司，按 ANSI/ESD S20.20:2021 测体积电阻与表面电阻，报告编号 A2260607033101E，2026 年 7 月 28 日签发。六个测点平均值：体积电阻 1.19×10⁶ Ω，表面电阻 2.42×10⁶ Ω，测试条件为温度 (23±2)℃、湿度 (12±3)%RH、预处理 48 小时、100 VDC / 15s。这两个数落在 10⁶ Ω 量级，属于静电耗散区间——电荷能泄放，但泄得慢，不会瞬间打火。",
+      },
+      {
+        title: "三句必须写清楚的边界",
+        body:
+          "第一，**这不是 ESD 认证**。ANSI/ESD S20.20 认证的对象是 EPA 区域与产线体系，不是单个零件；我们拿到的是委托检测报告，报告本身写明「结果仅对送样样品负责」。第二，**这不是洁净认证的替代品**。CTI 那份只测电阻，不含发尘量与洁净分级；洁净适用性要看另一份——德国 Fraunhofer IPA 的 ZH 2608-1800，按 ISO 14644-14 测颗粒物散发，三档速度均为 ISO Class 1，但它只覆盖 WWC.28.65 白色这一款的原件状态。第三，**材料合格不等于系统合格**。链体电阻再低，端接头没跟机架可靠搭接、机架没接保护地，电荷照样走不掉；湿度也是变量，(12±3)%RH 低湿环境下电阻会往上跳一个量级，所以看报告必须连环境条件一起看。",
+      },
+      {
         title: "WWC 五个规格怎么挑",
         body:
           "内高 15、18、22、28、35mm 共五档，内宽 25 到 65mm，弯曲半径 R40 起、最大 R90。半导体前道设备多用 15 和 18，面板与医药线多在中段，28 和 35 用于线束较粗的场合。行程超过 2 米、或者线束重量偏大，需要考虑加支撑或换方案——TPU 的自重和刚性决定了它不是长跨距的料。另外安装时注意：洁净室里不能用普通润滑脂，链节和线缆都不能带油。",
@@ -363,6 +397,7 @@ const ZH: Record<string, CategoryDeepCopy> = {
       { label: "内宽范围", value: "25–65 mm" },
       { label: "弯曲半径", value: "R40 / R50 / R60 / R70 / R90" },
       { label: "材质", value: "TPU（免润滑、低发尘）" },
+      { label: "防静电（实测）", value: "体积电阻 1.19×10⁶ Ω / 表面电阻 2.42×10⁶ Ω（ANSI/ESD S20.20:2021，报告 A2260607033101E）" },
       { label: "工作温度", value: "-20℃ ~ +120℃" },
       { label: "对应型号", value: "WWC15 / WWC18 / WWC22 / WWC28 / WWC35" },
     ],
@@ -382,6 +417,14 @@ const ZH: Record<string, CategoryDeepCopy> = {
       {
         q: "检测报告怎么提供？",
         a: "按批次提供，具体项目（发尘量、材质、RoHS 等）在订单阶段确认。涉及客户审核的，建议提前说明需要哪些报告，避免出货前才发现缺项。",
+      },
+      {
+        q: "无尘拖链能防静电吗？两个要求能一起满足吗？",
+        a: "能。WWC 系列是 TPU 材质，本身低发尘，同时按 ANSI/ESD S20.20:2021 实测体积电阻 1.19×10⁶ Ω、表面电阻 2.42×10⁶ Ω（报告 A2260607033101E），处于静电耗散区间。但两项要分别验：防静电看电阻报告，洁净看 Fraunhofer IPA 的发尘报告（ZH 2608-1800，仅覆盖 WWC28 白色）。拿电阻报告去说洁净等级是错的，反过来也一样。",
+      },
+      {
+        q: "防静电和无尘是一回事吗？",
+        a: "不是。防静电控制的是电阻（Ω），目的是让静电荷泄放；无尘控制的是颗粒物散发（颗/m³ 或 ISO Class），目的是不污染环境。两者在 TPU 无尘拖链上可以同时具备，但验收依据完全不同，报告也不能互相顶替。",
       },
     ],
     related: [
@@ -629,10 +672,10 @@ const EN: Record<string, CategoryDeepCopy> = {
   portable: {
     metaTitle: "Portable Cable Carriers | Detachable Nylon Links - CNWSL",
     metaDescription:
-      "Portable cable carriers use lightweight links and quick-release openings so the assembly can be dismantled, carried and reinstalled. For robot cells, movable workstations, 3D printers and exhibition setups. Explains the four inputs needed for a quote and why there is no standard size table.",
+      "Portable cable carriers use lightweight links and quick-release openings so the assembly can be dismantled, carried and reinstalled. WSLE06 / WSLE08 are snap-open (outward or inward opening), WSLE2.06 / WSLE2.08 are one-piece miniature, in 10 mm and 15 mm inner heights. Remaining catalogue sizes are still in tooling.",
     heading: "Portable cable carriers: routing that travels with the machine",
     lead:
-      "Portable is not a smaller carrier. It solves a different problem: the machine moves often, the workstation changes, and the cable bundle has to leave as one piece. There is no standard size table because every customer defines portable differently - one wants single-hand release, another wants it to fit a flight case, another wants the whole harness to travel together.",
+      "Portable is not a smaller carrier. It solves a different problem: the machine moves often, the workstation changes, and the cable bundle has to leave as one piece. The standard range is now defined: 10 mm and 15 mm inner heights, snap-open (WSLE06 / WSLE08, opening outward or inward) and one-piece miniature (WSLE2.06 / WSLE2.08, non-opening crossbars). Sizes beyond the catalogue, special latches and pre-assembled harnesses are still in tooling or made to order.",
     sections: [
       {
         title: "Where portable fits",
@@ -640,9 +683,9 @@ const EN: Record<string, CategoryDeepCopy> = {
           "Four common cases: exhibition and demo equipment dismantled several times a day; movable workstations and collaborative robot cells that follow order changes; desktop 3D printers and small automation; and temporary line conversions where nobody wants civil work for one carrier. The common thread is frequent dismantling and no permanent installation. If the machine is installed once and stays, a standard open-bridge carrier is more economical, because the cost of portable sits in the quick-release hardware.",
       },
       {
-        title: "Why there is no standard size table",
+        title: "What is standard, what still needs tooling",
         body:
-          "A standard carrier is specified by inner height, inner width and bend radius. A portable one is specified by its interfaces: the latch type, how the end fittings anchor, and how it packs down. Length and width follow the actual harness and are usually quoted as a complete assembly with both end fittings, not by the metre. So the process differs - harness list and dismantling frequency first, structure second, price last. Standard part tables simply do not map onto it.",
+          "A standard carrier is specified by inner height, inner width and bend radius; a portable one starts from the structure. Two inner heights are in production: 10 mm and 15 mm. Snap-open WSLE06 covers 10-20 mm inner width and WSLE08 covers 16-50 mm (WSLZ is the inward-opening version of the same series, dimension for dimension). One-piece miniature WSLE2.06 covers 10-64 mm and WSLE2.08 covers 10-50 mm. These are ordered directly by width and radius; the table is on each series page. Wider sizes, special latches and pre-assembled harnesses remain custom and are quoted from the cable list.",
       },
       {
         title: "Four inputs needed for a quote",
@@ -652,11 +695,11 @@ const EN: Record<string, CategoryDeepCopy> = {
     ],
     keyPoints: [
       { label: "Design", value: "Lightweight links with quick-release opening" },
-      { label: "Delivery", value: "Complete assembly with end fittings, not per metre" },
+      { label: "Delivery", value: "Standard models priced per piece; harness assemblies quoted per design" },
       { label: "Typical use", value: "Robot cells, movable stations, 3D printers, exhibitions" },
       { label: "Standard material", value: "Glass-fibre reinforced nylon" },
       { label: "Ordering", value: "Quoted per design; prototypes usually required" },
-      { label: "Note", value: "No standard size table - designed from the harness list" },
+      { label: "Standard models", value: "WSLE06 / WSLE08 / WSLE2.06 / WSLE2.08 in production" },
     ],
     faqs: [
       {

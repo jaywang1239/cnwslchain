@@ -1,0 +1,747 @@
+{
+  "series": [
+    {
+      "id": "wsle06",
+      "name": "WSLE06 / WSLZ06",
+      "code": "方便型",
+      "specCount": 6
+    },
+    {
+      "id": "wsle08",
+      "name": "WSLE08 / WSLZ08",
+      "code": "方便型",
+      "specCount": 10
+    },
+    {
+      "id": "wsle206",
+      "name": "WSLE2.06",
+      "code": "微型",
+      "specCount": 7
+    },
+    {
+      "id": "wsle208",
+      "name": "WSLE2.08",
+      "code": "微型",
+      "specCount": 7
+    }
+  ],
+  "seriesDetails": {
+    "wsle06": {
+      "intro": "WSLE06 / WSLZ06 为威仕龙便携式拖链，内高 10mm，内宽 10–20mm，WSLE 横杆沿外侧打开，WSLZ 沿内侧打开；节距 20mm、50 节/米，可选弯曲半径 R18 / R28 / R38。",
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "方便型外开",
+      "tempRange": "-20℃ ~ 120℃"
+    },
+    "wsle08": {
+      "intro": "WSLE08 / WSLZ08 为威仕龙便携式拖链，内高 15mm，内宽 16–50mm，WSLE 横杆沿外侧打开，WSLZ 沿内侧打开；节距 20mm、50 节/米，可选弯曲半径 R28 / R38 / R48。",
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "方便型外开",
+      "tempRange": "-20℃ ~ 120℃"
+    },
+    "wsle206": {
+      "intro": "WSLE2.06 为威仕龙便携式拖链，内高 10mm，内宽 10–64mm，一体式设计，横杆不可打开；节距 20mm、50 节/米，可选弯曲半径 R18 / R28 / R38。",
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "一体式",
+      "tempRange": "-20℃ ~ 120℃"
+    },
+    "wsle208": {
+      "intro": "WSLE2.08 为威仕龙便携式拖链，内高 15mm，内宽 10–50mm，一体式设计，横杆不可打开；节距 20mm、50 节/米，可选弯曲半径 R25 / R28 / R38 / R48。",
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "一体式",
+      "tempRange": "-20℃ ~ 120℃"
+    }
+  },
+  "specs": [
+    {
+      "id": "wsle06-10",
+      "categoryId": "portable",
+      "seriesId": "wsle06",
+      "innerHeight": 10,
+      "innerWidth": 10,
+      "code": "WSLE06-10",
+      "connector": "",
+      "bendRadii": [
+        18,
+        28,
+        38
+      ],
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "方便型外开",
+      "images": [
+        {
+          "src": "/images/products/series/wsle06/a.webp",
+          "alt": "WSLE06 / WSLZ06 系列产品图"
+        }
+      ],
+      "drawingUrl": "/datasheets/orders/wsle06/install-dimensions.pdf"
+    },
+    {
+      "id": "wsle06-16",
+      "categoryId": "portable",
+      "seriesId": "wsle06",
+      "innerHeight": 10,
+      "innerWidth": 16,
+      "code": "WSLE06-16",
+      "connector": "",
+      "bendRadii": [
+        18,
+        28,
+        38
+      ],
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "方便型外开",
+      "images": [
+        {
+          "src": "/images/products/series/wsle06/a.webp",
+          "alt": "WSLE06 / WSLZ06 系列产品图"
+        }
+      ],
+      "drawingUrl": "/datasheets/orders/wsle06/install-dimensions.pdf"
+    },
+    {
+      "id": "wsle06-20",
+      "categoryId": "portable",
+      "seriesId": "wsle06",
+      "innerHeight": 10,
+      "innerWidth": 20,
+      "code": "WSLE06-20",
+      "connector": "",
+      "bendRadii": [
+        18,
+        28,
+        38
+      ],
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "方便型外开",
+      "images": [
+        {
+          "src": "/images/products/series/wsle06/a.webp",
+          "alt": "WSLE06 / WSLZ06 系列产品图"
+        }
+      ],
+      "drawingUrl": "/datasheets/orders/wsle06/install-dimensions.pdf"
+    },
+    {
+      "id": "wslz06-10",
+      "categoryId": "portable",
+      "seriesId": "wsle06",
+      "innerHeight": 10,
+      "innerWidth": 10,
+      "code": "WSLZ06-10",
+      "connector": "",
+      "bendRadii": [
+        18,
+        28,
+        38
+      ],
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "方便型内开",
+      "images": [
+        {
+          "src": "/images/products/series/wsle06/a.webp",
+          "alt": "WSLE06 / WSLZ06 系列产品图"
+        }
+      ],
+      "drawingUrl": "/datasheets/orders/wsle06/install-dimensions.pdf"
+    },
+    {
+      "id": "wslz06-16",
+      "categoryId": "portable",
+      "seriesId": "wsle06",
+      "innerHeight": 10,
+      "innerWidth": 16,
+      "code": "WSLZ06-16",
+      "connector": "",
+      "bendRadii": [
+        18,
+        28,
+        38
+      ],
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "方便型内开",
+      "images": [
+        {
+          "src": "/images/products/series/wsle06/a.webp",
+          "alt": "WSLE06 / WSLZ06 系列产品图"
+        }
+      ],
+      "drawingUrl": "/datasheets/orders/wsle06/install-dimensions.pdf"
+    },
+    {
+      "id": "wslz06-20",
+      "categoryId": "portable",
+      "seriesId": "wsle06",
+      "innerHeight": 10,
+      "innerWidth": 20,
+      "code": "WSLZ06-20",
+      "connector": "",
+      "bendRadii": [
+        18,
+        28,
+        38
+      ],
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "方便型内开",
+      "images": [
+        {
+          "src": "/images/products/series/wsle06/a.webp",
+          "alt": "WSLE06 / WSLZ06 系列产品图"
+        }
+      ],
+      "drawingUrl": "/datasheets/orders/wsle06/install-dimensions.pdf"
+    },
+    {
+      "id": "wsle08-16",
+      "categoryId": "portable",
+      "seriesId": "wsle08",
+      "innerHeight": 15,
+      "innerWidth": 16,
+      "code": "WSLE08-16",
+      "connector": "",
+      "bendRadii": [
+        28,
+        38,
+        48
+      ],
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "方便型外开",
+      "images": [
+        {
+          "src": "/images/products/series/wsle08/a.webp",
+          "alt": "WSLE08 / WSLZ08 系列产品图"
+        }
+      ],
+      "drawingUrl": "/datasheets/orders/wsle08/install-dimensions.pdf"
+    },
+    {
+      "id": "wsle08-20",
+      "categoryId": "portable",
+      "seriesId": "wsle08",
+      "innerHeight": 15,
+      "innerWidth": 20,
+      "code": "WSLE08-20",
+      "connector": "",
+      "bendRadii": [
+        28,
+        38,
+        48
+      ],
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "方便型外开",
+      "images": [
+        {
+          "src": "/images/products/series/wsle08/a.webp",
+          "alt": "WSLE08 / WSLZ08 系列产品图"
+        }
+      ],
+      "drawingUrl": "/datasheets/orders/wsle08/install-dimensions.pdf"
+    },
+    {
+      "id": "wsle08-30",
+      "categoryId": "portable",
+      "seriesId": "wsle08",
+      "innerHeight": 15,
+      "innerWidth": 30,
+      "code": "WSLE08-30",
+      "connector": "",
+      "bendRadii": [
+        28,
+        38,
+        48
+      ],
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "方便型外开",
+      "images": [
+        {
+          "src": "/images/products/series/wsle08/a.webp",
+          "alt": "WSLE08 / WSLZ08 系列产品图"
+        }
+      ],
+      "drawingUrl": "/datasheets/orders/wsle08/install-dimensions.pdf"
+    },
+    {
+      "id": "wsle08-40",
+      "categoryId": "portable",
+      "seriesId": "wsle08",
+      "innerHeight": 15,
+      "innerWidth": 40,
+      "code": "WSLE08-40",
+      "connector": "",
+      "bendRadii": [
+        28,
+        38,
+        48
+      ],
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "方便型外开",
+      "images": [
+        {
+          "src": "/images/products/series/wsle08/a.webp",
+          "alt": "WSLE08 / WSLZ08 系列产品图"
+        }
+      ],
+      "drawingUrl": "/datasheets/orders/wsle08/install-dimensions.pdf"
+    },
+    {
+      "id": "wsle08-50",
+      "categoryId": "portable",
+      "seriesId": "wsle08",
+      "innerHeight": 15,
+      "innerWidth": 50,
+      "code": "WSLE08-50",
+      "connector": "",
+      "bendRadii": [
+        28,
+        38,
+        48
+      ],
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "方便型外开",
+      "images": [
+        {
+          "src": "/images/products/series/wsle08/a.webp",
+          "alt": "WSLE08 / WSLZ08 系列产品图"
+        }
+      ],
+      "drawingUrl": "/datasheets/orders/wsle08/install-dimensions.pdf"
+    },
+    {
+      "id": "wslz08-16",
+      "categoryId": "portable",
+      "seriesId": "wsle08",
+      "innerHeight": 15,
+      "innerWidth": 16,
+      "code": "WSLZ08-16",
+      "connector": "",
+      "bendRadii": [
+        28,
+        38,
+        48
+      ],
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "方便型内开",
+      "images": [
+        {
+          "src": "/images/products/series/wsle08/a.webp",
+          "alt": "WSLE08 / WSLZ08 系列产品图"
+        }
+      ],
+      "drawingUrl": "/datasheets/orders/wsle08/install-dimensions.pdf"
+    },
+    {
+      "id": "wslz08-20",
+      "categoryId": "portable",
+      "seriesId": "wsle08",
+      "innerHeight": 15,
+      "innerWidth": 20,
+      "code": "WSLZ08-20",
+      "connector": "",
+      "bendRadii": [
+        28,
+        38,
+        48
+      ],
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "方便型内开",
+      "images": [
+        {
+          "src": "/images/products/series/wsle08/a.webp",
+          "alt": "WSLE08 / WSLZ08 系列产品图"
+        }
+      ],
+      "drawingUrl": "/datasheets/orders/wsle08/install-dimensions.pdf"
+    },
+    {
+      "id": "wslz08-30",
+      "categoryId": "portable",
+      "seriesId": "wsle08",
+      "innerHeight": 15,
+      "innerWidth": 30,
+      "code": "WSLZ08-30",
+      "connector": "",
+      "bendRadii": [
+        28,
+        38,
+        48
+      ],
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "方便型内开",
+      "images": [
+        {
+          "src": "/images/products/series/wsle08/a.webp",
+          "alt": "WSLE08 / WSLZ08 系列产品图"
+        }
+      ],
+      "drawingUrl": "/datasheets/orders/wsle08/install-dimensions.pdf"
+    },
+    {
+      "id": "wslz08-40",
+      "categoryId": "portable",
+      "seriesId": "wsle08",
+      "innerHeight": 15,
+      "innerWidth": 40,
+      "code": "WSLZ08-40",
+      "connector": "",
+      "bendRadii": [
+        28,
+        38,
+        48
+      ],
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "方便型内开",
+      "images": [
+        {
+          "src": "/images/products/series/wsle08/a.webp",
+          "alt": "WSLE08 / WSLZ08 系列产品图"
+        }
+      ],
+      "drawingUrl": "/datasheets/orders/wsle08/install-dimensions.pdf"
+    },
+    {
+      "id": "wslz08-50",
+      "categoryId": "portable",
+      "seriesId": "wsle08",
+      "innerHeight": 15,
+      "innerWidth": 50,
+      "code": "WSLZ08-50",
+      "connector": "",
+      "bendRadii": [
+        28,
+        38,
+        48
+      ],
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "方便型内开",
+      "images": [
+        {
+          "src": "/images/products/series/wsle08/a.webp",
+          "alt": "WSLE08 / WSLZ08 系列产品图"
+        }
+      ],
+      "drawingUrl": "/datasheets/orders/wsle08/install-dimensions.pdf"
+    },
+    {
+      "id": "wsle206-10",
+      "categoryId": "portable",
+      "seriesId": "wsle206",
+      "innerHeight": 10,
+      "innerWidth": 10,
+      "code": "WSLE2.06-10",
+      "connector": "",
+      "bendRadii": [
+        18,
+        28,
+        38
+      ],
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "一体式",
+      "images": [
+        {
+          "src": "/images/products/series/wsle206/a.webp",
+          "alt": "WSLE2.06 系列产品图"
+        }
+      ],
+      "drawingUrl": "/datasheets/orders/wsle206/install-dimensions.pdf"
+    },
+    {
+      "id": "wsle206-15",
+      "categoryId": "portable",
+      "seriesId": "wsle206",
+      "innerHeight": 10,
+      "innerWidth": 15,
+      "code": "WSLE2.06-15",
+      "connector": "",
+      "bendRadii": [
+        18,
+        28,
+        38
+      ],
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "一体式",
+      "images": [
+        {
+          "src": "/images/products/series/wsle206/a.webp",
+          "alt": "WSLE2.06 系列产品图"
+        }
+      ],
+      "drawingUrl": "/datasheets/orders/wsle206/install-dimensions.pdf"
+    },
+    {
+      "id": "wsle206-20",
+      "categoryId": "portable",
+      "seriesId": "wsle206",
+      "innerHeight": 10,
+      "innerWidth": 20,
+      "code": "WSLE2.06-20",
+      "connector": "",
+      "bendRadii": [
+        18,
+        28,
+        38
+      ],
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "一体式",
+      "images": [
+        {
+          "src": "/images/products/series/wsle206/a.webp",
+          "alt": "WSLE2.06 系列产品图"
+        }
+      ],
+      "drawingUrl": "/datasheets/orders/wsle206/install-dimensions.pdf"
+    },
+    {
+      "id": "wsle206-30",
+      "categoryId": "portable",
+      "seriesId": "wsle206",
+      "innerHeight": 10,
+      "innerWidth": 30,
+      "code": "WSLE2.06-30",
+      "connector": "",
+      "bendRadii": [
+        18,
+        28,
+        38
+      ],
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "一体式",
+      "images": [
+        {
+          "src": "/images/products/series/wsle206/a.webp",
+          "alt": "WSLE2.06 系列产品图"
+        }
+      ],
+      "drawingUrl": "/datasheets/orders/wsle206/install-dimensions.pdf"
+    },
+    {
+      "id": "wsle206-40",
+      "categoryId": "portable",
+      "seriesId": "wsle206",
+      "innerHeight": 10,
+      "innerWidth": 40,
+      "code": "WSLE2.06-40",
+      "connector": "",
+      "bendRadii": [
+        18,
+        28,
+        38
+      ],
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "一体式",
+      "images": [
+        {
+          "src": "/images/products/series/wsle206/a.webp",
+          "alt": "WSLE2.06 系列产品图"
+        }
+      ],
+      "drawingUrl": "/datasheets/orders/wsle206/install-dimensions.pdf"
+    },
+    {
+      "id": "wsle206-50",
+      "categoryId": "portable",
+      "seriesId": "wsle206",
+      "innerHeight": 10,
+      "innerWidth": 50,
+      "code": "WSLE2.06-50",
+      "connector": "",
+      "bendRadii": [
+        18,
+        28,
+        38
+      ],
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "一体式",
+      "images": [
+        {
+          "src": "/images/products/series/wsle206/a.webp",
+          "alt": "WSLE2.06 系列产品图"
+        }
+      ],
+      "drawingUrl": "/datasheets/orders/wsle206/install-dimensions.pdf"
+    },
+    {
+      "id": "wsle206-64",
+      "categoryId": "portable",
+      "seriesId": "wsle206",
+      "innerHeight": 10,
+      "innerWidth": 64,
+      "code": "WSLE2.06-64",
+      "connector": "",
+      "bendRadii": [
+        18,
+        28,
+        38
+      ],
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "一体式",
+      "images": [
+        {
+          "src": "/images/products/series/wsle206/a.webp",
+          "alt": "WSLE2.06 系列产品图"
+        }
+      ],
+      "drawingUrl": "/datasheets/orders/wsle206/install-dimensions.pdf"
+    },
+    {
+      "id": "wsle208-10",
+      "categoryId": "portable",
+      "seriesId": "wsle208",
+      "innerHeight": 15,
+      "innerWidth": 10,
+      "code": "WSLE2.08-10",
+      "connector": "",
+      "bendRadii": [
+        25,
+        28,
+        38,
+        48
+      ],
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "一体式",
+      "images": [
+        {
+          "src": "/images/products/series/wsle208/a.webp",
+          "alt": "WSLE2.08 系列产品图"
+        }
+      ],
+      "drawingUrl": "/datasheets/orders/wsle208/install-dimensions.pdf"
+    },
+    {
+      "id": "wsle208-13",
+      "categoryId": "portable",
+      "seriesId": "wsle208",
+      "innerHeight": 15,
+      "innerWidth": 13,
+      "code": "WSLE2.08-13",
+      "connector": "",
+      "bendRadii": [
+        28,
+        38
+      ],
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "一体式",
+      "images": [
+        {
+          "src": "/images/products/series/wsle208/a.webp",
+          "alt": "WSLE2.08 系列产品图"
+        }
+      ],
+      "drawingUrl": "/datasheets/orders/wsle208/install-dimensions.pdf"
+    },
+    {
+      "id": "wsle208-16",
+      "categoryId": "portable",
+      "seriesId": "wsle208",
+      "innerHeight": 15,
+      "innerWidth": 16,
+      "code": "WSLE2.08-16",
+      "connector": "",
+      "bendRadii": [
+        28,
+        38,
+        48
+      ],
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "一体式",
+      "images": [
+        {
+          "src": "/images/products/series/wsle208/a.webp",
+          "alt": "WSLE2.08 系列产品图"
+        }
+      ],
+      "drawingUrl": "/datasheets/orders/wsle208/install-dimensions.pdf"
+    },
+    {
+      "id": "wsle208-20",
+      "categoryId": "portable",
+      "seriesId": "wsle208",
+      "innerHeight": 15,
+      "innerWidth": 20,
+      "code": "WSLE2.08-20",
+      "connector": "",
+      "bendRadii": [
+        25,
+        28,
+        38,
+        48
+      ],
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "一体式",
+      "images": [
+        {
+          "src": "/images/products/series/wsle208/a.webp",
+          "alt": "WSLE2.08 系列产品图"
+        }
+      ],
+      "drawingUrl": "/datasheets/orders/wsle208/install-dimensions.pdf"
+    },
+    {
+      "id": "wsle208-30",
+      "categoryId": "portable",
+      "seriesId": "wsle208",
+      "innerHeight": 15,
+      "innerWidth": 30,
+      "code": "WSLE2.08-30",
+      "connector": "",
+      "bendRadii": [
+        28,
+        38,
+        48
+      ],
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "一体式",
+      "images": [
+        {
+          "src": "/images/products/series/wsle208/a.webp",
+          "alt": "WSLE2.08 系列产品图"
+        }
+      ],
+      "drawingUrl": "/datasheets/orders/wsle208/install-dimensions.pdf"
+    },
+    {
+      "id": "wsle208-40",
+      "categoryId": "portable",
+      "seriesId": "wsle208",
+      "innerHeight": 15,
+      "innerWidth": 40,
+      "code": "WSLE2.08-40",
+      "connector": "",
+      "bendRadii": [
+        28,
+        38,
+        48
+      ],
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "一体式",
+      "images": [
+        {
+          "src": "/images/products/series/wsle208/a.webp",
+          "alt": "WSLE2.08 系列产品图"
+        }
+      ],
+      "drawingUrl": "/datasheets/orders/wsle208/install-dimensions.pdf"
+    },
+    {
+      "id": "wsle208-50",
+      "categoryId": "portable",
+      "seriesId": "wsle208",
+      "innerHeight": 15,
+      "innerWidth": 50,
+      "code": "WSLE2.08-50",
+      "connector": "",
+      "bendRadii": [
+        28,
+        38,
+        48
+      ],
+      "material": "PA6+GF30 增强尼龙",
+      "openType": "一体式",
+      "images": [
+        {
+          "src": "/images/products/series/wsle208/a.webp",
+          "alt": "WSLE2.08 系列产品图"
+        }
+      ],
+      "drawingUrl": "/datasheets/orders/wsle208/install-dimensions.pdf"
+    }
+  ]
+}

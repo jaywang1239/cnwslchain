@@ -54,6 +54,45 @@ const OPEN_TYPE: Record<string, Record<NonZh, string>> = {
     it: "Portatile",
     ru: "Портативная",
   },
+  // 便携式（WSLE / WSLZ）开合方式：画册分「方便型」（横杆可打开）与「微型」（一体式）两类，
+  // 方便型再按横杆打开方向分 WSLE（外开）/ WSLZ（内开）两个产品代码。
+  // 「方便型」与「方便型外开 / 内开」必须同时登记：前者用于系列级描述，后者用于型号级标题，
+  // 否则同系列同内宽内高的两种开合方式会生成重复标题。
+  方便型: {
+    en: "Snap-open",
+    vi: "Mở nhanh",
+    es: "Apertura rápida",
+    it: "Apertura rapida",
+    ru: "Быстрооткрываемая",
+  },
+  方便型外开: {
+    en: "Snap-open, outer opening",
+    vi: "Mở nhanh, mở phía ngoài",
+    es: "Apertura rápida, exterior",
+    it: "Apertura rapida, esterna",
+    ru: "Быстрооткрываемая, наружная",
+  },
+  方便型内开: {
+    en: "Snap-open, inner opening",
+    vi: "Mở nhanh, mở phía trong",
+    es: "Apertura rápida, interior",
+    it: "Apertura rapida, interna",
+    ru: "Быстрооткрываемая, внутренняя",
+  },
+  一体式: {
+    en: "One-piece",
+    vi: "Nguyên khối",
+    es: "Monobloque",
+    it: "Monoblocco",
+    ru: "Цельная",
+  },
+  微型: {
+    en: "Miniature",
+    vi: "Siêu nhỏ",
+    es: "Miniatura",
+    it: "Miniatura",
+    ru: "Миниатюрная",
+  },
 };
 
 const MATERIAL_SUFFIX: Record<string, Record<NonZh, string>> = {
@@ -81,6 +120,20 @@ const SERIES_CODE: Record<string, Record<NonZh, string>> = {
     it: "Portatile",
     ru: "Портативная",
   },
+  方便型: {
+    en: "Snap-open",
+    vi: "Mở nhanh",
+    es: "Apertura rápida",
+    it: "Apertura rapida",
+    ru: "Быстрооткрываемая",
+  },
+  微型: {
+    en: "Miniature",
+    vi: "Siêu nhỏ",
+    es: "Miniatura",
+    it: "Miniatura",
+    ru: "Миниатюрная",
+  },
 };
 
 const INTRO_PHRASES: Record<NonZh, Array<[RegExp | string, string]>> = {
@@ -98,6 +151,17 @@ const INTRO_PHRASES: Record<NonZh, Array<[RegExp | string, string]>> = {
     [/可选弯曲半径/g, "Available bend radii"],
     [/威仕龙/g, "CNWSL"],
     [/拖链/g, "cable carrier"],
+    // 便携式（WSLE / WSLZ）系列简介专用短语：横杆开合方向、结构、节距与标点
+    [/横杆沿外侧打开/g, "crossbars open outward"],
+    [/沿内侧打开/g, "open inward"],
+    [/一体式设计/g, "one-piece design"],
+    [/横杆不可打开/g, "non-opening crossbars"],
+    [/节距/g, "pitch"],
+    [/节\/米/g, "links/m"],
+    [/，/g, ", "],
+    [/；/g, "; "],
+    [/、/g, ", "],
+    [/。/g, ". "],
   ],
   vi: [
     [/静音(\d+)系列为威仕龙静音拖链/g, "Dòng êm $1 là xích dẫn cáp êm CNWSL"],
@@ -113,6 +177,17 @@ const INTRO_PHRASES: Record<NonZh, Array<[RegExp | string, string]>> = {
     [/可选弯曲半径/g, "Bán kính uốn tùy chọn"],
     [/威仕龙/g, "CNWSL"],
     [/拖链/g, "xích dẫn cáp"],
+    // 便携式（WSLE / WSLZ）系列简介专用短语：横杆开合方向、结构、节距与标点
+    [/横杆沿外侧打开/g, "thanh ngang mở ra ngoài"],
+    [/沿内侧打开/g, "mở vào trong"],
+    [/一体式设计/g, "thiết kế nguyên khối"],
+    [/横杆不可打开/g, "thanh ngang không mở được"],
+    [/节距/g, "bước xích"],
+    [/节\/米/g, "mắt/m"],
+    [/，/g, ", "],
+    [/；/g, "; "],
+    [/、/g, ", "],
+    [/。/g, ". "],
   ],
   es: [
     [/静音(\d+)系列为威仕龙静音拖链/g, "La serie silenciosa $1 es un portacables silencioso CNWSL"],
@@ -128,6 +203,17 @@ const INTRO_PHRASES: Record<NonZh, Array<[RegExp | string, string]>> = {
     [/可选弯曲半径/g, "Radios de curvatura disponibles"],
     [/威仕龙/g, "CNWSL"],
     [/拖链/g, "portacables"],
+    // 便携式（WSLE / WSLZ）系列简介专用短语：横杆开合方向、结构、节距与标点
+    [/横杆沿外侧打开/g, "los travesaños se abren hacia fuera"],
+    [/沿内侧打开/g, "se abren hacia dentro"],
+    [/一体式设计/g, "diseño monobloque"],
+    [/横杆不可打开/g, "travesaños no desmontables"],
+    [/节距/g, "paso"],
+    [/节\/米/g, "eslabones/m"],
+    [/，/g, ", "],
+    [/；/g, "; "],
+    [/、/g, ", "],
+    [/。/g, ". "],
   ],
   it: [
     [/静音(\d+)系列为威仕龙静音拖链/g, "La serie silenziosa $1 è una catena portacavi silenziosa CNWSL"],
@@ -143,6 +229,17 @@ const INTRO_PHRASES: Record<NonZh, Array<[RegExp | string, string]>> = {
     [/可选弯曲半径/g, "Raggi di curvatura disponibili"],
     [/威仕龙/g, "CNWSL"],
     [/拖链/g, "catena portacavi"],
+    // 便携式（WSLE / WSLZ）系列简介专用短语：横杆开合方向、结构、节距与标点
+    [/横杆沿外侧打开/g, "i trasversini si aprono verso l'esterno"],
+    [/沿内侧打开/g, "si aprono verso l'interno"],
+    [/一体式设计/g, "design monoblocco"],
+    [/横杆不可打开/g, "trasversini non apribili"],
+    [/节距/g, "passo"],
+    [/节\/米/g, "maglie/m"],
+    [/，/g, ", "],
+    [/；/g, "; "],
+    [/、/g, ", "],
+    [/。/g, ". "],
   ],
   ru: [
     [/静音(\d+)系列为威仕龙静音拖链/g, "Бесшумная серия $1 — бесшумная кабельная цепь CNWSL"],
@@ -158,6 +255,17 @@ const INTRO_PHRASES: Record<NonZh, Array<[RegExp | string, string]>> = {
     [/可选弯曲半径/g, "Доступные радиусы изгиба"],
     [/威仕龙/g, "CNWSL"],
     [/拖链/g, "кабельная цепь"],
+    // 便携式（WSLE / WSLZ）系列简介专用短语：横杆开合方向、结构、节距与标点
+    [/横杆沿外侧打开/g, "поперечины открываются наружу"],
+    [/沿内侧打开/g, "открываются внутрь"],
+    [/一体式设计/g, "цельная конструкция"],
+    [/横杆不可打开/g, "неоткрывающиеся поперечины"],
+    [/节距/g, "шаг"],
+    [/节\/米/g, "звеньев/м"],
+    [/，/g, ", "],
+    [/；/g, "; "],
+    [/、/g, ", "],
+    [/。/g, ". "],
   ],
 };
 

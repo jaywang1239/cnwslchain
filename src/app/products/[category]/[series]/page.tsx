@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import ProductBreadcrumb from "@/components/ProductBreadcrumb";
 import {
   buildProductBreadcrumbs,
@@ -98,6 +98,13 @@ export default async function SeriesPage({
 }: SeriesPageProps) {
   const params = await paramsPromise;
   const locale = getRequestLocale();
+
+  // 便携式旧的空占位系列（0 型号）已由 WSLE / WSLZ 四个真实系列替代（2026-11-05）。
+  // 这个 URL 曾出现在 sitemap 的六个语种里，做永久跳转而不是直接 404。
+  if (params.series === "portable-std") {
+    permanentRedirect(localizeHref("/products/portable", locale));
+  }
+
   const messages = getMessages(locale);
   const copy = messages.products;
   const rawCategory = getCategoryById(params.category);
@@ -123,10 +130,7 @@ export default async function SeriesPage({
   const pagePath = localizeHref(`/products/${category.id}/${series.id}`, locale);
   // 中文系列页的深度内容（仅 zh；其他语种为 undefined，渲染与之前一致）
   const deep = getSeriesDeepCopy(params.series, locale);
-  const seriesImage =
-    series.id === "portable-std"
-      ? "/images/products/categories/portable.webp"
-      : `/images/products/series/${series.id}/a.webp`;
+  const seriesImage = `/images/products/series/${series.id}/a.webp`;
 
   return (
     <>
@@ -288,6 +292,23 @@ export default async function SeriesPage({
                 >
                   {copy.contactSales}
                 </Link>
+              </div>
+            )}
+
+            {category.id === "portable" && (
+              <div className="mt-6 rounded-lg border border-dashed border-brand-secondary/30 bg-white px-5 py-4">
+                <p className="text-sm leading-relaxed text-foreground/70">
+                  {copy.toolingNotice}
+                </p>
+                <a
+                  href={`/datasheets/orders/${series.id}/install-dimensions.pdf`}
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-brand-secondary hover:text-brand-primary"
+                >
+                  {copy.downloadDrawing}
+                </a>
               </div>
             )}
 

@@ -98,6 +98,7 @@ export type AppMessages = {
     bendRadiiHint: string;
     codeExample: string;
     note: string;
+    toolingNotice: string;
     radiusCompact: string;
     radiusCommon: string;
     radiusLong: string;
@@ -390,6 +391,8 @@ const zh: AppMessages = {
     bendRadiiHint: "同一规格可按不同弯曲半径 R 值订购，长度与行程可按工况定制。",
     codeExample: "代号示例",
     note: "说明",
+    toolingNotice:
+      "以上为已投产型号；画册其余型号持续开模中。需要未列出的内宽或弯曲半径，请单独沟通交期。",
     radiusCompact: "紧凑空间",
     radiusCommon: "常用规格",
     radiusLong: "大行程 / 粗线缆",
@@ -866,6 +869,8 @@ const en: AppMessages = {
       "The same size can be ordered with different bend radii (R). Length and travel can be customized to your duty cycle.",
     codeExample: "Code example",
     note: "Notes",
+    toolingNotice:
+      "Models listed are in production. Remaining sizes in the catalogue are still in tooling - contact us for lead time on other widths or radii.",
     radiusCompact: "Compact spaces",
     radiusCommon: "Common choice",
     radiusLong: "Long travel / thick cables",
@@ -1365,6 +1370,8 @@ const vi: AppMessages = {
       "Cùng một kích thước có thể đặt theo các bán kính uốn R khác nhau; chiều dài và hành trình tùy chỉnh theo điều kiện làm việc.",
     codeExample: "Ví dụ mã",
     note: "Ghi chú",
+    toolingNotice:
+      "Các model trên đã vào sản xuất. Các kích thước còn lại trong catalogue vẫn đang làm khuôn - vui lòng liên hệ để biết thời gian giao hàng cho chiều rộng hoặc bán kính khác.",
     radiusCompact: "Không gian hẹp",
     radiusCommon: "Quy cách phổ biến",
     radiusLong: "Hành trình dài / cáp dày",
@@ -1833,6 +1840,8 @@ const es: AppMessages = {
       "El mismo tamaño puede pedirse con distintos radios R. Longitud y recorrido se personalizan según el ciclo de trabajo.",
     codeExample: "Ejemplo de código",
     note: "Notas",
+    toolingNotice:
+      "Los modelos indicados están en producción. El resto de tamaños del catálogo sigue en utillaje; consúltenos el plazo para otras anchuras o radios.",
     radiusCompact: "Espacios compactos",
     radiusCommon: "Opción habitual",
     radiusLong: "Largo recorrido / cables gruesos",
@@ -2326,6 +2335,8 @@ const it: AppMessages = {
       "La stessa misura può essere ordinata con diversi raggi R. Lunghezza e corsa sono personalizzabili in base al ciclo di lavoro.",
     codeExample: "Esempio di codice",
     note: "Note",
+    toolingNotice:
+      "I modelli indicati sono in produzione. Le altre misure del catalogo sono ancora in attrezzaggio: contattateci per i tempi su altre larghezze o raggi.",
     radiusCompact: "Spazi compatti",
     radiusCommon: "Scelta comune",
     radiusLong: "Lunga corsa / cavi spessi",
@@ -2817,6 +2828,8 @@ const ru: AppMessages = {
       "Один и тот же размер можно заказать с разными радиусами изгиба (R). Длина и ход настраиваются под ваш режим работы.",
     codeExample: "Пример кода",
     note: "Примечания",
+    toolingNotice:
+      "Указанные модели в производстве. Остальные размеры каталога ещё в оснастке - уточняйте сроки для других ширин и радиусов.",
     radiusCompact: "Компактные пространства",
     radiusCommon: "Типовой выбор",
     radiusLong: "Длинный ход / толстые кабели",

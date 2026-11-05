@@ -149,10 +149,7 @@ export default async function CategoryPage({
               items: category.series.map((series) => ({
                 name: series.name,
                 url: localizeHref(`/products/${category.id}/${series.id}`, locale),
-                image:
-                  series.id === "portable-std"
-                    ? "/images/products/categories/portable.webp"
-                    : `/images/products/series/${series.id}/a.webp`,
+                image: getSeriesImageSrc(series.id),
               })),
             }),
           ),
@@ -249,6 +246,12 @@ export default async function CategoryPage({
                 );
               })}
             </div>
+
+            {category.id === "portable" && (
+              <p className="mt-6 rounded-lg border border-dashed border-brand-secondary/30 bg-white px-5 py-4 text-sm leading-relaxed text-foreground/70">
+                {copy.toolingNotice}
+              </p>
+            )}
 
             {deep && (
               <>

@@ -291,12 +291,14 @@ export default async function SpecPage({
                       {material}
                     </dd>
                   </div>
-                  <div className="grid grid-cols-3 gap-3 px-4 py-3 sm:gap-4 sm:px-6 sm:py-4">
-                    <dt className="text-sm text-foreground/60">{copy.connector}</dt>
-                    <dd className="col-span-2 text-sm font-medium">
-                      {spec.connector}
-                    </dd>
-                  </div>
+                  {spec.connector ? (
+                    <div className="grid grid-cols-3 gap-3 px-4 py-3 sm:gap-4 sm:px-6 sm:py-4">
+                      <dt className="text-sm text-foreground/60">{copy.connector}</dt>
+                      <dd className="col-span-2 text-sm font-medium">
+                        {spec.connector}
+                      </dd>
+                    </div>
+                  ) : null}
                 </dl>
 
                 <div className="mt-6 flex flex-wrap gap-3">

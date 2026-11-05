@@ -1,5 +1,6 @@
 import catalogData from "../../data/product-catalog.json";
 import specsData from "../../data/product-specs.json";
+import portableData from "./portable-specs.json";
 import {
   categoryCopy,
   getMessages,
@@ -106,17 +107,42 @@ interface CatalogFile {
   seriesDetails: Record<string, SeriesDetail>;
 }
 
-const catalog = catalogData as CatalogFile;
-const specs = specsData as ProductSpec[];
+/**
+ * 便携式（WSLE / WSLZ）型号读取层。
+ *
+ * 为什么不直接改 data/product-catalog.json 与 data/product-specs.json：
+ * 本地 data/ 落后线上，整文件提交会覆盖掉线上后来新增的内容。
+ * 这里按分类 / 系列 / 型号三个粒度做叠加覆盖，原始 JSON 一个字节都不动。
+ */
+interface PortableFile {
+  series: ProductSeries[];
+  seriesDetails: Record<string, SeriesDetail>;
+  specs: ProductSpec[];
+}
+
+const portable = portableData as PortableFile;
+
+const baseCatalog = catalogData as CatalogFile;
+
+const catalog: CatalogFile = {
+  categories: baseCatalog.categories.map((category) =>
+    category.id === "portable"
+      ? { ...category, series: portable.series }
+      : category,
+  ),
+  seriesDetails: { ...baseCatalog.seriesDetails, ...portable.seriesDetails },
+};
+
+const specs: ProductSpec[] = [
+  ...(specsData as ProductSpec[]),
+  ...portable.specs,
+];
 
 export function getAllCategories(): ProductCategory[] {
   return catalog.categories;
 }
 
 export function getSeriesImageSrc(seriesId: string): string {
-  if (seriesId === "portable-std") {
-    return "/images/products/categories/portable.webp";
-  }
   return `/images/products/series/${seriesId}/a.webp`;
 }
 
@@ -348,6 +374,16 @@ export function getDefaultSpecSummary(
 }
 
 export function getDefaultSpecFeatures(
+  spec: ProductSpec,
+  locale: Locale = "zh",
+): string[] {
+  const lines = buildSpecFeatureLines(spec, locale);
+  // 便携式部分型号画册未给接头代号，末行「配套接头」留空会渲染成一个孤立标签。
+  // 各语种分支都把接头放在数组最后一项，这里直接砍掉最后一项即可。
+  return spec.connector ? lines : lines.slice(0, -1);
+}
+
+function buildSpecFeatureLines(
   spec: ProductSpec,
   locale: Locale = "zh",
 ): string[] {
