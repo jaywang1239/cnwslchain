@@ -21,7 +21,7 @@ import {
   seoDescription,
   seoTitle,
 } from "@/lib/seo";
-import { absoluteUrl, localeAlternates, siteConfig } from "@/lib/site";
+import { absoluteUrl, localeAlternatesFor, siteConfig } from "@/lib/site";
 
 interface NewsDetailPageProps {
   /** Next.js 15 起动态路由参数为 Promise，需 await 后使用。 */
@@ -52,12 +52,19 @@ export async function generateMetadata({
   const title = seoTitle(item.title);
   const description = seoDescription(newsExcerpt(item.content, 200));
 
+  /*
+   * hreflang 只声明「这一篇真的有」的语种。
+   * 转载的行业稿没有译文，getNewsAvailableLocales() 只会返回 ["zh"]，
+   * 此时就给 zh-CN + x-default，不再把 en/vi/es/it/ru 写成 404 地址。
+   */
+  const availableLocales = getNewsAvailableLocales(item.slug);
+
   return {
     title,
     description,
     alternates: {
       canonical: absoluteUrl(path),
-      languages: localeAlternates(`/news/${item.slug}`).languages,
+      languages: localeAlternatesFor(`/news/${item.slug}`, availableLocales).languages,
     },
     ...buildPageSocialMeta({
       title,

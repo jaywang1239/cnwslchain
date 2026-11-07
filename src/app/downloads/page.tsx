@@ -62,7 +62,15 @@ export default function DownloadsPage() {
         </div>
       </section>
 
-      <section className="px-4 py-16 sm:px-6 lg:px-8">
+      {copy.intro ? (
+        <section className="px-4 pt-12 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl rounded-xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
+            <p className="text-sm leading-7 text-foreground/75">{copy.intro}</p>
+          </div>
+        </section>
+      ) : null}
+
+      <section className="px-4 py-10 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
           {catalogs.map((item) => {
             const { title, description, imageAlt } = localizeDownload(

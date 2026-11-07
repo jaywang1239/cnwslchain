@@ -333,19 +333,29 @@ export function getSpecDisplayTitle(
   locale: Locale = "zh",
 ): string {
   const openType = localizeOpenType(spec.openType, locale);
+  /*
+   * 2026-11-07：标题带上型号代码。
+   *
+   * 原来只拼「系列 + 开口型式 + 内高 + 内宽」，而 WSL35 与 WSL36 这类同族系列
+   * 的内高内宽档位完全重合，于是 226 个型号页的 H1 两两重复（72 组），
+   * 详情页 H1 也就失去了唯一性。型号代码是这一页唯一不重复的标识，放最前面。
+   *
+   * 无尘/便携式的型号代码本身就以系列名开头（WWC15-15-25），此时系列名不再重复。
+   */
+  const seriesLabel = spec.code.startsWith(seriesName) ? "" : `${seriesName} `;
   switch (locale) {
     case "en":
-      return `${seriesName} ${openType} cable carrier, inner height ${spec.innerHeight} mm, inner width ${spec.innerWidth} mm`;
+      return `${spec.code} ${seriesLabel}${openType} cable carrier, inner height ${spec.innerHeight} mm, inner width ${spec.innerWidth} mm`;
     case "vi":
-      return `${seriesName} xích dẫn cáp ${openType}, chiều cao trong ${spec.innerHeight} mm, chiều rộng trong ${spec.innerWidth} mm`;
+      return `${spec.code} ${seriesLabel}xích dẫn cáp ${openType}, chiều cao trong ${spec.innerHeight} mm, chiều rộng trong ${spec.innerWidth} mm`;
     case "es":
-      return `${seriesName} portacables ${openType}, altura interior ${spec.innerHeight} mm, ancho interior ${spec.innerWidth} mm`;
+      return `${spec.code} ${seriesLabel}portacables ${openType}, altura interior ${spec.innerHeight} mm, ancho interior ${spec.innerWidth} mm`;
     case "it":
-      return `${seriesName} catena portacavi ${openType}, altezza interna ${spec.innerHeight} mm, larghezza interna ${spec.innerWidth} mm`;
+      return `${spec.code} ${seriesLabel}catena portacavi ${openType}, altezza interna ${spec.innerHeight} mm, larghezza interna ${spec.innerWidth} mm`;
     case "ru":
-      return `${seriesName} кабельная цепь ${openType}, внутренняя высота ${spec.innerHeight} мм, внутренняя ширина ${spec.innerWidth} мм`;
+      return `${spec.code} ${seriesLabel}кабельная цепь ${openType}, внутренняя высота ${spec.innerHeight} мм, внутренняя ширина ${spec.innerWidth} мм`;
     default:
-      return `${seriesName} ${openType}拖链 内高${spec.innerHeight}mm 内宽${spec.innerWidth}mm`;
+      return `${spec.code} ${seriesLabel}${openType}拖链 内高${spec.innerHeight}mm 内宽${spec.innerWidth}mm`;
   }
 }
 

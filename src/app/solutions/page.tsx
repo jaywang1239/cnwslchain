@@ -41,7 +41,8 @@ export default function SolutionsPage() {
     <div className="bg-gray-50">
       <section className="page-hero px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl text-center">
-          <h1 className="text-3xl font-bold text-white sm:text-4xl">{copy.title}</h1>
+          {/* title 是 SEO 标题串（下划线 + 品牌后缀），H1 单独给一句人话。 */}
+          <h1 className="text-3xl font-bold text-white sm:text-4xl">{copy.h1 ?? copy.title}</h1>
           <p className="mx-auto mt-4 max-w-2xl text-white/80">{copy.description}</p>
         </div>
       </section>

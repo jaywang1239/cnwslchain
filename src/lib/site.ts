@@ -111,3 +111,37 @@ export function localeAlternatesZhEn(path: string) {
     },
   };
 }
+
+/** 语种输出顺序，zh 永远第一（hreflang 顺序稳定，便于 diff 与人工核对）。 */
+const HREFLANG_ORDER = ["zh", "en", "vi", "es", "it", "ru"] as const;
+
+/**
+ * 按「这一页实际有哪几个语种」生成 hreflang。
+ *
+ * 为什么需要它：新闻详情页的可用语种是**逐篇不同**的（转载稿只有中文，见
+ * `getNewsAvailableLocales()`），不能套 `localeAlternates()` 那种「6 个语种全写」。
+ * 2026-11-07 体检实测：10 篇 MIR 转载稿用全语种写法，en/vi/es/it/ru 五个目标
+ * 全部 404 —— 等于对外宣告了五个不存在的版本，和 10-14 那次 `/price` 的问题同源。
+ *
+ * 用法：`localeAlternatesFor(path, getNewsAvailableLocales(slug))`。
+ * 中文永远输出（`zh-CN` + `x-default`），其余语种按 `available` 过滤。
+ */
+export function localeAlternatesFor(path: string, available: readonly string[]) {
+  const bare = path
+    .replace(/^\/(en|vi|es|it|ru)(?=\/|$)/, "")
+    .replace(/\/$/, "") || "/";
+
+  const hrefFor = (locale: string) => {
+    if (locale === "zh") return absoluteUrl(bare);
+    return absoluteUrl(bare === "/" ? `/${locale}` : `/${locale}${bare}`);
+  };
+
+  const languages: Record<string, string> = { "zh-CN": hrefFor("zh") };
+  for (const locale of HREFLANG_ORDER) {
+    if (locale === "zh" || !available.includes(locale)) continue;
+    languages[locale] = hrefFor(locale);
+  }
+  languages["x-default"] = hrefFor("zh");
+
+  return { canonical: undefined as string | undefined, languages };
+}

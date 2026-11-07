@@ -4,18 +4,70 @@ import { localeHtmlLang, localeOg } from "@/lib/i18n/config";
 import { getMessages } from "@/lib/i18n/messages";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 
-/** Keep SERP titles roughly within Google's display budget. */
+/**
+ * 标题的「展示宽度」：中日韩全角字符算 2，其余算 1。
+ *
+ * 之前 `seoTitle` 是按 `string.length` 卡的 60，但一个汉字在 SERP 里占两个字符位，
+ * 于是 34 个汉字的标题（长度 34 < 60，判定合格）实际宽度是 68，照样被 Google
+ * 在中间截断。2026-11-07 体检：全站 423 页里有 3 条宽度 62–64 的超宽标题，
+ * 按字符数一个都没拦住。
+ */
+function displayWidth(text: string): number {
+  let width = 0;
+  for (const ch of text) {
+    const c = ch.codePointAt(0) ?? 0;
+    const wide =
+      (c >= 0x1100 && c <= 0x115f) ||
+      (c >= 0x2e80 && c <= 0xa4cf) ||
+      (c >= 0xac00 && c <= 0xd7a3) ||
+      (c >= 0xf900 && c <= 0xfaff) ||
+      (c >= 0xfe30 && c <= 0xfe6f) ||
+      (c >= 0xff00 && c <= 0xff60) ||
+      (c >= 0xffe0 && c <= 0xffe6);
+    width += wide ? 2 : 1;
+  }
+  return width;
+}
+
+/** 按展示宽度截断（不切半个全角字符）。 */
+function sliceByWidth(text: string, budget: number): string {
+  let width = 0;
+  let out = "";
+  for (const ch of text) {
+    const w = displayWidth(ch);
+    if (width + w > budget) break;
+    width += w;
+    out += ch;
+  }
+  return out;
+}
+
+/**
+ * Keep SERP titles roughly within Google's display budget.
+ *
+ * `max` 按展示宽度算（汉字=2），中文标题实际能放的汉字数约为它的一半。
+ * 超预算时优先去掉品牌后缀（`… | CNWSL` 会两头都不完整），实在放不下才截断。
+ */
 export function seoTitle(primary: string, brand = "CNWSL", max = 60): string {
   const clean = primary.replace(/\s+/g, " ").trim();
   if (!clean) return brand;
+  const fits = (s: string) => displayWidth(s) <= max;
+
   if (clean.includes(brand)) {
-    return clean.length <= max ? clean : `${clean.slice(0, max - 1).trim()}…`;
+    if (fits(clean)) return clean;
+    return `${sliceByWidth(clean, max - 1).trim()}…`;
   }
+
   const withBrand = `${clean} | ${brand}`;
-  if (withBrand.length <= max) return withBrand;
-  const room = max - brand.length - 3; // " | " + …
+  if (fits(withBrand)) return withBrand;
+
+  // 正文自己放得下：丢掉品牌后缀，保住完整标题。
+  if (fits(clean)) return clean;
+
+  const brandTail = ` | ${brand}`;
+  const room = max - displayWidth(brandTail) - 1;
   if (room < 12) return brand;
-  return `${clean.slice(0, room).trim()}… | ${brand}`;
+  return `${sliceByWidth(clean, room).trim()}…${brandTail}`;
 }
 
 export function seoDescription(text: string, max = 160): string {

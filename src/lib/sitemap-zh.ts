@@ -77,19 +77,17 @@ function rows(): Row[] {
     "/official",
   ];
 
-  /**
-   * 纯中文长尾落地页（2026-10-30 新增）。
-   * 由 requireZhLocale() 收口 —— 只有中文能访问，所以**只登中文单条**：
-   * 这条 sitemap 本来就只出无前缀中文 URL，天然符合；不进 /sitemap.xml（全语种那条）。
+  /*
+   * 2026-11-07 移除 zhOnlyPaths（/anti-static /bridge /heavy-duty /specs
+   * /manufacturers /custom）。
+   *
+   * 这六个长尾落地页只有本地源码，从未推到 GitHub，线上一直是 404 ——
+   * 挂在 sitemap 里等于每次抓取都给百度交 6 条死链，拉低整份 sitemap 的
+   * 信任分。全语种那条 /sitemap.xml 早就没登它们了，这里补齐口径。
+   *
+   * 将来真要上线这六页，等页面能 200 了再往 staticPaths 里加，别再单开一份
+   * 硬编码列表 —— 两套列表不同步正是这次残留的原因。
    */
-  const zhOnlyPaths = [
-    "/anti-static",
-    "/bridge",
-    "/heavy-duty",
-    "/specs",
-    "/manufacturers",
-    "/custom",
-  ];
 
   return [
     ...staticPaths.map((path) => ({
@@ -110,13 +108,6 @@ function rows(): Row[] {
       path,
       lastModified: pageLastModified(path),
       changeFrequency: "weekly",
-      priority: 0.85,
-    })),
-    // 纯中文长尾落地页：优先度高但不抢首页，定位是「通用词的中文承接页」
-    ...zhOnlyPaths.map((path) => ({
-      path,
-      lastModified: pageLastModified(path),
-      changeFrequency: "monthly",
       priority: 0.85,
     })),
     // 隐私政策：需要被抓（Google Ads 检查落地页），但不参与关键词竞争

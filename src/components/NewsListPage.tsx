@@ -364,7 +364,9 @@ function NewsCard({
         >
           <Image
             src={item.cardImage ?? item.image}
-            alt=""
+            /* 2026-11-07：原来 alt="" —— 外层 Link 已 aria-hidden，空 alt 只让图片搜索
+               抓不到任何信息（三个列表页合计 40 张图被判缺 alt）。这里补文章标题。 */
+            alt={item.title}
             fill
             sizes="240px"
             className="object-cover"
