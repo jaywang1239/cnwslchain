@@ -157,9 +157,10 @@ export default function Footer({ locale: localeProp }: { locale?: Locale }) {
     // Rebrand 2026-09-26: brand-blue footer, blue dominant; links/buttons invert to white on hover
     <footer className="bg-brand-secondary text-white">
       <div className="h-0.5 bg-white/30" />
-      <div className="mx-auto grid max-w-7xl gap-x-10 gap-y-10 px-4 py-12 sm:px-6 md:grid-cols-2 lg:grid-cols-[1.35fr_0.85fr_1.1fr_0.8fr] lg:px-8">
-        {/* 1. 品牌：logo + 主体 + 定位 + 信任点 + 小程序码（贴底对齐右栏） */}
-        <div className="flex flex-col">
+      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-6 gap-y-10 px-4 py-12 sm:gap-x-10 sm:px-6 md:grid-cols-2 lg:grid-cols-[1.35fr_0.85fr_1.1fr_0.8fr] lg:px-8">
+        {/* 1. 品牌：logo + 主体 + 定位 + 信任点 + 小程序码（贴底对齐右栏）
+            手机上两栏并排会被挤扁，品牌栏通栏；md 起回到单列。 */}
+        <div className="col-span-2 flex flex-col md:col-span-1">
           <BrandLogo locale={locale} tone="onLight" />
           <p className="mt-3 text-sm text-white/90">{copy.legalName}</p>
           <p className="mt-3 text-sm leading-relaxed text-white/75">{copy.footer.blurb}</p>
@@ -202,8 +203,9 @@ export default function Footer({ locale: localeProp }: { locale?: Locale }) {
           </div>
         </div>
 
-        {/* 2. 产品中心：六个分类页 + 全部型号，全语种可用 */}
-        <nav aria-label={labels.products}>
+        {/* 2. 产品中心：六个分类页 + 全部型号，全语种可用
+            手机上与「资源与支持」并排两列（order 见各栏），省掉一半竖向高度 */}
+        <nav aria-label={labels.products} className="order-2 min-w-0 md:order-none">
           <p className="text-sm font-semibold">{labels.products}</p>
           <ul className="mt-3 space-y-2.5 text-sm text-white/85">
             {productCategories.map((id) => (
@@ -227,8 +229,9 @@ export default function Footer({ locale: localeProp }: { locale?: Locale }) {
           </ul>
         </nav>
 
-        {/* 3. 联系方式 + 地址：NAP 保持原样，方便搜索引擎与客户核对一致性 */}
-        <div>
+        {/* 3. 联系方式 + 地址：NAP 保持原样，方便搜索引擎与客户核对一致性
+            手机上通栏放最后（地址本来就宽，挤进半栏会断成一堆行） */}
+        <div className="order-4 col-span-2 md:order-none md:col-span-1">
           <p className="text-sm font-semibold">{copy.footer.contact}</p>
           <ul className="mt-3 space-y-2 text-sm text-white/85">
             <li>
@@ -321,7 +324,7 @@ export default function Footer({ locale: localeProp }: { locale?: Locale }) {
         </div>
 
         {/* 4. 资源与支持：站内重点落地页，中英额外挂三个双语页 */}
-        <div className="flex flex-col">
+        <div className="order-3 flex min-w-0 flex-col md:order-none">
           <nav aria-label={labels.resources}>
             <p className="text-sm font-semibold">{labels.resources}</p>
             <ul className="mt-3 space-y-2.5 text-sm text-white/85">
@@ -358,7 +361,7 @@ export default function Footer({ locale: localeProp }: { locale?: Locale }) {
           ) : null}
 
           {officialLocale ? (
-            <div className="mt-auto flex flex-wrap items-center gap-x-4 gap-y-1 pt-6">
+            <div className="mt-auto flex flex-col items-start gap-y-1 pt-6 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-4">
               <Link
                 href={localizeHref("/official", officialLocale)}
                 className="inline-block text-xs text-white/60 underline-offset-2 transition-colors hover:text-white hover:underline"
