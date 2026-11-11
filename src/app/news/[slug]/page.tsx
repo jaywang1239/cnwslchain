@@ -104,6 +104,7 @@ export default async function NewsDetailPage({
   }
 
   const item = localizeNewsContent(raw, locale);
+  const availableLocales = getNewsAvailableLocales(raw.slug);
   const source = newsSourceOf(raw);
   const blocks = parseNewsBlocks(item.content);
 
@@ -168,7 +169,12 @@ export default async function NewsDetailPage({
   ]);
 
   return (
-    <article className="bg-gray-50 px-4 py-12 sm:px-6 lg:px-8">
+    <article
+      className="bg-gray-50 px-4 py-12 sm:px-6 lg:px-8"
+      /* 逐篇可用语种不同（转载稿只有中文），语言切换器据此只列真实存在的语种，
+         否则会给出 4~5 个 404 链接。见 components/LanguageSwitcher.tsx。 */
+      data-available-locales={availableLocales.join(",")}
+    >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

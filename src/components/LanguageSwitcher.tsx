@@ -13,6 +13,7 @@ import {
   type Locale,
 } from "@/lib/i18n/config";
 import { getMessages } from "@/lib/i18n/messages";
+import { pageAvailableLocales } from "@/lib/locale-availability";
 
 function persistLocale(locale: Locale) {
   document.cookie = `${LOCALE_COOKIE}=${locale}; Path=/; Max-Age=31536000; SameSite=Lax`;
@@ -26,8 +27,19 @@ function persistLocale(locale: Locale) {
  *    localeFromPathname 一律返回 zh，切换器会在英文页上显示「中文」；
  * 2. 切换必须整页跳转（<a> 而非 <Link>）。App Router 的客户端导航不会
  *    重新渲染 layout，middleware 也不会重跑，结果是 URL 变了、导航仍是旧语种。
+ *
+ * 2026-11-11 修补：只列**该页真实存在**的语种（`pageAvailableLocales`）。
+ * 原先不管页面有没有译文都列满 6 个语种，于是 `/en/cable-carrier`、
+ * `/en/solutions/*` 这些仅英文页切到中文/越南语等会直接 404 —— 用户点了、
+ * 爬虫跟了，都是死链。清单见 `lib/locale-availability.ts`。
  */
-export default function LanguageSwitcher({ locale: localeProp }: { locale?: Locale }) {
+export default function LanguageSwitcher({
+  locale: localeProp,
+  availableLocales,
+}: {
+  locale?: Locale;
+  availableLocales?: readonly Locale[];
+}) {
   const pathname = usePathname() || "/";
   const pathLocale = localeFromPathname(pathname);
   const locale =
@@ -35,6 +47,23 @@ export default function LanguageSwitcher({ locale: localeProp }: { locale?: Loca
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const label = getMessages(locale).language;
+
+  /* 当前页可切换的语种：没有译文的语种不出现在列表里，避免死链。
+   * 页面若标了 `data-available-locales`（新闻详情页这类「逐篇不同」的情况，
+   * 数据只有服务端拿得到），以它为准；否则按路径规则推断。 */
+  const [pageLocales, setPageLocales] = useState<readonly Locale[] | null>(null);
+  useEffect(() => {
+    const el = document.querySelector("[data-available-locales]");
+    const raw = el?.getAttribute("data-available-locales") ?? "";
+    const parsed = raw
+      .split(",")
+      .map((s) => s.trim())
+      .filter((s): s is Locale => (locales as readonly string[]).includes(s));
+    setPageLocales(parsed.length ? parsed : null);
+  }, [pathname]);
+
+  const offered = pageAvailableLocales(pathname, availableLocales ?? pageLocales ?? undefined);
+  const options = locales.filter((item) => offered.includes(item));
 
   useEffect(() => {
     setOpen(false);
@@ -58,6 +87,9 @@ export default function LanguageSwitcher({ locale: localeProp }: { locale?: Loca
     };
   }, [open]);
 
+  /* 只有一种语言可选时，切换器没有意义（点开只看到自己），直接不渲染。 */
+  if (options.length < 2) return null;
+
   return (
     <div ref={rootRef} className="relative">
       <button
@@ -78,7 +110,7 @@ export default function LanguageSwitcher({ locale: localeProp }: { locale?: Loca
           role="listbox"
           className="absolute right-0 z-50 mt-2 min-w-[9.5rem] overflow-hidden rounded-md border border-gray-200 bg-white py-1 shadow-lg"
         >
-          {locales.map((item) => {
+          {options.map((item) => {
             const active = item === locale;
             return (
               <li key={item} role="option" aria-selected={active}>
