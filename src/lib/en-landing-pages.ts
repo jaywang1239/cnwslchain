@@ -121,7 +121,7 @@ export const EN_LANDING_PAGES: EnLandingPage[] = [
         heading: "What separates a 3-month carrier from a 15-million-cycle carrier",
         body: [
           "The failure mode people describe as 'the chain broke' is almost never a broken link. It is accumulated wear at the pin and at the contact between links, which shows up as lengthening pitch, then sag, then a cable chafing through its own jacket.",
-          "Three things control that rate: the material, the pin design, and whether the installed length was calculated for the actual stroke. We test to a minimum of 15 million cycles on our standard series. That number is a test result on a defined rig, not a promise about your machine — your stroke, speed, fill and environment all move it.",
+          "Three things control that rate: the material, the pin design, and whether the installed length was calculated for the actual stroke. We test to a minimum of 40 million cycles on our standard series. That number is a test result on a defined rig, not a promise about your machine — your stroke, speed, fill and environment all move it.",
         ],
         bullets: [
           {
@@ -164,7 +164,7 @@ export const EN_LANDING_PAGES: EnLandingPage[] = [
       { label: "Inner height range", value: "5 – 80 mm across six series" },
       { label: "Materials", value: "PA66 + 30 % glass fibre; TPU for cleanroom series" },
       { label: "Colours", value: "Black standard; grey, white and custom on request" },
-      { label: "Cycle life (test)", value: "≥ 15 million cycles on standard series" },
+      { label: "Cycle life (test)", value: "≥ 40 million cycles on standard series" },
       { label: "Warranty", value: "36 months on standard series" },
       { label: "Factory", value: "Yueqing, Zhejiang, China (IATF 16949)" },
       { label: "Lead time", value: "Stock sizes ship in days; custom tooling quoted per drawing" },
@@ -180,7 +180,7 @@ export const EN_LANDING_PAGES: EnLandingPage[] = [
       },
       {
         q: "How many cycles will a carrier last?",
-        a: "We test standard series to a minimum of 15 million cycles on a defined rig. Treat that as a test result, not a guarantee: stroke length, speed, acceleration, fill ratio and ambient temperature all change the real number. Send us the duty and we will tell you what we would expect.",
+        a: "We test standard series to a minimum of 40 million cycles on a defined rig. Treat that as a test result, not a guarantee: stroke length, speed, acceleration, fill ratio and ambient temperature all change the real number. Send us the duty and we will tell you what we would expect.",
       },
       {
         q: "Can I get a 3D model before ordering?",
@@ -312,7 +312,7 @@ export const EN_LANDING_PAGES: EnLandingPage[] = [
       { label: "Structures", value: "Bridge (open) and enclosed" },
       { label: "Material", value: "PA66 + 30 % glass fibre" },
       { label: "Mounting forms", value: "A1 / A2 / A3 / A4" },
-      { label: "Cycle life (test)", value: "≥ 15 million cycles" },
+      { label: "Cycle life (test)", value: "≥ 40 million cycles" },
       { label: "Warranty", value: "36 months" },
     ],
     faq: [

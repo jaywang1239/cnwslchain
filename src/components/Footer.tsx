@@ -51,7 +51,7 @@ const trustPoints = {
   zh: [
     "浙江乐清自有工厂，70+ 台注塑机",
     "通过 IATF 16949 / ISO 9001 认证",
-    "拖链寿命测试 ≥1500 万次",
+    "拖链寿命测试 ≥4000 万次",
     "常规型号现货，36 个月质保",
   ],
   en: [
@@ -63,25 +63,25 @@ const trustPoints = {
   vi: [
     "Nhà máy tại Yueqing, 70+ máy ép Haitian",
     "Chứng nhận IATF 16949 / ISO 9001",
-    "Thử nghiệm tuổi thọ ≥15 triệu chu kỳ",
+    "Thử nghiệm tuổi thọ ≥40 triệu chu kỳ",
     "Hàng có sẵn, bảo hành 36 tháng",
   ],
   es: [
     "Fábrica en Yueqing, más de 70 inyectoras",
     "Certificados IATF 16949 / ISO 9001",
-    "Ensayado a ≥15 millones de ciclos",
+    "Ensayado a ≥40 millones de ciclos",
     "Modelos en stock, garantía 36 meses",
   ],
   it: [
     "Stabilimento a Yueqing, oltre 70 presse",
     "Certificati IATF 16949 / ISO 9001",
-    "Collaudo a ≥15 milioni di cicli",
+    "Collaudo a ≥40 milioni di cicli",
     "Modelli a stock, garanzia 36 mesi",
   ],
   ru: [
     "Собственный завод в Юэцине, 70+ прессов",
     "Сертификаты IATF 16949 / ISO 9001",
-    "Ресурс от ≥15 млн циклов",
+    "Ресурс от ≥40 млн циклов",
     "Складские модели, гарантия 36 месяцев",
   ],
 } as const;

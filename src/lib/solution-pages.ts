@@ -249,7 +249,7 @@ export const SOLUTION_PAGES: SolutionPage[] = [
       { label: "Inner height", value: "18–80 mm" },
       { label: "Material", value: "PA66 + 30 % GF; TPU for cleanroom duty" },
       { label: "Cover options", value: "Enclosed, semi-enclosed, crossbar" },
-      { label: "Life test", value: "≥ 15 million cycles on the bench" },
+      { label: "Life test", value: "≥ 40 million cycles on the bench" },
       { label: "Warranty", value: "36 months" },
       { label: "Factory", value: "Yueqing, Zhejiang — one plant, open to audits" },
     ],
@@ -359,7 +359,7 @@ export const SOLUTION_PAGES: SolutionPage[] = [
       { label: "Motion type", value: "Single-plane bending (2D)" },
       { label: "Typical use", value: "7th-axis track, gantry, robot cell" },
       { label: "Material", value: "PA66 + 30 % GF" },
-      { label: "Life test", value: "≥ 15 million cycles" },
+      { label: "Life test", value: "≥ 40 million cycles" },
     ],
     faq: [
       {
@@ -465,7 +465,7 @@ export const SOLUTION_PAGES: SolutionPage[] = [
       { label: "Series", value: "Medium / heavy-duty / silent / cleanroom" },
       { label: "Inner height", value: "18–80 mm (5–80 mm across the range)" },
       { label: "Material", value: "PA66 + 30 % GF; TPU; anti-static compound on request" },
-      { label: "Life test", value: "≥ 15 million cycles, conditions on record" },
+      { label: "Life test", value: "≥ 40 million cycles, conditions on record" },
       { label: "Warranty", value: "36 months" },
       { label: "Manufacturing site", value: "Yueqing, Zhejiang — single plant" },
     ],
@@ -569,7 +569,7 @@ export const SOLUTION_PAGES: SolutionPage[] = [
       { label: "Inner height", value: "18–80 mm" },
       { label: "Cover options", value: "Enclosed, semi-enclosed, crossbar" },
       { label: "Material", value: "PA66 + 30 % GF" },
-      { label: "Life test", value: "≥ 15 million cycles" },
+      { label: "Life test", value: "≥ 40 million cycles" },
       { label: "Warranty", value: "36 months" },
     ],
     faq: [
@@ -623,7 +623,7 @@ export const SOLUTION_PAGES: SolutionPage[] = [
           },
           {
             label: "Continuous three-shift duty",
-            text: "At a 20-second cycle the chain sees over a million cycles a year. That reframes the life figure: 15 million cycles is roughly a decade at that rate, and much less at ten seconds.",
+            text: "At a 20-second cycle the chain sees over a million cycles a year. That reframes the life figure: 40 million cycles is roughly 25 years at that rate — a bench figure, not a service-life promise — and about 13 years at ten seconds.",
           },
           {
             label: "Particle sensitivity",
@@ -661,7 +661,7 @@ export const SOLUTION_PAGES: SolutionPage[] = [
       { label: "Series", value: "Medium / heavy-duty / cleanroom" },
       { label: "Inner height", value: "15–80 mm" },
       { label: "Material", value: "PA66 + 30 % GF; TPU; anti-static on request" },
-      { label: "Life test", value: "≥ 15 million cycles" },
+      { label: "Life test", value: "≥ 40 million cycles" },
       { label: "Warranty", value: "36 months" },
       { label: "MOQ", value: "1 piece for samples" },
       { label: "Lead time", value: "Standard sizes 1–3 days" },

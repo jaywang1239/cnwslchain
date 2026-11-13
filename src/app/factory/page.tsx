@@ -95,7 +95,7 @@ const ZH: FactoryCopy = {
   sec4Items: [
     "模具自己开发，非标尺寸不用等外部供应商排期，改料配色也能快速响应",
     "70+ 台注塑机在厂内，产能和交期能自己控制，急单可以插单安排",
-    "拖链寿命测试不低于 1500 万次，有检测报告可以调阅",
+    "拖链寿命测试不低于 4000 万次，有检测报告可以调阅",
     "IATF 16949 与 ISO 9001 在手，汽车类客户的前置门槛能满足",
     "样品可以寄，3D 图纸可以给，先做设计校核再下单，减少返工",
   ],
@@ -157,7 +157,7 @@ const EN: FactoryCopy = {
   sec4Items: [
     "We develop our own moulds, so non-standard sizes do not wait on an outside supplier's schedule, and material or colour changes can be handled quickly.",
     "With 70+ injection moulding machines on site we control capacity and lead time ourselves, and can slot in urgent orders.",
-    "Carrier life testing runs to at least 15 million cycles, with test reports available for review.",
+    "Carrier life testing runs to at least 40 million cycles, with test reports available for review.",
     "We hold IATF 16949 and ISO 9001, which meets the entry requirement for automotive customers.",
     "Samples can be sent and 3D drawings provided so you can verify the design before ordering, reducing rework.",
   ],

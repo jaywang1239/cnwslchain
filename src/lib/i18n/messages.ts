@@ -347,10 +347,10 @@ const zh: AppMessages = {
       "塑料拖链厂家，尼龙拖链、坦克链规格齐全：内高 5–80mm 六大系列，含微型、静音、承重与无尘拖链，常规型号现货可发。IATF 16949 认证工厂在浙江乐清，70 余台注塑机自产，支持非标定制与 3D 图纸。",
     ogImageAlt: "威仕龙无尘拖链往复运行演示",
     heroTitle: "塑料拖链厂家 · 国产化替代Igus",
-    heroSubtitle: "≥1500万次寿命测试 · 36个月质保",
+    heroSubtitle: "≥4000万次寿命测试 · 36个月质保",
     heroCta: "查看产品",
     trust: [
-      { value: "1500+", label: "万次起寿命" },
+      { value: "4000+", label: "万次起寿命" },
       { value: "36", label: "个月质保" },
       { value: "1", label: "最小起订量" },
       { value: "3D", label: "模型服务" },
@@ -510,7 +510,7 @@ const zh: AppMessages = {
     subtitle: "精密塑料拖链与注塑零部件 · 以欧标品质打造国产化替代",
     introTitle: "公司简介",
     introBody: [
-      "威仕龙 CNWSL（浙江威仕龙塑胶有限公司，前身为温州市威仕龙塑胶有限公司）成立于 2010 年，始终专注精密塑料拖链系统及高端注塑零部件的研发与制造，是高性价比替代Igus的自动化设备拖链、坦克链供应商。公司集模具设计、材料改性、精密注塑与智能制造于一体，工厂位于浙江省温州市乐清市天成街道宁康东路2891号，并设威仕龙深圳、威仕龙常州销售办事处。产品覆盖精密机床拖链、无尘拖链与塑料冷却管等，拖链寿命测试不低于 1500 万次，以欧标品质服务机床、半导体、汽车与自动化等高端场景。",
+      "威仕龙 CNWSL（浙江威仕龙塑胶有限公司，前身为温州市威仕龙塑胶有限公司）成立于 2010 年，始终专注精密塑料拖链系统及高端注塑零部件的研发与制造，是高性价比替代Igus的自动化设备拖链、坦克链供应商。公司集模具设计、材料改性、精密注塑与智能制造于一体，工厂位于浙江省温州市乐清市天成街道宁康东路2891号，并设威仕龙深圳、威仕龙常州销售办事处。产品覆盖精密机床拖链、无尘拖链与塑料冷却管等，拖链寿命测试不低于 4000 万次，以欧标品质服务机床、半导体、汽车与自动化等高端场景。",
       "依托乐清精密模具产业基础，威仕龙坚持核心产品模具自主开发，累计获得国家专利授权十余项，模具储备超过 3000 套；生产端配备 70 余台海天注塑机及自动组装线，可快速响应非标尺寸、防静电/阻燃材质与颜色定制，常规及多数定制需求 1–3 天即可生产发货。公司已通过 IATF 16949:2016 与 ISO 9001:2015 认证，产品经 SGS 等机构检测并符合 RoHS 等法规，服务麦格纳、英纳法、广汽、极氪、中航精机等行业客户。",
     ],
     factoryPhotoAlt:
@@ -1032,7 +1032,7 @@ const en: AppMessages = {
       "Precision plastic cable carriers and molded parts—European-standard quality for localized replacement.",
     introTitle: "Company profile",
     introBody: [
-      "CNWSL (Zhejiang CNWSL Cable Drag Chain Co., Ltd., formerly Wenzhou CNWSL Cable Drag Chain Co., Ltd.) was founded in 2010 and focuses on precision plastic cable-carrier systems and high-end injection-molded parts. We integrate mold design, material compounding, precision molding and smart manufacturing. Our factory is at No. 2891 Ningkang East Road, Tiancheng Subdistrict, Yueqing, Wenzhou, Zhejiang, with offices in Shenzhen and Changzhou. The portfolio covers machine-tool carriers, cleanroom carriers and plastic cooling tubes; life testing starts at no less than 15 million cycles.",
+      "CNWSL (Zhejiang CNWSL Cable Drag Chain Co., Ltd., formerly Wenzhou CNWSL Cable Drag Chain Co., Ltd.) was founded in 2010 and focuses on precision plastic cable-carrier systems and high-end injection-molded parts. We integrate mold design, material compounding, precision molding and smart manufacturing. Our factory is at No. 2891 Ningkang East Road, Tiancheng Subdistrict, Yueqing, Wenzhou, Zhejiang, with offices in Shenzhen and Changzhou. The portfolio covers machine-tool carriers, cleanroom carriers and plastic cooling tubes; life testing starts at no less than 40 million cycles.",
       "Rooted in Yueqing’s mold industry, we develop core molds in-house, hold 10+ national patents and stock more than 3,000 molds. Production runs on 70+ Haitian injection presses with automatic assembly lines—supporting non-standard sizes, anti-static/flame-retardant materials and color options, with most standard and custom orders shipping in 1–3 days. Certified to IATF 16949:2016 and ISO 9001:2015, products are tested via SGS and meet RoHS and related requirements, serving customers such as Magna, Inalfa, GAC, Zeekr and AVIC Precision Machinery.",
     ],
     factoryPhotoAlt:
@@ -1327,7 +1327,7 @@ const vi: AppMessages = {
       "CNWSL sản xuất xích dẫn cáp nhựa, xích phòng sạch và ống làm mát. Nhà máy tại Nhạc Thanh (Chiết Giang), có văn phòng Thâm Quyến và Thường Châu.",
     ogImageAlt: "Xích dẫn cáp phòng sạch CNWSL chuyển động qua lại",
     heroTitle: "Xích dẫn cáp chống bụi chuẩn châu Âu · Đơn vị dẫn đầu thay thế nội địa",
-    heroSubtitle: "Tuổi thọ thử nghiệm ≥15 triệu chu kỳ · Bảo hành 36 tháng",
+    heroSubtitle: "Tuổi thọ thử nghiệm ≥40 triệu chu kỳ · Bảo hành 36 tháng",
     heroCta: "Xem sản phẩm",
     trust: [
       { value: "15M+", label: "chu kỳ tuổi thọ" },
@@ -1500,7 +1500,7 @@ const vi: AppMessages = {
       "Xích dẫn cáp nhựa chính xác và linh kiện ép phun—chất lượng châu Âu cho thay thế nội địa hóa.",
     introTitle: "Giới thiệu công ty",
     introBody: [
-      "CNWSL (Zhejiang CNWSL Cable Drag Chain Co., Ltd., tiền thân Wenzhou CNWSL Cable Drag Chain Co., Ltd.) thành lập năm 2010, tập trung hệ thống xích dẫn cáp nhựa chính xác và linh kiện ép phun cao cấp. Chúng tôi tích hợp thiết kế khuôn, biến tính vật liệu, ép phun chính xác và sản xuất thông minh. Nhà máy tại số 2891 đường Ningkang Đông, phố Thiên Thành, Yueqing, Ôn Châu, Chiết Giang, kèm văn phòng Thâm Quyến và Thường Châu. Danh mục gồm xích máy công cụ, xích phòng sạch và ống làm mát nhựa; thử tuổi thọ không dưới 15 triệu chu kỳ.",
+      "CNWSL (Zhejiang CNWSL Cable Drag Chain Co., Ltd., tiền thân Wenzhou CNWSL Cable Drag Chain Co., Ltd.) thành lập năm 2010, tập trung hệ thống xích dẫn cáp nhựa chính xác và linh kiện ép phun cao cấp. Chúng tôi tích hợp thiết kế khuôn, biến tính vật liệu, ép phun chính xác và sản xuất thông minh. Nhà máy tại số 2891 đường Ningkang Đông, phố Thiên Thành, Yueqing, Ôn Châu, Chiết Giang, kèm văn phòng Thâm Quyến và Thường Châu. Danh mục gồm xích máy công cụ, xích phòng sạch và ống làm mát nhựa; thử tuổi thọ không dưới 40 triệu chu kỳ.",
       "Dựa trên nền công nghiệp khuôn Yueqing, chúng tôi tự phát triển khuôn lõi, sở hữu hơn 10 bằng sáng chế quốc gia và hơn 3000 bộ khuôn. Sản xuất với 70+ máy ép Haitian và dây lắp ráp tự động—hỗ trợ kích thước phi tiêu chuẩn, vật liệu chống tĩnh điện/chống cháy và tùy chọn màu, hầu hết đơn tiêu chuẩn và tùy chỉnh giao trong 1–3 ngày. Chứng nhận IATF 16949:2016 và ISO 9001:2015; sản phẩm kiểm tra qua SGS, đạt RoHS, phục vụ khách hàng như Magna, Inalfa, GAC, Zeekr và AVIC Precision Machinery.",
     ],
     factoryPhotoAlt:
@@ -1797,7 +1797,7 @@ const es: AppMessages = {
       "CNWSL fabrica portacables de plástico, portacables para sala limpia y tubos de refrigeración. Fábrica en Yueqing, con oficinas en Shenzhen y Changzhou.",
     ogImageAlt: "Portacables de sala limpia CNWSL en movimiento alternativo",
     heroTitle: "Líder en portacables de norma europea",
-    heroSubtitle: "Vida útil ensayada ≥15 millones de ciclos · Garantía de 36 meses",
+    heroSubtitle: "Vida útil ensayada ≥40 millones de ciclos · Garantía de 36 meses",
     heroCta: "Ver productos",
     trust: [
       { value: "15M+", label: "ciclos de vida" },
@@ -1971,7 +1971,7 @@ const es: AppMessages = {
       "Portacables de plástico de precisión y piezas moldeadas: calidad europea para la sustitución localizada.",
     introTitle: "Perfil de la empresa",
     introBody: [
-      "CNWSL (Zhejiang CNWSL Cable Drag Chain Co., Ltd., antes Wenzhou CNWSL Cable Drag Chain Co., Ltd.) se fundó en 2010 y se centra en sistemas de portacables de plástico de precisión y piezas inyectadas de alto nivel. Integramos diseño de moldes, modificación de materiales, inyección de precisión y fabricación inteligente. Nuestra fábrica está en el n.º 2891 de Ningkang East Road, Tiancheng, Yueqing, Wenzhou, Zhejiang, con oficinas en Shenzhen y Changzhou. La cartera cubre portacables para máquina-herramienta, portacables de sala limpia y tubos de refrigeración; los ensayos de vida parten de no menos de 15 millones de ciclos.",
+      "CNWSL (Zhejiang CNWSL Cable Drag Chain Co., Ltd., antes Wenzhou CNWSL Cable Drag Chain Co., Ltd.) se fundó en 2010 y se centra en sistemas de portacables de plástico de precisión y piezas inyectadas de alto nivel. Integramos diseño de moldes, modificación de materiales, inyección de precisión y fabricación inteligente. Nuestra fábrica está en el n.º 2891 de Ningkang East Road, Tiancheng, Yueqing, Wenzhou, Zhejiang, con oficinas en Shenzhen y Changzhou. La cartera cubre portacables para máquina-herramienta, portacables de sala limpia y tubos de refrigeración; los ensayos de vida parten de no menos de 40 millones de ciclos.",
       "Con la base industrial de moldes de Yueqing, desarrollamos los moldes clave internamente, contamos con más de 10 patentes nacionales y más de 3000 moldes. La producción opera con más de 70 inyectoras Haitian y líneas de montaje automático—tamaños no estándar, materiales antiestáticos/ignífugos y color, con la mayoría de pedidos estándar y a medida enviados en 1–3 días. Certificados IATF 16949:2016 e ISO 9001:2015; productos ensayados por SGS y conformes a RoHS, al servicio de clientes como Magna, Inalfa, GAC, Zeekr y AVIC Precision Machinery.",
     ],
     factoryPhotoAlt:
@@ -2292,7 +2292,7 @@ const it: AppMessages = {
       "CNWSL produce catene portacavi in plastica, catene per cleanroom e tubi di raffreddamento. Stabilimento a Yueqing, con uffici a Shenzhen e Changzhou.",
     ogImageAlt: "Catena portacavi cleanroom CNWSL in movimento alternato",
     heroTitle: "Leader nelle catene portacavi a norma europea",
-    heroSubtitle: "Vita utile collaudata ≥15 milioni di cicli · Garanzia 36 mesi",
+    heroSubtitle: "Vita utile collaudata ≥40 milioni di cicli · Garanzia 36 mesi",
     heroCta: "Vedi prodotti",
     trust: [
       { value: "15M+", label: "cicli di vita" },
@@ -2466,7 +2466,7 @@ const it: AppMessages = {
       "Catene portacavi in plastica di precisione e particolari stampati—qualità europea per la sostituzione localizzata.",
     introTitle: "Profilo aziendale",
     introBody: [
-      "CNWSL (Zhejiang CNWSL Cable Drag Chain Co., Ltd., già Wenzhou CNWSL Cable Drag Chain Co., Ltd.) è stata fondata nel 2010 e si concentra su sistemi di catene portacavi in plastica di precisione e particolari stampati a iniezione di fascia alta. Integriamo progettazione stampi, modifica dei materiali, stampaggio di precisione e produzione intelligente. Lo stabilimento è al n. 2891 Ningkang East Road, Tiancheng, Yueqing, Wenzhou, Zhejiang, con uffici a Shenzhen e Changzhou. La gamma comprende catene per macchine utensili, catene cleanroom e tubi di raffreddamento; i test di vita partono da non meno di 15 milioni di cicli.",
+      "CNWSL (Zhejiang CNWSL Cable Drag Chain Co., Ltd., già Wenzhou CNWSL Cable Drag Chain Co., Ltd.) è stata fondata nel 2010 e si concentra su sistemi di catene portacavi in plastica di precisione e particolari stampati a iniezione di fascia alta. Integriamo progettazione stampi, modifica dei materiali, stampaggio di precisione e produzione intelligente. Lo stabilimento è al n. 2891 Ningkang East Road, Tiancheng, Yueqing, Wenzhou, Zhejiang, con uffici a Shenzhen e Changzhou. La gamma comprende catene per macchine utensili, catene cleanroom e tubi di raffreddamento; i test di vita partono da non meno di 40 milioni di cicli.",
       "Radicati nell'industria degli stampi di Yueqing, sviluppiamo internamente gli stampi core, deteniamo oltre 10 brevetti nazionali e più di 3000 stampi. La produzione opera con oltre 70 presse Haitian e linee di assemblaggio automatico—misure non standard, materiali antistatici/flame-retardant e colori, con la maggior parte degli ordini standard e custom spediti in 1–3 giorni. Certificati IATF 16949:2016 e ISO 9001:2015; prodotti testati da SGS e conformi RoHS, al servizio di clienti come Magna, Inalfa, GAC, Zeekr e AVIC Precision Machinery.",
     ],
     factoryPhotoAlt:
@@ -2787,7 +2787,7 @@ const ru: AppMessages = {
       "CNWSL производит пластиковые кабельные цепи, кабельные цепи для чистых помещений и охлаждающие трубки. Завод в Юэцине, офисы в Шэньчжэне и Чанчжоу.",
     ogImageAlt: "Кабельная цепь CNWSL для чистых помещений в возвратно-поступательном движении",
     heroTitle: "Лидер кабельных цепей европейского стандарта",
-    heroSubtitle: "Ресурс от ≥15 млн циклов · Гарантия 36 месяцев",
+    heroSubtitle: "Ресурс от ≥40 млн циклов · Гарантия 36 месяцев",
     heroCta: "Смотреть продукцию",
     trust: [
       { value: "15M+", label: "циклов ресурса" },
@@ -2958,7 +2958,7 @@ const ru: AppMessages = {
       "Прецизионные пластиковые кабельные цепи и литьё — качество европейского стандарта для локальной замены.",
     introTitle: "Профиль компании",
     introBody: [
-      "CNWSL (Zhejiang CNWSL Cable Drag Chain Co., Ltd., ранее Wenzhou CNWSL Cable Drag Chain Co., Ltd.) основана в 2010 году и специализируется на прецизионных системах пластиковых кабельных цепей и высококлассных литьевых деталях. Мы объединяем проектирование пресс-форм, модификацию материалов, прецизионное литьё и интеллектуальное производство. Завод — по адресу No. 2891 Ningkang East Road, Tiancheng Subdistrict, Yueqing, Wenzhou, Zhejiang; офисы — в Шэньчжэне и Чанчжоу. Ассортимент включает цепи для станков, цепи для чистых помещений и пластиковые охлаждающие трубки; ресурсные испытания — не менее 15 млн циклов.",
+      "CNWSL (Zhejiang CNWSL Cable Drag Chain Co., Ltd., ранее Wenzhou CNWSL Cable Drag Chain Co., Ltd.) основана в 2010 году и специализируется на прецизионных системах пластиковых кабельных цепей и высококлассных литьевых деталях. Мы объединяем проектирование пресс-форм, модификацию материалов, прецизионное литьё и интеллектуальное производство. Завод — по адресу No. 2891 Ningkang East Road, Tiancheng Subdistrict, Yueqing, Wenzhou, Zhejiang; офисы — в Шэньчжэне и Чанчжоу. Ассортимент включает цепи для станков, цепи для чистых помещений и пластиковые охлаждающие трубки; ресурсные испытания — не менее 40 млн циклов.",
       "Опираясь на пресс-форменную промышленность Юэцина, мы самостоятельно разрабатываем ключевые пресс-формы, имеем более 10 национальных патентов и свыше 3000 пресс-форм. Производство — на 70+ термопластавтоматах Haitian с автоматическими сборочными линиями: нестандартные размеры, антистатические/огнестойкие материалы и цвет; большинство стандартных и заказных партий отгружается за 1–3 дня. Сертификаты IATF 16949:2016 и ISO 9001:2015; продукция проходит испытания SGS и соответствует RoHS. Среди клиентов — Magna, Inalfa, GAC, Zeekr и AVIC Precision Machinery.",
     ],
     factoryPhotoAlt:
