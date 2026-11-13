@@ -2287,7 +2287,7 @@ const it: AppMessages = {
   },
   homePage: {
     metaTitle:
-      "Catene portacavi in plastica 5–80mm e cleanroom Class 1 | CNWSL",
+      "Catene portacavi in plastica 5–80mm e cleanroom Class 1",
     metaDescription:
       "CNWSL produce catene portacavi in plastica, catene per cleanroom e tubi di raffreddamento. Stabilimento a Yueqing, con uffici a Shenzhen e Changzhou.",
     ogImageAlt: "Catena portacavi cleanroom CNWSL in movimento alternato",
@@ -2782,7 +2782,7 @@ const ru: AppMessages = {
   },
   homePage: {
     metaTitle:
-      "Пластиковые кабельные цепи 5–80 мм, чистые помещения Class 1 | CNWSL",
+      "Пластиковые кабельные цепи 5–80 мм, чистые помещения Class 1",
     metaDescription:
       "CNWSL производит пластиковые кабельные цепи, кабельные цепи для чистых помещений и охлаждающие трубки. Завод в Юэцине, офисы в Шэньчжэне и Чанчжоу.",
     ogImageAlt: "Кабельная цепь CNWSL для чистых помещений в возвратно-поступательном движении",
