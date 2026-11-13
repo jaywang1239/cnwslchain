@@ -70,7 +70,7 @@ export const EN_LANDING_PAGES: EnLandingPage[] = [
     metaTitle:
       "Cable Carriers — Nylon & TPU, 5–80 mm Inner Height | CNWSL",
     metaDescription:
-      "Plastic cable carriers from a manufacturer in Yueqing, China. Inner height 5–80 mm, six series including micro, heavy-duty, silent and cleanroom. 15M+ cycle life, quote in 24 h.",
+      "Plastic cable carriers from a manufacturer in Yueqing, China. Inner height 5–80 mm, six series including micro, heavy-duty, silent and cleanroom. 40M+ cycle life, quote in 24 h.",
     h1: "Cable carriers: what they are, and how to choose one that lasts",
     lede: [
       "A cable carrier is a segmented plastic or metal track that constrains cables and hoses along a moving machine axis. It holds a fixed bend radius so the cable flexes the way it was designed to, instead of kinking at whatever radius the machine happens to impose.",
@@ -228,7 +228,7 @@ export const EN_LANDING_PAGES: EnLandingPage[] = [
     name: "Drag Chain",
     metaTitle: "Drag Chain — Plastic Cable Drag Chains, 5–80 mm | CNWSL",
     metaDescription:
-      "Drag chains (tank chains) in glass-filled PA66, inner height 5–80 mm. Bridge and enclosed types, 15M+ cycle life, IATF 16949 factory in Yueqing. Drawings and 3D models on request.",
+      "Drag chains (tank chains) in glass-filled PA66, inner height 5–80 mm. Bridge and enclosed types, 40M+ cycle life, IATF 16949 factory in Yueqing. Drawings and 3D models on request.",
     h1: "Drag chains for machine tools and automation axes",
     lede: [
       "Drag chain, tank chain and cable carrier all refer to the same part. The name drag chain is most common where the application is a machine tool slide or a gantry: a track that drags the cable bundle back and forth along the axis while keeping it inside a controlled bend radius.",

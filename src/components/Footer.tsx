@@ -57,7 +57,7 @@ const trustPoints = {
   en: [
     "Own factory in Yueqing, 70+ injection presses",
     "IATF 16949 / ISO 9001 certified",
-    "Carrier life tested to 15M+ cycles",
+    "Carrier life tested to 40M+ cycles",
     "Stock models, 36-month warranty",
   ],
   vi: [

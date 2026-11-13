@@ -825,13 +825,13 @@ const en: AppMessages = {
   homePage: {
     metaTitle: "Cable Carrier & Drag Chain Manufacturer | CNWSL",
     metaDescription:
-      "CNWSL manufactures plastic cable carriers and drag chains in 5–80 mm inner height, including cleanroom carriers tested to ISO Class 1. Factory in Yueqing, China; 15M+ cycle life and a 36-month warranty.",
+      "CNWSL manufactures plastic cable carriers and drag chains in 5–80 mm inner height, including cleanroom carriers tested to ISO Class 1. Factory in Yueqing, China; 40M+ cycle life and a 36-month warranty.",
     ogImageAlt: "CNWSL cleanroom cable carrier in reciprocating motion",
     heroTitle: "Plastic cable carriers and drag chains for 24/7 motion",
-    heroSubtitle: "≥15M cycle life tested · 36-month warranty",
+    heroSubtitle: "≥40M cycle life tested · 36-month warranty",
     heroCta: "View products",
     trust: [
-      { value: "15M+", label: "cycle life" },
+      { value: "40M+", label: "cycle life" },
       { value: "36", label: "months warranty" },
       { value: "1", label: "MOQ" },
       { value: "3D", label: "CAD models" },
@@ -1330,7 +1330,7 @@ const vi: AppMessages = {
     heroSubtitle: "Tuổi thọ thử nghiệm ≥40 triệu chu kỳ · Bảo hành 36 tháng",
     heroCta: "Xem sản phẩm",
     trust: [
-      { value: "15M+", label: "chu kỳ tuổi thọ" },
+      { value: "40M+", label: "chu kỳ tuổi thọ" },
       { value: "36", label: "tháng bảo hành" },
       { value: "1", label: "đơn hàng tối thiểu" },
       { value: "3D", label: "mô hình CAD" },
@@ -1800,7 +1800,7 @@ const es: AppMessages = {
     heroSubtitle: "Vida útil ensayada ≥40 millones de ciclos · Garantía de 36 meses",
     heroCta: "Ver productos",
     trust: [
-      { value: "15M+", label: "ciclos de vida" },
+      { value: "40M+", label: "ciclos de vida" },
       { value: "36", label: "meses de garantía" },
       { value: "1", label: "pedido mín." },
       { value: "3D", label: "modelos CAD" },
@@ -2295,7 +2295,7 @@ const it: AppMessages = {
     heroSubtitle: "Vita utile collaudata ≥40 milioni di cicli · Garanzia 36 mesi",
     heroCta: "Vedi prodotti",
     trust: [
-      { value: "15M+", label: "cicli di vita" },
+      { value: "40M+", label: "cicli di vita" },
       { value: "36", label: "mesi di garanzia" },
       { value: "1", label: "q.tà min." },
       { value: "3D", label: "modelli CAD" },
@@ -2790,7 +2790,7 @@ const ru: AppMessages = {
     heroSubtitle: "Ресурс от ≥40 млн циклов · Гарантия 36 месяцев",
     heroCta: "Смотреть продукцию",
     trust: [
-      { value: "15M+", label: "циклов ресурса" },
+      { value: "40M+", label: "циклов ресурса" },
       { value: "36", label: "месяцев гарантии" },
       { value: "1", label: "MOQ" },
       { value: "3D", label: "CAD-модели" },

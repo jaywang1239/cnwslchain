@@ -173,7 +173,7 @@ export const SOLUTION_PAGES: SolutionPage[] = [
     name: "Machine tools",
     metaTitle: "Cable Carrier for CNC Machine Tools | CNWSL",
     metaDescription:
-      "Enclosed plastic cable carriers for CNC lathes, machining centres and grinders. Chip and coolant protection, 18–80 mm inner height, 15M+ cycles, 36-month warranty.",
+      "Enclosed plastic cable carriers for CNC lathes, machining centres and grinders. Chip and coolant protection, 18–80 mm inner height, 40M+ cycles, 36-month warranty.",
     h1: "Cable carriers for CNC machine tools",
     lede: [
       "On a machine tool the carrier is not the expensive part, but it is the part that stops the machine. Nearly every failure we see in this application traces back to chips, coolant, or a fill ratio that was decided by eye at the assembly bench.",
@@ -396,7 +396,7 @@ export const SOLUTION_PAGES: SolutionPage[] = [
     name: "Automotive & EV",
     metaTitle: "Cable Carrier for Automotive and EV Lines | CNWSL",
     metaDescription:
-      "Cable carriers for body shops, paint lines and EV battery assembly. IATF 16949 certified plant, 15M+ cycle life, 36-month warranty, documentation for supplier qualification.",
+      "Cable carriers for body shops, paint lines and EV battery assembly. IATF 16949 certified plant, 40M+ cycle life, 36-month warranty, documentation for supplier qualification.",
     h1: "Cable carriers for automotive and EV assembly lines",
     lede: [
       "Automotive projects are decided by uptime and by paperwork. The chain itself is a small line item, but a stop on a body-shop line costs more per hour than the whole carrier order.",
@@ -504,7 +504,7 @@ export const SOLUTION_PAGES: SolutionPage[] = [
     name: "Laser & plasma cutting",
     metaTitle: "Cable Carrier for Laser and Plasma Cutting | CNWSL",
     metaDescription:
-      "Cable carriers for laser and plasma cutting tables — high acceleration, spark and slag protection, 18–45 mm inner height, 15M+ cycle life.",
+      "Cable carriers for laser and plasma cutting tables — high acceleration, spark and slag protection, 18–45 mm inner height, 40M+ cycle life.",
     h1: "Cable carriers for laser cutting and plasma equipment",
     lede: [
       "Cutting tables are the harshest duty in our range: high acceleration, short cycle times, and sparks that land where nothing should be. The chain is also the cheapest component in the axis, which is why it is usually the one bought without calculation.",
@@ -607,7 +607,7 @@ export const SOLUTION_PAGES: SolutionPage[] = [
     name: "Battery & PV lines",
     metaTitle: "Cable Carrier for Battery and PV Production | CNWSL",
     metaDescription:
-      "Cable carriers for lithium battery and photovoltaic lines — long travel, high duty, low dust. 15M+ cycle life, 36-month warranty, factory in Yueqing, China.",
+      "Cable carriers for lithium battery and photovoltaic lines — long travel, high duty, low dust. 40M+ cycle life, 36-month warranty, factory in Yueqing, China.",
     h1: "Cable carriers for battery and photovoltaic production lines",
     lede: [
       "Battery and PV lines share a pattern: long travel, high duty, and a process that is unforgiving about particles. The carrier usually gets specified late, after the layout is fixed, which is exactly when the constraints are hardest.",
