@@ -75,7 +75,12 @@ export async function generateMetadata({
     locale === "zh"
       ? (spec.seoTitle ??
         `拖链${spec.innerHeight}X${spec.innerWidth}_${spec.code}_内高${spec.innerHeight}内宽${spec.innerWidth}${catShort}-威仕龙`)
-      : seoTitle(`${category.name} ${spec.code} | ${seriesName}`);
+      : (() => {
+          const base = `${category.name} ${spec.code}`;
+          const full = seoTitle(`${base} | ${seriesName}`);
+          // 完整版被截断时回落到「品类 + 型号」，避免出现 "Silenz… | CNWSL" 这种半截系列名
+          return full.includes("…") ? seoTitle(base) : full;
+        })();
 
   const bendText =
     spec.bendRadii && spec.bendRadii.length
