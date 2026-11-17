@@ -77,17 +77,6 @@ export function buildProductJsonLd(
     category: `${categoryName} / ${seriesName}`,
     url: absoluteUrl(pageUrl),
     material: localizeMaterial(spec.material, locale),
-    offers: {
-      "@type": "Offer",
-      url: absoluteUrl(pageUrl),
-      availability: "https://schema.org/InStock",
-      priceCurrency: "CNY",
-      itemCondition: "https://schema.org/NewCondition",
-      seller: {
-        "@type": "Organization",
-        name: legalName,
-      },
-    },
   };
 }
 
