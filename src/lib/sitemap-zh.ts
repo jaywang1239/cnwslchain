@@ -6,7 +6,11 @@ import {
   getAllSeriesParams,
 } from "@/lib/product-catalog";
 import { siteConfig } from "@/lib/site";
-import { SITE_BUILT_AT, pageLastModified } from "@/lib/sitemap-dates";
+import {
+  MODEL_LAST_MODIFIED,
+  SITE_BUILT_AT,
+  pageLastModified,
+} from "@/lib/sitemap-dates";
 
 /**
  * 中文专用 sitemap（给百度搜索资源平台提交）。
@@ -131,7 +135,7 @@ function rows(): Row[] {
     })),
     ...getAllModelParams().map(({ spec }) => ({
       path: `/products/model/${spec}`,
-      lastModified: SITE_BUILT_AT,
+      lastModified: MODEL_LAST_MODIFIED,
       changeFrequency: "weekly",
       priority: 0.75,
     })),

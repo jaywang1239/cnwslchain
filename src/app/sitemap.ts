@@ -10,7 +10,11 @@ import {
 } from "@/lib/product-catalog";
 import { locales, defaultLocale, type Locale } from "@/lib/i18n/config";
 import { siteConfig } from "@/lib/site";
-import { SITE_BUILT_AT, pageLastModified } from "@/lib/sitemap-dates";
+import {
+  MODEL_LAST_MODIFIED,
+  SITE_BUILT_AT,
+  pageLastModified,
+} from "@/lib/sitemap-dates";
 
 /**
  * 静态页的日期口径统一在 lib/sitemap-dates.ts（与中文 sitemap 共用一份）。
@@ -235,7 +239,7 @@ function buildSitemap(): MetadataRoute.Sitemap {
       withLocales(`/products/${category}/${series}`, 0.8),
     ),
     ...getAllModelParams().flatMap(({ spec }) =>
-      withLocales(`/products/model/${spec}`, 0.75),
+      withLocales(`/products/model/${spec}`, 0.75, MODEL_LAST_MODIFIED),
     ),
   ];
 
