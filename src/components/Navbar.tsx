@@ -37,8 +37,21 @@ export default function Navbar({ locale: localeProp }: { locale?: Locale }) {
   const contactHref = localizeHref("/contact", locale);
   const [open, setOpen] = useState(false);
 
-  const navItems = [
+  // 在线选型工具（public/selector.html，静态页自带中英切换）。
+  // 这是 public 下的静态文件、不是 Next 路由：必须用原始路径 + <a> 直连，
+  // 不能走 localizeHref（否则 /en/selector.html 等带前缀路径会 404）。
+  const selectorLabels: Record<Locale, string> = {
+    zh: "在线选型",
+    en: "Selector",
+    vi: "Chọn dây",
+    es: "Selector",
+    it: "Selettore",
+    ru: "Подбор",
+  };
+
+  const navItems: { label: string; href: string; raw?: boolean }[] = [
     { label: copy.nav.products, href: localizeHref("/products", locale) },
+    { label: selectorLabels[locale], href: "/selector.html", raw: true },
     // 英文站专用入口（2026-11-04）：指向 5 个核心商业词落地页的总入口 hub。
     // 中文站没有对应页面（/cable-carrier 等均为 requireEnOnlyLocale 收口），
     // 所以只在 en 下插入，不能放进 messages 的公共 nav。
@@ -95,22 +108,30 @@ export default function Navbar({ locale: localeProp }: { locale?: Locale }) {
             const active =
               pathname === item.href ||
               (item.href !== "/" && pathname.startsWith(`${item.href}/`));
+            const linkClass = `relative inline-flex px-2 py-2 text-sm font-medium transition-colors xl:px-3 xl:text-base ${
+              active ? "text-white" : "text-white/70 hover:text-white"
+            }`;
             return (
               <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className={`relative inline-flex px-2 py-2 text-sm font-medium transition-colors xl:px-3 xl:text-base ${
-                    active ? "text-white" : "text-white/70 hover:text-white"
-                  }`}
-                >
-                  {item.label}
-                  <span
-                    aria-hidden="true"
-                    className={`pointer-events-none absolute inset-x-2 bottom-0 h-px rounded-full bg-brand-accent transition-opacity ${
-                      active ? "opacity-100" : "opacity-0"
-                    }`}
-                  />
-                </Link>
+                {item.raw ? (
+                  <a href={item.href} className={linkClass}>
+                    {item.label}
+                    <span
+                      aria-hidden="true"
+                      className="pointer-events-none absolute inset-x-2 bottom-0 h-px rounded-full bg-brand-accent opacity-0"
+                    />
+                  </a>
+                ) : (
+                  <Link href={item.href} className={linkClass}>
+                    {item.label}
+                    <span
+                      aria-hidden="true"
+                      className={`pointer-events-none absolute inset-x-2 bottom-0 h-px rounded-full bg-brand-accent transition-opacity ${
+                        active ? "opacity-100" : "opacity-0"
+                      }`}
+                    />
+                  </Link>
+                )}
               </li>
             );
           })}
@@ -176,12 +197,21 @@ export default function Navbar({ locale: localeProp }: { locale?: Locale }) {
         <ul className="mx-auto flex max-w-7xl flex-col px-4 py-3 sm:px-6">
           {navItems.map((item) => (
             <li key={item.href}>
-              <Link
-                href={item.href}
-                className="block rounded-md px-3 py-3 text-base font-medium text-brand-primary/90 transition-colors hover:bg-brand-secondary hover:text-white"
-              >
-                {item.label}
-              </Link>
+              {item.raw ? (
+                <a
+                  href={item.href}
+                  className="block rounded-md px-3 py-3 text-base font-medium text-brand-primary/90 transition-colors hover:bg-brand-secondary hover:text-white"
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  href={item.href}
+                  className="block rounded-md px-3 py-3 text-base font-medium text-brand-primary/90 transition-colors hover:bg-brand-secondary hover:text-white"
+                >
+                  {item.label}
+                </Link>
+              )}
             </li>
           ))}
           <li>
