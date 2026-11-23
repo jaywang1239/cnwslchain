@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="威仕龙 CNWSL 尼龙拖链在线选型工具">
+<title>拖链在线选型 · 威仕龙 CNWSL</title>
+<style>
+:root{
+  --brand:#0d6b5a;
+  --brand-dark:#094c41;
+  --brand-soft:#e7f3f0;
+  --ink:#17282e;
+  --muted:#657980;
+  --line:#dfe8e7;
+  --bg:#f4f7f6;
+  --card:#ffffff;
+  --warn:#b26b00;
+  --warn-bg:#fff5e3;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.6;font-size:15px;
+}
+.app{max-width:720px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column}
+header{
+  background:var(--brand-dark);color:#fff;padding:20px 20px 18px;
+  padding-top:calc(20px + env(safe-area-inset-top));
+}
+.brandline{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.logo{
+  width:34px;height:34px;border-radius:9px;background:#fff;color:var(--brand-dark);
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;letter-spacing:.5px;flex:none;
+}
+.brandname{font-size:15px;font-weight:600;letter-spacing:.5px}
+.brandsub{font-size:11px;opacity:.72;margin-left:2px}
+h1{margin:14px 0 0;font-size:21px;font-weight:600;letter-spacing:.5px}
+header p{margin:4px 0 0;font-size:12.5px;opacity:.8}
+.steps{display:flex;background:var(--card);border-bottom:1px solid var(--line);padding:12px 12px;gap:4px}
+.step{flex:1;text-align:center;font-size:11.5px;color:var(--muted);position:relative;padding-top:20px;white-space:nowrap}
+.step::before{
+  content:"";position:absolute;top:4px;left:50%;transform:translateX(-50%);
+  width:10px;height:10px;border-radius:50%;background:var(--line);
+}
+.step.done{color:var(--brand)}
+.step.done::before{background:var(--brand)}
+.step.active{color:var(--brand-dark);font-weight:600}
+.step.active::before{background:var(--brand);box-shadow:0 0 0 4px var(--brand-soft)}
+.step:not(:last-child)::after{
+  content:"";position:absolute;top:8.5px;left:calc(50% + 8px);right:calc(-50% + 8px);height:1px;background:var(--line);
+}
+main{flex:1;padding:18px 16px 24px}
+.panel{display:none;animation:fade .25s ease}
+.panel.show{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.h2{font-size:15px;font-weight:600;margin:0 0 4px}
+.hint{font-size:12.5px;color:var(--muted);margin:0 0 16px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:560px){.grid{grid-template-columns:repeat(3,1fr)}}
+.opt{
+  background:var(--card);border:1.5px solid var(--line);border-radius:12px;
+  padding:14px 12px;cursor:pointer;transition:.15s;position:relative;min-height:92px;
+}
+.opt:active{transform:scale(.985)}
+.opt.sel{border-color:var(--brand);background:var(--brand-soft)}
+.opt-title{font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px}
+.opt-title i{width:8px;height:8px;border-radius:50%;background:var(--line);flex:none}
+.opt.sel .opt-title i{background:var(--brand)}
+.opt-desc{font-size:11.5px;color:var(--muted);margin-top:5px;line-height:1.45}
+.badge{position:absolute;top:-7px;right:8px;background:var(--brand);color:#fff;font-size:10px;padding:1px 7px;border-radius:8px}
+.field{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px}
+.field label{display:block;font-size:13px;font-weight:500;margin-bottom:2px}
+.field .sub{font-size:11.5px;color:var(--muted);margin-bottom:10px}
+.row{display:flex;align-items:center;gap:10px}
+input[type=number]{
+  width:100%;border:1px solid var(--line);border-radius:9px;padding:10px 12px;font-size:16px;
+  color:var(--ink);background:#fff;outline:none;font-family:inherit;
+}
+input[type=number]:focus{border-color:var(--brand)}
+.unit{font-size:13px;color:var(--muted);flex:none;min-width:22px}
+.tip{font-size:11.5px;color:var(--muted);margin-top:8px}
+.radios{display:flex;flex-wrap:wrap;gap:8px}
+.radios button{
+  border:1px solid var(--line);background:#fff;border-radius:20px;padding:7px 14px;font-size:12.5px;
+  color:var(--ink);cursor:pointer;font-family:inherit;
+}
+.radios button.sel{border-color:var(--brand);background:var(--brand-soft);color:var(--brand-dark);font-weight:500}
+.nav{display:flex;gap:10px;margin-top:20px}
+.btn{
+  flex:1;border:none;border-radius:11px;padding:13px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;
+}
+.btn.primary{background:var(--brand);color:#fff}
+.btn.primary:active{background:var(--brand-dark)}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line);flex:0 0 30%}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.result-head{background:var(--brand);color:#fff;border-radius:12px 12px 0 0;padding:16px}
+.result-head .lbl{font-size:11.5px;opacity:.8}
+.result-head .model{font-size:23px;font-weight:700;letter-spacing:.5px;margin-top:2px}
+.result-head .series{font-size:12px;opacity:.85;margin-top:2px}
+.result-body{background:#fff;border:1px solid var(--line);border-top:none;border-radius:0 0 12px 12px;padding:6px 16px 14px}
+.kv{display:flex;justify-content:space-between;align-items:baseline;padding:9px 0;border-bottom:1px solid #eef2f1;font-size:13px}
+.kv:last-child{border-bottom:none}
+.kv .k{color:var(--muted)}
+.kv .v{font-weight:600;font-size:14px}
+.notice{margin-top:12px;background:var(--warn-bg);color:var(--warn);border-radius:9px;padding:10px 12px;font-size:12px;line-height:1.55}
+.notice b{font-weight:600}
+.copybox{margin-top:12px;background:var(--brand-soft);border-radius:9px;padding:11px 13px;font-size:11.5px;color:var(--brand-dark);line-height:1.6;white-space:pre-wrap;word-break:break-all;display:none}
+footer{text-align:center;font-size:11px;color:var(--muted);padding:0 16px 22px;line-height:1.7}
+footer .demo{color:var(--warn)}
+.langsw{margin-left:auto;display:flex;align-items:center;gap:2px;background:rgba(255,255,255,.16);border-radius:16px;padding:2px}
+.langsw button{border:none;background:transparent;color:#fff;font-size:11px;line-height:1.4;padding:4px 10px;border-radius:14px;cursor:pointer;font-family:inherit;opacity:.72}
+.langsw button.sel{background:#fff;color:var(--brand-dark);opacity:1;font-weight:600}
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="brandline">
+      <div class="logo">CNWSL</div>
+      <div><span class="brandname" data-i18n="brandName">威仕龙</span><span class="brandsub" data-i18n="brandSub">尼龙拖链</span></div>
+      <div class="langsw" id="langSw"><button type="button" data-lang="zh" class="sel">中文</button><button type="button" data-lang="en">EN</button></div>
+    </div>
+    <h1 data-i18n="h1">拖链在线选型</h1>
+    <p data-i18n="headerSub">四步选出合适型号，结果可一键复制</p>
+  </header>
+
+  <div class="steps">
+    <div class="step active" data-s="1" data-i18n="step1">1 使用场景</div>
+    <div class="step" data-s="2" data-i18n="step2">2 线缆参数</div>
+    <div class="step" data-s="3" data-i18n="step3">3 工况要求</div>
+    <div class="step" data-s="4" data-i18n="step4">4 选型结果</div>
+  </div>
+
+  <main>
+    <section class="panel show" id="p1">
+      <h2 class="h2" data-i18n="p1h">第一步 · 选择使用场景</h2>
+      <p class="hint" data-i18n="p1hint">不同场景对应不同系列，先定大方向</p>
+      <div class="grid" id="seriesGrid"></div>
+      <div class="nav"><button class="btn primary" id="to2" data-i18n="to2">下一步：填线缆参数</button></div>
+    </section>
+
+    <section class="panel" id="p2">
+      <h2 class="h2" data-i18n="p2h">第二步 · 线缆参数</h2>
+      <p class="hint" data-i18n="p2hint">按穿线数量与外径，算出所需内高内宽</p>
+      <div class="field">
+        <label data-i18n="countLbl">线缆根数</label>
+        <div class="sub" data-i18n="countSub">同一条拖链里要穿的根数</div>
+        <div class="row"><input type="number" id="count" min="1" max="40" value="6" inputmode="numeric"><span class="unit" data-i18n="unitPcs">根</span></div>
+      </div>
+      <div class="field">
+        <label data-i18n="dmaxLbl">最大线缆外径</label>
+        <div class="sub" data-i18n="dmaxSub">最粗那根的外径，决定内高</div>
+        <div class="row"><input type="number" id="dmax" min="1" max="80" step="0.5" value="8" inputmode="decimal"><span class="unit">mm</span></div>
+      </div>
+      <div class="field">
+        <label data-i18n="davgLbl">平均外径</label>
+        <div class="sub" data-i18n="davgSub">所有线缆的平均外径，决定内宽；留空则按最大外径算</div>
+        <div class="row"><input type="number" id="davg" min="1" max="80" step="0.5" placeholder="可留空" data-i18n-ph="davgPh" inputmode="decimal"><span class="unit">mm</span></div>
+      </div>
+      <div class="field">
+        <label data-i18n="layerLbl">排布层数</label>
+        <div class="sub" data-i18n="layerSub">线缆是并排一层，还是叠放两层 / 三层</div>
+        <div class="radios" id="layerOpts">
+          <button data-v="1" class="sel" data-i18n="layer1">单层并排</button>
+          <button data-v="2" data-i18n="layer2">双层叠放</button>
+          <button data-v="3" data-i18n="layer3">三层叠放</button>
+        </div>
+      </div>
+      <div class="field">
+        <label data-i18n="typeLbl">线缆类型</label>
+        <div class="sub" data-i18n="typeSub">不确定最小弯曲半径时，按类型估算</div>
+        <div class="radios" id="typeOpts">
+          <button data-v="10" class="sel" data-i18n="type1">国产电缆</button>
+          <button data-v="6" data-i18n="type2">进口电缆</button>
+          <button data-v="7.5" data-i18n="type3">高柔拖链电缆</button>
+          <button data-v="12" data-i18n="type4">油管</button>
+          <button data-v="11" data-i18n="type5">气管 / 水管</button>
+        </div>
+      </div>
+      <div class="nav">
+        <button class="btn ghost" data-back="1" data-i18n="back">上一步</button>
+        <button class="btn primary" id="to3" data-i18n="to3">下一步：填工况</button>
+      </div>
+    </section>
+
+    <section class="panel" id="p3">
+      <h2 class="h2" data-i18n="p3h">第三步 · 工况要求</h2>
+      <p class="hint" data-i18n="p3hint">弯曲半径与行程会修正推荐结果</p>
+      <div class="field">
+        <label data-i18n="rminLbl">线缆最小弯曲半径</label>
+        <div class="sub" data-i18n="rminSub">线缆说明书上的数值；留 0 则按上一页线缆类型估算</div>
+        <div class="row"><input type="number" id="rmin" min="0" max="500" step="1" value="0" inputmode="numeric"><span class="unit">mm</span></div>
+      </div>
+      <div class="field">
+        <label data-i18n="travelLbl">行程长度</label>
+        <div class="sub" data-i18n="travelSub">拖链往复移动的距离</div>
+        <div class="row"><input type="number" id="travel" min="0.1" max="100" step="0.5" value="3" inputmode="decimal"><span class="unit">m</span></div>
+      </div>
+      <div class="field">
+        <label data-i18n="speedLbl">运行速度</label>
+        <div class="sub" data-i18n="speedSub">选一个最接近的</div>
+        <div class="radios" id="speedOpts">
+          <button data-v="1" data-i18n="speed1">低速 ≤1 m/s</button>
+          <button data-v="2" class="sel" data-i18n="speed2">中速 1–2 m/s</button>
+          <button data-v="3" data-i18n="speed3">高速 &gt;2 m/s</button>
+        </div>
+      </div>
+      <div class="nav">
+        <button class="btn ghost" data-back="2" data-i18n="back">上一步</button>
+        <button class="btn primary" id="to4" data-i18n="to4">生成选型结果</button>
+      </div>
+    </section>
+
+    <section class="panel" id="p4">
+      <h2 class="h2" data-i18n="p4h">第四步 · 选型结果</h2>
+      <p class="hint" data-i18n="p4hint">基于前面输入算出，可复制发给业务确认</p>
+      <div id="result"></div>
+      <div class="nav">
+        <button class="btn ghost" data-back="3" data-i18n="edit">修改条件</button>
+        <button class="btn primary" id="copyBtn" data-i18n="copyBtn">复制选型结果</button>
+      </div>
+      <div class="copybox" id="copybox"></div>
+    </section>
+  </main>
+
+  <footer data-i18n="footer">
+    型号录自《威仕龙 CNWSL 拖链 2026 版》目录（全量常规/微型/无尘系列），排布规则依目录第 7 页。<br>
+    部分系列节距未在样本逐项给出，链长按 πR 估算并已提示；结果供初步选型，最终以目录数据与确认图纸为准。
+  </footer>
+</div>
+
+<script>
+var LANG=(function(){try{return localStorage.getItem("cnwsl_lang")||"zh"}catch(e){return "zh"}})();
+var I18N={zh:{"title": "拖链在线选型 · 威仕龙 CNWSL", "metaDesc": "威仕龙 CNWSL 尼龙拖链在线选型工具", "brandName": "威仕龙", "brandSub": "尼龙拖链", "h1": "拖链在线选型", "headerSub": "四步选出合适型号，结果可一键复制", "step1": "1 使用场景", "step2": "2 线缆参数", "step3": "3 工况要求", "step4": "4 选型结果", "p1h": "第一步 · 选择使用场景", "p1hint": "不同场景对应不同系列，先定大方向", "to2": "下一步：填线缆参数", "p2h": "第二步 · 线缆参数", "p2hint": "按穿线数量与外径，算出所需内高内宽", "countLbl": "线缆根数", "countSub": "同一条拖链里要穿的根数", "unitPcs": "根", "dmaxLbl": "最大线缆外径", "dmaxSub": "最粗那根的外径，决定内高", "davgLbl": "平均外径", "davgSub": "所有线缆的平均外径，决定内宽；留空则按最大外径算", "davgPh": "可留空", "layerLbl": "排布层数", "layerSub": "线缆是并排一层，还是叠放两层 / 三层", "layer1": "单层并排", "layer2": "双层叠放", "layer3": "三层叠放", "typeLbl": "线缆类型", "typeSub": "不确定最小弯曲半径时，按类型估算", "type1": "国产电缆", "type2": "进口电缆", "type3": "高柔拖链电缆", "type4": "油管", "type5": "气管 / 水管", "back": "上一步", "to3": "下一步：填工况", "p3h": "第三步 · 工况要求", "p3hint": "弯曲半径与行程会修正推荐结果", "rminLbl": "线缆最小弯曲半径", "rminSub": "线缆说明书上的数值；留 0 则按上一页线缆类型估算", "travelLbl": "行程长度", "travelSub": "拖链往复移动的距离", "speedLbl": "运行速度", "speedSub": "选一个最接近的", "speed1": "低速 ≤1 m/s", "speed2": "中速 1–2 m/s", "speed3": "高速 >2 m/s", "to4": "生成选型结果", "p4h": "第四步 · 选型结果", "p4hint": "基于前面输入算出，可复制发给业务确认", "edit": "修改条件", "copyBtn": "复制选型结果", "footer": "型号录自《威仕龙 CNWSL 拖链 2026 版》目录（全量常规/微型/无尘系列），排布规则依目录第 7 页。<br>部分系列节距未在样本逐项给出，链长按 πR 估算并已提示；结果供初步选型，最终以目录数据与确认图纸为准。", "popular": "常用", "recModel": "推荐型号", "kvHi": "内高 Hi", "kvWi": "内宽 Wi", "kvR": "弯曲半径 R", "kvP": "节距 P", "kvWeight": "参考重量", "kvLength": "链长 L（含弯曲余量）", "kvLinks": "链节数", "kvInstall": "安装高度 H（估算）", "kvAngle": "每节转角", "kvFill": "线缆填充率", "kvReq": "所需内高 / 内宽", "kvReqR": "所需最小弯曲半径", "notesLbl": "提示", "unitLinks": "节", "pitchNA": "节距未提供", "seriesSuffix": " 系列", "copyTitle": "威仕龙 CNWSL · 拖链选型结果", "copyModel": "型号：", "copySeries": "系列：", "copyHi": "内高 Hi：", "copyWi": "内宽 Wi：", "copyR": "弯曲半径 R：", "copyP": "节距 P：", "copyWeight": "参考重量：", "copyLength": "链长：", "copyInstall": "安装高度：约 ", "copyFill": "填充率：", "copyCables": "线缆：", "copyCond": "工况：", "copyNotes": "提示：", "copyFoot": "（型号录自威仕龙 2026 版目录；节距未逐项给出者链长按 πR 估算；最终以确认图纸为准）", "pcs": "根", "layer1c": "单层", "layer2c": "双层", "layer3c": "三层", "spLow": "低速", "spMid": "中速", "spHigh": "高速", "alertCopied": "已复制到剪贴板", "alertManual": "请长按上方文字手动复制"},en:{"title": "Cable Chain Selection · CNWSL", "metaDesc": "CNWSL nylon cable chain online selection tool", "brandName": "CNWSL", "brandSub": "Nylon Cable Chains", "h1": "Cable Chain Selection", "headerSub": "4 steps to the right model — copy the result in one tap", "step1": "1 Application", "step2": "2 Cable Data", "step3": "3 Conditions", "step4": "4 Result", "p1h": "Step 1 · Select Application", "p1hint": "Each application maps to a series. Pick a direction first.", "to2": "Next: Cable Data", "p2h": "Step 2 · Cable Data", "p2hint": "Enter cable count and diameters to size the chain.", "countLbl": "Number of cables", "countSub": "How many cables run in this chain", "unitPcs": "pcs", "dmaxLbl": "Max cable diameter", "dmaxSub": "The thickest cable sets the inner height", "davgLbl": "Average diameter", "davgSub": "Average diameter sets inner width; leave blank to use max", "davgPh": "optional", "layerLbl": "Cable layers", "layerSub": "Side by side, or stacked in 2 / 3 layers", "layer1": "Single layer", "layer2": "2 layers", "layer3": "3 layers", "typeLbl": "Cable type", "typeSub": "Estimate min bend radius by type if unknown", "type1": "Standard cable (CN)", "type2": "Imported cable", "type3": "Highly flexible chain cable", "type4": "Hydraulic hose", "type5": "Air / water hose", "back": "Back", "to3": "Next: Conditions", "p3h": "Step 3 · Operating Conditions", "p3hint": "Bend radius and travel refine the recommendation", "rminLbl": "Min bend radius of cable", "rminSub": "From the cable datasheet; 0 = estimate by cable type", "travelLbl": "Travel distance", "travelSub": "Reciprocating travel of the chain", "speedLbl": "Operating speed", "speedSub": "Pick the closest", "speed1": "Low ≤1 m/s", "speed2": "Medium 1–2 m/s", "speed3": "High >2 m/s", "to4": "Generate Result", "p4h": "Step 4 · Result", "p4hint": "Based on your inputs. Copy and send for confirmation.", "edit": "Edit Inputs", "copyBtn": "Copy Result", "footer": "Models from the CNWSL 2026 Cable Chain Catalogue (complete standard / micro / clean-room series); layout rules per page 7.<br>Pitch is not itemized for some series — length estimated as πR with a note. For preliminary selection only; final model and length per catalogue and approved drawing.", "popular": "Popular", "recModel": "Recommended Model", "kvHi": "Inner Height Hi", "kvWi": "Inner Width Wi", "kvR": "Bend Radius R", "kvP": "Pitch P", "kvWeight": "Reference Weight", "kvLength": "Chain Length L (incl. bend allowance)", "kvLinks": "Number of Links", "kvInstall": "Installation Height H (est.)", "kvAngle": "Link Angle", "kvFill": "Cable Fill Ratio", "kvReq": "Required Hi / Wi", "kvReqR": "Required Min Bend Radius", "notesLbl": "Notes", "unitLinks": "links", "pitchNA": "pitch not specified", "seriesSuffix": " Series", "copyTitle": "CNWSL · Cable Chain Selection Result", "copyModel": "Model: ", "copySeries": "Series: ", "copyHi": "Inner Height Hi: ", "copyWi": "Inner Width Wi: ", "copyR": "Bend Radius R: ", "copyP": "Pitch P: ", "copyWeight": "Ref. Weight: ", "copyLength": "Chain Length: ", "copyInstall": "Installation Height: approx. ", "copyFill": "Fill Ratio: ", "copyCables": "Cables: ", "copyCond": "Conditions: ", "copyNotes": "Notes: ", "copyFoot": "(Models from the CNWSL 2026 catalogue; length estimated as πR where pitch is not itemized; final per approved drawing.)", "pcs": "pcs", "layer1c": "single layer", "layer2c": "2 layers", "layer3c": "3 layers", "spLow": "low", "spMid": "medium", "spHigh": "high", "alertCopied": "Copied to clipboard", "alertManual": "Please long-press the text above to copy manually"}};
+var SCENE_EN={"micro5": {"name": "Micro Chains · 5–7 Series", "desc": "Fine cables, light load", "tag": ""}, "s10": {"name": "10 Series · Standard Bridge", "desc": "Hi ≈10 mm, most widely used", "tag": "Popular"}, "s15": {"name": "15 Series · Reinforced Bridge", "desc": "Hi ≈15 mm, more cables", "tag": ""}, "s18": {"name": "18 Series · Medium Duty", "desc": "Hi ≈18 mm", "tag": ""}, "s20": {"name": "20 Series · Medium Duty", "desc": "Hi ≈20–21 mm", "tag": ""}, "s25": {"name": "25 Series · Heavy Duty", "desc": "Hi ≈25 mm", "tag": ""}, "s30": {"name": "30 Series · Heavy Duty", "desc": "Hi ≈30 mm", "tag": ""}, "s35": {"name": "35 Series · Heavy Duty", "desc": "Hi ≈35 mm", "tag": ""}, "s45": {"name": "45 Series · Extra Heavy", "desc": "Hi ≈40–45 mm, incl. steel", "tag": ""}, "s55": {"name": "55 Series · Extra Heavy", "desc": "Hi ≈55 mm", "tag": ""}, "s65": {"name": "65 Series · Extra Heavy", "desc": "Hi ≈65 mm", "tag": ""}, "s80": {"name": "80 Series · Oversize", "desc": "Hi = 80 mm, extra wide", "tag": ""}, "mini": {"name": "Micro Chains · WSLE", "desc": "Side-opening, fine cables", "tag": ""}, "clean": {"name": "Cleanroom Chains · WWC", "desc": "For cleanrooms, fill ≤70%", "tag": ""}};
+function t(k){var d=I18N[LANG]||I18N.zh;return d[k]!==undefined?d[k]:k;}
+function bi(z,e){return LANG==="zh"?z:e;}
+function sceneName(s){var e=SCENE_EN[s.id];return e?bi(s.name,e.name||s.name):s.name;}
+function sceneDesc(s){var e=SCENE_EN[s.id];return e?bi(s.desc,e.desc||s.desc):s.desc;}
+function sceneTag(s){var e=SCENE_EN[s.id];return e?bi(s.tag||"",e.tag||""):(s.tag||"");}
+function applyLang(){
+  document.documentElement.lang=LANG==="zh"?"zh-CN":"en";
+  document.title=t("title");
+  var mt=document.querySelector('meta[name=description]');if(mt)mt.content=t("metaDesc");
+  document.querySelectorAll("[data-i18n]").forEach(function(el){el.innerHTML=t(el.getAttribute("data-i18n"));});
+  document.querySelectorAll("[data-i18n-ph]").forEach(function(el){el.placeholder=t(el.getAttribute("data-i18n-ph"));});
+  document.querySelectorAll("#langSw button").forEach(function(b){b.classList.toggle("sel",b.getAttribute("data-lang")===LANG);});
+  renderSeries();
+  if(currentResult)calculate();
+}
+function setLang(l){LANG=l;try{localStorage.setItem("cnwsl_lang",l)}catch(e){}applyLang();}
+var SERIES=[{"id":"micro5","name":"微型拖链 · 5-7系列","code":"MICRO5","desc":"细小线缆，轻载","tag":"","specs":[{"model":"WSL01-5-5-R10","hi":5,"wi":5,"r":[10],"pitch":0,"weight":0},{"model":"WSL01-5-7-R10","hi":5,"wi":7,"r":[10],"pitch":0,"weight":0},{"model":"WSL01X-6-10-R18","hi":6,"wi":10,"r":[18],"pitch":0,"weight":0},{"model":"WSL02-7-7-R15","hi":7,"wi":7,"r":[15,28],"pitch":0,"weight":0},{"model":"WSL02-7-10-R15","hi":7,"wi":10,"r":[15,28],"pitch":0,"weight":0}]},{"id":"s10","name":"10 系列 · 通用桥式","code":"S10","desc":"内高约10mm，应用最广","tag":"常用","specs":[{"model":"WSL03F-10-6-R18","hi":10,"wi":6,"r":[18],"pitch":0,"weight":0},{"model":"WSL03-10-10-R18","hi":10,"wi":10,"r":[18,28,38],"pitch":0,"weight":0},{"model":"WSL03B-10-15-R18","hi":10,"wi":15,"r":[18,28,38],"pitch":0,"weight":0},{"model":"WSL04-10-11-R18","hi":10,"wi":11,"r":[18,28,38],"pitch":0,"weight":0},{"model":"WSL04-10-15-R18","hi":10,"wi":15,"r":[18,28,38],"pitch":0,"weight":0},{"model":"WSL04-10-20-R18","hi":10,"wi":20,"r":[18,28,38],"pitch":0,"weight":0},{"model":"WSL05-10-15-R28","hi":10,"wi":15,"r":[28,38],"pitch":0,"weight":0},{"model":"WSL06-10-11-R18","hi":10,"wi":11,"r":[18,28,38],"pitch":0,"weight":0},{"model":"WSL06-10-15-R18","hi":10,"wi":15,"r":[18,28,38],"pitch":0,"weight":0},{"model":"WSL06-10-20-R18","hi":10,"wi":20,"r":[18,28,38],"pitch":0,"weight":0},{"model":"WSL06F-10-10-R18","hi":10,"wi":10,"r":[18,28,38],"pitch":0,"weight":0},{"model":"WSL06F-10-15-R18","hi":10,"wi":15,"r":[18,28,38],"pitch":0,"weight":0},{"model":"WSL06F-10-20-R18","hi":10,"wi":20,"r":[18,28,38],"pitch":0,"weight":0}]},{"id":"s15","name":"15 系列 · 加强桥式","code":"S15","desc":"内高约15mm，线缆较多","tag":"","specs":[{"model":"WSL07-15-15-R28","hi":15,"wi":15,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL07-15-20-R28","hi":15,"wi":20,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL07-15-25-R28","hi":15,"wi":25,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL07-15-30-R28","hi":15,"wi":30,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL07N-15-25-R28","hi":15,"wi":25,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL07N-15-40-R28","hi":15,"wi":40,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL07N-15-50-R28","hi":15,"wi":50,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL07B-15-20-R28","hi":15,"wi":20,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL08A-15-15-R28","hi":15,"wi":15,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL08A-15-20-R28","hi":15,"wi":20,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL08A-15-30-R28","hi":15,"wi":30,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL08C-15-15-R28","hi":15,"wi":15,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL08C-15-20-R28","hi":15,"wi":20,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL08C-15-30-R28","hi":15,"wi":30,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL09-15-15-R28","hi":15,"wi":15,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL10-15-15-R28","hi":15,"wi":15,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL10-15-20-R28","hi":15,"wi":20,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL10-15-30-R28","hi":15,"wi":30,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL10F-15-20-R28","hi":15,"wi":20,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL10F-15-30-R28","hi":15,"wi":30,"r":[28,38,48],"pitch":0,"weight":0}]},{"id":"s18","name":"18 系列 · 中载","code":"S18","desc":"内高约18mm","tag":"","specs":[{"model":"WSL11-18-18-R28","hi":18,"wi":18,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL11-18-25-R28","hi":18,"wi":25,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL11-18-37-R28","hi":18,"wi":37,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL11X-18-18-R28","hi":18,"wi":18,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL11X-18-25-R28","hi":18,"wi":25,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL11X-18-37-R28","hi":18,"wi":37,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL11X-18-50-R28","hi":18,"wi":50,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL12-18-25-R28","hi":18,"wi":25,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL12-18-37-R28","hi":18,"wi":37,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL13-18-20-R28","hi":18,"wi":20,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL13-18-25-R28","hi":18,"wi":25,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL13-18-37-R28","hi":18,"wi":37,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL13-18-50-R28","hi":18,"wi":50,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL13N-18-20-R28","hi":18,"wi":20,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL13N-18-50-R28","hi":18,"wi":50,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL14-18-25-R28","hi":18,"wi":25,"r":[28,38],"pitch":0,"weight":0},{"model":"WSL14F-18-25-R28","hi":18,"wi":25,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL01U-18-25-R18","hi":18,"wi":25,"r":[18,28,38],"pitch":0,"weight":0},{"model":"WSL01U-18-35-R18","hi":18,"wi":35,"r":[18,28,38],"pitch":0,"weight":0}]},{"id":"s20","name":"20 系列 · 中载","code":"S20","desc":"内高约20-21mm","tag":"","specs":[{"model":"WSL15-20-25-R40","hi":20,"wi":25,"r":[40,55,75,100,125],"pitch":0,"weight":0},{"model":"WSL15-20-30-R40","hi":20,"wi":30,"r":[40,55,75,100,125],"pitch":0,"weight":0},{"model":"WSL15-20-38-R40","hi":20,"wi":38,"r":[40,55,75,100,125],"pitch":0,"weight":0},{"model":"WSL15-20-40-R40","hi":20,"wi":40,"r":[40,55,75,100,125],"pitch":0,"weight":0},{"model":"WSL15-20-46-R40","hi":20,"wi":46,"r":[40,55,75,100,125],"pitch":0,"weight":0},{"model":"WSL15-20-50-R40","hi":20,"wi":50,"r":[40,55,75,100,125],"pitch":0,"weight":0},{"model":"WSL15-20-57-R40","hi":20,"wi":57,"r":[40,55,75,100,125],"pitch":0,"weight":0},{"model":"WSL16-20-25-R55","hi":20,"wi":25,"r":[55,75],"pitch":0,"weight":0},{"model":"WSL16-20-38-R55","hi":20,"wi":38,"r":[55,75],"pitch":0,"weight":0},{"model":"WSL16-20-40-R55","hi":20,"wi":40,"r":[55,75],"pitch":0,"weight":0},{"model":"WSL16-20-50-R55","hi":20,"wi":50,"r":[55,75],"pitch":0,"weight":0},{"model":"WSL16-20-57-R55","hi":20,"wi":57,"r":[55,75],"pitch":0,"weight":0},{"model":"WSL16XN-21-25-R28","hi":21,"wi":25,"r":[28,38,48,55,75],"pitch":0,"weight":0},{"model":"WSL16XN-21-38-R28","hi":21,"wi":38,"r":[28,38,48,55,75],"pitch":0,"weight":0},{"model":"WSL16XN-21-50-R28","hi":21,"wi":50,"r":[28,38,48,55,75],"pitch":0,"weight":0},{"model":"WSL16XW-21-25-R28","hi":21,"wi":25,"r":[28,38,48,55,75],"pitch":0,"weight":0},{"model":"WSL16XW-21-38-R28","hi":21,"wi":38,"r":[28,38,48,55,75],"pitch":0,"weight":0},{"model":"WSL16XW-21-50-R28","hi":21,"wi":50,"r":[28,38,48,55,75],"pitch":0,"weight":0}]},{"id":"s25","name":"25 系列 · 重载","code":"S25","desc":"内高约25mm","tag":"","specs":[{"model":"WSL17-25-25-R40","hi":25,"wi":25,"r":[40,55,75,100,125],"pitch":0,"weight":0},{"model":"WSL17-25-38-R40","hi":25,"wi":38,"r":[40,55,75,100,125],"pitch":0,"weight":0},{"model":"WSL17-25-46-R40","hi":25,"wi":46,"r":[40,55,75,100,125],"pitch":0,"weight":0},{"model":"WSL17-25-50-R40","hi":25,"wi":50,"r":[40,55,75,100,125],"pitch":0,"weight":0},{"model":"WSL17N-25-25-R40","hi":25,"wi":25,"r":[40,55,75,100,125],"pitch":0,"weight":0},{"model":"WSL17N-25-38-R40","hi":25,"wi":38,"r":[40,55,75,100,125],"pitch":0,"weight":0},{"model":"WSL17W-25-25-R55","hi":25,"wi":25,"r":[55],"pitch":0,"weight":0},{"model":"WSL17W-25-38-R55","hi":25,"wi":38,"r":[55],"pitch":0,"weight":0},{"model":"WSL17W-25-50-R55","hi":25,"wi":50,"r":[55],"pitch":0,"weight":0},{"model":"WSL18-25-25-R55","hi":25,"wi":25,"r":[55,75,100,125,150],"pitch":0,"weight":0},{"model":"WSL18-25-38-R55","hi":25,"wi":38,"r":[55,75,100,125,150],"pitch":0,"weight":0},{"model":"WSL18-25-50-R55","hi":25,"wi":50,"r":[55,75,100,125,150],"pitch":0,"weight":0},{"model":"WSL18-25-57-R55","hi":25,"wi":57,"r":[55,75,100,125,150],"pitch":0,"weight":0},{"model":"WSL19-25-25-R40","hi":25,"wi":25,"r":[40,55,75,100,125,150,180],"pitch":0,"weight":0},{"model":"WSL19-25-30-R40","hi":25,"wi":30,"r":[40,55,75,100,125,150,180],"pitch":0,"weight":0},{"model":"WSL19-25-38-R40","hi":25,"wi":38,"r":[40,55,75,100,125,150,180],"pitch":0,"weight":0},{"model":"WSL19-25-40-R40","hi":25,"wi":40,"r":[40,55,75,100,125,150,180],"pitch":0,"weight":0},{"model":"WSL19-25-46-R40","hi":25,"wi":46,"r":[40,55,75,100,125,150,180],"pitch":0,"weight":0},{"model":"WSL19-25-50-R40","hi":25,"wi":50,"r":[40,55,75,100,125,150,180],"pitch":0,"weight":0},{"model":"WSL19-25-57-R40","hi":25,"wi":57,"r":[40,55,75,100,125,150,180],"pitch":0,"weight":0},{"model":"WSL19-25-60-R40","hi":25,"wi":60,"r":[40,55,75,100,125,150,180],"pitch":0,"weight":0},{"model":"WSL20-25-25-R55","hi":25,"wi":25,"r":[55,75,100,125],"pitch":0,"weight":0},{"model":"WSL20-25-38-R55","hi":25,"wi":38,"r":[55,75,100,125],"pitch":0,"weight":0},{"model":"WSL20-25-40-R55","hi":25,"wi":40,"r":[55,75,100,125],"pitch":0,"weight":0},{"model":"WSL20-25-50-R55","hi":25,"wi":50,"r":[55,75,100,125],"pitch":0,"weight":0},{"model":"WSL20-25-57-R55","hi":25,"wi":57,"r":[55,75,100,125],"pitch":0,"weight":0},{"model":"WSL03J-25-30-R55","hi":25,"wi":30,"r":[55,75],"pitch":0,"weight":0},{"model":"WSL02U-25-25-R28","hi":25,"wi":25,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL02U-25-30-R28","hi":25,"wi":30,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL02U-25-38-R28","hi":25,"wi":38,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL02U-25-40-R28","hi":25,"wi":40,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL02U-25-50-R28","hi":25,"wi":50,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL02JL-25-25-R28","hi":25,"wi":25,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL02JL-25-30-R28","hi":25,"wi":30,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL02JL-25-38-R28","hi":25,"wi":38,"r":[28,38,48],"pitch":0,"weight":0},{"model":"WSL02JL-25-40-R28","hi":25,"wi":40,"r":[28,38,48],"pitch":0,"weight":0}]},{"id":"s30","name":"30 系列 · 重载","code":"S30","desc":"内高约30mm","tag":"","specs":[{"model":"WSL21N-30-38-R55","hi":30,"wi":38,"r":[55,75,100],"pitch":0,"weight":0},{"model":"WSL21N-30-50-R55","hi":30,"wi":50,"r":[55,75,100],"pitch":0,"weight":0},{"model":"WSL21N-30-75-R55","hi":30,"wi":75,"r":[55,75,100],"pitch":0,"weight":0},{"model":"WSL21W-30-38-R55","hi":30,"wi":38,"r":[55,75,100],"pitch":0,"weight":0},{"model":"WSL21W-30-50-R55","hi":30,"wi":50,"r":[55,75,100],"pitch":0,"weight":0},{"model":"WSL21W-30-75-R55","hi":30,"wi":75,"r":[55,75,100],"pitch":0,"weight":0},{"model":"WSL21-30-25-R55","hi":30,"wi":25,"r":[55,75,100,125],"pitch":0,"weight":0},{"model":"WSL21-30-30-R55","hi":30,"wi":30,"r":[55,75,100,125],"pitch":0,"weight":0},{"model":"WSL21-30-38-R55","hi":30,"wi":38,"r":[55,75,100,125],"pitch":0,"weight":0},{"model":"WSL21-30-40-R55","hi":30,"wi":40,"r":[55,75,100,125],"pitch":0,"weight":0},{"model":"WSL22-30-25-R55","hi":30,"wi":25,"r":[55],"pitch":0,"weight":0},{"model":"WSL22-30-38-R55","hi":30,"wi":38,"r":[55],"pitch":0,"weight":0},{"model":"WSL22-30-50-R55","hi":30,"wi":50,"r":[55],"pitch":0,"weight":0},{"model":"WSL21H-30-25-R55","hi":30,"wi":25,"r":[55,75],"pitch":0,"weight":0},{"model":"WSL21H-30-30-R55","hi":30,"wi":30,"r":[55,75],"pitch":0,"weight":0},{"model":"WSL21H-30-38-R55","hi":30,"wi":38,"r":[55,75],"pitch":0,"weight":0},{"model":"WSL21H-30-40-R55","hi":30,"wi":40,"r":[55,75],"pitch":0,"weight":0},{"model":"WSL21H-30-46-R55","hi":30,"wi":46,"r":[55,75],"pitch":0,"weight":0},{"model":"WSL21H-30-50-R55","hi":30,"wi":50,"r":[55,75],"pitch":0,"weight":0},{"model":"WSL22H-30-25-R55","hi":30,"wi":25,"r":[55,75],"pitch":0,"weight":0},{"model":"WSL22H-30-38-R55","hi":30,"wi":38,"r":[55,75],"pitch":0,"weight":0},{"model":"WSL22H-30-40-R55","hi":30,"wi":40,"r":[55,75],"pitch":0,"weight":0},{"model":"WSL22H-30-50-R55","hi":30,"wi":50,"r":[55,75],"pitch":0,"weight":0},{"model":"WSL22H-30-57-R55","hi":30,"wi":57,"r":[55,75],"pitch":0,"weight":0},{"model":"WSL04J-30-25-R55","hi":30,"wi":25,"r":[55],"pitch":0,"weight":0},{"model":"WSL04J-30-30-R55","hi":30,"wi":30,"r":[55],"pitch":0,"weight":0},{"model":"WSL04J-30-38-R55","hi":30,"wi":38,"r":[55],"pitch":0,"weight":0},{"model":"WSL04J-30-40-R55","hi":30,"wi":40,"r":[55],"pitch":0,"weight":0},{"model":"WSL04J-30-50-R55","hi":30,"wi":50,"r":[55],"pitch":0,"weight":0},{"model":"WSL05J-30-30-R75","hi":30,"wi":30,"r":[75,100,125,150],"pitch":0,"weight":0},{"model":"WSL05J-30-38-R75","hi":30,"wi":38,"r":[75,100,125,150],"pitch":0,"weight":0}]},{"id":"s35","name":"35 系列 · 重载","code":"S35","desc":"内高约35mm","tag":"","specs":[{"model":"WSL23-35-50-R75","hi":35,"wi":50,"r":[75],"pitch":0,"weight":0},{"model":"WSL23-35-60-R75","hi":35,"wi":60,"r":[75],"pitch":0,"weight":0},{"model":"WSL23-35-75-R75","hi":35,"wi":75,"r":[75],"pitch":0,"weight":0},{"model":"WSL23-35-90-R75","hi":35,"wi":90,"r":[75],"pitch":0,"weight":0},{"model":"WSL24-35-50-R75","hi":35,"wi":50,"r":[75,100,125],"pitch":0,"weight":0},{"model":"WSL24-35-60-R75","hi":35,"wi":60,"r":[75,100,125],"pitch":0,"weight":0},{"model":"WSL24-35-75-R75","hi":35,"wi":75,"r":[75,100,125],"pitch":0,"weight":0},{"model":"WSL24-35-100-R75","hi":35,"wi":100,"r":[75,100,125],"pitch":0,"weight":0},{"model":"WSL25-35-50-R60","hi":35,"wi":50,"r":[60],"pitch":0,"weight":0},{"model":"WSL25-35-60-R60","hi":35,"wi":60,"r":[60],"pitch":0,"weight":0},{"model":"WSL25-35-75-R60","hi":35,"wi":75,"r":[60],"pitch":0,"weight":0},{"model":"WSL25-35-90-R60","hi":35,"wi":90,"r":[60],"pitch":0,"weight":0},{"model":"WSL26-35-50-R75","hi":35,"wi":50,"r":[75,100,125,150],"pitch":0,"weight":0},{"model":"WSL26-35-60-R75","hi":35,"wi":60,"r":[75,100,125,150],"pitch":0,"weight":0},{"model":"WSL26-35-75-R75","hi":35,"wi":75,"r":[75,100,125,150],"pitch":0,"weight":0},{"model":"WSL26-35-100-R75","hi":35,"wi":100,"r":[75,100,125,150],"pitch":0,"weight":0},{"model":"WSL06J-35-50-R75","hi":35,"wi":50,"r":[75,100,125,150],"pitch":0,"weight":0},{"model":"WSL06J-35-70-R75","hi":35,"wi":70,"r":[75,100,125,150],"pitch":0,"weight":0},{"model":"WSL06J-35-75-R75","hi":35,"wi":75,"r":[75,100,125,150],"pitch":0,"weight":0},{"model":"WSL06J-35-100-R75","hi":35,"wi":100,"r":[75,100,125,150],"pitch":0,"weight":0},{"model":"WSL07J-35-100-R100","hi":35,"wi":100,"r":[100,125,150],"pitch":0,"weight":0}]},{"id":"s45","name":"45 系列 · 重型","code":"S45","desc":"内高约40-45mm，含钢制","tag":"","specs":[{"model":"WSL27-45-50-R75","hi":45,"wi":50,"r":[75],"pitch":0,"weight":0},{"model":"WSL27-45-60-R75","hi":45,"wi":60,"r":[75],"pitch":0,"weight":0},{"model":"WSL27-45-75-R75","hi":45,"wi":75,"r":[75],"pitch":0,"weight":0},{"model":"WSL27-45-90-R75","hi":45,"wi":90,"r":[75],"pitch":0,"weight":0},{"model":"WSL28-45-50-R100","hi":45,"wi":50,"r":[100,125],"pitch":0,"weight":0},{"model":"WSL28-45-60-R100","hi":45,"wi":60,"r":[100,125],"pitch":0,"weight":0},{"model":"WSL28-45-75-R100","hi":45,"wi":75,"r":[100,125],"pitch":0,"weight":0},{"model":"WSL28-45-100-R100","hi":45,"wi":100,"r":[100,125],"pitch":0,"weight":0},{"model":"WSL29-45-50-R100","hi":45,"wi":50,"r":[100],"pitch":0,"weight":0},{"model":"WSL29-45-60-R100","hi":45,"wi":60,"r":[100],"pitch":0,"weight":0},{"model":"WSL29-45-75-R100","hi":45,"wi":75,"r":[100],"pitch":0,"weight":0},{"model":"WSL29-45-90-R100","hi":45,"wi":90,"r":[100],"pitch":0,"weight":0},{"model":"WSL30-45-50-R100","hi":45,"wi":50,"r":[100,125],"pitch":0,"weight":0},{"model":"WSL30-45-60-R100","hi":45,"wi":60,"r":[100,125],"pitch":0,"weight":0},{"model":"WSL30-45-75-R100","hi":45,"wi":75,"r":[100,125],"pitch":0,"weight":0},{"model":"WSL30-45-100-R100","hi":45,"wi":100,"r":[100,125],"pitch":0,"weight":0},{"model":"WSL08J-40-50-R75","hi":40,"wi":50,"r":[75,100,125,150],"pitch":0,"weight":0},{"model":"WSL08J-40-70-R75","hi":40,"wi":70,"r":[75,100,125,150],"pitch":0,"weight":0},{"model":"WSL08J-40-75-R75","hi":40,"wi":75,"r":[75,100,125,150],"pitch":0,"weight":0},{"model":"WSL08J-40-100-R75","hi":40,"wi":100,"r":[75,100,125,150],"pitch":0,"weight":0},{"model":"WSL09J-40-100-R75","hi":40,"wi":100,"r":[75,100,125,150],"pitch":0,"weight":0},{"model":"WSL10J-45-50-R75","hi":45,"wi":50,"r":[75,100,125,150],"pitch":0,"weight":0},{"model":"WSL10J-45-70-R75","hi":45,"wi":70,"r":[75,100,125,150],"pitch":0,"weight":0},{"model":"WSL10J-45-75-R75","hi":45,"wi":75,"r":[75,100,125,150],"pitch":0,"weight":0},{"model":"WSL10J-45-100-R75","hi":45,"wi":100,"r":[75,100,125,150],"pitch":0,"weight":0},{"model":"WSL11J-45-100-R75","hi":45,"wi":100,"r":[75,100,125,150],"pitch":0,"weight":0},{"model":"WSLG45Q-45-50-R100","hi":45,"wi":50,"r":[100],"pitch":0,"weight":0},{"model":"WSLG45Q-45-60-R100","hi":45,"wi":60,"r":[100],"pitch":0,"weight":0},{"model":"WSLG45Q-45-75-R100","hi":45,"wi":75,"r":[100],"pitch":0,"weight":0},{"model":"WSLG45Q-45-90-R100","hi":45,"wi":90,"r":[100],"pitch":0,"weight":0},{"model":"WSLG45F-45-50-R100","hi":45,"wi":50,"r":[100],"pitch":0,"weight":0},{"model":"WSLG45F-45-60-R100","hi":45,"wi":60,"r":[100],"pitch":0,"weight":0},{"model":"WSLG45F-45-75-R100","hi":45,"wi":75,"r":[100],"pitch":0,"weight":0},{"model":"WSLG45F-45-90-R100","hi":45,"wi":90,"r":[100],"pitch":0,"weight":0}]},{"id":"s55","name":"55 系列 · 重型","code":"S55","desc":"内高约55mm","tag":"","specs":[{"model":"WSL31-55-50-R75","hi":55,"wi":50,"r":[75,125],"pitch":0,"weight":0},{"model":"WSL31-55-60-R75","hi":55,"wi":60,"r":[75,125],"pitch":0,"weight":0},{"model":"WSL31-55-75-R75","hi":55,"wi":75,"r":[75,125],"pitch":0,"weight":0},{"model":"WSL31-55-90-R75","hi":55,"wi":90,"r":[75,125],"pitch":0,"weight":0},{"model":"WSL32-55-50-R100","hi":55,"wi":50,"r":[100,125],"pitch":0,"weight":0},{"model":"WSL32-55-60-R100","hi":55,"wi":60,"r":[100,125],"pitch":0,"weight":0},{"model":"WSL32-55-75-R100","hi":55,"wi":75,"r":[100,125],"pitch":0,"weight":0},{"model":"WSL32-55-100-R100","hi":55,"wi":100,"r":[100,125],"pitch":0,"weight":0},{"model":"WSL33-55-50-R100","hi":55,"wi":50,"r":[100],"pitch":0,"weight":0},{"model":"WSL33-55-60-R100","hi":55,"wi":60,"r":[100],"pitch":0,"weight":0},{"model":"WSL33-55-75-R100","hi":55,"wi":75,"r":[100],"pitch":0,"weight":0},{"model":"WSL33-55-90-R100","hi":55,"wi":90,"r":[100],"pitch":0,"weight":0},{"model":"WSL34-55-50-R100","hi":55,"wi":50,"r":[100,125,150,200],"pitch":0,"weight":0},{"model":"WSL34-55-60-R100","hi":55,"wi":60,"r":[100,125,150,200],"pitch":0,"weight":0},{"model":"WSL34-55-75-R100","hi":55,"wi":75,"r":[100,125,150,200],"pitch":0,"weight":0},{"model":"WSL34-55-100-R100","hi":55,"wi":100,"r":[100,125,150,200],"pitch":0,"weight":0}]},{"id":"s65","name":"65 系列 · 重型","code":"S65","desc":"内高约65mm","tag":"","specs":[{"model":"WSL35-65-50-R100","hi":65,"wi":50,"r":[100],"pitch":0,"weight":0},{"model":"WSL35-65-60-R100","hi":65,"wi":60,"r":[100],"pitch":0,"weight":0},{"model":"WSL35-65-75-R100","hi":65,"wi":75,"r":[100],"pitch":0,"weight":0},{"model":"WSL35-65-90-R100","hi":65,"wi":90,"r":[100],"pitch":0,"weight":0},{"model":"WSL36-65-50-R125","hi":65,"wi":50,"r":[125,150],"pitch":0,"weight":0},{"model":"WSL36-65-60-R125","hi":65,"wi":60,"r":[125,150],"pitch":0,"weight":0},{"model":"WSL36-65-75-R125","hi":65,"wi":75,"r":[125,150],"pitch":0,"weight":0},{"model":"WSL36-65-100-R125","hi":65,"wi":100,"r":[125,150],"pitch":0,"weight":0},{"model":"WSLG65Q-65-50-R100","hi":65,"wi":50,"r":[100],"pitch":0,"weight":0},{"model":"WSLG65Q-65-60-R100","hi":65,"wi":60,"r":[100],"pitch":0,"weight":0},{"model":"WSLG65Q-65-75-R100","hi":65,"wi":75,"r":[100],"pitch":0,"weight":0},{"model":"WSLG65Q-65-90-R100","hi":65,"wi":90,"r":[100],"pitch":0,"weight":0},{"model":"WSLG65F-65-50-R100","hi":65,"wi":50,"r":[100],"pitch":0,"weight":0},{"model":"WSLG65F-65-60-R100","hi":65,"wi":60,"r":[100],"pitch":0,"weight":0},{"model":"WSLG65F-65-75-R100","hi":65,"wi":75,"r":[100],"pitch":0,"weight":0},{"model":"WSLG65F-65-90-R100","hi":65,"wi":90,"r":[100],"pitch":0,"weight":0}]},{"id":"s80","name":"80 系列 · 超大","code":"S80","desc":"内高80mm，超宽","tag":"","specs":[{"model":"WSL37-80-100-R150","hi":80,"wi":100,"r":[150,200,250,300],"pitch":0,"weight":0},{"model":"WSL37-80-150-R150","hi":80,"wi":150,"r":[150,200,250,300],"pitch":0,"weight":0},{"model":"WSL37-80-175-R150","hi":80,"wi":175,"r":[150,200,250,300],"pitch":0,"weight":0},{"model":"WSL37-80-200-R150","hi":80,"wi":200,"r":[150,200,250,300],"pitch":0,"weight":0}]},{"id":"mini","name":"微型拖链 · WSLE系列","code":"WSLE","desc":"横杆外开，细小线缆","tag":"","specs":[{"model":"WSLE06-10-10-R18","hi":10,"wi":10,"r":[18,28,38],"pitch":20,"weight":0},{"model":"WSLE06-10-16-R18","hi":10,"wi":16,"r":[18,28,38],"pitch":20,"weight":0},{"model":"WSLE06-10-20-R18","hi":10,"wi":20,"r":[18,28,38],"pitch":20,"weight":0},{"model":"WSLZ06-10-10-R18","hi":10,"wi":10,"r":[18,28,38],"pitch":20,"weight":0},{"model":"WSLZ06-10-16-R18","hi":10,"wi":16,"r":[18,28,38],"pitch":20,"weight":0},{"model":"WSLZ06-10-20-R18","hi":10,"wi":20,"r":[18,28,38],"pitch":20,"weight":0},{"model":"WSLE08-15-16-R28","hi":15,"wi":16,"r":[28,38,48],"pitch":20,"weight":0},{"model":"WSLE08-15-20-R28","hi":15,"wi":20,"r":[28,38,48],"pitch":20,"weight":0},{"model":"WSLE08-15-30-R28","hi":15,"wi":30,"r":[28,38,48],"pitch":20,"weight":0},{"model":"WSLE08-15-40-R28","hi":15,"wi":40,"r":[28,38,48],"pitch":20,"weight":0},{"model":"WSLE08-15-50-R28","hi":15,"wi":50,"r":[28,38,48],"pitch":20,"weight":0},{"model":"WSLZ08-15-16-R28","hi":15,"wi":16,"r":[28,38,48],"pitch":20,"weight":0},{"model":"WSLZ08-15-20-R28","hi":15,"wi":20,"r":[28,38,48],"pitch":20,"weight":0},{"model":"WSLZ08-15-30-R28","hi":15,"wi":30,"r":[28,38,48],"pitch":20,"weight":0},{"model":"WSLZ08-15-40-R28","hi":15,"wi":40,"r":[28,38,48],"pitch":20,"weight":0},{"model":"WSLZ08-15-50-R28","hi":15,"wi":50,"r":[28,38,48],"pitch":20,"weight":0},{"model":"WSLE2.06-10-10-R18","hi":10,"wi":10,"r":[18,28,38],"pitch":20,"weight":0},{"model":"WSLE2.06-10-15-R18","hi":10,"wi":15,"r":[18,28,38],"pitch":20,"weight":0},{"model":"WSLE2.06-10-20-R18","hi":10,"wi":20,"r":[18,28,38],"pitch":20,"weight":0},{"model":"WSLE2.06-10-30-R18","hi":10,"wi":30,"r":[18,28,38],"pitch":20,"weight":0},{"model":"WSLE2.06-10-40-R18","hi":10,"wi":40,"r":[18,28,38],"pitch":20,"weight":0},{"model":"WSLE2.06-10-50-R18","hi":10,"wi":50,"r":[18,28,38],"pitch":20,"weight":0},{"model":"WSLE2.06-10-64-R18","hi":10,"wi":64,"r":[18,28,38],"pitch":20,"weight":0},{"model":"WSLE2.08-15-10-R28","hi":15,"wi":10,"r":[28,38,48],"pitch":20,"weight":0},{"model":"WSLE2.08-15-13-R28","hi":15,"wi":13,"r":[28,38,48],"pitch":20,"weight":0},{"model":"WSLE2.08-15-16-R28","hi":15,"wi":16,"r":[28,38,48],"pitch":20,"weight":0},{"model":"WSLE2.08-15-20-R28","hi":15,"wi":20,"r":[28,38,48],"pitch":20,"weight":0},{"model":"WSLE2.08-15-30-R28","hi":15,"wi":30,"r":[28,38,48],"pitch":20,"weight":0},{"model":"WSLE2.08-15-40-R28","hi":15,"wi":40,"r":[28,38,48],"pitch":20,"weight":0},{"model":"WSLE2.08-15-50-R28","hi":15,"wi":50,"r":[28,38,48],"pitch":20,"weight":0}]},{"id":"clean","name":"无尘拖链 · WWC","code":"WWC","desc":"洁净室专用，填充率≤70%","tag":"","specs":[{"model":"WWC.15.25-24-25-R50","hi":24,"wi":25,"r":[50,70],"pitch":0,"weight":0},{"model":"WWC.18.32-26-32-R50","hi":26,"wi":32,"r":[50,70],"pitch":0,"weight":0},{"model":"WWC.22.40-31-41-R60","hi":31,"wi":41,"r":[60,70],"pitch":0,"weight":0},{"model":"WWC.28.65-28-65-R60","hi":28,"wi":65,"r":[60,70],"pitch":0,"weight":0},{"model":"WWC.35.65-35-65-R70","hi":35,"wi":65,"r":[70,90],"pitch":0,"weight":0},{"model":"WWC.40.85-40-85-R100","hi":40,"wi":85,"r":[100,130],"pitch":0,"weight":0},{"model":"WWC.40.110-40-110-R100","hi":40,"wi":110,"r":[100,130],"pitch":0,"weight":0}]}];
+
+var state={series:'s10',speed:2,layers:1,cableType:10};
+var currentResult=null;
+
+function renderSeries(){
+  var g=document.getElementById('seriesGrid');
+  g.innerHTML=SERIES.map(function(s){
+    var tg=sceneTag(s);
+    return '<div class="opt'+(s.id===state.series?' sel':'')+'" data-id="'+s.id+'">'+
+      (tg?'<span class="badge">'+tg+'</span>':'')+
+      '<div class="opt-title"><i></i>'+sceneName(s)+'</div>'+
+      '<div class="opt-desc">'+sceneDesc(s)+'<br>'+s.code+t('seriesSuffix')+'</div></div>';
+  }).join('');
+  g.querySelectorAll('.opt').forEach(function(el){
+    el.addEventListener('click',function(){
+      state.series=el.getAttribute('data-id');
+      g.querySelectorAll('.opt').forEach(function(x){x.classList.remove('sel')});
+      el.classList.add('sel');
+    });
+  });
+}
+function init(){
+  renderSeries();
+  var lo=document.getElementById('layerOpts');
+  lo.querySelectorAll('button').forEach(function(b){
+    b.addEventListener('click',function(){
+      lo.querySelectorAll('button').forEach(function(x){x.classList.remove('sel')});
+      b.classList.add('sel');state.layers=parseInt(b.getAttribute('data-v'),10);
+    });
+  });
+  var to=document.getElementById('typeOpts');
+  to.querySelectorAll('button').forEach(function(b){
+    b.addEventListener('click',function(){
+      to.querySelectorAll('button').forEach(function(x){x.classList.remove('sel')});
+      b.classList.add('sel');state.cableType=parseFloat(b.getAttribute('data-v'));
+    });
+  });
+  var sp=document.getElementById('speedOpts');
+  sp.querySelectorAll('button').forEach(function(b){
+    b.addEventListener('click',function(){
+      sp.querySelectorAll('button').forEach(function(x){x.classList.remove('sel')});
+      b.classList.add('sel');state.speed=parseInt(b.getAttribute('data-v'),10);
+    });
+  });
+  document.getElementById('to2').onclick=function(){go(2)};
+  document.getElementById('to3').onclick=function(){go(3)};
+  document.getElementById('to4').onclick=function(){calculate();go(4)};
+  document.querySelectorAll('[data-back]').forEach(function(b){
+    b.onclick=function(){go(parseInt(b.getAttribute('data-back'),10))};
+  });
+  document.getElementById('copyBtn').onclick=copyResult;
+  document.querySelectorAll('#langSw button').forEach(function(b){
+    b.onclick=function(){setLang(b.getAttribute('data-lang'))};
+  });
+  applyLang();
+}
+
+function go(n){
+  for(var i=1;i<=4;i++)document.getElementById('p'+i).classList.toggle('show',i===n);
+  var steps=document.querySelectorAll('.step');
+  steps.forEach(function(s){
+    var v=parseInt(s.getAttribute('data-s'),10);
+    s.classList.toggle('active',v===n);
+    s.classList.toggle('done',v<n);
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function num(id,def,min,max){
+  var el=document.getElementById(id);var v=parseFloat(el.value);
+  if(isNaN(v))v=def;
+  return Math.max(min,Math.min(max,v));
+}
+
+function calculate(){
+  var count=num('count',6,1,40);
+  var dmax=num('dmax',8,1,80);
+  var davgRaw=document.getElementById('davg').value;
+  var davg=parseFloat(davgRaw);
+  if(isNaN(davg)||davg<=0)davg=dmax;
+  var rmin=num('rmin',0,0,500);
+  var travel=num('travel',3,.1,100);
+  var layers=state.layers;
+  var area=count*Math.PI*(davg/2)*(davg/2);
+
+  var hiReq = layers===1 ? dmax*1.1+2 : layers*dmax*1.3+(layers-1)*2+4;
+  var sumD=count*davg;
+  var separators=Math.floor(count/3)*2;
+  var wiReq=sumD*1.1+separators+2;
+  var rNeed=rmin>0 ? rmin*1.2 : dmax*state.cableType;
+
+  var series=SERIES.filter(function(s){return s.id===state.series})[0];
+  var best=null;
+  series.specs.forEach(function(sp){
+    var rr=sp.r.filter(function(x){return x>=rNeed})[0];
+    var f=area/(sp.hi*sp.wi)*100;
+    if(sp.hi>=hiReq&&sp.wi>=wiReq&&rr&&f<=70){
+      if(!best||(sp.hi+sp.wi)<(best.hi+best.wi))best=sp;
+    }
+  });
+  var fillOver=false;
+  if(!best){
+    series.specs.forEach(function(sp){
+      if(sp.hi>=hiReq&&sp.wi>=wiReq){
+        if(!best||(sp.hi+sp.wi)<(best.hi+best.wi))best=sp;
+      }
+    });
+    fillOver=true;
+  }
+  if(!best)best=series.specs[series.specs.length-1];
+
+  var r=best.r.filter(function(x){return x>=rNeed})[0];
+  var rCompromised=false;
+  if(!r){r=best.r[best.r.length-1];rCompromised=true;}
+  var fill=area/(best.hi*best.wi)*100;
+  // 型号末尾的 -R档位 必须跟随实际选中的 R，避免型号与弯曲半径不一致
+  var showModel=best.model.replace(/-R\d+$/,'-R'+r);
+
+  var S=travel*1000;
+  var T=best.pitch;
+  var K=Math.PI*r+2*T;
+  var L=S/2+K;
+  var links=T>0?Math.ceil(L/T):0;
+  var lengthM=T>0?links*T/1000:L/1000;
+  var outerH=best.hi+10;
+  var installH=2*r+outerH+40;
+  var angle=T>0?T/r*(180/Math.PI):0;
+
+  var notes=[];
+  if(T===0)notes.push(bi('该系列样本未提供节距，链长按 πR 估算（未含端部余量），请以目录为准。','Pitch is not itemized for this series; length estimated as πR (no end allowance). Refer to the catalogue.'));
+  if(rCompromised)notes.push(bi('该系列标准弯曲半径最大 '+r+' mm，低于所需 '+rNeed.toFixed(0)+' mm，请换更大系列或定制。','Max standard bend radius '+r+' mm is below the required '+rNeed.toFixed(0)+' mm. Choose a larger series or custom.'));
+  if(fillOver)notes.push(bi('该系列无完全满足条件的规格，已取最接近项，请复核弯曲半径与填充率。','No spec fully meets the requirements; closest match shown. Recheck bend radius and fill ratio.'));
+  if(fill>60)notes.push(bi('线缆填充率 '+fill.toFixed(1)+'% 超过推荐 60%，建议放大一档或增加隔片分层。','Fill ratio '+fill.toFixed(1)+'% exceeds the recommended 60%. Go one size up or add separators/layers.'));
+  if(angle>20)notes.push(bi('每节转角 '+angle.toFixed(1)+'° 偏大（建议 ≤15–20°），建议放大弯曲半径。','Link angle '+angle.toFixed(1)+'° is high (recommended ≤15–20°). Increase the bend radius.'));
+  if(travel>10)notes.push(bi('行程超过 10 m，需复核承重、架空长度与支撑方案，优先选加强型。','Travel exceeds 10 m. Recheck load, unsupported length and supports; prefer heavy-duty series.'));
+
+  currentResult={
+    series:series,model:showModel,hi:best.hi,wi:best.wi,r:r,pitch:best.pitch,
+    weight:best.weight,length:lengthM,links:links,installH:installH,angle:angle,
+    fill:fill,count:count,dmax:dmax,davg:davg,layers:layers,travel:travel,
+    speed:state.speed,rNeed:rNeed,notes:notes
+  };
+
+  var kv=function(k,v){return '<div class="kv"><span class="k">'+k+'</span><span class="v">'+v+'</span></div>'};
+  var html='<div class="result-head"><div class="lbl">'+t('recModel')+'</div><div class="model">'+showModel+'</div>'+
+    '<div class="series">'+sceneName(series)+' · '+series.code+t('seriesSuffix')+'</div></div>'+
+    '<div class="result-body">'+
+    kv(t('kvHi'),best.hi+' mm')+
+    kv(t('kvWi'),best.wi+' mm')+
+    kv(t('kvR'),r+' mm')+
+    kv(t('kvP'),best.pitch+' mm')+
+    kv(t('kvWeight'),best.weight>0?best.weight+' kg/m':'—')+
+    kv(t('kvLength'),lengthM.toFixed(2)+' m')+
+    kv(t('kvLinks'),links>0?links+t('unitLinks'):'—')+
+    kv(t('kvInstall'),installH+' mm')+
+    kv(t('kvAngle'),angle.toFixed(1)+'°')+
+    kv(t('kvFill'),fill.toFixed(1)+'%')+
+    kv(t('kvReq'),hiReq.toFixed(1)+' / '+wiReq.toFixed(1)+' mm')+
+    kv(t('kvReqR'),rNeed.toFixed(0)+' mm')+
+    '</div>';
+  if(notes.length){
+    html+='<div class="notice"><b>'+t('notesLbl')+'</b><br>'+notes.join('<br>')+'</div>';
+  }
+  document.getElementById('result').innerHTML=html;
+  document.getElementById('copybox').style.display='none';
+}
+
+function copyResult(){
+  if(!currentResult)return;
+  var c=currentResult;
+  var op=bi('（','('), cl=bi('）',')');
+  var layerTxt=c.layers===1?t('layer1c'):(c.layers===2?t('layer2c'):t('layer3c'));
+  var spd=c.speed===1?t('spLow'):(c.speed===2?t('spMid'):t('spHigh'));
+  var txt=t('copyTitle')+'\n'+
+    t('copyModel')+c.model+'\n'+
+    t('copySeries')+sceneName(c.series)+op+c.series.code+cl+'\n'+
+    t('copyHi')+c.hi+' mm\n'+
+    t('copyWi')+c.wi+' mm\n'+
+    t('copyR')+c.r+' mm\n'+
+    t('copyP')+c.pitch+' mm\n'+
+    t('copyWeight')+(c.weight>0?c.weight+' kg/m':'—')+'\n'+
+    t('copyLength')+c.length.toFixed(2)+' m'+(c.links>0?op+c.links+' '+t('unitLinks')+cl:op+t('pitchNA')+cl)+'\n'+
+    t('copyInstall')+c.installH+' mm\n'+
+    t('copyFill')+c.fill.toFixed(1)+'%\n'+
+    t('copyCables')+c.count+' '+t('pcs')+bi('，最大外径 ',', max Ø ')+c.dmax+' mm'+bi('，平均外径 ',', avg Ø ')+c.davg+' mm'+op+layerTxt+cl+'\n'+
+    t('copyCond')+bi('行程 ','travel ')+c.travel+' m'+bi('，速度 ',', speed ')+spd+bi('，所需最小弯曲半径 ',', required min bend radius ')+c.rNeed.toFixed(0)+' mm\n'+
+    (c.notes.length?t('copyNotes')+c.notes.join(' ')+'\n':'')+
+    '\n'+t('copyFoot');
+  var box=document.getElementById('copybox');
+  box.textContent=txt;box.style.display='block';
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(function(){alert(t('alertCopied'))},function(){alert(t('alertManual'))});
+  }else{
+    var ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();
+    try{document.execCommand('copy');alert(t('alertCopied'))}catch(e){alert(t('alertManual'))}
+    document.body.removeChild(ta);
+  }
+}
+
+init();
+</script>
+</body>
+</html>
