@@ -103,7 +103,7 @@ export default function Navbar({ locale: localeProp }: { locale?: Locale }) {
       <nav className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-3 px-4 sm:h-16 sm:px-6 lg:px-8">
         <BrandLogo locale={locale} tone="onLight" />
 
-        <ul className="hidden items-center gap-1 lg:flex lg:gap-4">
+        <ul className="hidden items-center gap-1 xl:flex xl:gap-4">
           {navItems.map((item) => {
             const active =
               pathname === item.href ||
@@ -140,7 +140,7 @@ export default function Navbar({ locale: localeProp }: { locale?: Locale }) {
         <div className="flex items-center gap-2">
           <Link
             href={contactHref}
-            className="hidden rounded-lg bg-brand-secondary px-4 py-2 text-sm font-semibold text-white shadow-[0_8px_22px_-10px_rgba(0,96,174,1)] transition-colors hover:bg-brand-accent lg:inline-flex"
+            className="hidden rounded-lg bg-brand-secondary px-4 py-2 text-sm font-semibold text-white shadow-[0_8px_22px_-10px_rgba(0,96,174,1)] transition-colors hover:bg-brand-accent xl:inline-flex"
           >
             {copy.nav.contact}
           </Link>
@@ -168,7 +168,7 @@ export default function Navbar({ locale: localeProp }: { locale?: Locale }) {
           <LanguageSwitcher locale={locale} />
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-white/75 transition-colors hover:bg-white/10 hover:text-white lg:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-white/75 transition-colors hover:bg-white/10 hover:text-white xl:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             onClick={() => setOpen((value) => !value)}
@@ -192,7 +192,7 @@ export default function Navbar({ locale: localeProp }: { locale?: Locale }) {
       <div
         id="mobile-nav"
         hidden={!open}
-        className={`border-t border-white/10 bg-white lg:hidden ${open ? "block" : "hidden"}`}
+        className={`border-t border-white/10 bg-white xl:hidden ${open ? "block" : "hidden"}`}
       >
         <ul className="mx-auto flex max-w-7xl flex-col px-4 py-3 sm:px-6">
           {navItems.map((item) => (
