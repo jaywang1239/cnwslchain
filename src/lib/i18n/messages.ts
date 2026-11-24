@@ -330,7 +330,7 @@ const zh: AppMessages = {
     overseas: "威仕龙海外",
     overseasContact: "王经理",
     website: "网址",
-    miniprogram: "选型小程序",
+    miniprogram: "在线选型软件",
     scan: "微信扫码进入",
     copyright: "版权所有",
   },

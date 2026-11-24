@@ -186,19 +186,23 @@ export default function Footer({ locale: localeProp }: { locale?: Locale }) {
           </ul>
 
           <div className="mt-auto pt-6">
-            <p className="text-xs text-white/60">
-              {copy.footer.miniprogram}
-              <span aria-hidden="true"> · </span>
-              {copy.footer.scan}
-            </p>
-            <div className="mt-2 inline-flex rounded-lg bg-white p-1.5">
+            {/* 2026-11-24：选型入口升级成大白卡——大码好扫、标题醒目；文案走 i18n */}
+            <div className="inline-flex items-center gap-4 rounded-xl bg-white p-4 pr-6 shadow-sm">
               <Image
                 src="/images/home/wechat-miniprogram.webp"
                 alt={getQrCodeAlt(locale)}
-                width={96}
-                height={96}
-                className="h-[88px] w-[88px] object-contain"
+                width={128}
+                height={128}
+                className="h-32 w-32 object-contain"
               />
+              <div className="min-w-0">
+                <p className="text-[15px] font-bold leading-snug text-neutral-900">
+                  {copy.footer.miniprogram}
+                </p>
+                <p className="mt-1.5 text-xs leading-relaxed text-neutral-500">
+                  {copy.footer.scan}
+                </p>
+              </div>
             </div>
           </div>
         </div>
