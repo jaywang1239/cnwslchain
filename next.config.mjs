@@ -35,6 +35,11 @@ const nextConfig = {
       },
     ];
   },
+  // 在线选型 H5：静态单文件直出，不带全站页头页脚。
+  // middleware matcher 排除带点路径，/selector.html 直出；/selector 走此 rewrite。
+  async rewrites() {
+    return [{ source: "/selector", destination: "/selector.html" }];
+  },
   async redirects() {
     return [
       // —— 域名归一化：裸域名 → www（301）——

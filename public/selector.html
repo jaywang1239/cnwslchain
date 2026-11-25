@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="description" content="威仕龙 CNWSL 尼龙拖链在线选型工具">
 <title>拖链在线选型 · 威仕龙 CNWSL</title>
+<link rel="canonical" href="https://www.cnwslchain.com/selector">
 <style>
 :root{
   --brand:#0d6b5a;
@@ -26,18 +27,20 @@ body{
 }
 .app{max-width:720px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column}
 header{
-  background:var(--brand-dark);color:#fff;padding:20px 20px 18px;
-  padding-top:calc(20px + env(safe-area-inset-top));
+  background:linear-gradient(140deg,var(--brand) 0%,var(--brand-dark) 82%);
+  color:#fff;padding:30px 22px 26px;
+  padding-top:calc(30px + env(safe-area-inset-top));
 }
-.brandline{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.brandline{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .logo{
-  width:34px;height:34px;border-radius:9px;background:#fff;color:var(--brand-dark);
-  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;letter-spacing:.5px;flex:none;
+  padding:7px 14px;border-radius:10px;background:#fff;color:var(--brand-dark);
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;letter-spacing:1.5px;flex:none;
 }
-.brandname{font-size:15px;font-weight:600;letter-spacing:.5px}
-.brandsub{font-size:11px;opacity:.72;margin-left:2px}
-h1{margin:14px 0 0;font-size:21px;font-weight:600;letter-spacing:.5px}
-header p{margin:4px 0 0;font-size:12.5px;opacity:.8}
+.brandname{font-size:17px;font-weight:700;letter-spacing:.5px}
+.brandsub{font-size:12px;opacity:.78}
+.brandsub::before{content:"·";margin:0 8px 0 2px;opacity:.9}
+h1{margin:18px 0 0;font-size:26px;font-weight:700;letter-spacing:1px}
+header p{margin:8px 0 0;font-size:14px;opacity:.85}
 .steps{display:flex;background:var(--card);border-bottom:1px solid var(--line);padding:12px 12px;gap:4px}
 .step{flex:1;text-align:center;font-size:11.5px;color:var(--muted);position:relative;padding-top:20px;white-space:nowrap}
 .step::before{
